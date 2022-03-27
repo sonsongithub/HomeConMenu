@@ -1,0 +1,63 @@
+Light
+let HMAccessoryCategoryTypeLightbulb: String
+A lightbulb accessory.
+Power and Switches
+let HMAccessoryCategoryTypeOutlet: String
+An outlet accessory.
+let HMAccessoryCategoryTypeProgrammableSwitch: String
+A programmable switch accessory.
+let HMAccessoryCategoryTypeSwitch: String
+A switch accessory.
+Air Quality and Smoke Detection
+let HMAccessoryCategoryTypeFan: String
+A fan accessory.
+let HMAccessoryCategoryTypeAirPurifier: String
+An air purifier accessory.
+Temperature and Humidity
+let HMAccessoryCategoryTypeThermostat: String
+A thermostat accessory.
+let HMAccessoryCategoryTypeAirConditioner: String
+An air conditioner accessory.
+let HMAccessoryCategoryTypeAirDehumidifier: String
+A dehumidifier accessory.
+let HMAccessoryCategoryTypeAirHeater: String
+An air heater accessory.
+let HMAccessoryCategoryTypeAirHumidifier: String
+A humidifier accessory.
+Windows
+let HMAccessoryCategoryTypeWindow: String
+A window accessory.
+let HMAccessoryCategoryTypeWindowCovering: String
+A window covering accessory.
+Locks and Openers
+let HMAccessoryCategoryTypeDoor: String
+A door accessory.
+let HMAccessoryCategoryTypeDoorLock: String
+A door lock accessory.
+let HMAccessoryCategoryTypeGarageDoorOpener: String
+A garage door opener accessory.
+let HMAccessoryCategoryTypeVideoDoorbell: String
+A video doorbell accessory.
+Safety and Security
+let HMAccessoryCategoryTypeSensor: String
+A sensor accessory.
+let HMAccessoryCategoryTypeSecuritySystem: String
+A security system accessory.
+Cameras
+let HMAccessoryCategoryTypeIPCamera: String
+A networked camera accessory.
+Water
+let HMAccessoryCategoryTypeSprinkler: String
+A sprinkler system accessory.
+let HMAccessoryCategoryTypeFaucet: String
+A faucet accessory.
+let HMAccessoryCategoryTypeShowerHead: String
+A shower head accessory.
+Network
+let HMAccessoryCategoryTypeBridge: String
+A bridge accessory.
+let HMAccessoryCategoryTypeRangeExtender: String
+A range extender accessory.
+Uncategorized
+let HMAccessoryCategoryTypeOther: String
+An uncategorized accessory.

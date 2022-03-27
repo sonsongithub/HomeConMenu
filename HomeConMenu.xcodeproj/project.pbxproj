@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
+		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
+		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
+		142DE07327E8B80E006CBAFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07127E8B80E006CBAFE /* Main.storyboard */; };
+		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
+		142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */; };
+		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
+		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
+		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
+		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
+		142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */; };
+		142DE0A427E8B9C3006CBAFE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE09F27E8B9C3006CBAFE /* Camera.storyboard */; };
+		142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */; };
+		142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */; };
+		142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */; };
+		142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */; };
+		142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */; };
+		142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */; };
+		142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */; };
+		142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */; };
+		142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B527E8BAC2006CBAFE /* CharacteristicTypeBridge.swift */; };
+		142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B527E8BAC2006CBAFE /* CharacteristicTypeBridge.swift */; };
+		142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */; };
+		142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */; };
+		142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
+		142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
+		142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
+		142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
+		142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */; };
+		142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */; };
+		142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */; };
+		142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */; };
+		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */; };
+		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
+		142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */; };
+		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		142DE09827E8B931006CBAFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 142DE06027E8B80E006CBAFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 142DE09227E8B928006CBAFE;
+			remoteInfo = macOSBridge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		142DE08E27E8B910006CBAFE /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		142DE06F27E8B80E006CBAFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		142DE07227E8B80E006CBAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		142DE07427E8B80F006CBAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		142DE07727E8B80F006CBAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		142DE07927E8B80F006CBAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		142DE07F27E8B814006CBAFE /* HomeConMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenu.entitlements; sourceTree = "<group>"; };
+		142DE08127E8B89A006CBAFE /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/HomeKit.framework; sourceTree = DEVELOPER_DIR; };
+		142DE09327E8B928006CBAFE /* macOSBridge.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macOSBridge.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeKitExtension.swift; sourceTree = "<group>"; };
+		142DE09C27E8B9C3006CBAFE /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		142DE09F27E8B9C3006CBAFE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		142DE0B027E8BAC2006CBAFE /* macOSBridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "macOSBridge-Bridging-Header.h"; sourceTree = "<group>"; };
+		142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicInfo.swift; sourceTree = "<group>"; };
+		142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
+		142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTypeBridge.swift; sourceTree = "<group>"; };
+		142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInfo.swift; sourceTree = "<group>"; };
+		142DE0B527E8BAC2006CBAFE /* CharacteristicTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicTypeBridge.swift; sourceTree = "<group>"; };
+		142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTypeBridge.swift; sourceTree = "<group>"; };
+		142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryInfo.swift; sourceTree = "<group>"; };
+		142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
+		142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFromUUID.swift; sourceTree = "<group>"; };
+		142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenu.swift; sourceTree = "<group>"; };
+		142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSBridge.swift; sourceTree = "<group>"; };
+		142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorPanel.swift; sourceTree = "<group>"; };
+		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
+		142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenu.swift; sourceTree = "<group>"; };
+		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
+		142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenu.swift; sourceTree = "<group>"; };
+		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		142DE06527E8B80E006CBAFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		142DE09027E8B928006CBAFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		142DE05F27E8B80E006CBAFE = {
+			isa = PBXGroup;
+			children = (
+				142DE06A27E8B80E006CBAFE /* HomeConMenu */,
+				142DE06927E8B80E006CBAFE /* Products */,
+				142DE08027E8B89A006CBAFE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		142DE06927E8B80E006CBAFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				142DE06827E8B80E006CBAFE /* HomeConMenu.app */,
+				142DE09327E8B928006CBAFE /* macOSBridge.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		142DE06A27E8B80E006CBAFE /* HomeConMenu */ = {
+			isa = PBXGroup;
+			children = (
+				146D209527F03F8900162EB1 /* macOS */,
+				146D209427F03F8100162EB1 /* Shared */,
+				146D209327F03F7800162EB1 /* iOS */,
+				146D209627F03FD000162EB1 /* Resources */,
+				142DE07927E8B80F006CBAFE /* Info.plist */,
+				142DE07F27E8B814006CBAFE /* HomeConMenu.entitlements */,
+				142DE07427E8B80F006CBAFE /* Assets.xcassets */,
+				142DE0B027E8BAC2006CBAFE /* macOSBridge-Bridging-Header.h */,
+				142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */,
+			);
+			path = HomeConMenu;
+			sourceTree = "<group>";
+		};
+		142DE08027E8B89A006CBAFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				142DE08127E8B89A006CBAFE /* HomeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		146D209327F03F7800162EB1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
+				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
+				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
+				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
+				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
+				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
+				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		146D209427F03F8100162EB1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */,
+				142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */,
+				142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */,
+				142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */,
+				142DE0B527E8BAC2006CBAFE /* CharacteristicTypeBridge.swift */,
+				142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */,
+				142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */,
+				142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */,
+				142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		146D209527F03F8900162EB1 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				14AEEE2E27F042A700C87B2A /* SensorMenu.swift */,
+				142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */,
+				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
+				142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */,
+				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
+				142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */,
+				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+				142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		146D209627F03FD000162EB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				142DE09F27E8B9C3006CBAFE /* Camera.storyboard */,
+				142DE07127E8B80E006CBAFE /* Main.storyboard */,
+				142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		142DE06727E8B80E006CBAFE /* HomeConMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 142DE07C27E8B80F006CBAFE /* Build configuration list for PBXNativeTarget "HomeConMenu" */;
+			buildPhases = (
+				142DE06427E8B80E006CBAFE /* Sources */,
+				142DE06527E8B80E006CBAFE /* Frameworks */,
+				142DE06627E8B80E006CBAFE /* Resources */,
+				142DE08E27E8B910006CBAFE /* Embed PlugIns */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				142DE09927E8B931006CBAFE /* PBXTargetDependency */,
+			);
+			name = HomeConMenu;
+			productName = HomeConMenu;
+			productReference = 142DE06827E8B80E006CBAFE /* HomeConMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		142DE09227E8B928006CBAFE /* macOSBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 142DE09427E8B928006CBAFE /* Build configuration list for PBXNativeTarget "macOSBridge" */;
+			buildPhases = (
+				142DE08F27E8B928006CBAFE /* Sources */,
+				142DE09027E8B928006CBAFE /* Frameworks */,
+				142DE09127E8B928006CBAFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = macOSBridge;
+			productName = macOSBridge;
+			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		142DE06027E8B80E006CBAFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					142DE06727E8B80E006CBAFE = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					142DE09227E8B928006CBAFE = {
+						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
+					};
+				};
+			};
+			buildConfigurationList = 142DE06327E8B80E006CBAFE /* Build configuration list for PBXProject "HomeConMenu" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 142DE05F27E8B80E006CBAFE;
+			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				142DE06727E8B80E006CBAFE /* HomeConMenu */,
+				142DE09227E8B928006CBAFE /* macOSBridge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		142DE06627E8B80E006CBAFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */,
+				142DE0A427E8B9C3006CBAFE /* Camera.storyboard in Resources */,
+				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
+				142DE07327E8B80E006CBAFE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		142DE09127E8B928006CBAFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		142DE06427E8B80E006CBAFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
+				142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */,
+				142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
+				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
+				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
+				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
+				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
+				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
+				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
+				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
+				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
+				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
+				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
+				142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
+				142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		142DE08F27E8B928006CBAFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
+				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
+				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
+				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
+				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
+				142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */,
+				142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */,
+				142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */,
+				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
+				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
+				142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */,
+				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
+				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
+				142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */,
+				142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */,
+				14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		142DE09927E8B931006CBAFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 142DE09227E8B928006CBAFE /* macOSBridge */;
+			targetProxy = 142DE09827E8B931006CBAFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		142DE07127E8B80E006CBAFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				142DE07227E8B80E006CBAFE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				142DE07727E8B80F006CBAFE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		142DE07A27E8B80F006CBAFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		142DE07B27E8B80F006CBAFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		142DE07D27E8B80F006CBAFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenu.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomeConMenu/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from bar.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.sonson.HomeConMenu.macOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Debug;
+		};
+		142DE07E27E8B80F006CBAFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenu.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomeConMenu/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from bar.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.sonson.HomeConMenu.macOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "HomeConMenu for iOS";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "HomeConMenu for macOS";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Release;
+		};
+		142DE09527E8B928006CBAFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSBridge;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeConMenu/macOSBridge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		142DE09627E8B928006CBAFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSBridge;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeConMenu/macOSBridge-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		142DE06327E8B80E006CBAFE /* Build configuration list for PBXProject "HomeConMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142DE07A27E8B80F006CBAFE /* Debug */,
+				142DE07B27E8B80F006CBAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		142DE07C27E8B80F006CBAFE /* Build configuration list for PBXNativeTarget "HomeConMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142DE07D27E8B80F006CBAFE /* Debug */,
+				142DE07E27E8B80F006CBAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		142DE09427E8B928006CBAFE /* Build configuration list for PBXNativeTarget "macOSBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142DE09527E8B928006CBAFE /* Debug */,
+				142DE09627E8B928006CBAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 142DE06027E8B80E006CBAFE /* Project object */;
+}
