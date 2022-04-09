@@ -14,7 +14,7 @@
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
-		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
 		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
 		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
@@ -377,6 +377,7 @@
 /* Begin PBXTargetDependency section */
 		142DE09927E8B931006CBAFE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = maccatalyst;
 			target = 142DE09227E8B928006CBAFE /* macOSBridge */;
 			targetProxy = 142DE09827E8B931006CBAFE /* PBXContainerItemProxy */;
 		};

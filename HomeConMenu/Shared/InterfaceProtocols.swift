@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import AppKit
-
 @objc(iOS2Mac)
 public protocol iOS2Mac: NSObjectProtocol {
     init()
@@ -23,5 +21,5 @@ public protocol mac2iOS: NSObjectProtocol {
     func getArray() -> [AccessoryInfoProtocol]
     func toggleValue(uniqueIdentifier: UUID)
     func openCamera(uniqueIdentifier: UUID)
-    func updateColor(uniqueIdentifier: UUID, value: CGFloat)
+    func updateColor(uniqueIdentifier: UUID, value: Double)
 }
