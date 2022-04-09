@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class CameraMenu: NSMenuItem, MenuFromUUID {
+class CameraMenuItem: NSMenuItem, MenuItemFromUUID {
     func UUIDs() -> [UUID] {
         [accessoryCharacteristicIdentifier]
     }
@@ -31,7 +31,7 @@ class CameraMenu: NSMenuItem, MenuFromUUID {
         super.init(title: "Open camera", action: nil, keyEquivalent: "")
         
         self.image = NSImage(systemSymbolName: "camera", accessibilityDescription: nil)
-        self.action = #selector(CameraMenu.open(sender:))
+        self.action = #selector(CameraMenuItem.open(sender:))
         self.target = self
     }
 

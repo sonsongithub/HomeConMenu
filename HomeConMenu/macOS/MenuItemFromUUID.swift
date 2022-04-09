@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MenuFromUUID {
+protocol MenuItemFromUUID {
     func bind(with uniqueIdentifier: UUID) -> Bool
     func UUIDs() -> [UUID]
 }

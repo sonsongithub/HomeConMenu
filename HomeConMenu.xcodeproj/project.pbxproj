@@ -36,16 +36,16 @@
 		142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
 		142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
 		142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
-		142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */; };
-		142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */; };
+		142DE0D227E8BAE1006CBAFE /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */; };
+		142DE0D327E8BAE1006CBAFE /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */; };
 		142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */; };
 		142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */; };
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
-		142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */; };
+		142DE0D827E8BAE1006CBAFE /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
-		142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */; };
+		142DE0DA27E8BAE1006CBAFE /* PowerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
-		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
+		14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,16 +98,16 @@
 		142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTypeBridge.swift; sourceTree = "<group>"; };
 		142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryInfo.swift; sourceTree = "<group>"; };
 		142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
-		142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFromUUID.swift; sourceTree = "<group>"; };
-		142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenu.swift; sourceTree = "<group>"; };
+		142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
+		142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
 		142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSBridge.swift; sourceTree = "<group>"; };
 		142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorPanel.swift; sourceTree = "<group>"; };
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
-		142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenu.swift; sourceTree = "<group>"; };
+		142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
-		142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenu.swift; sourceTree = "<group>"; };
+		142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
-		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
+		14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,14 +204,14 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				14AEEE2E27F042A700C87B2A /* SensorMenu.swift */,
-				142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */,
-				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
-				142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */,
+				14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */,
+				142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */,
+				142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */,
+				142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
-				142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */,
+				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
+				142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
-				142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -358,17 +358,17 @@
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
-				142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */,
-				142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */,
+				142DE0D827E8BAE1006CBAFE /* CameraMenuItem.swift in Sources */,
+				142DE0DA27E8BAE1006CBAFE /* PowerMenuItem.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
-				142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */,
+				142DE0D227E8BAE1006CBAFE /* MenuItemFromUUID.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
-				142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */,
+				142DE0D327E8BAE1006CBAFE /* LightColorMenuItem.swift in Sources */,
 				142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */,
-				14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */,
+				14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class SensorMenu: NSMenuItem, MenuFromUUID {
+class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
     
     func UUIDs() -> [UUID] {
         return [uniqueIdentifier]

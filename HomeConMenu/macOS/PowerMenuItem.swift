@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class PowerMenu: NSMenuItem, MenuFromUUID {
+class PowerMenuItem: NSMenuItem, MenuItemFromUUID {
     func UUIDs() -> [UUID] {
         return [powerCharacteristicIdentifier]
     }
@@ -53,7 +53,7 @@ class PowerMenu: NSMenuItem, MenuFromUUID {
             self.image = NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
         }
 
-        self.action = #selector(PowerMenu.toggle(sender:))
+        self.action = #selector(PowerMenuItem.toggle(sender:))
         self.target = self
     }
     

@@ -16,7 +16,7 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
     func menuWillOpen(_ menu: NSMenu) {
         let uuids = mainMenu.items.compactMap({ item in
-            item as? MenuFromUUID
+            item as? MenuItemFromUUID
         }).map({ item in
             item.UUIDs()
         }).flatMap({$0})
@@ -30,25 +30,25 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
         
         guard let item = mainMenu.items.compactMap({ item in
-            item as? MenuFromUUID
+            item as? MenuItemFromUUID
         }).filter ({ item in
             item.bind(with: chracteristicInfo.uniqueIdentifier)
         }).first else { return }
         
         switch (item, chracteristicInfo.value, chracteristicInfo.type) {
-        case (let item as LightColorMenu, let value as CGFloat, .hue):
+        case (let item as LightColorMenuItem, let value as CGFloat, .hue):
             item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
             item.isEnabled = chracteristicInfo.enable
-        case (let item as LightColorMenu, let value as CGFloat, .saturation):
+        case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
             item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
             item.isEnabled = chracteristicInfo.enable
-        case (let item as LightColorMenu, let value as CGFloat, .brightness):
+        case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
             item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
             item.isEnabled = chracteristicInfo.enable
-        case (let item as PowerMenu, let value as Int, _):
+        case (let item as PowerMenuItem, let value as Int, _):
             item.update(value: value)
             item.isEnabled = chracteristicInfo.enable
-        case (let item as SensorMenu, let value, _):
+        case (let item as SensorMenuItem, let value, _):
             item.update(value: value)
             item.isEnabled = false
         default:
@@ -63,7 +63,7 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         for info in infoArray {
             var items: [NSMenuItem?] = []
             
-            items.append(CameraMenu(accessoryInfo: info, mac2ios: iosListener))
+            items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
             items.append(contentsOf: info.services.map { serviceInfo in
                 NSMenuItem.HomeMenus(accessoryInfo: info, serviceInfo: serviceInfo, mac2ios: iosListener)
             }.flatMap({$0}))

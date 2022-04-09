@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
+class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
 
     func UUIDs() -> [UUID] {
         [hueCharcteristicIdentifier, saturationCharcteristicIdentifier, brightnessCharcteristicIdentifier]
@@ -65,7 +65,7 @@ class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
         }
         let cp = CustomColorPanel()
         cp.delegate = self
-        guard let lightColorMenu = sender as? LightColorMenu else { return }
+        guard let lightColorMenu = sender as? LightColorMenuItem else { return }
         
         self.colorPanel = cp
         cp.hueCharcteristicIdentifier = lightColorMenu.hueCharcteristicIdentifier
@@ -76,7 +76,7 @@ class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
         cp.color = self.color
         
         cp.setTarget(self)
-        cp.setAction(#selector(LightColorMenu.colorDidChange(sender:)))
+        cp.setAction(#selector(LightColorMenuItem.colorDidChange(sender:)))
         cp.isContinuous = false
         cp.makeKeyAndOrderFront(self)
     
@@ -145,7 +145,7 @@ class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
         self.brightnessCharcteristicIdentifier = brightnessChara.uniqueIdentifier
         self.color = NSColor(hue: hue / 360.0, saturation: saturation / 100.0, brightness: brightness / 100.0, alpha: 1.0)
         super.init(title: "Change color", action: nil, keyEquivalent: "")
-        self.action = #selector(LightColorMenu.changeColor(sender:))
+        self.action = #selector(LightColorMenuItem.changeColor(sender:))
         self.image = createImage()
         self.target = self
     }
