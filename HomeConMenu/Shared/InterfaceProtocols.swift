@@ -20,6 +20,7 @@ public protocol iOS2Mac: NSObjectProtocol {
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
     func reload(uniqueIdentifiers: [UUID])
+    func getui() -> Any?
     func getArray() -> [AccessoryInfoProtocol]
     func toggleValue(uniqueIdentifier: UUID)
     func openCamera(uniqueIdentifier: UUID)

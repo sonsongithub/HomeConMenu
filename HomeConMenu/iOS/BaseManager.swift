@@ -7,11 +7,16 @@
 
 import Foundation
 import HomeKit
+import SwiftUI
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
     func getArray() -> [AccessoryInfoProtocol] {
         return infoArray
+    }
+    
+    func getui() -> Any? {
+        return SwiftUIView()
     }
     
     func updateColor(uniqueIdentifier: UUID, value: CGFloat) {

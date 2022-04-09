@@ -7,6 +7,7 @@
 
 import Foundation
 import AppKit
+import SwiftUI
 
 class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
@@ -82,12 +83,19 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
             }
             
         }
-        
         let menuItem = NSMenuItem()
         menuItem.title = "Quit"
         menuItem.action = #selector(MacOSBridge.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
+        
+        let a = self.iosListener?.getui()
+        print(a)
+        if let a = a as? SwiftUIView {
+            print(a)
+            let v = NSHostingView(rootView: a)
+            // attach to nsmenuitem
+        }
     }
     
     required override init() {
