@@ -14,7 +14,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         return infoArray
     }
     
-    func updateColor(uniqueIdentifier: UUID, value: CGFloat) {
+    func updateColor(uniqueIdentifier: UUID, value: Double) {
         guard let characteristic = self.homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
         characteristic.writeValue(value) { error in
             if let error = error {
