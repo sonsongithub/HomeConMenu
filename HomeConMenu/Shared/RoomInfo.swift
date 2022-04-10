@@ -18,6 +18,12 @@ public class RoomInfo: NSObject, RoomInfoProtocol {
     public var name: String?
     public var uniqueIdentifier: UUID?
     
+    public init(name: String, uniqueIdentifier: UUID) {
+        self.name = name
+        self.uniqueIdentifier = uniqueIdentifier
+        super.init()
+    }
+    
     required public override init() {
     }
 }

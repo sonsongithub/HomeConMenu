@@ -49,8 +49,11 @@ extension HMAccessory {
     func convert2info() -> AccessoryInfo {
     
         let info = AccessoryInfo()
-        info.home = HomeInfo()
-        info.room = RoomInfo()
+        
+        if let room = self.room {
+            info.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
+        }
+
         info.name = self.name
         info.uniqueIdentifier = self.uniqueIdentifier
         
