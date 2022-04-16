@@ -46,6 +46,9 @@
 		142DE0DA27E8BAE1006CBAFE /* PowerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */; };
+		14B363B92805B43C00724FAE /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */; };
+		14B363BA2805B43C00724FAE /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */; };
+		14E9AF23280AE80C00288EF3 /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,8 @@
 		142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
 		14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
+		14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
+		14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +201,7 @@
 				142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */,
 				142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */,
 				142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */,
+				14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */,
 				142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */,
 			);
 			path = Shared;
@@ -207,6 +213,7 @@
 				14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */,
 				142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */,
 				142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */,
+				14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */,
 				142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
 				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
@@ -336,6 +343,7 @@
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
+				14B363B92805B43C00724FAE /* ServiceGroupInfo.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -352,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E9AF23280AE80C00288EF3 /* LightbulbMenuItem.swift in Sources */,
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
@@ -367,6 +376,7 @@
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
 				142DE0D327E8BAE1006CBAFE /* LightColorMenuItem.swift in Sources */,
+				14B363BA2805B43C00724FAE /* ServiceGroupInfo.swift in Sources */,
 				142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */,
 				14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */,
 			);

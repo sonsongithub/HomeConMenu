@@ -56,11 +56,13 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func didUpdate() {
+    func didUpdate2() {
         mainMenu.removeAllItems()
-        guard let infoArray = self.iosListener?.getArray() else { return }
+        guard let accessories = self.iosListener?.accessories else { return }
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
+        guard let rooms = self.iosListener?.rooms else { return }
         
-        for info in infoArray {
+        for info in accessories {
             var items: [NSMenuItem?] = []
             
             items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
@@ -85,6 +87,48 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         let menuItem = NSMenuItem()
         menuItem.title = "Quit"
+        menuItem.action = #selector(MacOSBridge.quit(sender:))
+        menuItem.target = self
+        mainMenu.addItem(menuItem)
+    }
+    
+    func didUpdate() {
+        mainMenu.removeAllItems()
+        guard let accessories = self.iosListener?.accessories else { return }
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
+        guard let rooms = self.iosListener?.rooms else { return }
+        
+        // group
+        for serviceGroup in serviceGroups {
+            
+        }
+        
+        // room
+        for room in rooms {
+            let roomNameItem = NSMenuItem()
+            roomNameItem.title = room.name ?? ""
+            mainMenu.addItem(roomNameItem)
+            for info in accessories {
+                if info.room?.uniqueIdentifier == room.uniqueIdentifier {
+                    var items: [NSMenuItem?] = []
+                    
+                    items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
+                    items.append(contentsOf: info.services.map { serviceInfo in
+                        NSMenuItem.HomeMenus(accessoryInfo: info, serviceInfo: serviceInfo, mac2ios: iosListener)
+                    }.flatMap({$0}))
+                    
+                    var candidates = items.compactMap({$0})
+                    for item in candidates {
+                        mainMenu.addItem(item)
+                    }
+                }
+            }
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+        
+        
+        let menuItem = NSMenuItem()
+        menuItem.title = "Quit HomeConMenu"
         menuItem.action = #selector(MacOSBridge.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)

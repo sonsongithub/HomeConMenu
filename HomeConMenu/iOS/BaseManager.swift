@@ -10,9 +10,12 @@ import HomeKit
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
-    func getArray() -> [AccessoryInfoProtocol] {
-        return infoArray
-    }
+    var homeManager: HMHomeManager?
+    var ios2mac: iOS2Mac?
+    
+    var accessories: [AccessoryInfoProtocol] = []
+    var serviceGroups: [ServiceGroupInfoProtocol] = []
+    var rooms: [RoomInfoProtocol] = []
     
     func updateColor(uniqueIdentifier: UUID, value: Double) {
         guard let characteristic = self.homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
@@ -25,7 +28,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func reload(uniqueIdentifiers: [UUID]) {
         
-        let characteristics = self.infoArray
+        let characteristics = self.accessories
             .map({$0.services})
             .flatMap({$0})
             .map({$0.characteristics})
@@ -63,9 +66,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
     
-    var homeManager: HMHomeManager?
-    var ios2mac: iOS2Mac?
-    var infoArray: [AccessoryInfo] = []
     
     func toggleValue(uniqueIdentifier: UUID) {
         if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
@@ -126,7 +126,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         print("didUpdateValueFor")
-        guard let obj = self.infoArray.first(where: { info in
+        guard let obj = self.accessories.first(where: { info in
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
         for service in obj.services {
@@ -144,14 +144,13 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {
-        let info = accessory.convert2info()
-        accessory.delegate = self
-        self.infoArray.append(info)
+        let info = accessory.convert2info(delegate: self)
+        self.accessories.append(info)
         ios2mac?.didUpdate()
     }
     
     func home(_ home: HMHome, didRemove accessory: HMAccessory) {
-        infoArray.removeAll { accessoryInfo in
+        accessories.removeAll { accessoryInfo in
             accessoryInfo.uniqueIdentifier == accessory.uniqueIdentifier
         }
         ios2mac?.didUpdate()
@@ -167,12 +166,14 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
         guard let home = manager.primaryHome else { return }
+        
         home.delegate = self
-        for accessory in home.accessories {
-            let info = accessory.convert2info()
-            accessory.delegate = self
-            self.infoArray.append(info)
-        }
+        
+        accessories = home.accessories.map({$0.convert2info(delegate: self)})
+        
+        serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
+        rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
+        
         ios2mac?.didUpdate()
     }
 }

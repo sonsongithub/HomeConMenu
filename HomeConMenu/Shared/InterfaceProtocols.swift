@@ -18,7 +18,9 @@ public protocol iOS2Mac: NSObjectProtocol {
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
     func reload(uniqueIdentifiers: [UUID])
-    func getArray() -> [AccessoryInfoProtocol]
+    var accessories: [AccessoryInfoProtocol] { get set }
+    var serviceGroups: [ServiceGroupInfoProtocol] { get set }
+    var rooms: [RoomInfoProtocol] { get set }
     func toggleValue(uniqueIdentifier: UUID)
     func openCamera(uniqueIdentifier: UUID)
     func updateColor(uniqueIdentifier: UUID, value: Double)

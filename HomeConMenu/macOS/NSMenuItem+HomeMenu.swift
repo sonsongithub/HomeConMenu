@@ -14,7 +14,7 @@ extension NSMenuItem {
         case .humiditySensor, .temperatureSensor:
             return [SensorMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo)]
         case .lightbulb:
-            return [PowerMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios), LightColorMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)]
+            return [LightbulbMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)]
         case .outlet, .switch:
             return [PowerMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)]
         default:

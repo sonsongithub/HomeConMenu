@@ -46,14 +46,16 @@ extension HMHomeManager {
 }
 
 extension HMAccessory {
-    func convert2info() -> AccessoryInfo {
+    func convert2info(delegate: HMAccessoryDelegate) -> AccessoryInfo {
+        
+        self.delegate = delegate
     
         let info = AccessoryInfo()
         
         if let room = self.room {
             info.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
         }
-
+    
         info.name = self.name
         info.uniqueIdentifier = self.uniqueIdentifier
         
@@ -75,9 +77,9 @@ extension HMAccessory {
                 charaInfo.uniqueIdentifier = chara.uniqueIdentifier
                 charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
-                    if let error = error {
-                        print(error)
-                    }
+//                    if let error = error {
+//                        print(error)
+//                    }
                 }
             }
             info.services.append(serviceInfo)

@@ -28,7 +28,7 @@ class CameraMenuItem: NSMenuItem, MenuItemFromUUID {
         
         self.mac2ios = mac2ios
         self.accessoryCharacteristicIdentifier = accessoryInfo.uniqueIdentifier
-        super.init(title: "Open camera", action: nil, keyEquivalent: "")
+        super.init(title: accessoryInfo.name ?? "camera", action: nil, keyEquivalent: "")
         
         self.image = NSImage(systemSymbolName: "camera", accessibilityDescription: nil)
         self.action = #selector(CameraMenuItem.open(sender:))

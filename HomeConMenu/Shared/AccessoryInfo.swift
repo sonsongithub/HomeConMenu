@@ -7,6 +7,10 @@
 
 import Foundation
 
+#if !os(macOS)
+import HomeKit
+#endif
+
 @objc(AccessoryInfoProtocol)
 public protocol AccessoryInfoProtocol: NSObjectProtocol {
     init()
