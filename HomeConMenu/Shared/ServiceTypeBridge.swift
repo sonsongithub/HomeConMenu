@@ -4,7 +4,7 @@ import HomeKit
 #endif
 
 @objc(ServiceType)
-public enum ServiceType: Int {
+public enum ServiceType: Int, CustomStringConvertible {
     case lightbulb    // A light bulb service.
     case lightSensor    // A light sensor service.
     case `switch`    // A switch service.
@@ -49,8 +49,7 @@ public enum ServiceType: Int {
     case accessoryInformation    // An accessory information service.
     case unknown
 
-
-    func detail() -> String {
+    public var description: String {
         switch self {
         case .lightbulb:
             return "A light bulb service."

@@ -4,7 +4,7 @@ import HomeKit
 #endif
 
 @objc(CharacteristicType)
-public enum CharacteristicType: Int {
+public enum CharacteristicType: Int, CustomStringConvertible {
     case currentLightLevel    // The current light level.
     case hue    // The hue of the color used by a light.
     case brightness    // The brightness of a light.
@@ -127,8 +127,7 @@ public enum CharacteristicType: Int {
     case serialNumber    // The serial number of the accessory.
     case unknown
 
-
-    func detail() -> String {
+    public var description: String {
         switch self {
         case .currentLightLevel:
             return "The current light level."

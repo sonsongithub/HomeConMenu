@@ -67,7 +67,7 @@ extension HMAccessory {
             serviceInfo.type = ServiceType(key: service.serviceType)
             print(service.name)
             
-            print(ServiceType(key: service.serviceType).detail())
+            print(ServiceType(key: service.serviceType))
             for chara in service.characteristics {
                 
                 let charaInfo = CharacteristicInfo()

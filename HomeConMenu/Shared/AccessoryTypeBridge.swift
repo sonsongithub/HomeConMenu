@@ -4,7 +4,7 @@ import HomeKit
 #endif
 
 @objc(AccessoryType)
-public enum AccessoryType: Int {
+public enum AccessoryType: Int, CustomStringConvertible {
     case lightbulb    // A lightbulb accessory.
     case outlet    // An outlet accessory.
     case programmableSwitch    // A programmable switch accessory.
@@ -33,8 +33,7 @@ public enum AccessoryType: Int {
     case other    // An uncategorized accessory.
     case unknown
 
-
-    func detail() -> String {
+    public var description: String {
         switch self {
         case .lightbulb:
             return "A lightbulb accessory."
