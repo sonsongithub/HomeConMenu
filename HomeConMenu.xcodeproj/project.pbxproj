@@ -110,6 +110,7 @@
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		145DE126280CD36B00B73CC5 /* HomeConMenuRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenuRelease.entitlements; sourceTree = "<group>"; };
 		14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
 		14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		142DE06A27E8B80E006CBAFE /* HomeConMenu */ = {
 			isa = PBXGroup;
 			children = (
+				145DE126280CD36B00B73CC5 /* HomeConMenuRelease.entitlements */,
 				146D209527F03F8900162EB1 /* macOS */,
 				146D209427F03F8100162EB1 /* Shared */,
 				146D209327F03F7800162EB1 /* iOS */,
@@ -447,6 +449,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -507,6 +510,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -539,6 +543,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -571,12 +577,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenu.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenuRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -594,8 +602,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "HomeConMenu for iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "HomeConMenu for macOS";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

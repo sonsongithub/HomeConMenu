@@ -57,7 +57,7 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         self.action = #selector(PowerMenuItem.toggle(sender:))
         self.target = self
         
-        if let lightColorMenuItem = LightColorMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios) {
+        if let lightColorMenuItem = LightColorMenuItem.item(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios) {
             let subMenu = NSMenu()
             subMenu.addItem(lightColorMenuItem)
             self.submenu = subMenu

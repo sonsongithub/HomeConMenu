@@ -29,12 +29,14 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
         
+        // まずここで候補のメニューアイテムを全部列挙する
         guard let item = mainMenu.items.compactMap({ item in
             item as? MenuItemFromUUID
         }).filter ({ item in
             item.bind(with: chracteristicInfo.uniqueIdentifier)
         }).first else { return }
         
+        // forで全部のmenuitemに更新を適応
         switch (item, chracteristicInfo.value, chracteristicInfo.type) {
         case (let item as LightColorMenuItem, let value as CGFloat, .hue):
             item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
@@ -100,7 +102,11 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         // group
         for serviceGroup in serviceGroups {
-            
+            for service in serviceGroup.services {
+                print(service.name)
+                print(service.type)
+                print(service.characteristics)
+            }
         }
         
         // room
