@@ -38,6 +38,7 @@ public class ServiceInfo: NSObject, ServiceInfoProtocol {
         uniqueIdentifier = service.uniqueIdentifier
         isUserInteractive = service.isUserInteractive
         type = ServiceType(key: service.serviceType)
+        characteristics = service.characteristics.map({ CharacteristicInfo(characteristic: $0) })
     }
 #endif
 }
