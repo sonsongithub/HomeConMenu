@@ -47,8 +47,8 @@ class PowerMenuItem: NSMenuItem, MenuItemFromUUID {
         if let number = powerStateChara.value as? Int {
             self.state = (number == 0) ? .off : .on
         }
-        if serviceInfo.type == .lightbulb {
-            self.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
+        if serviceInfo.type == .switch {
+            self.image = NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
         } else {
             self.image = NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
         }
