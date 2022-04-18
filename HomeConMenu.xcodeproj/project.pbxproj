@@ -14,7 +14,7 @@
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
-		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
 		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
 		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
@@ -529,6 +529,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -562,11 +564,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenu.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -581,11 +585,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.sonson.HomeConMenu.macOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "HomeConMenu for iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "HomeConMenu for macOS";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -601,6 +604,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -634,6 +639,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
