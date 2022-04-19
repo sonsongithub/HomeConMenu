@@ -22,6 +22,12 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         }).flatMap({$0})
         iosListener?.reload(uniqueIdentifiers: uuids)
     }
+    
+    var menuItemCount: Int {
+        get {
+            return mainMenu.numberOfItems
+        }
+    }
 
     func bringToFront() {
         NSApp.activate(ignoringOtherApps: true)

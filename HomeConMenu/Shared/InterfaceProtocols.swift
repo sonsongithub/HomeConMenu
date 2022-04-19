@@ -10,6 +10,7 @@ import Foundation
 public protocol iOS2Mac: NSObjectProtocol {
     init()
     var iosListener: mac2iOS? { get set }
+    var menuItemCount: Int { get }
     func didUpdate()
     func bringToFront()
     func centeringWindows()

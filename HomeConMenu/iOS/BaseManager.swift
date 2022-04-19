@@ -169,17 +169,17 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         guard let home = manager.primaryHome else { return }
         home.delegate = self
         
-        if home.accessories.count == 0 || true {
+        for accessory in home.accessories {
+            let info = accessory.convert2info()
+            accessory.delegate = self
+            self.infoArray.append(info)
+        }
+        ios2mac?.didUpdate()
+        guard let menuItemCount = ios2mac?.menuItemCount else { return }
+        if menuItemCount > 0 {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.help")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            for accessory in home.accessories {
-                let info = accessory.convert2info()
-                accessory.delegate = self
-                self.infoArray.append(info)
-            }
         }
-        ios2mac?.didUpdate()
     }
 }
