@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1415B24F280E573600429F90 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415B24E280E573600429F90 /* HelpViewController.swift */; };
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
 		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
@@ -14,7 +15,7 @@
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
-		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
 		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
 		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
@@ -76,13 +77,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1415B24D280E490500429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1415B24E280E573600429F90 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		1415B252280E6FA700429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1415B253280E6FA800429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1415B255280E6FAA00429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1415B256280E6FC800429F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		142DE06F27E8B80E006CBAFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		142DE07227E8B80E006CBAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		142DE07427E8B80F006CBAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		142DE07727E8B80F006CBAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142DE07927E8B80F006CBAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		142DE07F27E8B814006CBAFE /* HomeConMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenu.entitlements; sourceTree = "<group>"; };
 		142DE08127E8B89A006CBAFE /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/HomeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -185,6 +190,7 @@
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
+				1415B24E280E573600429F90 /* HelpViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
 				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
@@ -299,6 +305,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 				Base,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
@@ -350,6 +357,7 @@
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
+				1415B24F280E573600429F90 /* HelpViewController.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
@@ -399,7 +407,9 @@
 		142DE07127E8B80E006CBAFE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				142DE07227E8B80E006CBAFE /* Base */,
+				1415B24D280E490500429F90 /* en */,
+				1415B253280E6FA800429F90 /* ja */,
+				1415B255280E6FAA00429F90 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -407,7 +417,8 @@
 		142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				142DE07727E8B80F006CBAFE /* Base */,
+				1415B252280E6FA700429F90 /* ja */,
+				1415B256280E6FC800429F90 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -419,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -480,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -541,7 +554,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -581,7 +594,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -599,8 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.sonson.HomeConMenu.macOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -617,8 +629,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -650,8 +664,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

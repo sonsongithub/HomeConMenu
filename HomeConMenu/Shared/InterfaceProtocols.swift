@@ -12,6 +12,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     var iosListener: mac2iOS? { get set }
     func didUpdate()
     func bringToFront()
+    func centeringWindows()
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol)
 }
 

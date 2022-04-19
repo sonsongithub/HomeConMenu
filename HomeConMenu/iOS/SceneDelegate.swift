@@ -38,6 +38,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.makeKeyAndVisible()
         }
     }
+    
+    func openHelpView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController {
+            print(vc)
+            let window = UIWindow(windowScene: windowScene)
+            self.window = window
+            self.window?.rootViewController = vc
+            
+            windowScene.title = "If you can not find any devices...."
+            windowScene.userActivity = connectionOptions.userActivities.first
+
+            self.window?.makeKeyAndVisible()
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -51,6 +66,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 320, height: 240)
             #endif
             openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
+        case ("com.sonson.HomeMenu.help", "default"):
+            openHelpView(windowScene: windowScene, connectionOptions: connectionOptions)
+            #if targetEnvironment(macCatalyst)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 548, height: 558)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 548, height: 558)
+            #endif
         default:
             #if targetEnvironment(macCatalyst)
             // This is a workaround to hide the view controller which is forced to appear when launching.
@@ -71,18 +92,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // check uiscene.configuration.name, here, whether the view controller is `ViewController` or not.ｔ
-        // dispose the window which will be opened when launchnig, here
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let activity = windowScene.userActivity
-        switch (activity?.activityType, activity?.title) {
-        case ("com.sonson.HomeMenu.openCamera", "default"):
-            // default, do nothing
-            do {}
-        default:
-            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: .none) { (error) in
-                print(error)
-            }
-        }
+//        // dispose the window which will be opened when launchnig, here
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let activity = windowScene.userActivity
+//        switch (activity?.activityType, activity?.title) {
+//        case ("com.sonson.HomeMenu.openCamera", "default"):
+//            // default, do nothing
+//            do {}
+//        default:
+//            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: .none) { (error) in
+//                print(error)
+//            }
+//        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

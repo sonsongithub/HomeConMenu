@@ -27,6 +27,12 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
     
+    func centeringWindows() {
+        for window in NSApp.windows {
+            window.center()
+        }
+    }
+    
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
         
         // まずここで候補のメニューアイテムを全部列挙する
