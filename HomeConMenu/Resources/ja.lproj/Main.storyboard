@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="mac" appearance="light">
+        <simulatedSceneSize key="mac" width="548" height="561"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dummy View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DummyViewController" customModule="HomeConMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'd like to hide this window, when this app has just launched. How do I do it?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-iC-27o">
+                                <rect key="frame" x="20" y="20" width="508" height="521"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KIJ-iC-27o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Y7J-ic-SwD"/>
+                            <constraint firstAttribute="trailing" secondItem="KIJ-iC-27o" secondAttribute="trailing" constant="20" id="YP4-lf-x5D"/>
+                            <constraint firstItem="KIJ-iC-27o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="lkL-Gx-w5H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KIJ-iC-27o" secondAttribute="bottom" constant="20" id="wfC-W4-rj2"/>
+                            <constraint firstItem="KIJ-iC-27o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yYl-49-flH"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="372"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="-69"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="gmS-15-izg">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" id="zoR-Ul-D0E" customClass="HelpViewController" customModule="HomeConMenu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ur-Ff-rIf">
+                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリケーションは，HomeKitデバイスをコンロールするものです．デバイスがHomeに登録されていないとき，左の画面のようにデバイスは何も表示されません．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-BK-pEp">
+                                <rect key="frame" x="282" y="20" width="246" height="118"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOSのホームアプリで，あなたのHomeにデバイスを追加することができます．たまに追加した後に，HomeConMenuを再起動する必要があるかもしれません．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idR-RE-a5r">
+                                <rect key="frame" x="280" y="158" width="248" height="118"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="デバイスを追加した後，メニューのHomeConeMenuのアイコンをクリックするとデバイスを制御することができます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Q3-rg8">
+                                <rect key="frame" x="280" y="296" width="248" height="118"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shot01" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-fy-J8W">
+                                <rect key="frame" x="20" y="20" width="240" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="BxS-0H-Mvf"/>
+                                    <constraint firstAttribute="width" constant="240" id="vcr-uo-Qis"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shot02" translatesAutoresizingMaskIntoConstraints="NO" id="j7K-y2-CLf">
+                                <rect key="frame" x="20" y="296" width="240" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Dtq-wx-kUY"/>
+                                    <constraint firstAttribute="height" constant="118" id="vyN-pK-tBe"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="QMs-E0-nzb">
+                                <rect key="frame" x="20" y="158" width="240" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="b0y-pq-hs1"/>
+                                    <constraint firstAttribute="width" constant="240" id="m0G-V9-VGN"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-4I-o2s">
+                                <rect key="frame" x="20" y="510" width="508" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="OK"/>
+                                <connections>
+                                    <action selector="pushOKWithSender:" destination="zoR-Ul-D0E" eventType="touchUpInside" id="w2S-1z-pI5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BV9-Lm-xgq">
+                                <rect key="frame" x="20" y="444" width="508" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="www.apple.comの&quot;HomeKit&quot;のサイトをチェックする"/>
+                                <connections>
+                                    <action selector="pushCheckWithSender:" destination="zoR-Ul-D0E" eventType="touchUpInside" id="XJX-yR-do9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="re0-Jh-5pO"/>
+                        <constraints>
+                            <constraint firstItem="j7K-y2-CLf" firstAttribute="top" secondItem="QMs-E0-nzb" secondAttribute="bottom" constant="20" id="3lY-Uj-aGT"/>
+                            <constraint firstItem="hB0-4I-o2s" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="4a3-QD-i0T"/>
+                            <constraint firstItem="QMs-E0-nzb" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="B1X-mz-q0i"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="7gm-Q3-rg8" secondAttribute="trailing" constant="20" id="CER-zX-MRH"/>
+                            <constraint firstItem="Txj-BK-pEp" firstAttribute="top" secondItem="re0-Jh-5pO" secondAttribute="top" constant="20" id="Ccx-22-lvT"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="idR-RE-a5r" secondAttribute="trailing" constant="20" id="CdR-j2-Y3r"/>
+                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="leading" secondItem="j7K-y2-CLf" secondAttribute="trailing" constant="20" id="Dx9-g0-Hf5"/>
+                            <constraint firstItem="BV9-Lm-xgq" firstAttribute="top" secondItem="7gm-Q3-rg8" secondAttribute="bottom" constant="20" id="K4Y-0o-ODo"/>
+                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="height" secondItem="j7K-y2-CLf" secondAttribute="height" id="L4e-h6-qru"/>
+                            <constraint firstItem="Txj-BK-pEp" firstAttribute="height" secondItem="rpV-fy-J8W" secondAttribute="height" id="Lzz-OI-vMN"/>
+                            <constraint firstItem="idR-RE-a5r" firstAttribute="leading" secondItem="QMs-E0-nzb" secondAttribute="trailing" constant="20" id="MbV-m1-PhQ"/>
+                            <constraint firstItem="QMs-E0-nzb" firstAttribute="top" secondItem="rpV-fy-J8W" secondAttribute="bottom" constant="20" id="QKm-Ns-AS0"/>
+                            <constraint firstItem="BV9-Lm-xgq" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="WcV-Xi-GWW"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="Txj-BK-pEp" secondAttribute="trailing" constant="20" id="bAu-98-72g"/>
+                            <constraint firstItem="j7K-y2-CLf" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="bdy-pf-Ozo"/>
+                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="top" secondItem="idR-RE-a5r" secondAttribute="bottom" constant="20" id="beG-aQ-ZuU"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="BV9-Lm-xgq" secondAttribute="trailing" constant="20" id="jf8-Oi-VOy"/>
+                            <constraint firstItem="rpV-fy-J8W" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="k6h-JS-edE"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="hB0-4I-o2s" secondAttribute="trailing" constant="20" id="lbF-Oh-hdo"/>
+                            <constraint firstItem="idR-RE-a5r" firstAttribute="top" secondItem="Txj-BK-pEp" secondAttribute="bottom" constant="20" id="og3-m4-rew"/>
+                            <constraint firstItem="Txj-BK-pEp" firstAttribute="leading" secondItem="rpV-fy-J8W" secondAttribute="trailing" constant="22" id="qpy-JI-z7c"/>
+                            <constraint firstItem="idR-RE-a5r" firstAttribute="height" secondItem="QMs-E0-nzb" secondAttribute="height" id="s1K-uE-h7L"/>
+                            <constraint firstItem="rpV-fy-J8W" firstAttribute="top" secondItem="re0-Jh-5pO" secondAttribute="top" constant="20" id="u5v-mn-4FG"/>
+                            <constraint firstItem="re0-Jh-5pO" firstAttribute="bottom" secondItem="hB0-4I-o2s" secondAttribute="bottom" constant="20" id="z6D-Dh-D78"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7i-Yb-Qq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636.1313868613139" y="-49.732620320855609"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homeappshot" width="1214" height="542"/>
+        <image name="shot01" width="500" height="246"/>
+        <image name="shot02" width="500" height="246"/>
+        <systemColor name="systemBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
