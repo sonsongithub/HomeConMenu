@@ -68,14 +68,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shot01" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-fy-J8W">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-fy-J8W">
                                 <rect key="frame" x="20" y="20" width="240" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="118" id="BxS-0H-Mvf"/>
                                     <constraint firstAttribute="width" constant="240" id="vcr-uo-Qis"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shot02" translatesAutoresizingMaskIntoConstraints="NO" id="j7K-y2-CLf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="j7K-y2-CLf">
                                 <rect key="frame" x="20" y="296" width="240" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Dtq-wx-kUY"/>
@@ -139,11 +139,89 @@
             </objects>
             <point key="canvasLocation" x="636.1313868613139" y="-49.732620320855609"/>
         </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="MzQ-Jj-33i">
+            <objects>
+                <viewController storyboardIdentifier="LaunchViewController" id="VNU-7Q-CAE" customClass="LaunchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qhz-mO-gEo">
+                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appbigicon" translatesAutoresizingMaskIntoConstraints="NO" id="88f-VK-CX7">
+                                <rect key="frame" x="230" y="20" width="132" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="lvh-Ao-gte">
+                                <rect key="frame" x="20" y="227" width="200" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="WBU-2h-Dhu"/>
+                                    <constraint firstAttribute="height" constant="118" id="iTE-hC-q0h"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome HomeConMenu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-by-H6F">
+                                <rect key="frame" x="20" y="169" width="552" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can find &quot;home&quot; icon on Menu bar after launching HomeConMenu. Open this menu to control your HomeKit devices." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lch-7w-Eak">
+                                <rect key="frame" x="230" y="227" width="342" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxF-K3-ZXp">
+                                <rect key="frame" x="230" y="333" width="342" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">If you do not add any home devices to your "Home", you look the left menu. You can add a HomeKit device using "Home.app" on iOS devices.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Open HomeConMenu from Menu bar and you can turn on/off switch, change the color of the lightbulb, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQn-g6-RrN">
+                                <rect key="frame" x="230" y="439" width="342" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="HtJ-rM-5Mj">
+                                <rect key="frame" x="20" y="333" width="200" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="49z-vm-5Hh"/>
+                                    <constraint firstAttribute="height" constant="118" id="m7b-MN-WZv"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-Iv-gHD">
+                                <rect key="frame" x="20" y="439" width="200" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="CNF-WU-OAx"/>
+                                    <constraint firstAttribute="width" constant="240" id="t2V-Op-Qd6"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAT-oP-GEx">
+                                <rect key="frame" x="20" y="545" width="552" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="  Do not show this window again."/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yXQ-gg-Cjw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49y-yU-aM3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1323.6486486486485" y="-67.549668874172184"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="appbigicon" width="1054" height="1054"/>
         <image name="homeappshot" width="1214" height="542"/>
-        <image name="shot01" width="500" height="246"/>
-        <image name="shot02" width="500" height="246"/>
+        <image name="shots01" width="500" height="246"/>
+        <image name="shots02" width="500" height="246"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -175,8 +175,13 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             self.infoArray.append(info)
         }
         ios2mac?.didUpdate()
-        guard let menuItemCount = ios2mac?.menuItemCount else { return }
-        if menuItemCount > 0 {
+        
+        if home.accessories.count == 0 {
+            UserDefaults.standard.set(false, forKey: "DoesNotNeedLaunchViewController")
+            UserDefaults.standard.synchronize()
+        }
+        let doesNotNeedLaunchViewController = UserDefaults.standard.bool(forKey: "DoesNotNeedLaunchViewController")
+        if !doesNotNeedLaunchViewController {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.help")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)

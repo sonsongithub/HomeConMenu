@@ -46,6 +46,7 @@
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewController.swift */; };
 		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +77,6 @@
 /* Begin PBXFileReference section */
 		1415B24D280E490500429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1415B24E280E573600429F90 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		1415B252280E6FA700429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1415B253280E6FA800429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1415B255280E6FAA00429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1415B256280E6FC800429F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +111,9 @@
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenu.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		14A839F2280FE4D70083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		14A839F3280FE5040083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
 				1415B24E280E573600429F90 /* HelpViewController.swift */,
+				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
 				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
@@ -296,8 +299,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				ja,
 				Base,
+				ja,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
@@ -343,6 +346,7 @@
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
+				14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -396,8 +400,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1415B24D280E490500429F90 /* en */,
-				1415B253280E6FA800429F90 /* ja */,
 				1415B255280E6FAA00429F90 /* en */,
+				14A839F3280FE5040083EE1D /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -405,8 +409,8 @@
 		142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1415B252280E6FA700429F90 /* ja */,
 				1415B256280E6FC800429F90 /* Base */,
+				14A839F2280FE4D70083EE1D /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
