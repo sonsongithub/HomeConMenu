@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="mac" appearance="light">
-        <simulatedSceneSize key="mac" width="548" height="561"/>
+        <simulatedSceneSize key="mac" width="704" height="607"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController definesPresentationContext="YES" id="BYZ-38-t0r" customClass="DummyViewController" customModule="HomeConMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="607"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'd like to hide this window, when this app has just launched. How do I do it?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-iC-27o">
-                                <rect key="frame" x="20" y="20" width="508" height="521"/>
+                                <rect key="frame" x="20" y="20" width="664" height="567"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,178 +42,120 @@
             </objects>
             <point key="canvasLocation" x="-76" y="-69"/>
         </scene>
-        <!--Help View Controller-->
-        <scene sceneID="gmS-15-izg">
+        <!--HomeConMenu-->
+        <scene sceneID="4SC-FS-RdP">
             <objects>
-                <viewController storyboardIdentifier="HelpViewController" id="zoR-Ul-D0E" customClass="HelpViewController" customModule="HomeConMenu" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Ur-Ff-rIf">
-                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
+                <viewController storyboardIdentifier="LaunchViewController" title="HomeConMenu" id="Btt-p6-dSE" customClass="LaunchViewController" customModule="HomeConMenu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ye-4i-4NL">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="607"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリケーションは，HomeKitデバイスをコンロールするものです．デバイスがHomeに登録されていないとき，左の画面のようにデバイスは何も表示されません．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-BK-pEp">
-                                <rect key="frame" x="282" y="20" width="246" height="118"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOSのホームアプリで，あなたのHomeにデバイスを追加することができます．たまに追加した後に，HomeConMenuを再起動する必要があるかもしれません．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idR-RE-a5r">
-                                <rect key="frame" x="280" y="158" width="248" height="118"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="デバイスを追加した後，メニューのHomeConeMenuのアイコンをクリックするとデバイスを制御することができます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Q3-rg8">
-                                <rect key="frame" x="280" y="296" width="248" height="118"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-fy-J8W">
-                                <rect key="frame" x="20" y="20" width="240" height="118"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appbigicon" translatesAutoresizingMaskIntoConstraints="NO" id="SqV-de-wSW">
+                                <rect key="frame" x="-175" y="17" width="1054" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="BxS-0H-Mvf"/>
-                                    <constraint firstAttribute="width" constant="240" id="vcr-uo-Qis"/>
+                                    <constraint firstAttribute="width" priority="100" constant="100" id="Dr6-Al-ooM"/>
+                                    <constraint firstAttribute="height" constant="100" id="Kbc-fg-Haz"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="j7K-y2-CLf">
-                                <rect key="frame" x="20" y="296" width="240" height="118"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-yF-rMA">
+                                <rect key="frame" x="20" y="183" width="200" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Dtq-wx-kUY"/>
-                                    <constraint firstAttribute="height" constant="118" id="vyN-pK-tBe"/>
+                                    <constraint firstAttribute="width" constant="200" id="8qd-P3-ZZ7"/>
+                                    <constraint firstAttribute="height" constant="80" id="tJD-Fq-xW5"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="QMs-E0-nzb">
-                                <rect key="frame" x="20" y="158" width="240" height="118"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="b0y-pq-hs1"/>
-                                    <constraint firstAttribute="width" constant="240" id="m0G-V9-VGN"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-4I-o2s">
-                                <rect key="frame" x="20" y="510" width="508" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="OK"/>
-                                <connections>
-                                    <action selector="pushOKWithSender:" destination="zoR-Ul-D0E" eventType="touchUpInside" id="w2S-1z-pI5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BV9-Lm-xgq">
-                                <rect key="frame" x="20" y="444" width="508" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="www.apple.comの&quot;HomeKit&quot;のサイトをチェックする"/>
-                                <connections>
-                                    <action selector="pushCheckWithSender:" destination="zoR-Ul-D0E" eventType="touchUpInside" id="XJX-yR-do9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="re0-Jh-5pO"/>
-                        <constraints>
-                            <constraint firstItem="j7K-y2-CLf" firstAttribute="top" secondItem="QMs-E0-nzb" secondAttribute="bottom" constant="20" id="3lY-Uj-aGT"/>
-                            <constraint firstItem="hB0-4I-o2s" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="4a3-QD-i0T"/>
-                            <constraint firstItem="QMs-E0-nzb" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="B1X-mz-q0i"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="7gm-Q3-rg8" secondAttribute="trailing" constant="20" id="CER-zX-MRH"/>
-                            <constraint firstItem="Txj-BK-pEp" firstAttribute="top" secondItem="re0-Jh-5pO" secondAttribute="top" constant="20" id="Ccx-22-lvT"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="idR-RE-a5r" secondAttribute="trailing" constant="20" id="CdR-j2-Y3r"/>
-                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="leading" secondItem="j7K-y2-CLf" secondAttribute="trailing" constant="20" id="Dx9-g0-Hf5"/>
-                            <constraint firstItem="BV9-Lm-xgq" firstAttribute="top" secondItem="7gm-Q3-rg8" secondAttribute="bottom" constant="20" id="K4Y-0o-ODo"/>
-                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="height" secondItem="j7K-y2-CLf" secondAttribute="height" id="L4e-h6-qru"/>
-                            <constraint firstItem="Txj-BK-pEp" firstAttribute="height" secondItem="rpV-fy-J8W" secondAttribute="height" id="Lzz-OI-vMN"/>
-                            <constraint firstItem="idR-RE-a5r" firstAttribute="leading" secondItem="QMs-E0-nzb" secondAttribute="trailing" constant="20" id="MbV-m1-PhQ"/>
-                            <constraint firstItem="QMs-E0-nzb" firstAttribute="top" secondItem="rpV-fy-J8W" secondAttribute="bottom" constant="20" id="QKm-Ns-AS0"/>
-                            <constraint firstItem="BV9-Lm-xgq" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="WcV-Xi-GWW"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="Txj-BK-pEp" secondAttribute="trailing" constant="20" id="bAu-98-72g"/>
-                            <constraint firstItem="j7K-y2-CLf" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="bdy-pf-Ozo"/>
-                            <constraint firstItem="7gm-Q3-rg8" firstAttribute="top" secondItem="idR-RE-a5r" secondAttribute="bottom" constant="20" id="beG-aQ-ZuU"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="BV9-Lm-xgq" secondAttribute="trailing" constant="20" id="jf8-Oi-VOy"/>
-                            <constraint firstItem="rpV-fy-J8W" firstAttribute="leading" secondItem="re0-Jh-5pO" secondAttribute="leading" constant="20" id="k6h-JS-edE"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="trailing" secondItem="hB0-4I-o2s" secondAttribute="trailing" constant="20" id="lbF-Oh-hdo"/>
-                            <constraint firstItem="idR-RE-a5r" firstAttribute="top" secondItem="Txj-BK-pEp" secondAttribute="bottom" constant="20" id="og3-m4-rew"/>
-                            <constraint firstItem="Txj-BK-pEp" firstAttribute="leading" secondItem="rpV-fy-J8W" secondAttribute="trailing" constant="22" id="qpy-JI-z7c"/>
-                            <constraint firstItem="idR-RE-a5r" firstAttribute="height" secondItem="QMs-E0-nzb" secondAttribute="height" id="s1K-uE-h7L"/>
-                            <constraint firstItem="rpV-fy-J8W" firstAttribute="top" secondItem="re0-Jh-5pO" secondAttribute="top" constant="20" id="u5v-mn-4FG"/>
-                            <constraint firstItem="re0-Jh-5pO" firstAttribute="bottom" secondItem="hB0-4I-o2s" secondAttribute="bottom" constant="20" id="z6D-Dh-D78"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g7i-Yb-Qq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="636.1313868613139" y="-49.732620320855609"/>
-        </scene>
-        <!--Launch View Controller-->
-        <scene sceneID="MzQ-Jj-33i">
-            <objects>
-                <viewController storyboardIdentifier="LaunchViewController" id="VNU-7Q-CAE" customClass="LaunchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qhz-mO-gEo">
-                        <rect key="frame" x="0.0" y="0.0" width="548" height="561"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appbigicon" translatesAutoresizingMaskIntoConstraints="NO" id="88f-VK-CX7">
-                                <rect key="frame" x="230" y="20" width="132" height="141"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="lvh-Ao-gte">
-                                <rect key="frame" x="20" y="227" width="200" height="98"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="WBU-2h-Dhu"/>
-                                    <constraint firstAttribute="height" constant="118" id="iTE-hC-q0h"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome HomeConMenu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-by-H6F">
-                                <rect key="frame" x="20" y="169" width="552" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome HomeConMenu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nS-xe-LYs">
+                                <rect key="frame" x="20" y="125" width="664" height="34.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can find &quot;home&quot; icon on Menu bar after launching HomeConMenu. Open this menu to control your HomeKit devices." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lch-7w-Eak">
-                                <rect key="frame" x="230" y="227" width="342" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起動するとメニューバーにHomeアイコンが表示されます．このアイコンをクリックすると，ホームデバイスを制御するためのメニューが表示されます" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmr-Rt-GzQ">
+                                <rect key="frame" x="240" y="183" width="444" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxF-K3-ZXp">
-                                <rect key="frame" x="230" y="333" width="342" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">If you do not add any home devices to your "Home", you look the left menu. You can add a HomeKit device using "Home.app" on iOS devices.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home.appでホームデバイスを追加していない場合，このメニューには何も表示されません．iOSのホームアプリを使って，ホームデバイスをあなたの&quot;Home&quot;に追加してください．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-CV-xVu">
+                                <rect key="frame" x="240" y="298" width="444" height="51"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Open HomeConMenu from Menu bar and you can turn on/off switch, change the color of the lightbulb, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQn-g6-RrN">
-                                <rect key="frame" x="230" y="439" width="342" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メニューを開くと，デバイスの一覧が表示されます．このメニューをクリックして電灯をオン・オフしたり，色調を変えたり，スイッチを切り替えたりできます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-uj-EpJ">
+                                <rect key="frame" x="240" y="398" width="444" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="HtJ-rM-5Mj">
-                                <rect key="frame" x="20" y="333" width="200" height="98"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="l9M-g8-ggI">
+                                <rect key="frame" x="20" y="283" width="200" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="49z-vm-5Hh"/>
-                                    <constraint firstAttribute="height" constant="118" id="m7b-MN-WZv"/>
+                                    <constraint firstAttribute="height" constant="80" id="Q19-Pf-LoF"/>
+                                    <constraint firstAttribute="width" constant="200" id="dre-SI-xI1"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-Iv-gHD">
-                                <rect key="frame" x="20" y="439" width="200" height="98"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="jZp-FN-Fh2">
+                                <rect key="frame" x="20" y="383" width="200" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="CNF-WU-OAx"/>
-                                    <constraint firstAttribute="width" constant="240" id="t2V-Op-Qd6"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ujf-Rq-L7j"/>
+                                    <constraint firstAttribute="height" constant="80" id="ztD-rN-Swr"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAT-oP-GEx">
-                                <rect key="frame" x="20" y="545" width="552" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="  Do not show this window again."/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMm-ai-HaK">
+                                <rect key="frame" x="20" y="483" width="664" height="104"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-rU-j1v" userLabel="Do not show this window again." customClass="CheckButton" customModule="HomeConMenu">
+                                        <rect key="frame" x="201" y="37" width="262" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title="以降，このウィンドウを表示しない．"/>
+                                        <connections>
+                                            <action selector="didPushWithSender:" destination="Btt-p6-dSE" eventType="touchUpInside" id="iSO-Br-6d6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LHG-rU-j1v" firstAttribute="centerY" secondItem="nMm-ai-HaK" secondAttribute="centerY" id="UVS-Z3-xv0"/>
+                                    <constraint firstItem="LHG-rU-j1v" firstAttribute="centerX" secondItem="nMm-ai-HaK" secondAttribute="centerX" id="iIV-uf-4B3"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="yXQ-gg-Cjw"/>
+                        <viewLayoutGuide key="safeArea" id="98j-L5-lux"/>
+                        <constraints>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="kmr-Rt-GzQ" secondAttribute="trailing" constant="20" id="0Zp-FT-vJ3"/>
+                            <constraint firstItem="l9M-g8-ggI" firstAttribute="top" secondItem="ZhX-yF-rMA" secondAttribute="bottom" constant="20" id="1KM-yo-C48"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="bottom" secondItem="nMm-ai-HaK" secondAttribute="bottom" constant="20" id="3Xm-IC-g06"/>
+                            <constraint firstItem="MXb-CV-xVu" firstAttribute="leading" secondItem="l9M-g8-ggI" secondAttribute="trailing" constant="20" id="52u-9j-WrZ"/>
+                            <constraint firstItem="SqV-de-wSW" firstAttribute="centerX" secondItem="0Ye-4i-4NL" secondAttribute="centerX" id="778-Kf-JpG"/>
+                            <constraint firstItem="l9M-g8-ggI" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="7VY-hf-8xs"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="nMm-ai-HaK" secondAttribute="trailing" constant="20" id="JC4-Ur-Bnz"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="1nS-xe-LYs" secondAttribute="trailing" constant="20" id="LM0-iZ-fs1"/>
+                            <constraint firstItem="jZp-FN-Fh2" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="PO4-uH-zaE"/>
+                            <constraint firstItem="ZhX-yF-rMA" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="Yfp-75-Ehj"/>
+                            <constraint firstItem="XLd-uj-EpJ" firstAttribute="centerY" secondItem="jZp-FN-Fh2" secondAttribute="centerY" id="YgU-SW-qdV"/>
+                            <constraint firstItem="jZp-FN-Fh2" firstAttribute="top" secondItem="l9M-g8-ggI" secondAttribute="bottom" constant="20" id="fsv-tl-jo6"/>
+                            <constraint firstItem="XLd-uj-EpJ" firstAttribute="leading" secondItem="jZp-FN-Fh2" secondAttribute="trailing" constant="20" id="gTK-F2-6CY"/>
+                            <constraint firstItem="1nS-xe-LYs" firstAttribute="top" secondItem="SqV-de-wSW" secondAttribute="bottom" constant="8" symbolic="YES" id="h6i-wP-ht8"/>
+                            <constraint firstItem="nMm-ai-HaK" firstAttribute="top" secondItem="jZp-FN-Fh2" secondAttribute="bottom" constant="20" id="hVH-dX-Kdz"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="MXb-CV-xVu" secondAttribute="trailing" constant="20" id="jfs-FH-hhc"/>
+                            <constraint firstItem="1nS-xe-LYs" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="m5F-c3-qKX"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="XLd-uj-EpJ" secondAttribute="trailing" constant="20" id="mck-jn-l8A"/>
+                            <constraint firstItem="kmr-Rt-GzQ" firstAttribute="centerY" secondItem="ZhX-yF-rMA" secondAttribute="centerY" id="nib-nR-H0T"/>
+                            <constraint firstItem="SqV-de-wSW" firstAttribute="top" secondItem="98j-L5-lux" secondAttribute="top" constant="17" id="rZD-zz-0r6"/>
+                            <constraint firstItem="kmr-Rt-GzQ" firstAttribute="top" secondItem="1nS-xe-LYs" secondAttribute="bottom" constant="23.5" id="so0-jo-lJl"/>
+                            <constraint firstItem="nMm-ai-HaK" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="tHj-FU-OrE"/>
+                            <constraint firstItem="kmr-Rt-GzQ" firstAttribute="leading" secondItem="ZhX-yF-rMA" secondAttribute="trailing" constant="20" id="uym-gl-Bxd"/>
+                            <constraint firstItem="ZhX-yF-rMA" firstAttribute="top" secondItem="1nS-xe-LYs" secondAttribute="bottom" constant="23.5" id="vRf-ae-V6R"/>
+                            <constraint firstItem="MXb-CV-xVu" firstAttribute="centerY" secondItem="l9M-g8-ggI" secondAttribute="centerY" id="wv7-yz-Dr0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="LHG-rU-j1v" id="WKh-Ee-E87"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="49y-yU-aM3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVU-5B-pA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323.6486486486485" y="-67.549668874172184"/>
+            <point key="canvasLocation" x="578" y="-70"/>
         </scene>
     </scenes>
     <resources>

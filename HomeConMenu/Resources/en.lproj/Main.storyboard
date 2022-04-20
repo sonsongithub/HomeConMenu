@@ -70,8 +70,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can find &quot;home&quot; icon on Menu bar after launching HomeConMenu. Open this menu to control your HomeKit devices." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmr-Rt-GzQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmr-Rt-GzQ">
                                 <rect key="frame" x="240" y="183" width="444" height="80"/>
+                                <string key="text">You can find "home" icon on Menu bar after launching HomeConMenu. Click this "home" icon and open the menu to control your HomeKit devices.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,7 +81,7 @@
                                 <rect key="frame" x="240" y="298" width="444" height="51"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">If you do not add any home devices to your "Home", you look the left menu. You can add a HomeKit device using "Home.app" on iOS devices.</string>
+                                        <string key="content">You can not find any devices on the menu if you do not add any home devices to your "Home". You can add a HomeKit device using "Home.app" on iOS devices.</string>
                                         <attributes>
                                             <font key="NSFont" metaFont="menu" size="14"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -89,7 +90,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open HomeConMenu from Menu bar and you can turn on/off switch, change the color of the lightbulb, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-uj-EpJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open HomeConMenu from Menu bar and then you can turn on/off switch, change the color of the lightbulb, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-uj-EpJ">
                                 <rect key="frame" x="240" y="406" width="444" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>

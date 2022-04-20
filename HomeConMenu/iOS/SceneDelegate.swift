@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func openHelpView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+    func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
         
         if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
             print(vc)
@@ -65,8 +65,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 320, height: 240)
             #endif
             openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
-        case ("com.sonson.HomeMenu.help", "default"):
-            openHelpView(windowScene: windowScene, connectionOptions: connectionOptions)
+        case ("com.sonson.HomeMenu.LaunchView", "default"):
+            openLaunchView(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 550)
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 550)

@@ -182,7 +182,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         }
         let doesNotNeedLaunchViewController = UserDefaults.standard.bool(forKey: "DoesNotNeedLaunchViewController")
         if !doesNotNeedLaunchViewController {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.help")
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
