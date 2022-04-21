@@ -33,20 +33,23 @@
 		142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
 		142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
 		142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
-		142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */; };
-		142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */; };
 		142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */; };
 		142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */; };
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
-		142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
-		142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
+		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
+		14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A462811664000BC41BD /* CameraMenuItem.swift */; };
+		14A06A542811664800BC41BD /* PowerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A4A2811664000BC41BD /* PowerMenuItem.swift */; };
+		14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A452811664000BC41BD /* SensorMenuItem.swift */; };
+		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
+		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
+		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewController.swift */; };
 		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
-		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,21 +99,23 @@
 		142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTypeBridge.swift; sourceTree = "<group>"; };
 		142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryInfo.swift; sourceTree = "<group>"; };
 		142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
-		142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFromUUID.swift; sourceTree = "<group>"; };
-		142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenu.swift; sourceTree = "<group>"; };
 		142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSBridge.swift; sourceTree = "<group>"; };
 		142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorPanel.swift; sourceTree = "<group>"; };
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
-		142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenu.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
-		142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenu.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
+		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
+		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
+		14A06A482811664000BC41BD /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
+		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
+		14A06A4A2811664000BC41BD /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
+		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
 		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
-		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +197,7 @@
 		146D209427F03F8100162EB1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				14A06A562811665800BC41BD /* ServiceGroupInfo.swift */,
 				142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */,
 				142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */,
 				142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */,
@@ -208,14 +214,15 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				14AEEE2E27F042A700C87B2A /* SensorMenu.swift */,
-				142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */,
+				14A06A462811664000BC41BD /* CameraMenuItem.swift */,
+				14A06A482811664000BC41BD /* LightbulbMenuItem.swift */,
+				14A06A472811664000BC41BD /* LightColorMenuItem.swift */,
+				14A06A492811664000BC41BD /* MenuItemFromUUID.swift */,
+				14A06A4A2811664000BC41BD /* PowerMenuItem.swift */,
+				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
 				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
-				142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
-				142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
-				142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
+				14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
@@ -359,21 +367,23 @@
 			files = (
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
+				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
-				142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */,
-				142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */,
+				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
+				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
-				142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
-				142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */,
+				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */,
-				14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */,
+				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
+				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
+				14A06A542811664800BC41BD /* PowerMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
