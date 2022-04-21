@@ -7,20 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1415B24F280E573600429F90 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1415B24E280E573600429F90 /* HelpViewController.swift */; };
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
 		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
-		142DE07327E8B80E006CBAFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07127E8B80E006CBAFE /* Main.storyboard */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
-		142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
 		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
 		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
 		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
 		142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */; };
-		142DE0A427E8B9C3006CBAFE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142DE09F27E8B9C3006CBAFE /* Camera.storyboard */; };
 		142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */; };
 		142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */; };
 		142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */; };
@@ -37,19 +33,20 @@
 		142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
 		142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
 		142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
-		142DE0D227E8BAE1006CBAFE /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */; };
-		142DE0D327E8BAE1006CBAFE /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */; };
+		142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */; };
+		142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */; };
 		142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */; };
 		142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */; };
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
-		142DE0D827E8BAE1006CBAFE /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */; };
+		142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
-		142DE0DA27E8BAE1006CBAFE /* PowerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */; };
+		142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
-		14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */; };
-		14B363B92805B43C00724FAE /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */; };
-		14B363BA2805B43C00724FAE /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */; };
-		14E9AF23280AE80C00288EF3 /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */; };
+		14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewController.swift */; };
+		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
+		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
+		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
+		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,12 +74,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1415B24D280E490500429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		1415B24E280E573600429F90 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		1415B252280E6FA700429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1415B253280E6FA800429F90 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1415B255280E6FAA00429F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1415B256280E6FC800429F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +87,6 @@
 		142DE09C27E8B9C3006CBAFE /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		142DE09F27E8B9C3006CBAFE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		142DE0B027E8BAC2006CBAFE /* macOSBridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "macOSBridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		142DE0B127E8BAC2006CBAFE /* CharacteristicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicInfo.swift; sourceTree = "<group>"; };
 		142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
@@ -106,19 +96,21 @@
 		142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTypeBridge.swift; sourceTree = "<group>"; };
 		142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryInfo.swift; sourceTree = "<group>"; };
 		142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
-		142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
-		142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
+		142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFromUUID.swift; sourceTree = "<group>"; };
+		142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenu.swift; sourceTree = "<group>"; };
 		142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSBridge.swift; sourceTree = "<group>"; };
 		142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorPanel.swift; sourceTree = "<group>"; };
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
-		142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
+		142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenu.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
-		142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
+		142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenu.swift; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
-		145DE126280CD36B00B73CC5 /* HomeConMenuRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenuRelease.entitlements; sourceTree = "<group>"; };
-		14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
-		14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
-		14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
+		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +153,6 @@
 		142DE06A27E8B80E006CBAFE /* HomeConMenu */ = {
 			isa = PBXGroup;
 			children = (
-				145DE126280CD36B00B73CC5 /* HomeConMenuRelease.entitlements */,
 				146D209527F03F8900162EB1 /* macOS */,
 				146D209427F03F8100162EB1 /* Shared */,
 				146D209327F03F7800162EB1 /* iOS */,
@@ -190,7 +181,7 @@
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
-				1415B24E280E573600429F90 /* HelpViewController.swift */,
+				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
 				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
@@ -209,7 +200,6 @@
 				142DE0B427E8BAC2006CBAFE /* HomeInfo.swift */,
 				142DE0B227E8BAC2006CBAFE /* RoomInfo.swift */,
 				142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */,
-				14B363B82805B43C00724FAE /* ServiceGroupInfo.swift */,
 				142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */,
 			);
 			path = Shared;
@@ -218,15 +208,14 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				14AEEE2E27F042A700C87B2A /* SensorMenuItem.swift */,
-				142DE0CF27E8BAE1006CBAFE /* CameraMenuItem.swift */,
-				142DE0CA27E8BAE1006CBAFE /* LightColorMenuItem.swift */,
-				14E9AF21280AE80200288EF3 /* LightbulbMenuItem.swift */,
-				142DE0D127E8BAE1006CBAFE /* PowerMenuItem.swift */,
-				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
+				14AEEE2E27F042A700C87B2A /* SensorMenu.swift */,
+				142DE0CF27E8BAE1006CBAFE /* CameraMenu.swift */,
 				142DE0CC27E8BAE1006CBAFE /* CustomColorPanel.swift */,
-				142DE0C927E8BAE1006CBAFE /* MenuItemFromUUID.swift */,
+				142DE0CA27E8BAE1006CBAFE /* LightColorMenu.swift */,
+				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
+				142DE0C927E8BAE1006CBAFE /* MenuFromUUID.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+				142DE0D127E8BAE1006CBAFE /* PowerMenu.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -234,9 +223,9 @@
 		146D209627F03FD000162EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				142DE09F27E8B9C3006CBAFE /* Camera.storyboard */,
-				142DE07127E8B80E006CBAFE /* Main.storyboard */,
-				142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */,
+				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
+				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
+				14A839FE280FEE530083EE1D /* Main.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -306,7 +295,6 @@
 			knownRegions = (
 				en,
 				ja,
-				Base,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
@@ -324,10 +312,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142DE07827E8B80F006CBAFE /* LaunchScreen.storyboard in Resources */,
-				142DE0A427E8B9C3006CBAFE /* Camera.storyboard in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
-				142DE07327E8B80E006CBAFE /* Main.storyboard in Resources */,
+				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
+				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
+				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,12 +340,11 @@
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
-				14B363B92805B43C00724FAE /* ServiceGroupInfo.swift in Sources */,
+				14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
-				1415B24F280E573600429F90 /* HelpViewController.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
@@ -370,25 +357,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E9AF23280AE80C00288EF3 /* LightbulbMenuItem.swift in Sources */,
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
-				142DE0D827E8BAE1006CBAFE /* CameraMenuItem.swift in Sources */,
-				142DE0DA27E8BAE1006CBAFE /* PowerMenuItem.swift in Sources */,
+				142DE0D827E8BAE1006CBAFE /* CameraMenu.swift in Sources */,
+				142DE0DA27E8BAE1006CBAFE /* PowerMenu.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
-				142DE0D227E8BAE1006CBAFE /* MenuItemFromUUID.swift in Sources */,
+				142DE0D227E8BAE1006CBAFE /* MenuFromUUID.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
-				142DE0D327E8BAE1006CBAFE /* LightColorMenuItem.swift in Sources */,
-				14B363BA2805B43C00724FAE /* ServiceGroupInfo.swift in Sources */,
+				142DE0D327E8BAE1006CBAFE /* LightColorMenu.swift in Sources */,
 				142DE0D527E8BAE1006CBAFE /* CustomColorPanel.swift in Sources */,
-				14AEEE3027F042AE00C87B2A /* SensorMenuItem.swift in Sources */,
+				14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,23 +389,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		142DE07127E8B80E006CBAFE /* Main.storyboard */ = {
+		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1415B24D280E490500429F90 /* en */,
-				1415B253280E6FA800429F90 /* ja */,
-				1415B255280E6FAA00429F90 /* en */,
+				14A839FD280FEE530083EE1D /* en */,
+				14A839FF280FEE5E0083EE1D /* ja */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		142DE07627E8B80F006CBAFE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1415B252280E6FA700429F90 /* ja */,
-				1415B256280E6FC800429F90 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -461,7 +436,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_APP_SANDBOX = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -523,7 +497,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_APP_SANDBOX = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -554,10 +527,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -590,14 +563,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenuRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu/HomeConMenu.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -629,7 +602,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -664,7 +637,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -39,15 +39,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func openHelpView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+    func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
         
-        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
             print(vc)
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             self.window?.rootViewController = vc
             
-            windowScene.title = "If you can not find any devices...."
             windowScene.userActivity = connectionOptions.userActivities.first
 
             self.window?.makeKeyAndVisible()
@@ -66,11 +65,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 320, height: 240)
             #endif
             openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
-        case ("com.sonson.HomeMenu.help", "default"):
-            openHelpView(windowScene: windowScene, connectionOptions: connectionOptions)
+        case ("com.sonson.HomeMenu.LaunchView", "default"):
+            openLaunchView(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
-            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 548, height: 558)
-            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 548, height: 558)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 550)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 550)
             #endif
         default:
             #if targetEnvironment(macCatalyst)
