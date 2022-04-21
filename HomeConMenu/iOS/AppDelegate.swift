@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var allPowerControllableAccessories: [HMAccessory] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        if let _ = UserDefaults.standard.object(forKey: "LaunchIsChecked") as? Bool {
+        } else {
+            UserDefaults.standard.set(false, forKey: "LaunchIsChecked")
+            UserDefaults.standard.synchronize()
+        }
         baseManager = BaseManager()
         return true
     }

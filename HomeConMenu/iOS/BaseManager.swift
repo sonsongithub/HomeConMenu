@@ -176,12 +176,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         }
         ios2mac?.didUpdate()
         
-        if home.accessories.count == 0 {
-            UserDefaults.standard.set(false, forKey: "DoesNotNeedLaunchViewController")
-            UserDefaults.standard.synchronize()
-        }
-        let doesNotNeedLaunchViewController = UserDefaults.standard.bool(forKey: "DoesNotNeedLaunchViewController")
-        if !doesNotNeedLaunchViewController {
+        let LaunchIsChecked = UserDefaults.standard.bool(forKey: "LaunchIsChecked")
+        if !LaunchIsChecked {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)

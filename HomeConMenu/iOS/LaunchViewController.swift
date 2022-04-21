@@ -11,9 +11,9 @@ class CheckButton: UIButton {
     var isChecked = false {
         didSet {
             if isChecked {
-                self.setImage(UIImage(systemName: "square"), for: .normal)
-            } else {
                 self.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            } else {
+                self.setImage(UIImage(systemName: "square"), for: .normal)
             }
         }
     }
@@ -26,15 +26,21 @@ class LaunchViewController: UIViewController {
         super.viewDidLoad()
         button?.tintColor = .systemBlue
 
-        let doesNotNeedLaunchViewController = UserDefaults.standard.object(forKey: "DoesNotNeedLaunchViewController") as? Bool ?? true
-        
-        button?.isChecked = !doesNotNeedLaunchViewController
+        let LaunchIsChecked = UserDefaults.standard.bool(forKey: "LaunchIsChecked")
+        button?.isChecked = LaunchIsChecked
     }
     
     @IBAction func didPush(sender: UIButton) {
         if let button = button {
-            UserDefaults.standard.set(button.isChecked, forKey: "DoesNotNeedLaunchViewController")
             button.isChecked = !button.isChecked
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        if let button = button {
+            print(button.isChecked)
+            UserDefaults.standard.set(button.isChecked, forKey: "LaunchIsChecked")
             UserDefaults.standard.synchronize()
         }
     }
