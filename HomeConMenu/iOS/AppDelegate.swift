@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var baseManager: BaseManager?
     var mgr: HMHomeManager?
     var allPowerControllableAccessories: [HMAccessory] = []
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         baseManager = BaseManager()
         return true

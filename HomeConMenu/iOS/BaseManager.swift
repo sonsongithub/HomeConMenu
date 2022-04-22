@@ -140,7 +140,11 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
-        print("didUpdate")
+        if status != .authorized {
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        }
     }
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {
@@ -172,18 +176,18 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        
-        if home.accessories.count == 0 {
-            UserDefaults.standard.set(false, forKey: "DoesNotNeedLaunchViewController")
-            UserDefaults.standard.synchronize()
-        }
-        
-        let doesNotNeedLaunchViewController = UserDefaults.standard.bool(forKey: "DoesNotNeedLaunchViewController")
-        if !doesNotNeedLaunchViewController {
+
+        if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         ios2mac?.didUpdate()
+    }
+    
+    func openAbout() {
+        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+        userActivity.title = "default"
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
 }

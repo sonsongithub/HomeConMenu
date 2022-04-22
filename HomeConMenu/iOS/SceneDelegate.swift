@@ -68,8 +68,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         case ("com.sonson.HomeMenu.LaunchView", "default"):
             openLaunchView(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
-            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 550)
-            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 550)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 700)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 700)
             #endif
         default:
             #if targetEnvironment(macCatalyst)

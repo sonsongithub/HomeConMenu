@@ -99,8 +99,16 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
             
         }
         
+        let abouItem = NSMenuItem()
+        abouItem.title = "About HomeConMenu"
+        abouItem.action = #selector(MacOSBridge.about(sender:))
+        abouItem.target = self
+        mainMenu.addItem(abouItem)
+        
+        mainMenu.addItem(NSMenuItem.separator())
+        
         let menuItem = NSMenuItem()
-        menuItem.title = "Quit"
+        menuItem.title = "Quit HomeConMenu"
         menuItem.action = #selector(MacOSBridge.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
@@ -159,6 +167,10 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
+    }
+    
+    @IBAction func about(sender: NSButton) {
+        self.iosListener?.openAbout()
     }
     
     @IBAction func quit(sender: NSButton) {
