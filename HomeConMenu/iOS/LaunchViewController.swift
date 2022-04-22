@@ -7,42 +7,33 @@
 
 import UIKit
 
-class CheckButton: UIButton {
-    var isChecked = false {
-        didSet {
-            if isChecked {
-                self.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-            } else {
-                self.setImage(UIImage(systemName: "square"), for: .normal)
-            }
+class LaunchViewController: UIViewController {
+    @IBOutlet var button: UISwitch?
+    @IBOutlet var label: UILabel?
+    
+    @objc func userDidTapLabel(tapGestureRecognizer: UITapGestureRecognizer) {
+        if let button = button {
+            button.isOn = !button.isOn
+            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
         }
     }
-}
-
-class LaunchViewController: UIViewController {
-    @IBOutlet var button: CheckButton?
+    
+    @IBAction func didChange(sender: UISwitch) {
+        if let button = button {
+            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        button?.tintColor = .systemBlue
-
-        let LaunchIsChecked = UserDefaults.standard.bool(forKey: "LaunchIsChecked")
-        button?.isChecked = LaunchIsChecked
-    }
-    
-    @IBAction func didPush(sender: UIButton) {
-        if let button = button {
-            button.isChecked = !button.isChecked
-        }
+        label?.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.userDidTapLabel(tapGestureRecognizer:)))
+        label?.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("viewWillDisappear")
-        if let button = button {
-            print(button.isChecked)
-            UserDefaults.standard.set(button.isChecked, forKey: "LaunchIsChecked")
-            UserDefaults.standard.synchronize()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,8 +46,11 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        button?.tintColor = .systemBlue
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.baseManager?.ios2mac?.centeringWindows()
+            button?.isOn = UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController")
+//            button?.isOn = delegate.doesNotShowLaunchViewController
         }
     }
     

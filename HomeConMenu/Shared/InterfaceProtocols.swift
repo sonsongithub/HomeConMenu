@@ -19,6 +19,7 @@ public protocol iOS2Mac: NSObjectProtocol {
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
+    func openAbout()
     func reload(uniqueIdentifiers: [UUID])
     func getArray() -> [AccessoryInfoProtocol]
     func toggleValue(uniqueIdentifier: UUID)

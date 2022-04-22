@@ -140,7 +140,11 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
-        print("didUpdate")
+        if status != .authorized {
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        }
     }
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {
@@ -176,11 +180,21 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         }
         ios2mac?.didUpdate()
         
-        let LaunchIsChecked = UserDefaults.standard.bool(forKey: "LaunchIsChecked")
-        if !LaunchIsChecked {
+        if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
+        
+//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+//            if !appDelegate.doesNotShowLaunchViewController {
+//            }
+//        }
+    }
+    
+    func openAbout() {
+        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+        userActivity.title = "default"
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
 }
