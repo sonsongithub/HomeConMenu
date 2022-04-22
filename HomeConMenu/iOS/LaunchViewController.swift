@@ -50,7 +50,6 @@ class LaunchViewController: UIViewController {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.baseManager?.ios2mac?.centeringWindows()
             button?.isOn = UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController")
-//            button?.isOn = delegate.doesNotShowLaunchViewController
         }
     }
     

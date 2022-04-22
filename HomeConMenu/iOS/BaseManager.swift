@@ -185,11 +185,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
-        
-//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//            if !appDelegate.doesNotShowLaunchViewController {
-//            }
-//        }
     }
     
     func openAbout() {
