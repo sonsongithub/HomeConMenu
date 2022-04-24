@@ -6,9 +6,9 @@
 //
 
 import Cocoa
+import ColorWheelPanelView
 
 class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
-    
     var color = NSColor.white
     var mac2ios: mac2iOS?
     
@@ -23,51 +23,6 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         return false
     }
     
-    deinit {
-        print("LightColorMenu deinit")
-//        self.colorPanel?.performClose(self)
-    }
-    
-    @objc func colorDidChange(sender: NSColorPanel) {
-    }
-    
-    func windowShouldClose(_ sender: NSWindow) -> Bool {
-        self.colorPanel = nil
-        return true
-    }
-    
-    func openColorPanel() -> CustomColorPanel {
-        if let colorPanel = self.colorPanel {
-            self.colorPanel = nil
-            colorPanel.performClose(nil)
-        }
-        let cp = CustomColorPanel()
-        cp.delegate = self
-        return cp
-    }
-    
-    @IBAction func changeColor(sender: NSMenuItem) {
-        self.colorPanel = openColorPanel()
-        
-//        cp.hueCharcteristicIdentifier = lightColorMenu.hueCharcteristicIdentifier
-//        cp.saturationCharcteristicIdentifier = lightColorMenu.saturationCharcteristicIdentifier
-//        cp.brightnessCharcteristicIdentifier = lightColorMenu.brightnessCharcteristicIdentifier
-//        
-        self.colorPanel?.title = self.accessoryName
-        self.colorPanel?.color = self.color
-        
-        self.colorPanel?.setTarget(self)
-        self.colorPanel?.setAction(#selector(self.colorDidChange(sender:)))
-        self.colorPanel?.isContinuous = false
-        self.colorPanel?.makeKeyAndOrderFront(self)
-    
-        if let app = NSWorkspace.shared.runningApplications.filter({ app in
-            return app.bundleIdentifier == "com.sonson.HomeConMenu.macOS"
-        }).first {
-            app.activate(options: .activateIgnoringOtherApps)
-        }
-    }
-    
     func createImage() -> NSImage? {
         let view = NSView(frame: NSRect(x: 0, y: 0, width: 14, height: 14))
         view.wantsLayer = true
@@ -75,41 +30,45 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         view.layer?.backgroundColor = color.cgColor
         view.layer?.cornerRadius = 2
         
-        let image = NSImage(size: NSSize(width: 14, height: 14))
-        image.lockFocus()
-        if let ctx = NSGraphicsContext.current?.cgContext {
-            view.layer?.render(in: ctx)
-            image.unlockFocus()
+        let destinationSize = Double(14)
+        
+        let image = NSImage(size: NSSize(width: destinationSize, height: destinationSize))
+        
+        guard let icon = NSImage(systemSymbolName: "lightbulb.fill", accessibilityDescription: nil) else { return nil }
+        guard let frameIcon = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil) else { return nil }
+        
+        var width = Double(1)
+        var height = Double(1)
+        if icon.size.width > icon.size.height {
+            width = destinationSize * (icon.size.width / icon.size.height)
+            height = destinationSize
         } else {
-            return nil
+            width = destinationSize
+            height = destinationSize * (icon.size.height / icon.size.width)
         }
         
+        let x = (destinationSize - width) / 2
+        let y = (destinationSize - height) / 2
+        
+        image.lockFocus()
+        guard let ctx = NSGraphicsContext.current?.cgContext else { return nil }
+        
+        view.layer?.render(in: ctx)
+        let source = NSRect(origin: CGPoint.zero, size: icon.size)
+        
+        let destination = NSRect(x: x, y: y, width: width, height: height)
+        
+        icon.draw(in: destination, from: source, operation: .destinationIn, fraction: 1)
+        frameIcon.draw(in: destination, from: source, operation: .darken, fraction: 1)
+        image.unlockFocus()
+
         return image
     }
     
     init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
-//        guard let brightnessChara = serviceInfo.characteristics.first(where: { obj in
-//            obj.type == .brightness
-//        }) else { return nil }
-//
-//        guard let hueChara = serviceInfo.characteristics.first(where: { obj in
-//            obj.type == .hue
-//        }) else { return nil }
-//        guard let saturationChara = serviceInfo.characteristics.first(where: { obj in
-//            obj.type == .saturation
-//        }) else { return nil }
-//
-//        guard let hue = hueChara.value as? CGFloat,
-//              let saturation = saturationChara.value as? CGFloat,
-//              let brightness = brightnessChara.value as? CGFloat else { return nil }
-        
         self.mac2ios = mac2ios
-        self.accessoryName = accessoryInfo.name ?? ""
-//        self.hueCharcteristicIdentifier = hueChara.uniqueIdentifier
-//        self.saturationCharcteristicIdentifier = saturationChara.uniqueIdentifier
-//        self.brightnessCharcteristicIdentifier = brightnessChara.uniqueIdentifier
-//        self.color = NSColor(hue: hue / 360.0, saturation: saturation / 100.0, brightness: brightness / 100.0, alpha: 1.0)
-        super.init(title: "Change color", action: nil, keyEquivalent: "")
+        self.accessoryName = accessoryInfo.name ?? "unknown"
+        super.init(title: "", action: nil, keyEquivalent: "")
     }
     
     func update(hueFromHMKit: CGFloat?, saturationFromHMKit: CGFloat?, brightnessFromHMKit: CGFloat?) {
@@ -117,15 +76,14 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         let saturation = (saturationFromHMKit != nil) ?  saturationFromHMKit! / 100.0 : self.color.saturationComponent
         let brightness = (brightnessFromHMKit != nil) ?  brightnessFromHMKit! / 100.0 : self.color.brightnessComponent
         
-        self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-        self.image = createImage()
+        if let parent = self.parent {
+            self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+            parent.image = createImage()
+        }
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-        self.accessoryName = ""
-//        self.hueCharcteristicIdentifier = UUID()
-//        self.saturationCharcteristicIdentifier = UUID()
-//        self.brightnessCharcteristicIdentifier = UUID()
+        self.accessoryName = "unknown"
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     
@@ -155,82 +113,66 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     }
 }
 
-class LightBrightnessColorMenuItem: LightColorMenuItem {
+class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDelegate {
+    
     let brightnessCharcteristicIdentifier: UUID
     
-    var cp: NSColorPanel?
+    override func UUIDs() -> [UUID] {
+        return [brightnessCharcteristicIdentifier]
+    }
+    
+    override func bind(with uniqueIdentifier: UUID) -> Bool {
+        return uniqueIdentifier == brightnessCharcteristicIdentifier
+    }
     
     override init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let brightnessChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .brightness
         }) else { return nil }
         
-        guard let brightness = brightnessChara.value as? CGFloat else { return nil }
+        let brightness = brightnessChara.value as? CGFloat ?? CGFloat(100)
 
         self.brightnessCharcteristicIdentifier = brightnessChara.uniqueIdentifier
         
         super.init(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
         
-        let cp = NSColorPanel()
-        self.cp = cp
-        self.cp?.mode = .wheel
-        self.view = cp.contentView
-        
-//        let slider = NSSlider(frame: NSRect(x: 0, y: 0, width: 120, height: 33))
-//
-//        self.view = slider
-        
-//        self.color = NSColor(hue: 1.0, saturation: 1.0, brightness: brightness / 100.0, alpha: 1.0)
-//        self.action = #selector(self.changeColor(sender:))
-        self.image = createImage()
-        self.target = self
+        let view = GraySliderPanelView()
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
+        view.brightness = brightness / 100
+        self.view = view
+        view.isContinuous = false
+        view.delegate = self
     }
     
-    @objc override func colorDidChange(sender: NSColorPanel) {
-        guard let panel = sender as? CustomColorPanel else { return }
-//        sender
-        let brightness = panel.color.brightnessComponent * 100
-        
-        mac2ios?.updateColor(uniqueIdentifier: brightnessCharcteristicIdentifier, value: brightness)
-        
-        self.update(hueFromHMKit: 360.0, saturationFromHMKit: 100.0, brightnessFromHMKit: brightness)
+    func didChangeColor(brightness: Double) {
+        let brightness100 = brightness * 100
+        mac2ios?.updateColor(uniqueIdentifier: brightnessCharcteristicIdentifier, value: brightness100)
+        self.update(hueFromHMKit: 0, saturationFromHMKit: 0, brightnessFromHMKit: brightness100)
     }
-    
-    @IBAction override func changeColor(sender: NSMenuItem) {
-        self.colorPanel = openColorPanel()
 
-        self.colorPanel?.mode = .gray
-        
-        self.colorPanel?.title = self.accessoryName
-        self.colorPanel?.color = self.color
-
-        self.colorPanel?.setTarget(self)
-        self.colorPanel?.setAction(#selector(self.colorDidChange(sender:)))
-        self.colorPanel?.isContinuous = false
-        self.colorPanel?.makeKeyAndOrderFront(self)
-
-        if let app = NSWorkspace.shared.runningApplications.filter({ app in
-            return app.bundleIdentifier == "com.sonson.HomeConMenu.macOS"
-        }).first {
-            app.activate(options: .activateIgnoringOtherApps)
-        }
-    }
-    
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-class LightRGBColorMenuItem: LightColorMenuItem {
+class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
+    
     let hueCharcteristicIdentifier: UUID
     let saturationCharcteristicIdentifier: UUID
     let brightnessCharcteristicIdentifier: UUID
+    
+    override func UUIDs() -> [UUID] {
+        return [hueCharcteristicIdentifier, saturationCharcteristicIdentifier, brightnessCharcteristicIdentifier]
+    }
+    
+    override func bind(with uniqueIdentifier: UUID) -> Bool {
+        return uniqueIdentifier == hueCharcteristicIdentifier || uniqueIdentifier == saturationCharcteristicIdentifier || uniqueIdentifier == brightnessCharcteristicIdentifier
+    }
     
     override init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let brightnessChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .brightness
         }) else { return nil }
-        
         guard let hueChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .hue
         }) else { return nil }
@@ -238,9 +180,9 @@ class LightRGBColorMenuItem: LightColorMenuItem {
             obj.type == .saturation
         }) else { return nil }
         
-        guard let hue = hueChara.value as? CGFloat,
-              let saturation = saturationChara.value as? CGFloat,
-              let brightness = brightnessChara.value as? CGFloat else { return nil }
+        let hue = hueChara.value as? CGFloat ?? CGFloat(0)
+        let saturation = saturationChara.value as? CGFloat ?? CGFloat(1)
+        let brightness = brightnessChara.value as? CGFloat ?? CGFloat(1)
 
         self.hueCharcteristicIdentifier = hueChara.uniqueIdentifier
         self.saturationCharcteristicIdentifier = saturationChara.uniqueIdentifier
@@ -248,56 +190,26 @@ class LightRGBColorMenuItem: LightColorMenuItem {
         
         super.init(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
         
-        let cp = CustomColorPanel()
-        cp.mode = .wheel
-        
-        
-        let v = NSColorWell(frame: NSRect(x: 0, y: 0, width: 240, height: 240))
-        
-        self.view = v
-        self.colorPanel = cp
-        
-        self.colorPanel?.setTarget(self)
-        self.colorPanel?.setAction(#selector(self.colorDidChange(sender:)))
-        self.colorPanel?.isContinuous = false
-        self.colorPanel?.makeKeyAndOrderFront(self)
-        
-//        self.color = NSColor(hue: hue / 360.0, saturation: saturation / 100.0, brightness: brightness / 100.0, alpha: 1.0)
-//        self.action = #selector(self.changeColor(sender:))
-//        self.image = createImage()
-//        self.target = self
+        let view = ColorWheelPanelView()
+        view.isContinuous = false
+        view.delegate = self
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 220)
+        view.hue = hue / 360.0
+        view.saturation = saturation / 100.0
+        view.brightness = brightness / 100.0
+        self.view = view
     }
     
-    @objc override func colorDidChange(sender: NSColorPanel) {
-        guard let panel = sender as? CustomColorPanel else { return }
+    func didChangeColor(hue: Double, saturation: Double, brightness: Double) {
+        let hue360 = hue * 360.0
+        let saturation100 = saturation * 100
+        let brightness100 = brightness * 100
         
-        let hue = panel.color.hueComponent * 360.0
-        let saturation = panel.color.saturationComponent * 100
-        let brightness = panel.color.brightnessComponent * 100
+        mac2ios?.updateColor(uniqueIdentifier: hueCharcteristicIdentifier, value: hue360)
+        mac2ios?.updateColor(uniqueIdentifier: saturationCharcteristicIdentifier, value: saturation100)
+        mac2ios?.updateColor(uniqueIdentifier: brightnessCharcteristicIdentifier, value: brightness100)
         
-        mac2ios?.updateColor(uniqueIdentifier: hueCharcteristicIdentifier, value: hue)
-        mac2ios?.updateColor(uniqueIdentifier: saturationCharcteristicIdentifier, value: saturation)
-        mac2ios?.updateColor(uniqueIdentifier: brightnessCharcteristicIdentifier, value: brightness)
-        
-        self.update(hueFromHMKit: hue, saturationFromHMKit: saturation, brightnessFromHMKit: brightness)
-    }
-    
-    @IBAction override func changeColor(sender: NSMenuItem) {
-        self.colorPanel = openColorPanel()
-
-        self.colorPanel?.title = self.accessoryName
-        self.colorPanel?.color = self.color
-
-        self.colorPanel?.setTarget(self)
-        self.colorPanel?.setAction(#selector(self.colorDidChange(sender:)))
-        self.colorPanel?.isContinuous = false
-        self.colorPanel?.makeKeyAndOrderFront(self)
-
-        if let app = NSWorkspace.shared.runningApplications.filter({ app in
-            return app.bundleIdentifier == "com.sonson.HomeConMenu.macOS"
-        }).first {
-            app.activate(options: .activateIgnoringOtherApps)
-        }
+        self.update(hueFromHMKit: hue360, saturationFromHMKit: saturation100, brightnessFromHMKit: brightness100)
     }
     
     required init(coder: NSCoder) {

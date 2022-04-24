@@ -42,7 +42,8 @@ class PowerMenuItem: NSMenuItem, MenuItemFromUUID {
         if let name = nameChara.value as? String {
             super.init(title: name, action: nil, keyEquivalent: "")
         } else {
-            super.init(title: "", action: nil, keyEquivalent: "")
+            
+            super.init(title: accessoryInfo.name ?? "Unknown", action: nil, keyEquivalent: "")
         }
         if let number = powerStateChara.value as? Int {
             self.state = (number == 0) ? .off : .on

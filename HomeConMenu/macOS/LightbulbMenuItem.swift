@@ -43,7 +43,7 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         if let name = nameChara.value as? String {
             super.init(title: name, action: nil, keyEquivalent: "")
         } else {
-            super.init(title: "", action: nil, keyEquivalent: "")
+            super.init(title: accessoryInfo.name ?? "No name", action: nil, keyEquivalent: "")
         }
         if let number = powerStateChara.value as? Int {
             self.state = (number == 0) ? .off : .on
@@ -57,10 +57,11 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         self.action = #selector(PowerMenuItem.toggle(sender:))
         self.target = self
         
-        if let lightColorMenuItem = LightColorMenuItem.item(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios) {
+        if let lightColorMenuItem = LightColorMenuItem.item(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {
             let subMenu = NSMenu()
             subMenu.addItem(lightColorMenuItem)
             self.submenu = subMenu
+//            lightColorMenuItem.update(hueFromHMKit: <#T##CGFloat?#>, saturationFromHMKit: <#T##CGFloat?#>, brightnessFromHMKit: <#T##CGFloat?#>)
         }
     }
     

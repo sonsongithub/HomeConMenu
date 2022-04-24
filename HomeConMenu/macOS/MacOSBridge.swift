@@ -15,7 +15,8 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
         
     func menuWillOpen(_ menu: NSMenu) {
-        let uuids = mainMenu.items.compactMap({ item in
+        let items = NSMenu.getSubItems(menu: menu)
+        let uuids = items.compactMap({ item in
             item as? MenuItemFromUUID
         }).map({ item in
             item.UUIDs()
@@ -41,12 +42,17 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
         
+        let items = NSMenu.getSubItems(menu: mainMenu)
+        
         // まずここで候補のメニューアイテムを全部列挙する
-        guard let item = mainMenu.items.compactMap({ item in
+        guard let item = items.compactMap({ item in
             item as? MenuItemFromUUID
         }).filter ({ item in
             item.bind(with: chracteristicInfo.uniqueIdentifier)
         }).first else { return }
+        
+        print(item)
+        print("\(chracteristicInfo.type)")
         
         // forで全部のmenuitemに更新を適応
         switch (item, chracteristicInfo.value, chracteristicInfo.type) {
@@ -131,9 +137,12 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         // room
         for room in rooms {
+            var buffer: [NSMenuItem] = []
             let roomNameItem = NSMenuItem()
             roomNameItem.title = room.name ?? ""
-            mainMenu.addItem(roomNameItem)
+                
+            buffer.append(roomNameItem)
+            
             for info in accessories {
                 if info.room?.uniqueIdentifier == room.uniqueIdentifier {
                     var items: [NSMenuItem?] = []
@@ -143,15 +152,25 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
                         NSMenuItem.HomeMenus(accessoryInfo: info, serviceInfo: serviceInfo, mac2ios: iosListener)
                     }.flatMap({$0}))
                     
-                    var candidates = items.compactMap({$0})
-                    for item in candidates {
-                        mainMenu.addItem(item)
-                    }
+                    let candidates = items.compactMap({$0})
+                    buffer.append(contentsOf: candidates)
                 }
             }
-            mainMenu.addItem(NSMenuItem.separator())
+            if  buffer.count > 1 {
+                for menuItem in buffer {
+                    mainMenu.addItem(menuItem)
+                }
+                mainMenu.addItem(NSMenuItem.separator())
+            }
         }
         
+        let abouItem = NSMenuItem()
+        abouItem.title = "About HomeConMenu"
+        abouItem.action = #selector(MacOSBridge.about(sender:))
+        abouItem.target = self
+        mainMenu.addItem(abouItem)
+        
+        mainMenu.addItem(NSMenuItem.separator())
         
         let menuItem = NSMenuItem()
         menuItem.title = "Quit HomeConMenu"

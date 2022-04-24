@@ -38,6 +38,7 @@
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
 		14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A462811664000BC41BD /* CameraMenuItem.swift */; };
@@ -131,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +257,8 @@
 				142DE09927E8B931006CBAFE /* PBXTargetDependency */,
 			);
 			name = HomeConMenu;
+			packageProductDependencies = (
+			);
 			productName = HomeConMenu;
 			productReference = 142DE06827E8B80E006CBAFE /* HomeConMenu.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +276,9 @@
 			dependencies = (
 			);
 			name = macOSBridge;
+			packageProductDependencies = (
+				14746C4B2813C1BE00666682 /* ColorWheelPanelView */,
+			);
 			productName = macOSBridge;
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
 			productType = "com.apple.product-type.bundle";
@@ -304,6 +311,9 @@
 				ja,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
+			packageReferences = (
+				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
+			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -706,6 +716,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sonsongithub/ColorWheelPanelView";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14746C4B2813C1BE00666682 /* ColorWheelPanelView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;
+			productName = ColorWheelPanelView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 142DE06027E8B80E006CBAFE /* Project object */;
 }

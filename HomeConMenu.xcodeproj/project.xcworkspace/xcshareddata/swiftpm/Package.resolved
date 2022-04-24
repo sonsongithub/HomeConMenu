@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "colorwheelpanelview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sonsongithub/ColorWheelPanelView",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0cdfd06d1f950d06d69fe0ddc96cdefe650e0f11"
+      }
+    }
+  ],
+  "version" : 2
+}

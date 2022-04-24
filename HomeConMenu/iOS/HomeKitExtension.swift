@@ -81,6 +81,17 @@ extension HMAccessory {
 //                        print(error)
 //                    }
                 }
+                
+                chara.readValue { error in
+                    if let error = error {
+                        print("\(service.name): Read Value error - \(error)")
+                    } else {
+                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                            print("\(service.name): \(chara.value)")
+                            delegate.baseManager?.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
+                        }
+                    }
+                }
             }
             info.services.append(serviceInfo)
             print("-------------------------------------")

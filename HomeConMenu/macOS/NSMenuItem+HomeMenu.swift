@@ -22,3 +22,19 @@ extension NSMenuItem {
         }
     }
 }
+
+extension NSMenu {
+    static func getSubItems(menu: NSMenu) -> [NSMenuItem] {
+        
+        var buffer: [NSMenuItem] = []
+        
+        for item in menu.items {
+            buffer.append(item)
+            if let submenu = item.submenu {
+                buffer.append(contentsOf: getSubItems(menu: submenu))
+            }
+        }
+        
+        return buffer
+    }
+}
