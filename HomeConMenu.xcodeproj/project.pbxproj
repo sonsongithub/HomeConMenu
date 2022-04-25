@@ -47,6 +47,8 @@
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
 		14AEEE3027F042AE00C87B2A /* SensorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEEE2E27F042A700C87B2A /* SensorMenu.swift */; };
+		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
+		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14AEEE2E27F042A700C87B2A /* SensorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenu.swift; sourceTree = "<group>"; };
+		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,7 @@
 				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
+				14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
@@ -323,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,15 @@
 				14A839FF280FEE5E0083EE1D /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14C0EFF92816A50B00E6C2B2 /* en */,
+				14C0EFFB2816A50E00E6C2B2 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -527,7 +543,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -567,7 +583,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -602,7 +618,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -637,7 +653,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

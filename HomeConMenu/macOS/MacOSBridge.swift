@@ -23,6 +23,29 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         iosListener?.reload(uniqueIdentifiers: uuids)
     }
     
+    func openHomeKitAuthenticationError() -> Bool {
+        let alert = NSAlert()
+
+        alert.messageText = NSLocalizedString("Authentication error", comment: "")
+        alert.informativeText = NSLocalizedString("HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app.", comment:"")
+
+        alert.alertStyle = .informational
+
+        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences.app", comment: ""))
+
+        let ret = alert.runModal()
+        switch ret {
+        case .alertSecondButtonReturn:
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
+                NSWorkspace.shared.open(url)
+            }
+            return true
+        default:
+            return false
+        }
+    }
+    
     var menuItemCount: Int {
         get {
             return mainMenu.numberOfItems
