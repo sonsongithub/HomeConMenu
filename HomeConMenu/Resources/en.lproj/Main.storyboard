@@ -72,38 +72,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmr-Rt-GzQ">
-                                <rect key="frame" x="230" y="323" width="454" height="80"/>
+                                <rect key="frame" x="230" y="323" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="oL0-Y6-e4J"/>
                                 </constraints>
-                                <string key="text">You can find "home" icon on Menu bar after launching HomeConMenu. Click this "home" icon and open the menu to control your HomeKit devices.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">You can find "home" icon on Menu bar after launching HomeConMenu. Click this "home" icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have to allow &quot;HomeConMenu.app&quot; to access your HomeKit to use this application via &quot;System Preferences.app&quot;." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDQ-uH-yjr">
-                                <rect key="frame" x="230" y="223" width="454" height="80"/>
+                                <rect key="frame" x="230" y="223" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="e0Q-rI-WEW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-CV-xVu">
-                                <rect key="frame" x="230" y="423" width="454" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-CV-xVu">
+                                <rect key="frame" x="230" y="423" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Sed-EX-vmH"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">You can not find any devices on the menu if you do not add any home devices to your "Home". You can add a HomeKit device using "Home.app" on iOS devices.</string>
-                                        <attributes>
-                                            <font key="NSFont" metaFont="menu" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <string key="text">You can not find any devices on the menu if you do not add any home devices to your "Home". You can add a HomeKit device using "Home.app" on iOS devices.</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="l9M-g8-ggI">
@@ -152,11 +146,11 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open HomeConMenu from Menu bar and then you can turn on/off switch, change the color of the lightbulb, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-uj-EpJ">
-                                <rect key="frame" x="230" y="523" width="454" height="80"/>
+                                <rect key="frame" x="230" y="523" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="hZL-AE-Vsx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -164,18 +158,17 @@
                         <viewLayoutGuide key="safeArea" id="98j-L5-lux"/>
                         <constraints>
                             <constraint firstItem="gLQ-BY-Mpy" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="2eD-Ry-zDb"/>
-                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="KDQ-uH-yjr" secondAttribute="trailing" constant="20" id="4DY-Ox-lJ2"/>
                             <constraint firstItem="KDQ-uH-yjr" firstAttribute="leading" secondItem="gLQ-BY-Mpy" secondAttribute="trailing" constant="10" id="4GJ-rV-Ybw"/>
                             <constraint firstItem="gLQ-BY-Mpy" firstAttribute="top" secondItem="1nS-xe-LYs" secondAttribute="bottom" constant="20" id="64x-BB-GIb"/>
                             <constraint firstItem="1nS-xe-LYs" firstAttribute="centerX" secondItem="0Ye-4i-4NL" secondAttribute="centerX" id="6zd-yv-tUZ"/>
                             <constraint firstItem="i1Z-oA-yZR" firstAttribute="centerX" secondItem="0Ye-4i-4NL" secondAttribute="centerX" id="7Jz-U3-nhr"/>
                             <constraint firstItem="ZhX-yF-rMA" firstAttribute="top" secondItem="gLQ-BY-Mpy" secondAttribute="bottom" constant="20" id="8G5-rk-B1Z"/>
-                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="MXb-CV-xVu" secondAttribute="trailing" constant="20" id="CXE-ZM-1Ul"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="MXb-CV-xVu" secondAttribute="trailing" constant="25" id="CXE-ZM-1Ul"/>
                             <constraint firstItem="l9M-g8-ggI" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="Gbp-eX-f47"/>
                             <constraint firstItem="SqV-de-wSW" firstAttribute="top" secondItem="98j-L5-lux" secondAttribute="top" constant="20" id="HMQ-4I-3Se"/>
-                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="kmr-Rt-GzQ" secondAttribute="trailing" constant="20" id="Jwg-jv-6D7"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="kmr-Rt-GzQ" secondAttribute="trailing" constant="25" id="Jwg-jv-6D7"/>
                             <constraint firstItem="MXb-CV-xVu" firstAttribute="leading" secondItem="l9M-g8-ggI" secondAttribute="trailing" constant="10" id="LpH-AJ-q9I"/>
-                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="KDQ-uH-yjr" secondAttribute="trailing" constant="20" id="OgT-tP-PDG"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="KDQ-uH-yjr" secondAttribute="trailing" constant="25" id="OgT-tP-PDG"/>
                             <constraint firstItem="kmr-Rt-GzQ" firstAttribute="leading" secondItem="ZhX-yF-rMA" secondAttribute="trailing" constant="10" id="QO5-Rb-Si5"/>
                             <constraint firstItem="i1Z-oA-yZR" firstAttribute="top" secondItem="XLd-uj-EpJ" secondAttribute="bottom" constant="20" id="YSk-CH-Tvp"/>
                             <constraint firstItem="KDQ-uH-yjr" firstAttribute="top" secondItem="1nS-xe-LYs" secondAttribute="bottom" constant="20" id="YuM-tM-6vf"/>
@@ -184,7 +177,7 @@
                             <constraint firstItem="SqV-de-wSW" firstAttribute="centerX" secondItem="0Ye-4i-4NL" secondAttribute="centerX" id="dYP-Bv-HIw"/>
                             <constraint firstItem="XLd-uj-EpJ" firstAttribute="top" secondItem="MXb-CV-xVu" secondAttribute="bottom" constant="20" id="fni-xU-5xc"/>
                             <constraint firstItem="jZp-FN-Fh2" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="goe-pu-70z"/>
-                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="XLd-uj-EpJ" secondAttribute="trailing" constant="20" id="hMz-D0-EgG"/>
+                            <constraint firstItem="98j-L5-lux" firstAttribute="trailing" secondItem="XLd-uj-EpJ" secondAttribute="trailing" constant="25" id="hMz-D0-EgG"/>
                             <constraint firstItem="98j-L5-lux" firstAttribute="bottom" secondItem="i1Z-oA-yZR" secondAttribute="bottom" constant="20" id="iAI-Rz-mdg"/>
                             <constraint firstItem="jZp-FN-Fh2" firstAttribute="top" secondItem="l9M-g8-ggI" secondAttribute="bottom" constant="20" id="lnm-pY-NYq"/>
                             <constraint firstItem="ZhX-yF-rMA" firstAttribute="leading" secondItem="98j-L5-lux" secondAttribute="leading" constant="20" id="sL2-1V-GaU"/>

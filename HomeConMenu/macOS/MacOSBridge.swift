@@ -115,7 +115,11 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
                 }
                 mainMenu.addItem(NSMenuItem.separator())
             }
-            
+        }
+        
+        if mainMenu.items.count == 0 {
+            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
         }
         
         let abouItem = NSMenuItem()
