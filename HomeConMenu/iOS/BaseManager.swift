@@ -140,14 +140,11 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
-        if status != .authorized {
-            if let ios2mac = ios2mac {
-                if !ios2mac.openHomeKitAuthenticationError() {
-                    let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-                    userActivity.title = "default"
-                    UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-                }
-            }
+        if status.contains(.restricted) {
+            _ = ios2mac?.openHomeKitAuthenticationError()
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         ios2mac?.didUpdate()
     }
