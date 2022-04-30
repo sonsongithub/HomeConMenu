@@ -71,30 +71,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アプリを起動すると，メニューバーに家のアイコンが表示されます．この家のアイコンをクリックするとホームデバイスを制御できます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-HS-yrR">
-                                <rect key="frame" x="230" y="323" width="454" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アプリを起動すると，メニューバーに家のアイコンが表示されます．この家のアイコンをクリックするとホームデバイスを制御できます．HomeConMenuは，電源，スイッチ，電球，室温，湿度デバイスの制御，情報表示に対応しています．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-HS-yrR">
+                                <rect key="frame" x="230" y="323" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Q8F-DA-Dgr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuでホームデバイスを制御するためには，アプリにHomeKitへのアクセス権を与える必要があります．システム環境設定から，HomeConMenuにアクセス権を設定してください．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugb-4b-hrP">
-                                <rect key="frame" x="230" y="223" width="454" height="80"/>
+                                <rect key="frame" x="230" y="223" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="OoB-Gn-w97"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの&quot;Home&quot;にホームデバイスが追加されていない場合，HomeConMenuを開いても，何も表示されません．iOSのホームアプリを使って，あなたのホームデバイスを&quot;Home&quot;に追加してください．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6y-T4-DFR">
-                                <rect key="frame" x="230" y="423" width="454" height="80"/>
+                                <rect key="frame" x="230" y="423" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="EfK-s1-CVL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,11 +120,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuをメニューバーから開き，ホームデバイスを制御できます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-Mq-dEp">
-                                <rect key="frame" x="230" y="523" width="454" height="80"/>
+                                <rect key="frame" x="230" y="523" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KCE-8Y-dBo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -173,16 +173,15 @@
                             <constraint firstItem="2l7-50-inM" firstAttribute="leading" secondItem="Dot-pH-Pcd" secondAttribute="leading" constant="20" id="ghh-WX-f75"/>
                             <constraint firstItem="FFe-Oe-wpn" firstAttribute="top" secondItem="2l7-50-inM" secondAttribute="bottom" constant="20" id="hLE-K8-RhU"/>
                             <constraint firstItem="FFe-Oe-wpn" firstAttribute="leading" secondItem="Dot-pH-Pcd" secondAttribute="leading" constant="20" id="if4-pq-8gy"/>
-                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="ugb-4b-hrP" secondAttribute="trailing" constant="20" id="jM2-Sq-xch"/>
-                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="n6y-T4-DFR" secondAttribute="trailing" constant="20" id="ma6-Ei-Fz2"/>
+                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="n6y-T4-DFR" secondAttribute="trailing" constant="25" id="ma6-Ei-Fz2"/>
                             <constraint firstItem="OLx-Mq-dEp" firstAttribute="leading" secondItem="yzb-Jg-oef" secondAttribute="trailing" constant="10" id="oCY-YO-Pv6"/>
                             <constraint firstItem="yzb-Jg-oef" firstAttribute="top" secondItem="FFe-Oe-wpn" secondAttribute="bottom" constant="20" id="oap-oR-Z7M"/>
                             <constraint firstItem="YOj-FH-EiA" firstAttribute="centerX" secondItem="6hz-Aj-iU2" secondAttribute="centerX" id="sqj-aw-4U0"/>
-                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="wRu-HS-yrR" secondAttribute="trailing" constant="20" id="tDM-M0-xYf"/>
+                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="wRu-HS-yrR" secondAttribute="trailing" constant="25" id="tDM-M0-xYf"/>
                             <constraint firstItem="YOj-FH-EiA" firstAttribute="top" secondItem="SoI-8A-S3Q" secondAttribute="bottom" constant="20" id="tc6-gb-KEM"/>
-                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="OLx-Mq-dEp" secondAttribute="trailing" constant="20" id="vXV-g8-rbq"/>
+                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="OLx-Mq-dEp" secondAttribute="trailing" constant="25" id="vXV-g8-rbq"/>
                             <constraint firstItem="SoI-8A-S3Q" firstAttribute="centerX" secondItem="6hz-Aj-iU2" secondAttribute="centerX" id="wju-au-FsU"/>
-                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="ugb-4b-hrP" secondAttribute="trailing" constant="20" id="zuW-52-uiG"/>
+                            <constraint firstItem="Dot-pH-Pcd" firstAttribute="trailing" secondItem="ugb-4b-hrP" secondAttribute="trailing" constant="25" id="zuW-52-uiG"/>
                         </constraints>
                     </view>
                     <connections>

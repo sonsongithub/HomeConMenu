@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  HomeConMenu
+
+  Created by Yuichi Yoshida on 2022/04/25.
+  
+*/
+
+"Authentication error" = "認証エラー";
+"HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app." = "プライバシーの設定で，HomeConMenuにHomeKitへのアクセスが許可されていません．システム環境設定を使って，HomeConMenuにHomeKitへのアクセス権を設定してください．";
+"Open System Preferences.app" = "システム環境設定を開く";

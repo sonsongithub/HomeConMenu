@@ -44,6 +44,19 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         iosListener?.reload(uniqueIdentifiers: uuids)
     }
     
+    func openHomeKitAuthenticationError() -> Bool {
+        let alert = NSAlert()
+
+        alert.messageText = NSLocalizedString("Authentication error", comment: "")
+        alert.informativeText = NSLocalizedString("HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app.", comment:"")
+
+        alert.alertStyle = .informational
+
+        alert.addButton(withTitle: "OK")
+        let _ = alert.runModal()
+        return false
+    }
+    
     var menuItemCount: Int {
         get {
             return mainMenu.numberOfItems
@@ -122,7 +135,11 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
                 }
                 mainMenu.addItem(NSMenuItem.separator())
             }
-            
+        }
+        
+        if mainMenu.items.count == 0 {
+            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
         }
         
         let abouItem = NSMenuItem()
