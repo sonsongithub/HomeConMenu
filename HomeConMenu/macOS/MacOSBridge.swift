@@ -32,8 +32,18 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         alert.alertStyle = .informational
 
         alert.addButton(withTitle: "OK")
-        let _ = alert.runModal()
-        return false
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences.app", comment: ""))
+
+        let ret = alert.runModal()
+        switch ret {
+        case .alertSecondButtonReturn:
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
+                NSWorkspace.shared.open(url)
+            }
+            return true
+        default:
+            return false
+        }
     }
     
     var menuItemCount: Int {
