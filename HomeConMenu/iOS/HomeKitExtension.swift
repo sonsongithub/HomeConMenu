@@ -6,6 +6,9 @@
 //
 
 import HomeKit
+import os
+
+private let homekitLogger = OSLog(subsystem: "iOS", category: "HomeKit")
 
 extension HMHomeManager {
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
@@ -61,7 +64,6 @@ extension HMAccessory {
             let serviceInfo = ServiceInfo()
             serviceInfo.type = ServiceType(key: service.serviceType)
             print(service.name)
-            
             print(ServiceType(key: service.serviceType).detail())
             for chara in service.characteristics {
                 
@@ -73,12 +75,11 @@ extension HMAccessory {
                 charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
                     if let error = error {
-                        print(error)
+                        os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
                     }
                 }
             }
             info.services.append(serviceInfo)
-            print("-------------------------------------")
         }
         return info
     }

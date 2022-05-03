@@ -7,6 +7,10 @@
 
 import Foundation
 import HomeKit
+import os
+
+private let scribe = OSLog(subsystem: "iOS", category: "BaseManager")
+private let homekitLogger = OSLog(subsystem: "iOS", category: "HomeKit")
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
@@ -18,7 +22,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         guard let characteristic = self.homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
         characteristic.writeValue(value) { error in
             if let error = error {
-                print(error)
+                os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
             }
         }
     }
@@ -37,7 +41,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                     if let characteristic = characteristicInfo.characteristic as? HMCharacteristic {
                         characteristic.readValue { error in
                             if let error = error {
-                                print(error)
+                                os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
                                 characteristicInfo.enable = false
                                 self.ios2mac?.didUpdate(chracteristicInfo: characteristicInfo)
                             } else {
@@ -71,14 +75,14 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
             characteristic.readValue { error in
                 if let error = error {
-                    print(error)
+                    os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
                 } else {
                     if let value = characteristic.value as? NSNumber {
                         if value.intValue == 0 {
                             let newValue = Int(1)
                             characteristic.writeValue(newValue) { error in
                                 if let error = error {
-                                    print(error)
+                                    os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
                                 } else {
                                     let charaInfo = CharacteristicInfo(characteristic: characteristic)
                                     self.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
@@ -88,7 +92,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                             let newValue = Int(0)
                             characteristic.writeValue(newValue) { error in
                                 if let error = error {
-                                    print(error)
+                                    os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
                                 } else {
                                     let charaInfo = CharacteristicInfo(characteristic: characteristic)
                                     self.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
@@ -110,22 +114,30 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func loadPlugin() {
         let bundleFile = "macOSBridge.bundle"
-        
-    
-        guard let bundleURL = Bundle.main.builtInPlugInsURL?.appendingPathComponent(bundleFile),
-              let bundle = Bundle(url: bundleURL),
-              let pluginClass = bundle.principalClass as? iOS2Mac.Type else { return }
 
+        guard let bundleURL = Bundle.main.builtInPlugInsURL?.appendingPathComponent(bundleFile) else {
+            os_log("[com.sonson.HomeConMenu.macOS] Failed to create bundle URL.", log: scribe, type: .error)
+            return
+        }
+        guard let bundle = Bundle(url: bundleURL) else {
+            os_log("[com.sonson.HomeConMenu.macOS] Failed to load a bundle file.", log: scribe, type: .error)
+            return
+        }
+        guard let pluginClass = bundle.principalClass as? iOS2Mac.Type else {
+            os_log("[com.sonson.HomeConMenu.macOS] Failed to load the principalClass.", log: scribe, type: .error)
+            return
+        }
         ios2mac = pluginClass.init()
         ios2mac?.iosListener = self
+        os_log("[com.sonson.HomeConMenu.macOS] iOS2Mac has been loaded.", log: scribe, type: .info)
     }
     
     func accessoryDidUpdateServices(_ accessory: HMAccessory) {
-        print("accessoryDidUpdateServices")
+        os_log("[com.sonson.HomeConMenu.macOS] accessoryDidUpdateServices", log: homekitLogger, type: .info)
     }
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
-        print("didUpdateValueFor")
+        os_log("[com.sonson.HomeConMenu.macOS] accessory:service:didUpdateValueFor:characteristic:", log: scribe, type: .info)
         guard let obj = self.infoArray.first(where: { info in
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
@@ -141,10 +153,13 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
         if status.contains(.restricted) {
+            os_log("[com.sonson.HomeConMenu.macOS] HomeConMenu is not authorized to access HomeKit.", log: scribe, type: .info)
             _ = ios2mac?.openHomeKitAuthenticationError()
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        } else {
+            os_log("[com.sonson.HomeConMenu.macOS] HomeConMenu is authorized to access HomeKit.", log: scribe, type: .info)
         }
         ios2mac?.didUpdate()
     }
@@ -164,15 +179,24 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
-        print("homeManagerDidUpdatePrimaryHome")
+        os_log("[com.sonson.HomeConMenu.macOS] homeManagerDidUpdatePrimaryHome:", log: homekitLogger, type: .info)
     }
     
     func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
-        print("didUnblockAccessory")
+        os_log("[com.sonson.HomeConMenu.macOS] home:didUnblockAccessory:", log: homekitLogger, type: .info)
     }
     
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
-        guard let home = manager.primaryHome else { return }
+        os_log("[com.sonson.HomeConMenu.macOS] homeManagerDidUpdateHomes", log: homekitLogger, type: .info)
+        
+        guard let home = manager.primaryHome else {
+            os_log("[com.sonson.HomeConMenu.macOS] Any homes have not been found.", log: homekitLogger, type: .info)
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+            ios2mac?.didUpdate()
+            return
+        }
         home.delegate = self
         
         for accessory in home.accessories {

@@ -7,6 +7,9 @@
 
 import Foundation
 import AppKit
+import os
+
+private let scribe = OSLog(subsystem: "macOS", category: "MacOSBridge")
 
 class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
@@ -25,10 +28,8 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
     func openHomeKitAuthenticationError() -> Bool {
         let alert = NSAlert()
-
         alert.messageText = NSLocalizedString("Authentication error", comment: "")
         alert.informativeText = NSLocalizedString("HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app.", comment:"")
-
         alert.alertStyle = .informational
 
         alert.addButton(withTitle: "OK")
@@ -37,11 +38,13 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         let ret = alert.runModal()
         switch ret {
         case .alertSecondButtonReturn:
+            os_log("[com.sonson.HomeConMenu.macOS] Open System Preferences.app", log: scribe, type: .info)
             if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
                 NSWorkspace.shared.open(url)
             }
             return true
         default:
+            os_log("[com.sonson.HomeConMenu.macOS] Does not open System Preferences.app", log: scribe, type: .info)
             return false
         }
     }

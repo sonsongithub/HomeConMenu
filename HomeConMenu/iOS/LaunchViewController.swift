@@ -31,11 +31,6 @@ class LaunchViewController: UIViewController {
         label?.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.userDidTapLabel(tapGestureRecognizer:)))
         label?.addGestureRecognizer(tapGesture)
-        
-//        "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
     }
     
     override func viewDidAppear(_ animated: Bool) {

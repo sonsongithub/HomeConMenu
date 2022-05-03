@@ -17,14 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let uniqueIdentifier = connectionOptions.userActivities.first?.userInfo?["uniqueIdentifier"] as? UUID {
             guard let accesory = appDelegate.baseManager?.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
             
-            guard let cameraProfiles = accesory.cameraProfiles else { return }
-            
-            for profile in cameraProfiles {
-                print(profile)
-            }
-            
             guard let cameraProfile = accesory.cameraProfiles?.first else { return }
-            print(cameraProfile)
             
             let window = UIWindow(windowScene: windowScene)
             self.window = window
@@ -40,9 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
-        
         if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
-            print(vc)
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             self.window?.rootViewController = vc
@@ -90,19 +81,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // check uiscene.configuration.name, here, whether the view controller is `ViewController` or not.ｔ
-//        // dispose the window which will be opened when launchnig, here
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let activity = windowScene.userActivity
-//        switch (activity?.activityType, activity?.title) {
-//        case ("com.sonson.HomeMenu.openCamera", "default"):
-//            // default, do nothing
-//            do {}
-//        default:
-//            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: .none) { (error) in
-//                print(error)
-//            }
-//        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
