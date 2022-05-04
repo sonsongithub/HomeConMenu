@@ -26,6 +26,7 @@
 //
 
 import HomeKit
+import os
 
 extension HMHomeManager {
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
@@ -86,7 +87,6 @@ extension HMAccessory {
             let serviceInfo = ServiceInfo()
             serviceInfo.type = ServiceType(key: service.serviceType)
             print(service.name)
-            
             print(ServiceType(key: service.serviceType))
             for chara in service.characteristics {
                 
@@ -97,14 +97,14 @@ extension HMAccessory {
                 charaInfo.uniqueIdentifier = chara.uniqueIdentifier
                 charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
-//                    if let error = error {
-//                        print(error)
-//                    }
+                    if let error = error {
+                        Logger.homeKit.error("\(error.localizedDescription)")
+                    }
                 }
                 
                 chara.readValue { error in
                     if let error = error {
-                        print("\(service.name): Read Value error - \(error)")
+                        Logger.homeKit.error("\(error.localizedDescription)")
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
                             print("\(service.name): \(chara.value)")
@@ -114,7 +114,6 @@ extension HMAccessory {
                 }
             }
             info.services.append(serviceInfo)
-            print("-------------------------------------")
         }
         return info
     }

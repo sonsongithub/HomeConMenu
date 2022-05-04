@@ -27,6 +27,8 @@
 
 import Foundation
 import AppKit
+import os.log
+import os
 
 class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
@@ -44,17 +46,36 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         iosListener?.reload(uniqueIdentifiers: uuids)
     }
     
+    func openNoHomeError() {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("HomeKit error", comment: "")
+        alert.informativeText = NSLocalizedString("HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app.", comment:"")
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        _ = alert.runModal()
+    }
+    
     func openHomeKitAuthenticationError() -> Bool {
         let alert = NSAlert()
-
         alert.messageText = NSLocalizedString("Authentication error", comment: "")
         alert.informativeText = NSLocalizedString("HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app.", comment:"")
-
         alert.alertStyle = .informational
 
         alert.addButton(withTitle: "OK")
-        let _ = alert.runModal()
-        return false
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences.app", comment: ""))
+        
+        let ret = alert.runModal()
+        switch ret {
+        case .alertSecondButtonReturn:
+            Logger.app.info("Open System Preferences.app")
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
+                NSWorkspace.shared.open(url)
+            }
+            return true
+        default:
+            Logger.app.info("Does not open System Preferences.app")
+            return false
+        }
     }
     
     var menuItemCount: Int {

@@ -36,6 +36,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func centeringWindows()
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol)
     func openHomeKitAuthenticationError() -> Bool
+    func openNoHomeError()
 }
 
 @objc(mac2iOS)

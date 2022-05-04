@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'd like to hide this window, when this app has just launched. How do I do it?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-iC-27o">
-                                <rect key="frame" x="20" y="20" width="664" height="653"/>
+                                <rect key="frame" x="66" y="336" width="572" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,11 +29,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KIJ-iC-27o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Y7J-ic-SwD"/>
-                            <constraint firstAttribute="trailing" secondItem="KIJ-iC-27o" secondAttribute="trailing" constant="20" id="YP4-lf-x5D"/>
-                            <constraint firstItem="KIJ-iC-27o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="lkL-Gx-w5H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KIJ-iC-27o" secondAttribute="bottom" constant="20" id="wfC-W4-rj2"/>
-                            <constraint firstItem="KIJ-iC-27o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yYl-49-flH"/>
+                            <constraint firstItem="KIJ-iC-27o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Dj-nm-vkx"/>
+                            <constraint firstItem="KIJ-iC-27o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lTe-ps-u5X"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="200" height="372"/>
@@ -95,7 +92,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Sed-EX-vmH"/>
                                 </constraints>
-                                <string key="text">You can not find any devices on the menu if you do not add any home devices to your "Home". You can add a HomeKit device using "Home.app" on iOS devices.</string>
+                                <string key="text">You can not find any devices on the menu if you do not have any homes or add any home devices to your "Home" on your HomeKit. You can add a HomeKit device using "Home.app" on iOS devices.</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -205,7 +202,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
