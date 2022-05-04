@@ -8,8 +8,6 @@
 import HomeKit
 import os
 
-private let homekitLogger = OSLog(subsystem: "iOS", category: "HomeKit")
-
 extension HMHomeManager {
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -75,7 +73,7 @@ extension HMAccessory {
                 charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
                     if let error = error {
-                        os_log("[com.sonson.HomeConMenu.macOS] %@", log: homekitLogger, type: .error, error.localizedDescription)
+                        Logger.homeKit.error("\(error.localizedDescription)")
                     }
                 }
             }

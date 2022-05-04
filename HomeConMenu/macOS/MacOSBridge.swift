@@ -7,9 +7,8 @@
 
 import Foundation
 import AppKit
+import os.log
 import os
-
-private let scribe = OSLog(subsystem: "macOS", category: "MacOSBridge")
 
 class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
     
@@ -26,6 +25,15 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         iosListener?.reload(uniqueIdentifiers: uuids)
     }
     
+    func openNoHomeError() {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("HomeKit error", comment: "")
+        alert.informativeText = NSLocalizedString("HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app.", comment:"")
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        _ = alert.runModal()
+    }
+    
     func openHomeKitAuthenticationError() -> Bool {
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("Authentication error", comment: "")
@@ -34,17 +42,17 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
 
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: NSLocalizedString("Open System Preferences.app", comment: ""))
-
+        
         let ret = alert.runModal()
         switch ret {
         case .alertSecondButtonReturn:
-            os_log("[com.sonson.HomeConMenu.macOS] Open System Preferences.app", log: scribe, type: .info)
+            Logger.app.info("Open System Preferences.app")
             if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
                 NSWorkspace.shared.open(url)
             }
             return true
         default:
-            os_log("[com.sonson.HomeConMenu.macOS] Does not open System Preferences.app", log: scribe, type: .info)
+            Logger.app.info("Does not open System Preferences.app")
             return false
         }
     }

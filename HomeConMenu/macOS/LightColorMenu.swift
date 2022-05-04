@@ -28,7 +28,6 @@ class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
     let accessoryName: String
     
     deinit {
-        print("LightColorMenu deinit")
         self.colorPanel?.performClose(self)
     }
     
@@ -105,23 +104,6 @@ class LightColorMenu: NSMenuItem, NSWindowDelegate, MenuFromUUID {
         
         return image
     }
-    
-//    init(accessoryName: String,
-//         hueCharcteristicIdentifier: UUID,
-//         saturationCharcteristicIdentifier: UUID,
-//         brightnessCharcteristicIdentifier: UUID,
-//         hue: CGFloat,
-//         saturation: CGFloat,
-//         brightness: CGFloat
-//    ) {
-//        self.accessoryName = accessoryName
-//        self.hueCharcteristicIdentifier = hueCharcteristicIdentifier
-//        self.saturationCharcteristicIdentifier = saturationCharcteristicIdentifier
-//        self.brightnessCharcteristicIdentifier = brightnessCharcteristicIdentifier
-//        self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-//        super.init(title: "Change color", action: nil, keyEquivalent: "")
-//        self.image = createImage()
-//    }
     
     init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let hueChara = serviceInfo.characteristics.first(where: { obj in
