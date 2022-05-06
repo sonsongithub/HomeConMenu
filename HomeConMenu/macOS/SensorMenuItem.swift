@@ -66,7 +66,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol) {
+    init?(serviceInfo: ServiceInfoProtocol) {
         
         func decideType(serviceInfo: ServiceInfoProtocol) -> (CharacteristicInfoProtocol, SensorType)? {
             if serviceInfo.type == .humiditySensor {

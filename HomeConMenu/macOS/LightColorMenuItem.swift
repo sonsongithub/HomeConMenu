@@ -32,8 +32,6 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     var color = NSColor.white
     var mac2ios: mac2iOS?
     
-    let accessoryName: String
-    
     func UUIDs() -> [UUID] {
         return []
     }
@@ -84,9 +82,8 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         return image
     }
     
-    init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
+    init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         self.mac2ios = mac2ios
-        self.accessoryName = accessoryInfo.name
         super.init(title: "", action: nil, keyEquivalent: "")
     }
     
@@ -102,7 +99,6 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-        self.accessoryName = "unknown"
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     
@@ -110,7 +106,7 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         fatalError("init(coder:) has not been implemented")
     }
     
-    static func item(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> NSMenuItem? {
+    static func item(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> NSMenuItem? {
         
         let brightnessChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .brightness
@@ -123,9 +119,9 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         })
         
         if brightnessChara != nil && hueChara != nil && saturationChara != nil {
-            return LightRGBColorMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
+            return LightRGBColorMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)
         } else if brightnessChara != nil {
-            return LightBrightnessColorMenuItem(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
+            return LightBrightnessColorMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)
         }
         
         return nil
@@ -144,7 +140,7 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         return uniqueIdentifier == brightnessCharcteristicIdentifier
     }
     
-    override init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
+    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let brightnessChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .brightness
         }) else { return nil }
@@ -153,7 +149,7 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
 
         self.brightnessCharcteristicIdentifier = brightnessChara.uniqueIdentifier
         
-        super.init(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
+        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
         
         let view = GraySliderPanelView()
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
@@ -188,7 +184,7 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         return uniqueIdentifier == hueCharcteristicIdentifier || uniqueIdentifier == saturationCharcteristicIdentifier || uniqueIdentifier == brightnessCharcteristicIdentifier
     }
     
-    override init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
+    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let brightnessChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .brightness
         }) else { return nil }
@@ -207,7 +203,7 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         self.saturationCharcteristicIdentifier = saturationChara.uniqueIdentifier
         self.brightnessCharcteristicIdentifier = brightnessChara.uniqueIdentifier
         
-        super.init(accessoryInfo: accessoryInfo, serviceInfo: serviceInfo, mac2ios: mac2ios)
+        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
         
         let view = ColorWheelPanelView()
         view.isContinuous = false
