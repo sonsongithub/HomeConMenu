@@ -90,7 +90,6 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     }
         
     init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
-        //mac2ios: mac2iOS?, title: Any?, uniqueIdentifier: UUID, state: Any?, type: ServiceType) {
         guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .powerState
         }) else { return nil }

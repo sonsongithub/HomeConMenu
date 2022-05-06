@@ -38,6 +38,123 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     var serviceGroups: [ServiceGroupInfoProtocol] = []
     var rooms: [RoomInfoProtocol] = []
     
+    override init() {
+        super.init()
+        loadPlugin()
+        homeManager = HMHomeManager()
+        homeManager?.delegate = self
+    }
+    
+    func loadPlugin() {
+        let bundleFile = "macOSBridge.bundle"
+
+        guard let bundleURL = Bundle.main.builtInPlugInsURL?.appendingPathComponent(bundleFile) else {
+            Logger.app.error("Failed to create bundle URL.")
+            return
+        }
+        guard let bundle = Bundle(url: bundleURL) else {
+            Logger.app.error("Failed to load a bundle file.")
+            return
+        }
+        guard let pluginClass = bundle.principalClass as? iOS2Mac.Type else {
+            Logger.app.error("Failed to load the principalClass.")
+            return
+        }
+        macOSController = pluginClass.init()
+        macOSController?.iosListener = self
+        Logger.app.info("iOS2Mac has been loaded.")
+    }
+    
+    func accessoryDidUpdateServices(_ accessory: HMAccessory) {
+        Logger.homeKit.info("accessoryDidUpdateServices")
+        for service in accessory.services {
+            print(service.name)
+        }
+    }
+    
+    func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
+        Logger.homeKit.info("accessory:service:didUpdateValueFor:characteristic:")
+        guard let obj = self.accessories.first(where: { info in
+            return info.uniqueIdentifier == accessory.uniqueIdentifier
+        }) else { return }
+        for service in obj.services {
+            for chara in service.characteristics {
+                if chara.uniqueIdentifier == characteristic.uniqueIdentifier {
+                    chara.value = characteristic.value
+                    macOSController?.didUpdate(chracteristicInfo: chara)
+                }
+            }
+        }
+    }
+    
+    func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
+        if status.contains(.restricted) {
+            Logger.app.error("HomeConMenu is not authorized to access HomeKit.")
+            _ = macOSController?.openHomeKitAuthenticationError()
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        } else {
+            Logger.app.info("HomeConMenu is authorized to access HomeKit.")
+        }
+        macOSController?.didUpdate()
+    }
+    
+    func home(_ home: HMHome, didAdd accessory: HMAccessory) {
+        let info = accessory.convert2info(delegate: self)
+        self.accessories.append(info)
+        macOSController?.didUpdate()
+    }
+    
+    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
+        accessories.removeAll { accessoryInfo in
+            accessoryInfo.uniqueIdentifier == accessory.uniqueIdentifier
+        }
+        macOSController?.didUpdate()
+    }
+    
+    func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
+        Logger.homeKit.info("homeManagerDidUpdatePrimaryHome:")
+    }
+    
+    func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
+        Logger.homeKit.info("home:didUnblockAccessory:")
+    }
+    
+    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
+        Logger.homeKit.info("homeManagerDidUpdateHomes:")
+        
+        guard let home = manager.primaryHome else {
+            Logger.app.info("Primary home has not been found.")
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+            macOSController?.openNoHomeError()
+            macOSController?.didUpdate()
+            return
+        }
+        home.delegate = self
+        
+        home.dump()
+
+        accessories = home.accessories.map({$0.convert2info(delegate: self)})
+        serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
+        rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
+        
+        macOSController?.didUpdate()
+
+        if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        }
+        macOSController?.didUpdate()
+    }
+    
+}
+
+extension BaseManager {
+    
     func updateColor(uniqueIdentifier: UUID, value: Double) {
         guard let characteristic = self.homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
         characteristic.writeValue(value) { error in
@@ -143,116 +260,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                 }
             }
         }
-    }
-    
-    override init() {
-        super.init()
-        loadPlugin()
-        homeManager = HMHomeManager()
-        homeManager?.delegate = self
-    }
-    
-    func loadPlugin() {
-        let bundleFile = "macOSBridge.bundle"
-
-        guard let bundleURL = Bundle.main.builtInPlugInsURL?.appendingPathComponent(bundleFile) else {
-            Logger.app.error("Failed to create bundle URL.")
-            return
-        }
-        guard let bundle = Bundle(url: bundleURL) else {
-            Logger.app.error("Failed to load a bundle file.")
-            return
-        }
-        guard let pluginClass = bundle.principalClass as? iOS2Mac.Type else {
-            Logger.app.error("Failed to load the principalClass.")
-            return
-        }
-        macOSController = pluginClass.init()
-        macOSController?.iosListener = self
-        Logger.app.info("iOS2Mac has been loaded.")
-    }
-    
-    func accessoryDidUpdateServices(_ accessory: HMAccessory) {
-        Logger.homeKit.info("accessoryDidUpdateServices")
-    }
-    
-    func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
-        Logger.homeKit.info("accessory:service:didUpdateValueFor:characteristic:")
-        guard let obj = self.accessories.first(where: { info in
-            return info.uniqueIdentifier == accessory.uniqueIdentifier
-        }) else { return }
-        for service in obj.services {
-            for chara in service.characteristics {
-                if chara.uniqueIdentifier == characteristic.uniqueIdentifier {
-                    chara.value = characteristic.value
-                    macOSController?.didUpdate(chracteristicInfo: chara)
-                }
-            }
-        }
-    }
-    
-    func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
-        if status.contains(.restricted) {
-            Logger.app.error("HomeConMenu is not authorized to access HomeKit.")
-            _ = macOSController?.openHomeKitAuthenticationError()
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            Logger.app.info("HomeConMenu is authorized to access HomeKit.")
-        }
-        macOSController?.didUpdate()
-    }
-    
-    func home(_ home: HMHome, didAdd accessory: HMAccessory) {
-        let info = accessory.convert2info(delegate: self)
-        self.accessories.append(info)
-        macOSController?.didUpdate()
-    }
-    
-    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
-        accessories.removeAll { accessoryInfo in
-            accessoryInfo.uniqueIdentifier == accessory.uniqueIdentifier
-        }
-        macOSController?.didUpdate()
-    }
-    
-    func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
-        Logger.homeKit.info("homeManagerDidUpdatePrimaryHome:")
-    }
-    
-    func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
-        Logger.homeKit.info("home:didUnblockAccessory:")
-    }
-    
-    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
-        Logger.homeKit.info("homeManagerDidUpdateHomes:")
-        
-        guard let home = manager.primaryHome else {
-            Logger.app.info("Primary home has not been found.")
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-            macOSController?.openNoHomeError()
-            macOSController?.didUpdate()
-            return
-        }
-        home.delegate = self
-        
-        home.dump()
-
-        accessories = home.accessories.map({$0.convert2info(delegate: self)})
-        serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
-        rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        
-        macOSController?.didUpdate()
-
-        if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        }
-        macOSController?.didUpdate()
     }
     
     func openAbout() {
