@@ -32,7 +32,7 @@ import os
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
     var homeManager: HMHomeManager?
-    var ios2mac: iOS2Mac?
+    var macOSController: iOS2Mac?
     
     var accessories: [AccessoryInfoProtocol] = []
     var serviceGroups: [ServiceGroupInfoProtocol] = []
@@ -72,10 +72,10 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                         if let error = error {
                             Logger.homeKit.error("\(error.localizedDescription)")
                             info.enable = false
-                            self.ios2mac?.didUpdate(chracteristicInfo: info)
+                            self.macOSController?.didUpdate(chracteristicInfo: info)
                         } else {
                             info.value = char.value
-                            self.ios2mac?.didUpdate(chracteristicInfo: info)
+                            self.macOSController?.didUpdate(chracteristicInfo: info)
                             info.enable = true
                         }
                     }
@@ -125,7 +125,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                                     Logger.homeKit.error("\(error.localizedDescription)")
                                 } else {
                                     let charaInfo = CharacteristicInfo(characteristic: characteristic)
-                                    self.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
+                                    self.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                                 }
                             }
                         } else if value.intValue == 1 {
@@ -135,7 +135,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                                     Logger.homeKit.error("\(error.localizedDescription)")
                                 } else {
                                     let charaInfo = CharacteristicInfo(characteristic: characteristic)
-                                    self.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
+                                    self.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                                 }
                             }
                         }
@@ -167,8 +167,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             Logger.app.error("Failed to load the principalClass.")
             return
         }
-        ios2mac = pluginClass.init()
-        ios2mac?.iosListener = self
+        macOSController = pluginClass.init()
+        macOSController?.iosListener = self
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
@@ -185,7 +185,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             for chara in service.characteristics {
                 if chara.uniqueIdentifier == characteristic.uniqueIdentifier {
                     chara.value = characteristic.value
-                    ios2mac?.didUpdate(chracteristicInfo: chara)
+                    macOSController?.didUpdate(chracteristicInfo: chara)
                 }
             }
         }
@@ -194,27 +194,27 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
         if status.contains(.restricted) {
             Logger.app.error("HomeConMenu is not authorized to access HomeKit.")
-            _ = ios2mac?.openHomeKitAuthenticationError()
+            _ = macOSController?.openHomeKitAuthenticationError()
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         } else {
             Logger.app.info("HomeConMenu is authorized to access HomeKit.")
         }
-        ios2mac?.didUpdate()
+        macOSController?.didUpdate()
     }
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {
         let info = accessory.convert2info(delegate: self)
         self.accessories.append(info)
-        ios2mac?.didUpdate()
+        macOSController?.didUpdate()
     }
     
     func home(_ home: HMHome, didRemove accessory: HMAccessory) {
         accessories.removeAll { accessoryInfo in
             accessoryInfo.uniqueIdentifier == accessory.uniqueIdentifier
         }
-        ios2mac?.didUpdate()
+        macOSController?.didUpdate()
     }
     
     func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
@@ -233,8 +233,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-            ios2mac?.openNoHomeError()
-            ios2mac?.didUpdate()
+            macOSController?.openNoHomeError()
+            macOSController?.didUpdate()
             return
         }
         home.delegate = self
@@ -245,14 +245,14 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
         
-        ios2mac?.didUpdate()
+        macOSController?.didUpdate()
 
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
-        ios2mac?.didUpdate()
+        macOSController?.didUpdate()
     }
     
     func openAbout() {

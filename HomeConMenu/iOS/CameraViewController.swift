@@ -44,7 +44,7 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.baseManager?.ios2mac?.bringToFront()
+        appDelegate.baseManager?.macOSController?.bringToFront()
     }
 
     override func viewDidLoad() {

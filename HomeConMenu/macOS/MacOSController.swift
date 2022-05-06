@@ -29,7 +29,7 @@ import Foundation
 import AppKit
 import os
 
-class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
+class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
@@ -190,7 +190,7 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         let abouItem = NSMenuItem()
         abouItem.title = "About HomeConMenu"
-        abouItem.action = #selector(MacOSBridge.about(sender:))
+        abouItem.action = #selector(MacOSController.about(sender:))
         abouItem.target = self
         mainMenu.addItem(abouItem)
         
@@ -198,7 +198,7 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         let menuItem = NSMenuItem()
         menuItem.title = "Quit HomeConMenu"
-        menuItem.action = #selector(MacOSBridge.quit(sender:))
+        menuItem.action = #selector(MacOSController.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
     }

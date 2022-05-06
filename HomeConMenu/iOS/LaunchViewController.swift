@@ -55,17 +55,17 @@ class LaunchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            delegate.baseManager?.ios2mac?.centeringWindows()
+            delegate.baseManager?.macOSController?.centeringWindows()
         }
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.baseManager?.ios2mac?.bringToFront()
+        appDelegate.baseManager?.macOSController?.bringToFront()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         button?.tintColor = .systemBlue
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            delegate.baseManager?.ios2mac?.centeringWindows()
+            delegate.baseManager?.macOSController?.centeringWindows()
             button?.isOn = UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController")
         }
     }

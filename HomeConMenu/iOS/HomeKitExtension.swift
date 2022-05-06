@@ -150,7 +150,7 @@ extension HMAccessory {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            delegate.baseManager?.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
+                            delegate.baseManager?.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                         }
                     }
                 }

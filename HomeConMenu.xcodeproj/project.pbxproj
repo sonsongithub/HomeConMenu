@@ -33,7 +33,7 @@
 		142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */; };
 		142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
 		142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */; };
-		142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */; };
+		142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */; };
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
@@ -105,7 +105,7 @@
 		142DE0B627E8BAC2006CBAFE /* AccessoryTypeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTypeBridge.swift; sourceTree = "<group>"; };
 		142DE0B727E8BAC2006CBAFE /* AccessoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryInfo.swift; sourceTree = "<group>"; };
 		142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceInfo.swift; sourceTree = "<group>"; };
-		142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSBridge.swift; sourceTree = "<group>"; };
+		142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSController.swift; sourceTree = "<group>"; };
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */,
 				14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */,
 				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
-				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
+				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
 			);
 			path = macOS;
@@ -399,7 +399,7 @@
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
-				142DE0D427E8BAE1006CBAFE /* MacOSBridge.swift in Sources */,
+				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
@@ -656,7 +656,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSBridge;
+				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSController;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +691,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HomeConMenu/macOSBridge-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSBridge;
+				INFOPLIST_KEY_NSPrincipalClass = macOSBridge.MacOSController;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
