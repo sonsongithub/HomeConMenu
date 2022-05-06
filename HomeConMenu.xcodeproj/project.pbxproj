@@ -57,6 +57,9 @@
 		14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */; };
 		14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
+		14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
+		14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
+		14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +131,8 @@
 		14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
+		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
+		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +227,7 @@
 				142DE0B827E8BAC2006CBAFE /* ServiceInfo.swift */,
 				142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */,
 				14FA4A9C282117980002ECB8 /* Log.swift */,
+				14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */,
 				14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */,
 				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
+				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
 			);
@@ -381,6 +388,7 @@
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
+				14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */,
 				14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
@@ -404,8 +412,10 @@
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
+				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
+				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */,

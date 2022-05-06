@@ -37,6 +37,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     var accessories: [AccessoryInfoProtocol] = []
     var serviceGroups: [ServiceGroupInfoProtocol] = []
     var rooms: [RoomInfoProtocol] = []
+    var actionSets: [ActionSetInfoProtocol] = []
     
     override init() {
         super.init()
@@ -82,9 +83,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
+        actionSets = home.actionSets.map({ ActionSetInfo(actionSet: $0)})
         
-        macOSController?.didUpdate()
-
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
@@ -103,6 +103,20 @@ extension BaseManager {
             if let error = error {
                 Logger.homeKit.error("\(error.localizedDescription)")
             }
+        }
+    }
+    
+    func executeActionSet(uniqueIdentifier: UUID) {
+        guard let home = homeManager?.primaryHome else { return }
+        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
+        if !actionSet.isExecuting {
+            home.executeActionSet(actionSet) { error in
+                if let error = error {
+                    Logger.homeKit.error("\(error.localizedDescription)")
+                }
+            }
+        } else {
+            Logger.app.error("This action set has beeen already executing.")
         }
     }
     

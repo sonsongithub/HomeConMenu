@@ -136,6 +136,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         guard let accessories = self.iosListener?.accessories else { return }
         guard let serviceGroups = self.iosListener?.serviceGroups else { return }
         guard let rooms = self.iosListener?.rooms else { return }
+        guard let actionSets = self.iosListener?.actionSets else { return }
         
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
         
@@ -149,20 +150,24 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             mainMenu.addItem(NSMenuItem.separator())
         }
         
-        // group
-//        for serviceGroup in serviceGroups {
-//            for service in serviceGroup.services {
-//                print(service.name ?? "No name")
-//                print(service.type)
-//                print(service.characteristics)
-//            }
-//        }
+        if actionSets.count > 0 {
+            let titleItem = NSMenuItem()
+            titleItem.title = NSLocalizedString("Scene", comment: "")
+            mainMenu.addItem(titleItem)
+            
+            let subMenu = NSMenu()
+            titleItem.submenu = subMenu
+            for actionSet in actionSets {
+                subMenu.addItem(ActionSetMenuItem(actionSetInfo: actionSet, mac2ios: iosListener))
+            }
+            mainMenu.addItem(NSMenuItem.separator())
+        }
         
         // room
         for room in rooms {
             var buffer: [NSMenuItem] = []
             let roomNameItem = NSMenuItem()
-            roomNameItem.title = room.name ?? ""
+            roomNameItem.title = room.name
                 
             buffer.append(roomNameItem)
             

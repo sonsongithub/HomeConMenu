@@ -30,13 +30,13 @@ import Foundation
 @objc(RoomInfoProtocol)
 public protocol RoomInfoProtocol: NSObjectProtocol {
     init()
-    var name: String? { get set }
-    var uniqueIdentifier: UUID? { get set }
+    var name: String { get set }
+    var uniqueIdentifier: UUID { get set }
 }
 
 public class RoomInfo: NSObject, RoomInfoProtocol {
-    public var name: String?
-    public var uniqueIdentifier: UUID?
+    public var name: String
+    public var uniqueIdentifier: UUID
     
     public init(name: String, uniqueIdentifier: UUID) {
         self.name = name
@@ -45,5 +45,6 @@ public class RoomInfo: NSObject, RoomInfoProtocol {
     }
     
     required public override init() {
+        fatalError()
     }
 }

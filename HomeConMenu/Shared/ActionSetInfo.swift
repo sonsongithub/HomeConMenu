@@ -1,8 +1,8 @@
 //
-//  MacOSBridge.swift
-//  HomeMenu
+//  ActionSetInfo.swift
+//  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2022/05/06.
 //
 //  MIT License
 //
@@ -26,31 +26,32 @@
 //
 
 import Foundation
-@objc(iOS2Mac)
-public protocol iOS2Mac: NSObjectProtocol {
+
+#if !os(macOS)
+import HomeKit
+#endif
+
+
+@objc(ActionSetInfoProtocol)
+public protocol ActionSetInfoProtocol: NSObjectProtocol {
     init()
-    var iosListener: mac2iOS? { get set }
-    var menuItemCount: Int { get }
-    func didUpdate()
-    func bringToFront()
-    func centeringWindows()
-    func didUpdate(chracteristicInfo: CharacteristicInfoProtocol)
-    func openHomeKitAuthenticationError() -> Bool
-    func openNoHomeError()
+    var name: String { get set }
+    var uniqueIdentifier: UUID { get set }
 }
 
-@objc(mac2iOS)
-public protocol mac2iOS: NSObjectProtocol {
-    func openAbout()
-    func reload(uniqueIdentifiers: [UUID])
-    var accessories: [AccessoryInfoProtocol] { get set }
-    var serviceGroups: [ServiceGroupInfoProtocol] { get set }
-    var rooms: [RoomInfoProtocol] { get set }
-    var actionSets: [ActionSetInfoProtocol] { get set }
-    func toggleValue(uniqueIdentifier: UUID)
-    func getPowerState(uniqueIdentifier: UUID) -> Bool
-    func setPowerState(uniqueIdentifier: UUID, state: Bool)
-    func openCamera(uniqueIdentifier: UUID)
-    func updateColor(uniqueIdentifier: UUID, value: Double)
-    func executeActionSet(uniqueIdentifier: UUID)
+public class ActionSetInfo: NSObject, ActionSetInfoProtocol {
+    public var name: String
+    public var uniqueIdentifier: UUID
+    
+#if !os(macOS)
+    public init(actionSet: HMActionSet) {
+        self.name = actionSet.name
+        self.uniqueIdentifier = actionSet.uniqueIdentifier
+        super.init()
+    }
+#endif
+    
+    required public override init() {
+        fatalError()
+    }
 }
