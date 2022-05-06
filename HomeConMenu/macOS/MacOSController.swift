@@ -140,6 +140,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
         
+        let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
+        
         if serviceGroupItems.count > 0 {
             let abouItem = NSMenuItem()
             abouItem.title = NSLocalizedString("Group", comment: "")
@@ -176,7 +178,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                     var items: [NSMenuItem?] = []
                     
                     items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
-                    items.append(contentsOf: info.services.map { serviceInfo in
+                    items.append(contentsOf: info.services.filter({ !excludedServiceUUIDs.contains($0.uniqueIdentifier) })
+                        .map { serviceInfo in
                         NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
                     }.flatMap({$0}))
                     
