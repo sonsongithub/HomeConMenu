@@ -137,6 +137,18 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return }
         guard let rooms = self.iosListener?.rooms else { return }
         
+        let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
+        
+        if serviceGroupItems.count > 0 {
+            let abouItem = NSMenuItem()
+            abouItem.title = NSLocalizedString("Group", comment: "")
+            mainMenu.addItem(abouItem)
+            for item in serviceGroupItems {
+                mainMenu.addItem(item)
+            }
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+        
         // group
 //        for serviceGroup in serviceGroups {
 //            for service in serviceGroup.services {
@@ -175,12 +187,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
         }
         
-        let a = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
-        
-        for item in a {
-            mainMenu.addItem(item)
-        }
-        
         if mainMenu.items.count == 0 {
             UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
             UserDefaults.standard.synchronize()
@@ -189,7 +195,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         
         let abouItem = NSMenuItem()
-        abouItem.title = "About HomeConMenu"
+        abouItem.title = NSLocalizedString("About HomeConMenu", comment: "")
         abouItem.action = #selector(MacOSController.about(sender:))
         abouItem.target = self
         mainMenu.addItem(abouItem)
@@ -197,7 +203,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(NSMenuItem.separator())
         
         let menuItem = NSMenuItem()
-        menuItem.title = "Quit HomeConMenu"
+        menuItem.title = NSLocalizedString("Quit HomeConMenu", comment: "")
         menuItem.action = #selector(MacOSController.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
