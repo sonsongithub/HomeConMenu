@@ -1,5 +1,5 @@
 //
-//  MacOSBridge.swift
+//  MacOSController.swift
 //  macOSBridge
 //
 //  Created by Yuichi Yoshida on 2022/03/02.
