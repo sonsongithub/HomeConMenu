@@ -56,6 +56,7 @@
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */; };
 		14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */; };
+		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletMenuItem.swift; sourceTree = "<group>"; };
+		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			children = (
 				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
+				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
 				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
@@ -378,6 +381,7 @@
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
+				14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */,
 				14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,

@@ -65,66 +65,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
-    func accessoryDidUpdateServices(_ accessory: HMAccessory) {
-        Logger.homeKit.info("accessoryDidUpdateServices")
-        for service in accessory.services {
-            print(service.name)
-        }
-    }
-    
-    func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
-        Logger.homeKit.info("accessory:service:didUpdateValueFor:characteristic:")
-        guard let obj = self.accessories.first(where: { info in
-            return info.uniqueIdentifier == accessory.uniqueIdentifier
-        }) else { return }
-        for service in obj.services {
-            for chara in service.characteristics {
-                if chara.uniqueIdentifier == characteristic.uniqueIdentifier {
-                    chara.value = characteristic.value
-                    macOSController?.didUpdate(chracteristicInfo: chara)
-                }
-            }
-        }
-    }
-    
-    func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
-        if status.contains(.restricted) {
-            Logger.app.error("HomeConMenu is not authorized to access HomeKit.")
-            _ = macOSController?.openHomeKitAuthenticationError()
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            Logger.app.info("HomeConMenu is authorized to access HomeKit.")
-        }
-        macOSController?.didUpdate()
-    }
-    
-    func home(_ home: HMHome, didAdd accessory: HMAccessory) {
-        let info = accessory.convert2info(delegate: self)
-        self.accessories.append(info)
-        macOSController?.didUpdate()
-    }
-    
-    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
-        accessories.removeAll { accessoryInfo in
-            accessoryInfo.uniqueIdentifier == accessory.uniqueIdentifier
-        }
-        macOSController?.didUpdate()
-    }
-    
-    func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
-        Logger.homeKit.info("homeManagerDidUpdatePrimaryHome:")
-    }
-    
-    func home(_ home: HMHome, didUnblockAccessory accessory: HMAccessory) {
-        Logger.homeKit.info("home:didUnblockAccessory:")
-    }
-    
-    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
-        Logger.homeKit.info("homeManagerDidUpdateHomes:")
-        
-        guard let home = manager.primaryHome else {
+    func reloadAllItems() {
+        guard let home = self.homeManager?.primaryHome else {
             Logger.app.info("Primary home has not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
