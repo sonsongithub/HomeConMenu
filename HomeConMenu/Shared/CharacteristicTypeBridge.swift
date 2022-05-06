@@ -29,7 +29,7 @@
 import HomeKit
 #endif
 
-@objc(CharacteristicType)
+@objc(CharacteristicTypeBridge)
 public enum CharacteristicType: Int, CustomStringConvertible {
     case currentLightLevel    // The current light level.
     case hue    // The hue of the color used by a light.

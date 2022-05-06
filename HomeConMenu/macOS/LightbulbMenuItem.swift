@@ -50,7 +50,7 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     }
         
     init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
-        //mac2ios: mac2iOS?, title: Any?, uniqueIdentifier: UUID, state: Any?, type: ServiceType) {
+        
         guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .powerState
         }) else { return nil }
@@ -61,13 +61,9 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         if let number = powerStateChara.value as? Int {
             self.state = (number == 0) ? .off : .on
         }
-        if serviceInfo.type == .lightbulb {
-            self.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
-        } else {
-            self.image = NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
-        }
-
-        self.action = #selector(PowerMenuItem.toggle(sender:))
+        
+        self.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
+        self.action = #selector(self.toggle(sender:))
         self.target = self
         
         if let lightColorMenuItem = LightColorMenuItem.item(serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {

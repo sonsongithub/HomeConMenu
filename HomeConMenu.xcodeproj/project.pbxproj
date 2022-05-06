@@ -41,7 +41,7 @@
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
 		14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A462811664000BC41BD /* CameraMenuItem.swift */; };
-		14A06A542811664800BC41BD /* PowerMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A4A2811664000BC41BD /* PowerMenuItem.swift */; };
+		14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */; };
 		14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A452811664000BC41BD /* SensorMenuItem.swift */; };
 		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
@@ -54,6 +54,8 @@
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
+		14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */; };
+		14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +114,7 @@
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A482811664000BC41BD /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
 		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
-		14A06A4A2811664000BC41BD /* PowerMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerMenuItem.swift; sourceTree = "<group>"; };
+		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
 		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchMenuItem.swift; sourceTree = "<group>"; };
+		14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +230,9 @@
 				14A06A482811664000BC41BD /* LightbulbMenuItem.swift */,
 				14A06A472811664000BC41BD /* LightColorMenuItem.swift */,
 				14A06A492811664000BC41BD /* MenuItemFromUUID.swift */,
-				14A06A4A2811664000BC41BD /* PowerMenuItem.swift */,
+				14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */,
+				14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */,
+				14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */,
 				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSBridge.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
@@ -389,6 +395,7 @@
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				14FA4A9E282117980002ECB8 /* Log.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
+				14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -397,12 +404,13 @@
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
+				14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
 				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
-				14A06A542811664800BC41BD /* PowerMenuItem.swift in Sources */,
+				14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

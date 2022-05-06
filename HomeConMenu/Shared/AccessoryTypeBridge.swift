@@ -29,7 +29,7 @@
 import HomeKit
 #endif
 
-@objc(AccessoryType)
+@objc(AccessoryTypeBridge)
 public enum AccessoryType: Int, CustomStringConvertible {
     case lightbulb    // A lightbulb accessory.
     case outlet    // An outlet accessory.

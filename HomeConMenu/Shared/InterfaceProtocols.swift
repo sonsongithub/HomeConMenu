@@ -47,6 +47,8 @@ public protocol mac2iOS: NSObjectProtocol {
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }
     func toggleValue(uniqueIdentifier: UUID)
+    func getPowerState(uniqueIdentifier: UUID) -> Bool
+    func setPowerState(uniqueIdentifier: UUID, state: Bool)
     func openCamera(uniqueIdentifier: UUID)
     func updateColor(uniqueIdentifier: UUID, value: Double)
 }

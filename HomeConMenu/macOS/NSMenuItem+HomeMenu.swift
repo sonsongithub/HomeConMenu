@@ -29,17 +29,39 @@ import Foundation
 import AppKit
 
 extension NSMenuItem {
-    class func HomeMenus(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
+    class func HomeMenus(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
         switch serviceInfo.type {
         case .humiditySensor, .temperatureSensor:
             return [SensorMenuItem(serviceInfo: serviceInfo)]
         case .lightbulb:
             return [LightbulbMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
-        case .outlet, .switch:
-            return [PowerMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+        case .switch:
+            return [SwitchMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+        case .outlet:
+            return [OutletMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
         default:
             return []
         }
+    }
+    
+    class func HomeMenus(serviceGroup: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
+        
+        let serviceTypes = Set(serviceGroup.services.map({ $0.type}))
+        
+        var buffer = Set(serviceGroup.services[0].characteristics.map({ $0.type }))
+        for service in serviceGroup.services {
+            buffer = Set(service.characteristics.map({$0.type})).intersection(buffer)
+        }
+        if buffer.contains(.powerState) && serviceTypes.contains(.outlet) {
+            return [OutletMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
+        }
+        if buffer.contains(.powerState) && serviceTypes.contains(.switch) {
+            return [SwitchMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
+        }
+        if buffer.contains(.powerState) && serviceTypes.contains(.lightbulb) {
+            return [LightGroupMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
+        }
+        return []
     }
 }
 

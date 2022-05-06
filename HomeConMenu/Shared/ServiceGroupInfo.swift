@@ -37,13 +37,14 @@ public protocol ServiceGroupInfoProtocol: NSObjectProtocol {
     var name: String { get set }
     var uniqueIdentifier: UUID { get set }
     var services: [ServiceInfoProtocol] { get set }
+    var commonCharacteristicTypes: [CharacteristicInfo] { get set }
 }
 
 public class ServiceGroupInfo: NSObject, ServiceGroupInfoProtocol {
     public var name: String
     public var uniqueIdentifier: UUID = UUID()
     public var services: [ServiceInfoProtocol] = []
-    public var commonCharacteristicTypes: [CharacteristicType] = []
+    public var commonCharacteristicTypes: [CharacteristicInfo] = []
     
     required public override init() {
         fatalError()
@@ -53,12 +54,6 @@ public class ServiceGroupInfo: NSObject, ServiceGroupInfoProtocol {
         name = serviceGroup.name
         uniqueIdentifier = serviceGroup.uniqueIdentifier
         services = serviceGroup.services.map({ ServiceInfo(service: $0) })
-        var buffer = Set(services[0].characteristics.map({ $0.type }))
-        
-        for service in services {
-            buffer = Set(service.characteristics.map({$0.type})).intersection(buffer)
-        }
-        commonCharacteristicTypes = Array(buffer)
         super.init()
     }
 #endif

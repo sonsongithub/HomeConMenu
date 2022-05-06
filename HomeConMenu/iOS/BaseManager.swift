@@ -95,6 +95,21 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
     
+    func getPowerState(uniqueIdentifier: UUID) -> Bool {
+        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return false }
+        guard let state = characteristic.value as? Bool else { return false }
+        return state
+    }
+    
+    func setPowerState(uniqueIdentifier: UUID, state: Bool) {
+        if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
+            characteristic.writeValue(state) { error in
+                if let error = error {
+                    Logger.homeKit.error("\(error.localizedDescription)")
+                }
+            }
+        }
+    }
     
     func toggleValue(uniqueIdentifier: UUID) {
         if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {

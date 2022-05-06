@@ -98,32 +98,37 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         let items = NSMenu.getSubItems(menu: mainMenu)
         
         // まずここで候補のメニューアイテムを全部列挙する
-        guard let item = items.compactMap({ item in
+        let candidates = items.compactMap({ item in
             item as? MenuItemFromUUID
         }).filter ({ item in
             item.bind(with: chracteristicInfo.uniqueIdentifier)
-        }).first else { return }
+        })
         
-        // forで全部のmenuitemに更新を適応
-        switch (item, chracteristicInfo.value, chracteristicInfo.type) {
-        case (let item as LightColorMenuItem, let value as CGFloat, .hue):
-            item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
-            item.isEnabled = chracteristicInfo.enable
-        case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
-            item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
-            item.isEnabled = chracteristicInfo.enable
-        case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
-            item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
-            item.isEnabled = chracteristicInfo.enable
-        case (let item as PowerMenuItem, let value as Int, _):
-            item.update(value: value)
-            item.isEnabled = chracteristicInfo.enable
-        case (let item as SensorMenuItem, let value, _):
-            item.update(value: value)
-            item.isEnabled = false
-        default:
-            do {}
+        for item in candidates {
+            
+            switch (item, chracteristicInfo.value, chracteristicInfo.type) {
+            case (let item as LightbulbMenuItem, let value as Int, .powerState):
+                item.update(value: value)
+            case (let item as LightColorMenuItem, let value as CGFloat, .hue):
+                item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
+                item.isEnabled = chracteristicInfo.enable
+            case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
+                item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
+                item.isEnabled = chracteristicInfo.enable
+            case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
+                item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
+                item.isEnabled = chracteristicInfo.enable
+            case (let item as ToggleMenuItem, let value as Int, _):
+                item.update(value: value)
+                item.isEnabled = chracteristicInfo.enable
+            case (let item as SensorMenuItem, let value, _):
+                item.update(value: value)
+                item.isEnabled = false
+            default:
+                do {}
+            }
         }
+        
     }
     
     func didUpdate() {
@@ -155,7 +160,7 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
                     
                     items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
                     items.append(contentsOf: info.services.map { serviceInfo in
-                        NSMenuItem.HomeMenus(accessoryInfo: info, serviceInfo: serviceInfo, mac2ios: iosListener)
+                        NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
                     }.flatMap({$0}))
                     
                     let candidates = items.compactMap({$0})
@@ -170,10 +175,10 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
             }
         }
         
-        for serviceGroup in serviceGroups {
-            let menuItem = NSMenuItem()
-            menuItem.title = serviceGroup.name
-            mainMenu.addItem(menuItem)
+        let a = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
+        
+        for item in a {
+            mainMenu.addItem(item)
         }
         
         if mainMenu.items.count == 0 {
