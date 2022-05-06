@@ -37,7 +37,7 @@ public protocol AccessoryInfoProtocol: NSObjectProtocol {
     var home: HomeInfoProtocol? { get set }
     var room: RoomInfoProtocol? { get set }
     
-    var name: String? { get set }
+    var name: String { get set }
     var uniqueIdentifier: UUID { get set }
     
     var hasCamera: Bool { get set }
@@ -51,7 +51,7 @@ public class AccessoryInfo: NSObject, AccessoryInfoProtocol {
     public var home: HomeInfoProtocol?
     public var room: RoomInfoProtocol?
     
-    public var name: String?
+    public var name: String
     public var uniqueIdentifier: UUID = UUID()
     
     public var services: [ServiceInfoProtocol] = []
@@ -60,6 +60,15 @@ public class AccessoryInfo: NSObject, AccessoryInfoProtocol {
     
     public var hasCamera: Bool = false
     
+#if !os(macOS)
+    init(accessory: HMAccessory) {
+        uniqueIdentifier = accessory.uniqueIdentifier
+        name = accessory.name
+        super.init()
+    }
+#endif
+    
     required public override init() {
+        fatalError()
     }
 }

@@ -27,7 +27,6 @@
 
 import Foundation
 import AppKit
-import os.log
 import os
 
 class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
@@ -105,9 +104,6 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
             item.bind(with: chracteristicInfo.uniqueIdentifier)
         }).first else { return }
         
-        print(item)
-        print("\(chracteristicInfo.type)")
-        
         // forで全部のmenuitemに更新を適応
         switch (item, chracteristicInfo.value, chracteristicInfo.type) {
         case (let item as LightColorMenuItem, let value as CGFloat, .hue):
@@ -130,54 +126,6 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func didUpdate2() {
-        mainMenu.removeAllItems()
-        guard let accessories = self.iosListener?.accessories else { return }
-        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
-        guard let rooms = self.iosListener?.rooms else { return }
-        
-        for info in accessories {
-            var items: [NSMenuItem?] = []
-            
-            items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
-            items.append(contentsOf: info.services.map { serviceInfo in
-                NSMenuItem.HomeMenus(accessoryInfo: info, serviceInfo: serviceInfo, mac2ios: iosListener)
-            }.flatMap({$0}))
-            
-            var candidates = items.compactMap({$0})
-            
-            if candidates.count > 0 {
-                let menuItem = NSMenuItem()
-                menuItem.isEnabled = false
-                menuItem.title = info.name ?? ""
-                candidates.insert(menuItem, at: 0)
-                for item in candidates {
-                    mainMenu.addItem(item)
-                }
-                mainMenu.addItem(NSMenuItem.separator())
-            }
-        }
-        
-        if mainMenu.items.count == 0 {
-            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
-            UserDefaults.standard.synchronize()
-        }
-        
-        let abouItem = NSMenuItem()
-        abouItem.title = "About HomeConMenu"
-        abouItem.action = #selector(MacOSBridge.about(sender:))
-        abouItem.target = self
-        mainMenu.addItem(abouItem)
-        
-        mainMenu.addItem(NSMenuItem.separator())
-        
-        let menuItem = NSMenuItem()
-        menuItem.title = "Quit HomeConMenu"
-        menuItem.action = #selector(MacOSBridge.quit(sender:))
-        menuItem.target = self
-        mainMenu.addItem(menuItem)
-    }
-    
     func didUpdate() {
         mainMenu.removeAllItems()
         guard let accessories = self.iosListener?.accessories else { return }
@@ -185,13 +133,13 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         guard let rooms = self.iosListener?.rooms else { return }
         
         // group
-        for serviceGroup in serviceGroups {
-            for service in serviceGroup.services {
-                print(service.name)
-                print(service.type)
-                print(service.characteristics)
-            }
-        }
+//        for serviceGroup in serviceGroups {
+//            for service in serviceGroup.services {
+//                print(service.name ?? "No name")
+//                print(service.type)
+//                print(service.characteristics)
+//            }
+//        }
         
         // room
         for room in rooms {
@@ -224,8 +172,15 @@ class MacOSBridge: NSObject, iOS2Mac, NSMenuDelegate {
         
         for serviceGroup in serviceGroups {
             let menuItem = NSMenuItem()
-            menuItem.title = serviceGroup.name ?? "no name"
+            menuItem.title = serviceGroup.name
             mainMenu.addItem(menuItem)
+        }
+        
+        if mainMenu.items.count == 0 {
+            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
+        } else {
+            mainMenu.addItem(NSMenuItem.separator())
         }
         
         let abouItem = NSMenuItem()

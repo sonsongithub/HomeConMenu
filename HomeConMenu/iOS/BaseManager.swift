@@ -49,26 +49,34 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func reload(uniqueIdentifiers: [UUID]) {
         
-        let characteristics = self.accessories
+        let characteristicsInfo = self.accessories
             .map({$0.services})
             .flatMap({$0})
             .map({$0.characteristics})
             .flatMap({$0})
         
+        guard let home = self.homeManager?.primaryHome else { return }
+        
+        let chars: [HMCharacteristic] = home.accessories
+            .map({ $0.services })
+            .flatMap({ $0 })
+            .map({ $0.characteristics })
+            .flatMap({ $0 })
+        
         for uniqueIdentifier in uniqueIdentifiers {
-            for characteristicInfo in characteristics {
-                if characteristicInfo.uniqueIdentifier == uniqueIdentifier {
-                    if let characteristic = characteristicInfo.characteristic as? HMCharacteristic {
-                        characteristic.readValue { error in
-                            if let error = error {
-                                Logger.homeKit.error("\(error.localizedDescription)")
-                                characteristicInfo.enable = false
-                                self.ios2mac?.didUpdate(chracteristicInfo: characteristicInfo)
-                            } else {
-                                characteristicInfo.value = characteristic.value
-                                self.ios2mac?.didUpdate(chracteristicInfo: characteristicInfo)
-                                characteristicInfo.enable = true
-                            }
+            for char in chars {
+                guard let info = characteristicsInfo.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { continue }
+                
+                if char.uniqueIdentifier == uniqueIdentifier {
+                    char.readValue { error in
+                        if let error = error {
+                            Logger.homeKit.error("\(error.localizedDescription)")
+                            info.enable = false
+                            self.ios2mac?.didUpdate(chracteristicInfo: info)
+                        } else {
+                            info.value = char.value
+                            self.ios2mac?.didUpdate(chracteristicInfo: info)
+                            info.enable = true
                         }
                     }
                 }
@@ -215,6 +223,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             return
         }
         home.delegate = self
+        
+        home.dump()
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})

@@ -54,17 +54,10 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .powerState
         }) else { return nil }
-        guard let nameChara = serviceInfo.characteristics.first(where: { obj in
-            obj.type == .name
-        }) else { return nil }
         
         self.mac2ios = mac2ios
         self.powerCharacteristicIdentifier = powerStateChara.uniqueIdentifier
-        if let name = nameChara.value as? String {
-            super.init(title: name, action: nil, keyEquivalent: "")
-        } else {
-            super.init(title: accessoryInfo.name ?? "No name", action: nil, keyEquivalent: "")
-        }
+        super.init(title: serviceInfo.name, action: nil, keyEquivalent: "")
         if let number = powerStateChara.value as? Int {
             self.state = (number == 0) ? .off : .on
         }

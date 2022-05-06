@@ -28,6 +28,13 @@
 import HomeKit
 import os
 
+extension HMCharacteristic {
+    public var descriptionType: String {
+        let info = CharacteristicInfo(characteristic: self)
+        return info.type.description
+    }
+}
+
 extension HMHomeManager {
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -66,36 +73,72 @@ extension HMHomeManager {
     }
 }
 
+extension HMHome {
+    func dump() {
+        for accessory in self.accessories {
+            print("Accessory: \(accessory.name)")
+            for service in accessory.services {
+                print("    Service: \(service.name) \(service.uniqueIdentifier.uuidString)")
+                for chara in service.characteristics {
+                    print("        Characteristics: \(chara.descriptionType)")
+                    switch chara.value {
+                    case let value as String:
+                        print("        Value: \(value)")
+                    case let value as NSNumber:
+                        print("        Value: \(value)")
+                    default:
+                        print("        Value: Unexpected type")
+                    }
+                }
+            }
+        }
+        
+        for serviceGroup in self.serviceGroups {
+            print("Service group: \(serviceGroup.name)")
+            for service in serviceGroup.services {
+                print("    Service: \(service.name)")
+                for chara in service.characteristics {
+                    print("        Characteristics: \(chara.descriptionType)")
+                    switch chara.value {
+                    case let value as String:
+                        print("        Value: \(value)")
+                    case let value as NSNumber:
+                        print("        Value: \(value)")
+                    default:
+                        print("        Value: Unexpected type")
+                    }
+                }
+            }
+        }
+        
+        for actionSet in  self.actionSets {
+            print("Scene: \(actionSet.name)")
+        }
+    }
+}
+
 extension HMAccessory {
     func convert2info(delegate: HMAccessoryDelegate) -> AccessoryInfo {
         
         self.delegate = delegate
     
-        let info = AccessoryInfo()
+        let info = AccessoryInfo(accessory: self)
         
         if let room = self.room {
             info.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
         }
-    
-        info.name = self.name
-        info.uniqueIdentifier = self.uniqueIdentifier
         
         if let cameraProfiles = self.cameraProfiles {
             info.hasCamera = (cameraProfiles.count > 0)
         }
         for service in self.services {
-            let serviceInfo = ServiceInfo()
-            serviceInfo.type = ServiceType(key: service.serviceType)
-            print(service.name)
-            print(ServiceType(key: service.serviceType))
+            let serviceInfo = ServiceInfo(service: service)
             for chara in service.characteristics {
                 
-                let charaInfo = CharacteristicInfo()
+                let charaInfo = CharacteristicInfo(characteristic: chara)
                 charaInfo.type = CharacteristicType(key: chara.characteristicType)
-                serviceInfo.characteristics.append(charaInfo)
-                charaInfo.value = chara.value
                 charaInfo.uniqueIdentifier = chara.uniqueIdentifier
-                charaInfo.characteristic = chara
+//                charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
                     if let error = error {
                         Logger.homeKit.error("\(error.localizedDescription)")
@@ -107,7 +150,6 @@ extension HMAccessory {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            print("\(service.name): \(chara.value)")
                             delegate.baseManager?.ios2mac?.didUpdate(chracteristicInfo: charaInfo)
                         }
                     }

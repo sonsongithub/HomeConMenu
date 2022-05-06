@@ -32,7 +32,6 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     var color = NSColor.white
     var mac2ios: mac2iOS?
     
-    var colorPanel: CustomColorPanel?
     let accessoryName: String
     
     func UUIDs() -> [UUID] {
@@ -87,7 +86,7 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     
     init?(accessoryInfo: AccessoryInfoProtocol, serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         self.mac2ios = mac2ios
-        self.accessoryName = accessoryInfo.name ?? "unknown"
+        self.accessoryName = accessoryInfo.name
         super.init(title: "", action: nil, keyEquivalent: "")
     }
     

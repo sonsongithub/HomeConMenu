@@ -45,5 +45,6 @@ public class HomeInfo: NSObject, HomeInfoProtocol {
     }
     
     required public override init() {
+        fatalError()
     }
 }
