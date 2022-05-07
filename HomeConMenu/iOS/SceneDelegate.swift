@@ -81,6 +81,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         hostingController.view.backgroundColor = .clear
         hostingController.view.isOpaque = false
         
+        windowScene.title = NSLocalizedString("Preferences", comment: "")
         window.rootViewController = hostingController
         self.window?.makeKeyAndVisible()
     }
