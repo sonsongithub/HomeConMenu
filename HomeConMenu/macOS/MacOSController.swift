@@ -106,7 +106,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         })
         
         for item in candidates {
-            
             switch (item, chracteristicInfo.value, chracteristicInfo.type) {
             case (let item as LightbulbMenuItem, let value as Int, .powerState):
                 item.update(value: value)
@@ -129,7 +128,20 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 do {}
             }
         }
+    }
+
+    func updateScene(UUIDs: [UUID], status: [Bool]) {
+        guard UUIDs.count == status.count else { return }
+        let items = NSMenu.getSubItems(menu: mainMenu)
+        let actionSetMenuItems = items.compactMap({ $0 as? ActionSetMenuItem })
         
+        for (uuid, flag) in zip(UUIDs, status) {
+            if let item = actionSetMenuItems.first(where: { item in
+                item.uniqueIdentifier == uuid
+            }) {
+                item.state = flag ? .on : .off
+            }
+        }
     }
     
     func didUpdate() {
@@ -140,8 +152,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         guard let actionSets = self.iosListener?.actionSets else { return }
         
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
-        
-        
+    
         let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
         
         let allowDuplicatingServices = UserDefaults.standard.bool(forKey: "allowDuplicatingServices")
@@ -161,6 +172,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             if actionSets.count > 0 {
                 let titleItem = NSMenuItem()
                 titleItem.title = NSLocalizedString("Scene", comment: "")
+                titleItem.image = NSImage(systemSymbolName: "moon.stars", accessibilityDescription: nil)
                 mainMenu.addItem(titleItem)
                 
                 let subMenu = NSMenu()
@@ -177,6 +189,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             var buffer: [NSMenuItem] = []
             let roomNameItem = NSMenuItem()
             roomNameItem.title = room.name
+            roomNameItem.image = NSImage(systemSymbolName: "square.split.bottomrightquarter", accessibilityDescription: nil)
                 
             buffer.append(roomNameItem)
             

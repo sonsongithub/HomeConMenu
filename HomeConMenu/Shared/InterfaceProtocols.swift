@@ -38,6 +38,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
     var isOpenedPreference: Bool { get set }
+    func updateScene(UUIDs: [UUID], status: [Bool])
 }
 
 @objc(mac2iOS)

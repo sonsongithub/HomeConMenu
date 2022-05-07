@@ -48,14 +48,6 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     
     func update(enable: Bool) {
         self.isEnabled = enable
-//        switch (self.type, value) {
-//        case (.temperature, let value as NSNumber):
-//            self.title = "\(value.floatValue)℃"
-//        case (.humidity, let value as NSNumber):
-//            self.title = "\(value.floatValue)%"
-//        default:
-//            self.title = "unsupported"
-//        }
     }
 
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {

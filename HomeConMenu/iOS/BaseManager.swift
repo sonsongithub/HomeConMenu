@@ -66,6 +66,29 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
+    func reloadSceneStatus() {
+        guard let home = self.homeManager?.primaryHome else { return }
+        
+        let results: [(UUID, Bool)] = home.actionSets.filter({ $0.isHomeKitScene }).map { actionSet in
+            let writeActions = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> })
+            
+            let status = writeActions.reduce(true) { partialResult, writeAction in
+                switch (writeAction.targetValue, writeAction.characteristic.value) {
+                case (let targetValue as Int, let currentValue as Int):
+                    return partialResult && (targetValue == currentValue)
+                default:
+                    return false
+                }
+            }
+            return (actionSet.uniqueIdentifier, status)
+        }
+        
+        let UUIDs = results.map({$0.0})
+        let status = results.map({$0.1})
+        
+        self.macOSController?.updateScene(UUIDs: UUIDs, status: status)
+    }
+    
     func reloadAllItems() {
         guard let home = self.homeManager?.primaryHome else {
             Logger.app.info("Primary home has not been found.")
@@ -83,7 +106,23 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        actionSets = home.actionSets.map({ ActionSetInfo(actionSet: $0)})
+        
+        for actionSet in home.actionSets {
+            print("-----------------------")
+            print(actionSet.name)
+            print(actionSet.isHomeKitScene)
+            for action in actionSet.actions {
+                if let a = action as? HMCharacteristicWriteAction<NSCopying> {
+                    print("can cast")
+                } else {
+                    print("can not cast")
+                }
+            }
+        }
+        
+        actionSets = home.actionSets.filter({ actionSet in
+            actionSet.isHomeKitScene
+        }).map({ ActionSetInfo(actionSet: $0)})
         
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
@@ -91,6 +130,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         macOSController?.didUpdate()
+        reloadSceneStatus()
     }
     
 }

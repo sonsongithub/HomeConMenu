@@ -84,6 +84,7 @@ extension BaseManager {
                 }
             }
         }
+        reloadSceneStatus()
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {

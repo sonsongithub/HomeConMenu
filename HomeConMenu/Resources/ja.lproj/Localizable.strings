@@ -10,10 +10,11 @@
 "HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app." = "プライバシーの設定で，HomeConMenuにHomeKitへのアクセスが許可されていません．システム環境設定を使って，HomeConMenuにHomeKitへのアクセス権を設定してください．";
 "Open System Preferences.app" = "システム環境設定を開く";
 "Group" = "グループ";
+"Scene" = "シーン";
 "About HomeConMenu" = "HomeConMenuについて";
 "Quit HomeConMenu" = "HomeConMenuを終了";
 "Preferences..." = "環境設定...";
 "Do not show welcome message when launching" = "起動時にウェルカムメッセージを表示しない";
-"Allow duplicate services to be displayed" = "グループに登録されたサービスは表示しない";
+"Allow duplicate services to be displayed" = "グループに登録されているサービスも表示する";
 "Use scenes" = "シーンを利用する";
 "Preferences" = "環境設定";

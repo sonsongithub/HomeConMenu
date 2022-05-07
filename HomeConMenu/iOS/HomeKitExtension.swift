@@ -113,6 +113,22 @@ extension HMHome {
         
         for actionSet in  self.actionSets {
             print("Scene: \(actionSet.name)")
+            for action in actionSet.actions {
+                if let a = action as? HMCharacteristicWriteAction<NSCopying> {
+                    print(a)
+                    print(a.characteristic)
+                    print(a.characteristic.value)
+                    print(a.targetValue)
+                }
+            }
+        }
+    }
+}
+
+extension HMActionSet {
+    var isHomeKitScene: Bool {
+        return actions.reduce(actions.count > 0) { partialResult, action in
+            return partialResult && (action is HMCharacteristicWriteAction<NSCopying>)
         }
     }
 }
