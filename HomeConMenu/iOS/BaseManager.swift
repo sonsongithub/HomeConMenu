@@ -101,7 +101,10 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         }
         home.delegate = self
         
+#if DEBUG
         home.dump()
+#else
+#endif
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
@@ -216,24 +219,15 @@ extension BaseManager {
                     Logger.homeKit.error("\(error.localizedDescription)")
                 } else {
                     if let value = characteristic.value as? NSNumber {
-                        if value.intValue == 0 {
-                            let newValue = Int(1)
+                        if value.intValue == 0 || value.intValue == 1 {
+                            let newValue = 1 - value.intValue
                             characteristic.writeValue(newValue) { error in
                                 if let error = error {
                                     Logger.homeKit.error("\(error.localizedDescription)")
                                 } else {
                                     let charaInfo = CharacteristicInfo(characteristic: characteristic)
                                     self.macOSController?.didUpdate(chracteristicInfo: charaInfo)
-                                }
-                            }
-                        } else if value.intValue == 1 {
-                            let newValue = Int(0)
-                            characteristic.writeValue(newValue) { error in
-                                if let error = error {
-                                    Logger.homeKit.error("\(error.localizedDescription)")
-                                } else {
-                                    let charaInfo = CharacteristicInfo(characteristic: characteristic)
-                                    self.macOSController?.didUpdate(chracteristicInfo: charaInfo)
+                                    self.reloadSceneStatus()
                                 }
                             }
                         }
