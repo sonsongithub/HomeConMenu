@@ -12,3 +12,8 @@
 "Group" = "グループ";
 "About HomeConMenu" = "HomeConMenuについて";
 "Quit HomeConMenu" = "HomeConMenuを終了";
+"Preferences..." = "環境設定...";
+"Do not show welcome message when launching" = "起動時にウェルカムメッセージを表示しない";
+"Allow duplicate services to be displayed" = "グループに登録されたサービスは表示しない";
+"Use scenes" = "シーンを利用する";
+"Preferences" = "環境設定";
