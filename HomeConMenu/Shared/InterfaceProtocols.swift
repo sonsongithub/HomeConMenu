@@ -37,6 +37,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol)
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
+    var isOpenedPreference: Bool { get set }
 }
 
 @objc(mac2iOS)

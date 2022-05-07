@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct PreferenceView: View {
-    
-    @State var doesNotShowLaunchViewController = false
-    @State var duplicateServices = false
-    @State var useScenes = false
-    
+
+    @ObservedObject var model = PreferenceModel()
+
     var spacer: some View {
         Spacer(minLength: 0)
             .frame(height: 32)
@@ -23,17 +21,17 @@ struct PreferenceView: View {
         VStack {
             GroupBox {
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $doesNotShowLaunchViewController) {
+                    Toggle(isOn: $model.doesNotShowLaunchViewController) {
                         Spacer(minLength: 0)
                             .frame(width: 5)
                         Text("Do not show welcome message when launching")
                     }
-                    Toggle(isOn: $duplicateServices) {
+                    Toggle(isOn: $model.allowDuplicatingServices) {
                         Spacer(minLength: 0)
                             .frame(width: 5)
                         Text("Allow duplicate services to be displayed")
                     }
-                    Toggle(isOn: $useScenes) {
+                    Toggle(isOn: $model.useScenes) {
                         Spacer(minLength: 0)
                             .frame(width: 5)
                         Text("Use scenes")
@@ -49,6 +47,11 @@ struct PreferenceView: View {
         .onAppear {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             appDelegate.baseManager?.macOSController?.bringToFront()
+        }
+        .onDisappear {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.baseManager?.macOSController?.isOpenedPreference = false
+            appDelegate.baseManager?.reloadAllItems()
         }
     }
 }

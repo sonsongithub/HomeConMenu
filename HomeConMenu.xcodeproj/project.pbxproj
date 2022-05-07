@@ -61,6 +61,7 @@
 		14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */; };
 		14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAC28256B940002ECB8 /* PreferenceView.swift */; };
+		14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB028260D730002ECB8 /* PreferenceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AAC28256B940002ECB8 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		14FA4AB028260D730002ECB8 /* PreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				14FA4AAC28256B940002ECB8 /* PreferenceView.swift */,
+				14FA4AB028260D730002ECB8 /* PreferenceModel.swift */,
 				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
 				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
@@ -379,6 +382,7 @@
 			files = (
 				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
 				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
+				14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */,
 				14FA4A9D282117980002ECB8 /* Log.swift in Sources */,
 				142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */,
 				142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,

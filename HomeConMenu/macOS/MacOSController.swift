@@ -34,6 +34,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    var isOpenedPreference = false
         
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
@@ -140,7 +141,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
         
+        
         let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
+        
+        let allowDuplicatingServices = UserDefaults.standard.bool(forKey: "allowDuplicatingServices")
+        let useScenes = UserDefaults.standard.bool(forKey: "useScenes")
         
         if serviceGroupItems.count > 0 {
             let abouItem = NSMenuItem()
@@ -152,17 +157,19 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             mainMenu.addItem(NSMenuItem.separator())
         }
         
-        if actionSets.count > 0 {
-            let titleItem = NSMenuItem()
-            titleItem.title = NSLocalizedString("Scene", comment: "")
-            mainMenu.addItem(titleItem)
-            
-            let subMenu = NSMenu()
-            titleItem.submenu = subMenu
-            for actionSet in actionSets {
-                subMenu.addItem(ActionSetMenuItem(actionSetInfo: actionSet, mac2ios: iosListener))
+        if useScenes {
+            if actionSets.count > 0 {
+                let titleItem = NSMenuItem()
+                titleItem.title = NSLocalizedString("Scene", comment: "")
+                mainMenu.addItem(titleItem)
+                
+                let subMenu = NSMenu()
+                titleItem.submenu = subMenu
+                for actionSet in actionSets {
+                    subMenu.addItem(ActionSetMenuItem(actionSetInfo: actionSet, mac2ios: iosListener))
+                }
+                mainMenu.addItem(NSMenuItem.separator())
             }
-            mainMenu.addItem(NSMenuItem.separator())
         }
         
         // room
@@ -177,11 +184,18 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 if info.room?.uniqueIdentifier == room.uniqueIdentifier {
                     var items: [NSMenuItem?] = []
                     
-                    items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
-                    items.append(contentsOf: info.services.filter({ !excludedServiceUUIDs.contains($0.uniqueIdentifier) })
-                        .map { serviceInfo in
-                        NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
-                    }.flatMap({$0}))
+                    if allowDuplicatingServices {
+                        items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
+                        items.append(contentsOf: info.services.map { serviceInfo in
+                            NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
+                        }.flatMap({$0}))
+                    } else {
+                        items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
+                        items.append(contentsOf: info.services.filter({ !excludedServiceUUIDs.contains($0.uniqueIdentifier) })
+                            .map { serviceInfo in
+                            NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
+                        }.flatMap({$0}))
+                    }
                     
                     let candidates = items.compactMap({$0})
                     buffer.append(contentsOf: candidates)
@@ -208,8 +222,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         abouItem.target = self
         mainMenu.addItem(abouItem)
         
-        mainMenu.addItem(NSMenuItem.separator())
-        
         let prefItem = NSMenuItem()
         prefItem.title = NSLocalizedString("Preferences...", comment: "")
         prefItem.action = #selector(MacOSController.preferences(sender:))
@@ -235,7 +247,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func preferences(sender: NSButton) {
-        self.iosListener?.openPreferences()
+        if !isOpenedPreference {
+            isOpenedPreference = true
+            self.iosListener?.openPreferences()
+        } else {
+            self.bringToFront()
+        }
     }
     
     @IBAction func about(sender: NSButton) {
