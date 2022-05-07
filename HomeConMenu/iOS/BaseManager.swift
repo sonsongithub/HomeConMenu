@@ -107,22 +107,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
         
-        for actionSet in home.actionSets {
-            print("-----------------------")
-            print(actionSet.name)
-            print(actionSet.isHomeKitScene)
-            for action in actionSet.actions {
-                if let a = action as? HMCharacteristicWriteAction<NSCopying> {
-                    print("can cast")
-                } else {
-                    print("can not cast")
-                }
-            }
-        }
-        
-        actionSets = home.actionSets.filter({ actionSet in
-            actionSet.isHomeKitScene
-        }).map({ ActionSetInfo(actionSet: $0)})
+        actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
         
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")

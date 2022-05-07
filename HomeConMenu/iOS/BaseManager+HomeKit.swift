@@ -65,9 +65,6 @@ extension BaseManager {
     
     func accessoryDidUpdateServices(_ accessory: HMAccessory) {
         Logger.homeKit.info(#function)
-        for service in accessory.services {
-            print(service.name)
-        }
         reloadAllItems()
     }
     

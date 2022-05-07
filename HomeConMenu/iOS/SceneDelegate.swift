@@ -71,7 +71,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         
-        let fixedSize = CGSize(width: 480, height: 320)
+        let fixedSize = CGSize(width: 480, height: 240)
         window.windowScene?.sizeRestrictions?.minimumSize = fixedSize
         window.windowScene?.sizeRestrictions?.maximumSize = fixedSize
         

@@ -113,12 +113,17 @@ extension HMHome {
         
         for actionSet in  self.actionSets {
             print("Scene: \(actionSet.name)")
+            if actionSet.isHomeKitScene {
+                print("    HomeKit Scene")
+            } else {
+                print("    ShortCut Scene(not supported)")
+            }
             for action in actionSet.actions {
-                if let a = action as? HMCharacteristicWriteAction<NSCopying> {
-                    print(a)
-                    print(a.characteristic)
-                    print(a.characteristic.value)
-                    print(a.targetValue)
+                print("    Actions")
+                if let action = action as? HMCharacteristicWriteAction<NSCopying> {
+                    print("        \(action.characteristic.descriptionType)")
+                    print("        Target value=\(action.targetValue)")
+                    print("        Current value=\(action.characteristic.value)")
                 }
             }
         }
