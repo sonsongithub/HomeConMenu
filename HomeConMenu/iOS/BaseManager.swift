@@ -217,6 +217,12 @@ extension BaseManager {
             }
         }
     }
+   
+    func openPreferences() {
+        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
+        userActivity.title = "default"
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+    }
     
     func openAbout() {
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")

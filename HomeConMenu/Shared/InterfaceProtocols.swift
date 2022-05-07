@@ -42,6 +42,7 @@ public protocol iOS2Mac: NSObjectProtocol {
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
     func openAbout()
+    func openPreferences()
     func reload(uniqueIdentifiers: [UUID])
     var accessories: [AccessoryInfoProtocol] { get set }
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }

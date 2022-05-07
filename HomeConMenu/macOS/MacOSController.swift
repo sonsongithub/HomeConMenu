@@ -210,6 +210,14 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         mainMenu.addItem(NSMenuItem.separator())
         
+        let prefItem = NSMenuItem()
+        prefItem.title = NSLocalizedString("Preferences...", comment: "")
+        prefItem.action = #selector(MacOSController.preferences(sender:))
+        prefItem.target = self
+        mainMenu.addItem(prefItem)
+        
+        mainMenu.addItem(NSMenuItem.separator())
+        
         let menuItem = NSMenuItem()
         menuItem.title = NSLocalizedString("Quit HomeConMenu", comment: "")
         menuItem.action = #selector(MacOSController.quit(sender:))
@@ -224,6 +232,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
+    }
+    
+    @IBAction func preferences(sender: NSButton) {
+        self.iosListener?.openPreferences()
     }
     
     @IBAction func about(sender: NSButton) {

@@ -26,6 +26,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -63,6 +64,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.makeKeyAndVisible()
         }
     }
+    
+    func openPreferenceView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+        let window = UIWindow(windowScene: windowScene)
+        
+        
+        self.window = window
+        
+        let fixedSize = CGSize(width: 480, height: 320)
+        window.windowScene?.sizeRestrictions?.minimumSize = fixedSize
+        window.windowScene?.sizeRestrictions?.maximumSize = fixedSize
+        
+        let contentView = PreferenceView()
+
+        let hostingController = UIHostingController(rootView: contentView)
+        hostingController.view.backgroundColor = .clear
+        hostingController.view.isOpaque = false
+        
+        window.rootViewController = hostingController
+        self.window?.makeKeyAndVisible()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -70,6 +91,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let activity = connectionOptions.userActivities.first
 
         switch (activity?.activityType, activity?.title) {
+        case ("com.sonson.HomeMenu.PreferenceView", "default"):
+            openPreferenceView(windowScene: windowScene, connectionOptions: connectionOptions)
         case ("com.sonson.HomeMenu.openCamera", "default"):
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 240)
