@@ -132,44 +132,27 @@ extension BaseManager {
         }
     }
     
-    func reload(uniqueIdentifiers: [UUID]) {
-        
-        let characteristicsInfo = self.accessories
-            .map({$0.services})
-            .flatMap({$0})
-            .map({$0.characteristics})
-            .flatMap({$0})
-        
-        guard let home = self.homeManager?.primaryHome else { return }
-        
-        let chars: [HMCharacteristic] = home.accessories
-            .map({ $0.services })
-            .flatMap({ $0 })
-            .map({ $0.characteristics })
-            .flatMap({ $0 })
-        
-        for uniqueIdentifier in uniqueIdentifiers {
-            for char in chars {
-                guard let info = characteristicsInfo.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { continue }
-                if char.uniqueIdentifier == uniqueIdentifier {
-                    char.readValue { error in
-                        if let error = error {
-                            Logger.homeKit.error("\(error.localizedDescription)")
-                            self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
-                        } else {
-                            info.value = char.value
-                            self.macOSController?.updateItems(of: uniqueIdentifier, value: char.value as Any)
-                        }
-                    }
-                }
-            }
+    func readCharacteristic(of uniqueIdentifier: UUID) {
+        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
+        Task {
+           do {
+               try await characteristic.readValue()
+               DispatchQueue.main.async {
+                   self.macOSController?.updateItems(of: uniqueIdentifier, value: characteristic.value as Any)
+               }
+           } catch {
+               Logger.homeKit.error("\(error.localizedDescription)")
+               DispatchQueue.main.async {
+                   self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
+               }
+           }
         }
     }
     
     func openCamera(uniqueIdentifier: UUID) {
         guard let accesory = self.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
         guard let cameraProfile = accesory.cameraProfiles?.first else { return }
-        guard cameraProfile.streamControl?.delegate == nil else { return }      // check wheter already camera view has been opened.
+        guard cameraProfile.streamControl?.delegate == nil else { return }
         
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.openCamera")
         userActivity.title = "default"

@@ -37,13 +37,16 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     var isOpenedPreference = false
         
     func menuWillOpen(_ menu: NSMenu) {
-//        let items = NSMenu.getSubItems(menu: menu)
-//        let uuids = items.compactMap({ item in
-//            item as? MenuItemFromUUID
-//        }).map({ item in
-//            item.UUIDs()
-//        }).flatMap({$0})
-//        iosListener?.reload(uniqueIdentifiers: uuids)
+        let items = NSMenu.getSubItems(menu: menu)
+            .compactMap({ $0 as? ErrorMenuItem})
+            .filter({ !$0.reachable })
+            .compactMap({ $0 as? MenuItemFromUUID })
+            .compactMap({ $0.UUIDs() })
+            .flatMap({ $0 })
+        
+        for uniqueIdentifider in items {
+            iosListener?.readCharacteristic(of: uniqueIdentifider)
+        }
     }
     
     func openNoHomeError() {

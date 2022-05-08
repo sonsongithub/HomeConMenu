@@ -29,7 +29,10 @@ import Cocoa
 import ColorWheelPanelView
 import os
 
-class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder {
+class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder, ErrorMenuItem {
+
+    var reachable: Bool = true
+    
     var orderPriority: Int {
         100
     }
