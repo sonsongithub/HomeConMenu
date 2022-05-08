@@ -149,9 +149,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         let useScenes = UserDefaults.standard.bool(forKey: "useScenes")
         
         if serviceGroupItems.count > 0 {
-            let abouItem = NSMenuItem()
-            abouItem.title = NSLocalizedString("Group", comment: "")
-            mainMenu.addItem(abouItem)
+            let groupItem = NSMenuItem()
+            groupItem.title = NSLocalizedString("Group", comment: "")
+            groupItem.image = NSImage(systemSymbolName: "rectangle.3.group", accessibilityDescription: nil)
+            mainMenu.addItem(groupItem)
             for item in serviceGroupItems {
                 mainMenu.addItem(item)
             }
@@ -180,8 +181,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             let roomNameItem = NSMenuItem()
             roomNameItem.title = room.name
             roomNameItem.image = NSImage(systemSymbolName: "square.split.bottomrightquarter", accessibilityDescription: nil)
-                
-            buffer.append(roomNameItem)
             
             for info in accessories {
                 if info.room?.uniqueIdentifier == room.uniqueIdentifier {
@@ -205,6 +204,14 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 }
             }
             if  buffer.count > 1 {
+                buffer = buffer.compactMap({ $0 as? MenuItemOrder })
+                    .sorted(by: { lhs, rhs in
+                        lhs.orderPriority > rhs.orderPriority
+                    })
+                    .compactMap({ $0 as? NSMenuItem })
+                
+                buffer.insert(roomNameItem, at: 0)
+                
                 for menuItem in buffer {
                     mainMenu.addItem(menuItem)
                 }

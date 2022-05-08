@@ -29,7 +29,11 @@ import Cocoa
 import ColorWheelPanelView
 import os
 
-class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
+class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder {
+    var orderPriority: Int {
+        100
+    }
+    
     var color = NSColor.white
     var mac2ios: mac2iOS?
     
@@ -162,7 +166,6 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
                 Logger.app.error("\(error.localizedDescription)")
             }
         }
-        
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
         view.brightness = brightness / 100

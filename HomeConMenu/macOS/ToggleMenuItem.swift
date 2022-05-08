@@ -28,7 +28,12 @@
 import Cocoa
 import os
 
-class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {
+class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
+    
+    var orderPriority: Int {
+        100
+    }
+    
     
     var reachable: Bool {
         didSet {

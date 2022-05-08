@@ -28,7 +28,18 @@
 import Cocoa
 import os
 
-class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {
+class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
+    var orderPriority: Int {
+        switch self.type {
+        case .temperature:
+            return 1000
+        case .humidity:
+            return 999
+        default:
+            return 0
+        }
+    }
+    
     var mac2ios: mac2iOS?
     let uniqueIdentifier: UUID
     let type: SensorType

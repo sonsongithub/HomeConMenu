@@ -36,3 +36,7 @@ protocol MenuItemFromUUID {
 protocol ErrorMenuItem {
     var reachable: Bool { get set }
 }
+
+protocol MenuItemOrder  {
+    var orderPriority: Int { get }
+}

@@ -27,7 +27,11 @@
 
 import Cocoa
 
-class CameraMenuItem: NSMenuItem, MenuItemFromUUID {
+class CameraMenuItem: NSMenuItem, MenuItemFromUUID, MenuItemOrder {
+    var orderPriority: Int {
+        -1
+    }
+    
     func UUIDs() -> [UUID] {
         [accessoryCharacteristicIdentifier]
     }
