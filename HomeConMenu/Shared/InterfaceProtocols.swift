@@ -35,15 +35,14 @@ public protocol iOS2Mac: NSObjectProtocol {
     func didUpdate()
     func bringToFront()
     func centeringWindows()
-    func didUpdate(chracteristicInfo: CharacteristicInfoProtocol)
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
     var isOpenedPreference: Bool { get set }
-    func updateScene(UUIDs: [UUID], status: [Bool])
 }
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
+    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any]
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAbout()

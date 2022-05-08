@@ -112,14 +112,14 @@ extension HMHome {
         }
         
         for actionSet in  self.actionSets {
-            print("Scene: \(actionSet.name)")
+            print("Scene: \(actionSet.name) \(actionSet.uniqueIdentifier)")
             if actionSet.isHomeKitScene {
                 print("    HomeKit Scene")
+                print("    Actions")
             } else {
                 print("    ShortCut Scene(not supported)")
             }
             for action in actionSet.actions {
-                print("    Actions")
                 if let action = action as? HMCharacteristicWriteAction<NSCopying> {
                     print("        \(action.characteristic.descriptionType)")
                     print("        Target value=\(action.targetValue)")
@@ -171,7 +171,8 @@ extension HMAccessory {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            delegate.baseManager?.macOSController?.didUpdate(chracteristicInfo: charaInfo)
+                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value)
+//                            delegate.baseManager?.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                         }
                     }
                 }

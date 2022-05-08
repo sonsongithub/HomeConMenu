@@ -87,23 +87,8 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         super.init(title: "", action: nil, keyEquivalent: "")
     }
     
-//    func update(hueFromHMKit: CGFloat?, saturationFromHMKit: CGFloat?, brightnessFromHMKit: CGFloat?) {
-//        let hue = (hueFromHMKit != nil) ?  hueFromHMKit! / 360.0 : self.color.hueComponent
-//        let saturation = (saturationFromHMKit != nil) ?  saturationFromHMKit! / 100.0 : self.color.saturationComponent
-//        let brightness = (brightnessFromHMKit != nil) ?  brightnessFromHMKit! / 100.0 : self.color.brightnessComponent
-//        
-//        if let parent = self.parent {
-//            self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-//            parent.image = createImage()
-//        }
-//    }
-    
     func update(of uniqueIdentifier: UUID, value: Double) {
         // dummy
-    }
-    
-    override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-        super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     
     required init(coder: NSCoder) {
@@ -177,7 +162,6 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
             do {}
         }
     }
-    
     
     func didChangeColor(brightness: Double) {
         let brightness100 = brightness * 100

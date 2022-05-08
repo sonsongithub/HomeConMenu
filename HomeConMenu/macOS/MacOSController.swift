@@ -109,58 +109,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 item.update(value: boolValue)
             case (let item as LightColorMenuItem, let doubleValue as Double):
                 item.update(of: uniqueIdentifier, value: doubleValue)
+            case (let item as SensorMenuItem, let doubleValue as Double):
+                item.update(value: doubleValue)
+            case (let item as ActionSetMenuItem, _):
+                item.update(enable: true)
             default:
                 do {}
-            }
-        }
-    }
-    
-    func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
-        
-        let items = NSMenu.getSubItems(menu: mainMenu)
-        
-        let candidates = items.compactMap({ item in
-            item as? MenuItemFromUUID
-        }).filter ({ item in
-            item.bind(with: chracteristicInfo.uniqueIdentifier)
-        })
-        
-        for item in candidates {
-            switch (item, chracteristicInfo.value, chracteristicInfo.type) {
-//            case (let item as LightbulbMenuItem, let value as Int, .powerState):
-//                item.update(value: value)
-//            case (let item as LightColorMenuItem, let value as CGFloat, .hue):
-//                item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
-//                item.isEnabled = chracteristicInfo.enable
-//            case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
-//                item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
-//                item.isEnabled = chracteristicInfo.enable
-//            case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
-//                item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
-//                item.isEnabled = chracteristicInfo.enable
-            case (let item as ToggleMenuItem, let value as Int, _):
-                do {}
-//                item.update(value: value)
-//                item.isEnabled = chracteristicInfo.enable
-            case (let item as SensorMenuItem, let value, _):
-                item.update(value: value)
-                item.isEnabled = false
-            default:
-                do {}
-            }
-        }
-    }
-
-    func updateScene(UUIDs: [UUID], status: [Bool]) {
-        guard UUIDs.count == status.count else { return }
-        let items = NSMenu.getSubItems(menu: mainMenu)
-        let actionSetMenuItems = items.compactMap({ $0 as? ActionSetMenuItem })
-        
-        for (uuid, flag) in zip(UUIDs, status) {
-            if let item = actionSetMenuItems.first(where: { item in
-                item.uniqueIdentifier == uuid
-            }) {
-                item.state = flag ? .on : .off
             }
         }
     }

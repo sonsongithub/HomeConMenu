@@ -32,7 +32,7 @@ extension NSMenuItem {
     class func HomeMenus(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
         switch serviceInfo.type {
         case .humiditySensor, .temperatureSensor:
-            return [SensorMenuItem(serviceInfo: serviceInfo)]
+            return [SensorMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
         case .lightbulb:
             return [LightbulbMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
         case .switch:

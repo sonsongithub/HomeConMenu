@@ -29,10 +29,11 @@ import Cocoa
 
 class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     let uniqueIdentifier: UUID
+    let actionUniqueIdentifiers: [UUID]
     var mac2ios: mac2iOS?
     
     func UUIDs() -> [UUID] {
-        return [uniqueIdentifier]
+        return [uniqueIdentifier] + actionUniqueIdentifiers
     }
     
     public enum SensorType {
@@ -41,17 +42,38 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         case unknown
     }
     
-    
-    func bind(with uniqueIdentifier: UUID) -> Bool {
-        return self.uniqueIdentifier == uniqueIdentifier
+    func bind(with _uniqueIdentifier: UUID) -> Bool {
+        return self.uniqueIdentifier == _uniqueIdentifier || actionUniqueIdentifiers.contains(_uniqueIdentifier)
     }
     
     func update(enable: Bool) {
-        self.isEnabled = enable
+        guard let mac2ios = mac2ios else { return }
+        do {
+            let targetValues = try mac2ios.getTargetValues(of: uniqueIdentifier)
+            let currentValues = try actionUniqueIdentifiers.map { uuid in
+                return try mac2ios.getCharacteristic(of: uuid)
+            }
+            guard targetValues.count == currentValues.count else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 4)}
+            
+            let check = zip(targetValues, currentValues).reduce(true) { partialResult, tuple in
+                switch tuple {
+                case (let a as Int, let b as Int):
+                    return partialResult && (a == b)
+                case (let a as Double, let b as Double):
+                    return partialResult && (a == b)
+                default:
+                    return false
+                }
+            }
+            state = check ? .on : .off
+        } catch {
+            print(error)
+        }
     }
 
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.uniqueIdentifier = UUID()
+        self.actionUniqueIdentifiers = []
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
 
@@ -68,6 +90,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     init(actionSetInfo: ActionSetInfoProtocol, mac2ios: mac2iOS?) {
         self.uniqueIdentifier = actionSetInfo.uniqueIdentifier
         self.mac2ios = mac2ios
+        self.actionUniqueIdentifiers = actionSetInfo.actionUniqueIdentifiers
         super.init(title: actionSetInfo.name, action: nil, keyEquivalent: "")
         self.action = #selector(self.execute(sender:))
         self.target = self

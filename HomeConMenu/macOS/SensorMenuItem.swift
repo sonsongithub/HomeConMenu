@@ -28,6 +28,9 @@
 import Cocoa
 
 class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
+    var mac2ios: mac2iOS?
+    let uniqueIdentifier: UUID
+    let type: SensorType
     
     func UUIDs() -> [UUID] {
         return [uniqueIdentifier]
@@ -39,19 +42,16 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         case unknown
     }
     
-    let uniqueIdentifier: UUID
-    let type: SensorType
-    
     func bind(with uniqueIdentifier: UUID) -> Bool {
         return self.uniqueIdentifier == uniqueIdentifier
     }
     
-    func update(value: Any?) {
+    func update(value: Double) {
         switch (self.type, value) {
-        case (.temperature, let value as NSNumber):
-            self.title = "\(value.floatValue)℃"
-        case (.humidity, let value as NSNumber):
-            self.title = "\(value.floatValue)%"
+        case (.temperature, let value):
+            self.title = "\(value)℃"
+        case (.humidity, let value):
+            self.title = "\(value)%"
         default:
             self.title = "unsupported"
         }
@@ -67,7 +67,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init?(serviceInfo: ServiceInfoProtocol) {
+    init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         
         func decideType(serviceInfo: ServiceInfoProtocol) -> (CharacteristicInfoProtocol, SensorType)? {
             if serviceInfo.type == .humiditySensor {
@@ -83,7 +83,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
             }
             return nil
         }
-        
+
         guard let (characteristicInfo, type) = decideType(serviceInfo: serviceInfo) else { return nil }
         
         self.uniqueIdentifier = characteristicInfo.uniqueIdentifier
@@ -98,6 +98,14 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         default:
             do{}
         }
-        update(value: characteristicInfo.value)
+        
+        if let mac2ios = mac2ios {
+            do {
+                guard let value = try mac2ios.getCharacteristic(of: uniqueIdentifier) as? Double else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 3)}
+                update(value: value)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

@@ -37,16 +37,19 @@ public protocol ActionSetInfoProtocol: NSObjectProtocol {
     init()
     var name: String { get set }
     var uniqueIdentifier: UUID { get set }
+    var actionUniqueIdentifiers: [UUID] { get set }
 }
 
 public class ActionSetInfo: NSObject, ActionSetInfoProtocol {
     public var name: String
     public var uniqueIdentifier: UUID
+    public var actionUniqueIdentifiers: [UUID]
     
 #if !os(macOS)
     public init(actionSet: HMActionSet) {
         self.name = actionSet.name
         self.uniqueIdentifier = actionSet.uniqueIdentifier
+        self.actionUniqueIdentifiers = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }).map({ $0.characteristic.uniqueIdentifier })
         super.init()
     }
 #endif

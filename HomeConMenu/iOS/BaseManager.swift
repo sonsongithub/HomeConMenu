@@ -66,27 +66,37 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
+    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
+        print(#function)
+        print(uniqueIdentifier)
+        guard let home = self.homeManager?.primaryHome else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 5) }
+        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 6) }
+        let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
+        
+        return writeActions.map({$0.targetValue as Any})
+    }
+    
     func reloadSceneStatus() {
-        guard let home = self.homeManager?.primaryHome else { return }
-        
-        let results: [(UUID, Bool)] = home.actionSets.filter({ $0.isHomeKitScene }).map { actionSet in
-            let writeActions = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> })
-            
-            let status = writeActions.reduce(true) { partialResult, writeAction in
-                switch (writeAction.targetValue, writeAction.characteristic.value) {
-                case (let targetValue as Int, let currentValue as Int):
-                    return partialResult && (targetValue == currentValue)
-                default:
-                    return false
-                }
-            }
-            return (actionSet.uniqueIdentifier, status)
-        }
-        
-        let UUIDs = results.map({$0.0})
-        let status = results.map({$0.1})
-        
-        self.macOSController?.updateScene(UUIDs: UUIDs, status: status)
+//        guard let home = self.homeManager?.primaryHome else { return }
+//        
+//        let results: [(UUID, Bool)] = home.actionSets.filter({ $0.isHomeKitScene }).map { actionSet in
+//            let writeActions = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> })
+//            
+//            let status = writeActions.reduce(true) { partialResult, writeAction in
+//                switch (writeAction.targetValue, writeAction.characteristic.value) {
+//                case (let targetValue as Int, let currentValue as Int):
+//                    return partialResult && (targetValue == currentValue)
+//                default:
+//                    return false
+//                }
+//            }
+//            return (actionSet.uniqueIdentifier, status)
+//        }
+//        
+//        let UUIDs = results.map({$0.0})
+//        let status = results.map({$0.1})
+//        
+//        self.macOSController?.updateScene(UUIDs: UUIDs, status: status)
     }
     
     func reloadAllItems() {
@@ -132,6 +142,10 @@ extension BaseManager {
             home.executeActionSet(actionSet) { error in
                 if let error = error {
                     Logger.homeKit.error("\(error.localizedDescription)")
+                } else {
+                    for writeAction in actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }) {
+                        self.macOSController?.updateItems(of: writeAction.uniqueIdentifier, value: writeAction.targetValue)
+                    }
                 }
             }
         } else {
@@ -163,12 +177,12 @@ extension BaseManager {
                         if let error = error {
                             Logger.homeKit.error("\(error.localizedDescription)")
                             info.enable = false
-                            self.macOSController?.didUpdate(chracteristicInfo: info)
+//                            self.macOSController?.didUpdate(chracteristicInfo: info)
                         } else {
                             info.value = char.value
-                            self.macOSController?.didUpdate(chracteristicInfo: info)
+//                            self.macOSController?.didUpdate(chracteristicInfo: info)
                             info.enable = true
-                            self.macOSController?.updateItems(of: uniqueIdentifier, value: char.value)
+                            self.macOSController?.updateItems(of: uniqueIdentifier, value: char.value as Any)
                         }
                     }
                 }
