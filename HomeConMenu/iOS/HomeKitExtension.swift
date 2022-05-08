@@ -152,27 +152,40 @@ extension HMAccessory {
         if let cameraProfiles = self.cameraProfiles {
             info.hasCamera = (cameraProfiles.count > 0)
         }
+        
         for service in self.services {
             let serviceInfo = ServiceInfo(service: service)
             for chara in service.characteristics {
-                
                 let charaInfo = CharacteristicInfo(characteristic: chara)
                 charaInfo.type = CharacteristicType(key: chara.characteristicType)
                 charaInfo.uniqueIdentifier = chara.uniqueIdentifier
-                chara.enableNotification(true) { error in
-                    if let error = error {
+                
+                let typesNotificationUnsupporting: Set<CharacteristicType> = Set([.unknown, .hardwareVersion, .name, .identify])
+                
+                Task.detached {
+                    do {
+                        if !typesNotificationUnsupporting.contains(charaInfo.type) {
+                            try await chara.enableNotification(true)
+                        }
+                    } catch {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     }
                 }
-                chara.readValue { error in
-                    if let error = error {
-                        Logger.homeKit.error("\(error.localizedDescription)")
-                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)
+                
+                Task.detached {
+                    do {
+                        try await chara.readValue()
+                        DispatchQueue.main.async {
+                            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
+                            }
                         }
-                    } else {
-                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
+                    } catch {
+                        DispatchQueue.main.async {
+                            Logger.homeKit.error("\(error.localizedDescription)")
+                            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)
+                            }
                         }
                     }
                 }
