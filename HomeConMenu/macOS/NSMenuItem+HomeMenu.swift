@@ -59,7 +59,7 @@ extension NSMenuItem {
             return [SwitchMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
         }
         if buffer.contains(.powerState) && serviceTypes.contains(.lightbulb) {
-            return [LightGroupMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
+            return [LightbulbMenuItem(serviceGroupInfo: serviceGroup, mac2ios: mac2ios)]
         }
         return []
     }

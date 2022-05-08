@@ -29,6 +29,7 @@ import Foundation
 @objc(iOS2Mac)
 public protocol iOS2Mac: NSObjectProtocol {
     init()
+    func updateItems(of uniqueIdentifier: UUID, value: Any)
     var iosListener: mac2iOS? { get set }
     var menuItemCount: Int { get }
     func didUpdate()
@@ -43,6 +44,8 @@ public protocol iOS2Mac: NSObjectProtocol {
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
+    func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
+    func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAbout()
     func openPreferences()
     func reload(uniqueIdentifiers: [UUID])
@@ -51,8 +54,6 @@ public protocol mac2iOS: NSObjectProtocol {
     var rooms: [RoomInfoProtocol] { get set }
     var actionSets: [ActionSetInfoProtocol] { get set }
     func toggleValue(uniqueIdentifier: UUID)
-    func getPowerState(uniqueIdentifier: UUID) -> Bool
-    func setPowerState(uniqueIdentifier: UUID, state: Bool)
     func openCamera(uniqueIdentifier: UUID)
     func updateColor(uniqueIdentifier: UUID, value: Double)
     func executeActionSet(uniqueIdentifier: UUID)

@@ -27,40 +27,15 @@
 
 import Cocoa
 
-class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
+class LightbulbMenuItem: ToggleMenuItem {
     
-    let powerCharacteristicIdentifier: UUID
-    var mac2ios: mac2iOS?
-    
-    func UUIDs() -> [UUID] {
-        return [powerCharacteristicIdentifier]
+    override var icon: NSImage? {
+        return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
     }
     
-    func bind(with uniqueIdentifier: UUID) -> Bool {
-        return powerCharacteristicIdentifier == uniqueIdentifier
-    }
-    
-    @IBAction func toggle(sender: NSMenuItem) {
-        self.mac2ios?.toggleValue(uniqueIdentifier: powerCharacteristicIdentifier)
-        self.state = (self.state == .on) ? .off : .on
-    }
-    
-    func update(value: Int) {
-        self.state = (value == 1) ? .on : .off
-    }
+    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         
-    init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
-        
-        guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
-            obj.type == .powerState
-        }) else { return nil }
-        
-        self.mac2ios = mac2ios
-        self.powerCharacteristicIdentifier = powerStateChara.uniqueIdentifier
-        super.init(title: serviceInfo.name, action: nil, keyEquivalent: "")
-        if let number = powerStateChara.value as? Int {
-            self.state = (number == 0) ? .off : .on
-        }
+        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
         
         self.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
         self.action = #selector(self.toggle(sender:))
@@ -73,9 +48,8 @@ class LightbulbMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
         }
     }
     
-    override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-        self.powerCharacteristicIdentifier = UUID()
-        super.init(title: string, action: selector, keyEquivalent: charCode)
+    override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
+        super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
     }
     
     required init(coder: NSCoder) {

@@ -195,21 +195,23 @@ extension BaseManager {
         userActivity.addUserInfoEntries(from: ["uniqueIdentifier": uniqueIdentifier])
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
-    
-    func getPowerState(uniqueIdentifier: UUID) -> Bool {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return false }
-        guard let state = characteristic.value as? Bool else { return false }
-        return state
-    }
-    
-    func setPowerState(uniqueIdentifier: UUID, state: Bool) {
+        
+    func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
         if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
-            characteristic.writeValue(state) { error in
+            characteristic.writeValue(object) { error in
                 if let error = error {
                     Logger.homeKit.error("\(error.localizedDescription)")
+                } else {
+                    self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
                 }
             }
         }
+    }
+    
+    func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
+        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 1) }
+        guard let state = characteristic.value as? Bool else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 1) }
+        return state
     }
     
     func toggleValue(uniqueIdentifier: UUID) {

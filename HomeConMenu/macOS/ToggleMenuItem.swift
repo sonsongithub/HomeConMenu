@@ -44,24 +44,21 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     var mac2ios: mac2iOS?
     
     @IBAction func toggle(sender: NSMenuItem) {
-        if characteristicIdentifiers.count == 1 {
-            for uuid in characteristicIdentifiers {
-                self.mac2ios?.toggleValue(uniqueIdentifier: uuid)
+        guard let uuid = characteristicIdentifiers.first else { return }
+        do {
+            let value = try self.mac2ios?.getCharacteristic(of: uuid)
+            if let boolValue = value as? Bool {
+                for uuid in characteristicIdentifiers {
+                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
+                }
             }
-            self.state = (self.state == .on) ? .off : .on
-        } else {
-            guard let sample = characteristicIdentifiers.first else { return }
-            guard let state = self.mac2ios?.getPowerState(uniqueIdentifier: sample) else { return }
-            for uuid in characteristicIdentifiers {
-                self.mac2ios?.setPowerState(uniqueIdentifier: uuid, state: !state)
-            }
+        } catch {
+            print(error)
         }
     }
     
-    func update(value: Int) {
-        guard let sample = characteristicIdentifiers.first else { return }
-        guard let state = self.mac2ios?.getPowerState(uniqueIdentifier: sample) else { return }
-        self.state = state ? .on : .off
+    func update(value: Bool) {
+        self.state = value ? .on : .off
     }
         
     init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
@@ -107,17 +104,12 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-        fatalError()
+        self.characteristicIdentifiers = []
+        super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class LightGroupMenuItem: ToggleMenuItem {
-    override var icon: NSImage? {
-        return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
     }
 }
 

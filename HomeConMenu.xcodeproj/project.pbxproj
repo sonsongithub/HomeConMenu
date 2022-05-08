@@ -54,8 +54,6 @@
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
-		14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */; };
-		14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
 		14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
@@ -130,8 +128,6 @@
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchMenuItem.swift; sourceTree = "<group>"; };
-		14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
@@ -246,8 +242,6 @@
 				14A06A472811664000BC41BD /* LightColorMenuItem.swift */,
 				14A06A492811664000BC41BD /* MenuItemFromUUID.swift */,
 				14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */,
-				14FA4A9F2824ED5C0002ECB8 /* SwitchMenuItem.swift */,
-				14FA4AA22824EDC70002ECB8 /* OutletMenuItem.swift */,
 				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
 				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
@@ -415,7 +409,6 @@
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				14FA4A9E282117980002ECB8 /* Log.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
-				14FA4AA42824EDE20002ECB8 /* OutletMenuItem.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -426,7 +419,6 @@
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
-				14FA4AA12824ED9C0002ECB8 /* SwitchMenuItem.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,

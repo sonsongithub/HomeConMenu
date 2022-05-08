@@ -94,11 +94,29 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    func updateItems(of uniqueIdentifier: UUID, value: Any) {
+        let items = NSMenu.getSubItems(menu: mainMenu)
+        
+        let candidates = items.compactMap({ item in
+            item as? MenuItemFromUUID
+        }).filter ({ item in
+            item.bind(with: uniqueIdentifier)
+        })
+        
+        for item in candidates {
+            switch (item, value) {
+            case (let item as ToggleMenuItem, let boolValue as Bool):
+                item.update(value: boolValue)
+            default:
+                do {}
+            }
+        }
+    }
+    
     func didUpdate(chracteristicInfo: CharacteristicInfoProtocol) {
         
         let items = NSMenu.getSubItems(menu: mainMenu)
         
-        // まずここで候補のメニューアイテムを全部列挙する
         let candidates = items.compactMap({ item in
             item as? MenuItemFromUUID
         }).filter ({ item in
@@ -107,8 +125,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         for item in candidates {
             switch (item, chracteristicInfo.value, chracteristicInfo.type) {
-            case (let item as LightbulbMenuItem, let value as Int, .powerState):
-                item.update(value: value)
+//            case (let item as LightbulbMenuItem, let value as Int, .powerState):
+//                item.update(value: value)
             case (let item as LightColorMenuItem, let value as CGFloat, .hue):
                 item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
                 item.isEnabled = chracteristicInfo.enable
@@ -119,8 +137,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
                 item.isEnabled = chracteristicInfo.enable
             case (let item as ToggleMenuItem, let value as Int, _):
-                item.update(value: value)
-                item.isEnabled = chracteristicInfo.enable
+                do {}
+//                item.update(value: value)
+//                item.isEnabled = chracteristicInfo.enable
             case (let item as SensorMenuItem, let value, _):
                 item.update(value: value)
                 item.isEnabled = false
