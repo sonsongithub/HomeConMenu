@@ -67,10 +67,9 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
-        print(#function)
-        print(uniqueIdentifier)
-        guard let home = self.homeManager?.primaryHome else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 5) }
-        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 6) }
+        guard let home = self.homeManager?.primaryHome else { throw HomeConMenuError.primaryHomeNotFound }
+        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
+        else { throw HomeConMenuError.actionSetNotFound }
         let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
         
         return writeActions.map({$0.targetValue as Any})
@@ -214,8 +213,9 @@ extension BaseManager {
     }
     
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 1) }
-        guard characteristic.value != nil else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 2) }
+        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier)
+        else { throw HomeConMenuError.characteristicNotFound }
+        guard characteristic.value != nil else { throw HomeConMenuError.characteristicValueNil }
         return characteristic.value as Any
     }
     

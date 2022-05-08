@@ -60,6 +60,8 @@
 		14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */; };
 		14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAC28256B940002ECB8 /* PreferenceView.swift */; };
 		14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB028260D730002ECB8 /* PreferenceModel.swift */; };
+		14FA4AB52827870F0002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
+		14FA4AB6282787C00002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,7 @@
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AAC28256B940002ECB8 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		14FA4AB028260D730002ECB8 /* PreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
+		14FA4AB42827870F0002ECB8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,7 @@
 				142DE0B327E8BAC2006CBAFE /* ServiceTypeBridge.swift */,
 				14FA4A9C282117980002ECB8 /* Log.swift */,
 				14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */,
+				14FA4AB42827870F0002ECB8 /* Error.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -390,6 +394,7 @@
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
 				14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
+				14FA4AB52827870F0002ECB8 /* Error.swift in Sources */,
 				14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */,
 				14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */,
 				142DE0C327E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
@@ -418,6 +423,7 @@
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
+				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,

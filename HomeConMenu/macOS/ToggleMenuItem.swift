@@ -26,6 +26,7 @@
 //
 
 import Cocoa
+import os
 
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     func UUIDs() -> [UUID] {
@@ -53,7 +54,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
                 }
             }
         } catch {
-            print(error)
+            Logger.app.error("\(error.localizedDescription)")
         }
     }
     

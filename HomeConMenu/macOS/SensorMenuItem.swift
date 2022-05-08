@@ -26,6 +26,7 @@
 //
 
 import Cocoa
+import os
 
 class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
     var mac2ios: mac2iOS?
@@ -101,10 +102,11 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         
         if let mac2ios = mac2ios {
             do {
-                guard let value = try mac2ios.getCharacteristic(of: uniqueIdentifier) as? Double else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 3)}
+                guard let value = try mac2ios.getCharacteristic(of: uniqueIdentifier) as? Double
+                else { throw HomeConMenuError.characteristicTypeError }
                 update(value: value)
             } catch {
-                print(error)
+                Logger.app.error("\(error.localizedDescription)")
             }
         }
     }

@@ -123,7 +123,7 @@ extension HMHome {
                 if let action = action as? HMCharacteristicWriteAction<NSCopying> {
                     print("        \(action.characteristic.descriptionType)")
                     print("        Target value=\(action.targetValue)")
-                    print("        Current value=\(action.characteristic.value)")
+                    print("        Current value=\(action.characteristic.value as Any)")
                 }
             }
         }
@@ -171,7 +171,7 @@ extension HMAccessory {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value)
+                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
 //                            delegate.baseManager?.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                         }
                     }

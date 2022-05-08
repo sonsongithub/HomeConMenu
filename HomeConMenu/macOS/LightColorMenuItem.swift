@@ -27,6 +27,7 @@
 
 import Cocoa
 import ColorWheelPanelView
+import os
 
 class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     var color = NSColor.white
@@ -38,6 +39,17 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID {
     
     func bind(with uniqueIdentifier: UUID) -> Bool {
         return false
+    }
+    
+    func updateColor(hue: Double?, saturation: Double?, brightness: Double?) {
+        let hue = hue ?? self.color.hueComponent
+        let saturation = saturation ?? self.color.saturationComponent
+        let brightness = brightness ?? self.color.brightnessComponent
+        
+        self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+        if let parent = self.parent {
+            parent.image = createImage()
+        }
     }
     
     func createImage() -> NSImage? {
@@ -141,6 +153,17 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
         
         let view = GraySliderPanelView()
+        
+        if let mac2ios = mac2ios {
+            do {
+                guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double else { throw HomeConMenuError.characteristicTypeError }
+                self.color = NSColor(hue: 1.0, saturation: 0.0, brightness: brightness/100.0, alpha: 1.0)
+            } catch {
+                Logger.app.error("\(error.localizedDescription)")
+            }
+        }
+        
+        
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
         view.brightness = brightness / 100
         self.view = view
@@ -151,13 +174,7 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
     override func update(of uniqueIdentifier: UUID, value: Double) {
         switch uniqueIdentifier {
         case brightnessCharcteristicIdentifier:
-            let hue = self.color.hueComponent
-            let saturation = self.color.saturationComponent
-            let brightness = value / 100.0
-            self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-            if let parent = self.parent {
-                parent.image = createImage()
-            }
+            updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
         default:
             do {}
         }
@@ -190,41 +207,11 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
     override func update(of uniqueIdentifier: UUID, value: Double) {
         switch uniqueIdentifier {
         case hueCharcteristicIdentifier:
-            let hue = value / 360.0
-            let saturation = self.color.saturationComponent
-            let brightness = self.color.brightnessComponent
-            if let parent = self.parent {
-                self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-                if let image = createImage() {
-                    parent.image = image
-                } else {
-                    print("error")
-                }
-            }
+            updateColor(hue: value / 360.0, saturation: nil, brightness: nil)
         case saturationCharcteristicIdentifier:
-            let hue = self.color.hueComponent
-            let saturation = value / 100.0
-            let brightness = self.color.brightnessComponent
-            if let parent = self.parent {
-                self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-                if let image = createImage() {
-                    parent.image = image
-                } else {
-                    print("error")
-                }
-            }
+            updateColor(hue: nil, saturation: value / 100.0, brightness: nil)
         case brightnessCharcteristicIdentifier:
-            let hue = self.color.hueComponent
-            let saturation = self.color.saturationComponent
-            let brightness = value / 100.0
-            if let parent = self.parent {
-                self.color = NSColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-                if let image = createImage() {
-                    parent.image = image
-                } else {
-                    print("error")
-                }
-            }
+            updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
         default:
             do {}
         }
@@ -251,16 +238,19 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         
         if let mac2ios = mac2ios {
             do {
-                guard let hue = try mac2ios.getCharacteristic(of: hueCharcteristicIdentifier) as? Double else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 3)}
-                guard let saturation = try mac2ios.getCharacteristic(of: saturationCharcteristicIdentifier) as? Double else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 3)}
-                guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 3)}
+                guard let hue = try mac2ios.getCharacteristic(of: hueCharcteristicIdentifier) as? Double
+                else { throw HomeConMenuError.characteristicTypeError }
+                guard let saturation = try mac2ios.getCharacteristic(of: saturationCharcteristicIdentifier) as? Double
+                else { throw HomeConMenuError.characteristicTypeError }
+                guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double
+                else { throw HomeConMenuError.characteristicTypeError }
                 self.color = NSColor(hue: hue/360.0, saturation: saturation/100.0, brightness: brightness/100.0, alpha: 1.0)
                 
                 view.hue = hue / 360.0
                 view.saturation = saturation / 100.0
                 view.brightness = brightness / 100.0
             } catch {
-                print(error)
+                Logger.app.error("\(error.localizedDescription)")
             }
         }
         

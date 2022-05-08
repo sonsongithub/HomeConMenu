@@ -26,6 +26,7 @@
 //
 
 import Cocoa
+import os
 
 class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     let uniqueIdentifier: UUID
@@ -53,7 +54,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             let currentValues = try actionUniqueIdentifiers.map { uuid in
                 return try mac2ios.getCharacteristic(of: uuid)
             }
-            guard targetValues.count == currentValues.count else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 4)}
+            guard targetValues.count == currentValues.count else { throw HomeConMenuError.actionSetCharacteristicsCountError }
             
             let check = zip(targetValues, currentValues).reduce(true) { partialResult, tuple in
                 switch tuple {
@@ -67,7 +68,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             }
             state = check ? .on : .off
         } catch {
-            print(error)
+            Logger.app.error("\(error.localizedDescription)")
         }
     }
 
