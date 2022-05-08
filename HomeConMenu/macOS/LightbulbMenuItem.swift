@@ -45,6 +45,7 @@ class LightbulbMenuItem: ToggleMenuItem {
             let subMenu = NSMenu()
             subMenu.addItem(lightColorMenuItem)
             self.submenu = subMenu
+            self.image = lightColorMenuItem.createImage()
         }
     }
     

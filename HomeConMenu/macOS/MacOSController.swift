@@ -107,6 +107,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             switch (item, value) {
             case (let item as ToggleMenuItem, let boolValue as Bool):
                 item.update(value: boolValue)
+            case (let item as LightColorMenuItem, let doubleValue as Double):
+                item.update(of: uniqueIdentifier, value: doubleValue)
             default:
                 do {}
             }
@@ -127,15 +129,15 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             switch (item, chracteristicInfo.value, chracteristicInfo.type) {
 //            case (let item as LightbulbMenuItem, let value as Int, .powerState):
 //                item.update(value: value)
-            case (let item as LightColorMenuItem, let value as CGFloat, .hue):
-                item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
-                item.isEnabled = chracteristicInfo.enable
-            case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
-                item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
-                item.isEnabled = chracteristicInfo.enable
-            case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
-                item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
-                item.isEnabled = chracteristicInfo.enable
+//            case (let item as LightColorMenuItem, let value as CGFloat, .hue):
+//                item.update(hueFromHMKit: value, saturationFromHMKit: nil, brightnessFromHMKit: nil)
+//                item.isEnabled = chracteristicInfo.enable
+//            case (let item as LightColorMenuItem, let value as CGFloat, .saturation):
+//                item.update(hueFromHMKit: nil, saturationFromHMKit: value, brightnessFromHMKit: nil)
+//                item.isEnabled = chracteristicInfo.enable
+//            case (let item as LightColorMenuItem, let value as CGFloat, .brightness):
+//                item.update(hueFromHMKit: nil, saturationFromHMKit: nil, brightnessFromHMKit: value)
+//                item.isEnabled = chracteristicInfo.enable
             case (let item as ToggleMenuItem, let value as Int, _):
                 do {}
 //                item.update(value: value)

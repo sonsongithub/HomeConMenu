@@ -55,6 +55,5 @@ public protocol mac2iOS: NSObjectProtocol {
     var actionSets: [ActionSetInfoProtocol] { get set }
     func toggleValue(uniqueIdentifier: UUID)
     func openCamera(uniqueIdentifier: UUID)
-    func updateColor(uniqueIdentifier: UUID, value: Double)
     func executeActionSet(uniqueIdentifier: UUID)
 }

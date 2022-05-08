@@ -125,15 +125,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
 
 extension BaseManager {
     
-    func updateColor(uniqueIdentifier: UUID, value: Double) {
-        guard let characteristic = self.homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
-        characteristic.writeValue(value) { error in
-            if let error = error {
-                Logger.homeKit.error("\(error.localizedDescription)")
-            }
-        }
-    }
-    
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.primaryHome else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
@@ -178,6 +169,7 @@ extension BaseManager {
                             info.value = char.value
                             self.macOSController?.didUpdate(chracteristicInfo: info)
                             info.enable = true
+                            self.macOSController?.updateItems(of: uniqueIdentifier, value: char.value)
                         }
                     }
                 }
@@ -210,8 +202,8 @@ extension BaseManager {
     
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
         guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 1) }
-        guard let state = characteristic.value as? Bool else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 1) }
-        return state
+        guard characteristic.value != nil else { throw NSError(domain: "com.sonson.HomeConMenu.macOS", code: 2) }
+        return characteristic.value as Any
     }
     
     func toggleValue(uniqueIdentifier: UUID) {
