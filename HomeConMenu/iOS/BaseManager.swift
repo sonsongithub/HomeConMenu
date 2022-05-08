@@ -108,6 +108,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         macOSController?.reloadAllMenuItems()
+        
     }
     
 }
@@ -117,18 +118,19 @@ extension BaseManager {
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.primaryHome else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
-        if !actionSet.isExecuting {
-            home.executeActionSet(actionSet) { error in
-                if let error = error {
-                    Logger.homeKit.error("\(error.localizedDescription)")
-                } else {
+        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing.");return }
+        
+        Task.detached {
+            do {
+                try await home.executeActionSet(actionSet)
+                DispatchQueue.main.async {
                     for writeAction in actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }) {
                         self.macOSController?.updateItems(of: writeAction.uniqueIdentifier, value: writeAction.targetValue)
                     }
                 }
+            } catch {
+                Logger.homeKit.error("\(error.localizedDescription)")
             }
-        } else {
-            Logger.app.error("This action set has beeen already executing.")
         }
     }
     
@@ -161,13 +163,17 @@ extension BaseManager {
     }
         
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
-        if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
-            characteristic.writeValue(object) { error in
-                if let error = error {
-                    Logger.homeKit.error("\(error.localizedDescription)")
-                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
-                } else {
+        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
+        Task.detached {
+            do {
+                try await characteristic.writeValue(object)
+                DispatchQueue.main.async {
                     self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
+                }
+            } catch {
+                Logger.homeKit.error("\(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
                 }
             }
         }
