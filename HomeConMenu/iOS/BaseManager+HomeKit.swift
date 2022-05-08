@@ -78,7 +78,6 @@ extension BaseManager {
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
         macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
-        reloadSceneStatus()
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {

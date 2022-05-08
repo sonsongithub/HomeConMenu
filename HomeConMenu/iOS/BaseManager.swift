@@ -75,29 +75,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         return writeActions.map({$0.targetValue as Any})
     }
     
-    func reloadSceneStatus() {
-//        guard let home = self.homeManager?.primaryHome else { return }
-//        
-//        let results: [(UUID, Bool)] = home.actionSets.filter({ $0.isHomeKitScene }).map { actionSet in
-//            let writeActions = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> })
-//            
-//            let status = writeActions.reduce(true) { partialResult, writeAction in
-//                switch (writeAction.targetValue, writeAction.characteristic.value) {
-//                case (let targetValue as Int, let currentValue as Int):
-//                    return partialResult && (targetValue == currentValue)
-//                default:
-//                    return false
-//                }
-//            }
-//            return (actionSet.uniqueIdentifier, status)
-//        }
-//        
-//        let UUIDs = results.map({$0.0})
-//        let status = results.map({$0.1})
-//        
-//        self.macOSController?.updateScene(UUIDs: UUIDs, status: status)
-    }
-    
     func reloadAllItems() {
         guard let home = self.homeManager?.primaryHome else {
             Logger.app.info("Primary home has not been found.")
@@ -127,7 +104,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         macOSController?.didUpdate()
-        reloadSceneStatus()
     }
     
 }
