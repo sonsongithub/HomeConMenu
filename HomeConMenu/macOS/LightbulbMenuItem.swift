@@ -34,9 +34,13 @@ class LightbulbMenuItem: ToggleMenuItem {
     override var reachable: Bool {
         didSet {
             if reachable {
-                self.image = icon
                 if subColorMenu.items.count > 0 {
                     self.submenu = subColorMenu
+                    if let item = subColorMenu.items.first as? LightColorMenuItem {
+                        self.image = item.createImage()
+                    }
+                } else {
+                    self.image = icon
                 }
             } else {
                 self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
