@@ -158,7 +158,6 @@ extension BaseManager {
         for uniqueIdentifier in uniqueIdentifiers {
             for char in chars {
                 guard let info = characteristicsInfo.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { continue }
-                
                 if char.uniqueIdentifier == uniqueIdentifier {
                     char.readValue { error in
                         if let error = error {
@@ -206,31 +205,6 @@ extension BaseManager {
         return characteristic.value as Any
     }
     
-    func toggleValue(uniqueIdentifier: UUID) {
-        if let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) {
-            characteristic.readValue { error in
-                if let error = error {
-                    Logger.homeKit.error("\(error.localizedDescription)")
-                } else {
-                    if let value = characteristic.value as? NSNumber {
-                        if value.intValue == 0 || value.intValue == 1 {
-                            let newValue = 1 - value.intValue
-                            characteristic.writeValue(newValue) { error in
-                                if let error = error {
-                                    Logger.homeKit.error("\(error.localizedDescription)")
-                                } else {
-                                    let charaInfo = CharacteristicInfo(characteristic: characteristic)
-                                    self.macOSController?.didUpdate(chracteristicInfo: charaInfo)
-                                    self.reloadSceneStatus()
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-   
     func openPreferences() {
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
         userActivity.title = "default"

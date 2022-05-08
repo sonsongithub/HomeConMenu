@@ -70,17 +70,10 @@ extension BaseManager {
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         Logger.homeKit.info(#function)
-        guard let obj = self.accessories.first(where: { info in
+        guard let _ = self.accessories.first(where: { info in
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
-        for service in obj.services {
-            for chara in service.characteristics {
-                if chara.uniqueIdentifier == characteristic.uniqueIdentifier {
-                    chara.value = characteristic.value
-                    macOSController?.didUpdate(chracteristicInfo: chara)
-                }
-            }
-        }
+        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
         reloadSceneStatus()
     }
     

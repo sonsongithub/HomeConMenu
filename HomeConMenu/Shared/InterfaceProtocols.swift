@@ -53,7 +53,6 @@ public protocol mac2iOS: NSObjectProtocol {
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }
     var actionSets: [ActionSetInfoProtocol] { get set }
-    func toggleValue(uniqueIdentifier: UUID)
     func openCamera(uniqueIdentifier: UUID)
     func executeActionSet(uniqueIdentifier: UUID)
 }
