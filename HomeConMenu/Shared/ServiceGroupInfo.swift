@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  ServiceGroupInfo.swift
+//  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2022/04/12.
 //
 //  MIT License
 //
@@ -25,8 +25,36 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-class DummyViewController: UIViewController {
+#if !os(macOS)
+import HomeKit
+#endif
+
+@objc(ServiceGroupInfoProtocol)
+public protocol ServiceGroupInfoProtocol: NSObjectProtocol {
+    init()
+    var name: String { get set }
+    var uniqueIdentifier: UUID { get set }
+    var services: [ServiceInfoProtocol] { get set }
+    var commonCharacteristicTypes: [CharacteristicInfo] { get set }
 }
 
+public class ServiceGroupInfo: NSObject, ServiceGroupInfoProtocol {
+    public var name: String
+    public var uniqueIdentifier: UUID = UUID()
+    public var services: [ServiceInfoProtocol] = []
+    public var commonCharacteristicTypes: [CharacteristicInfo] = []
+    
+    required public override init() {
+        fatalError()
+    }
+#if !os(macOS)
+    init(serviceGroup: HMServiceGroup) {
+        name = serviceGroup.name
+        uniqueIdentifier = serviceGroup.uniqueIdentifier
+        services = serviceGroup.services.map({ ServiceInfo(service: $0) })
+        super.init()
+    }
+#endif
+}

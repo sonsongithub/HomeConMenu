@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  MenuFromUUID.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2022/03/20.
 //
 //  MIT License
 //
@@ -25,8 +25,18 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
+import Cocoa
 
-class DummyViewController: UIViewController {
+protocol MenuItemFromUUID {
+    func bind(with uniqueIdentifier: UUID) -> Bool
+    func UUIDs() -> [UUID]
 }
 
+protocol ErrorMenuItem {
+    var reachable: Bool { get set }
+}
+
+protocol MenuItemOrder  {
+    var orderPriority: Int { get }
+}

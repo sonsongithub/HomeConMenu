@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  ActionSetInfo.swift
+//  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2022/05/06.
 //
 //  MIT License
 //
@@ -25,8 +25,36 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-class DummyViewController: UIViewController {
+#if !os(macOS)
+import HomeKit
+#endif
+
+
+@objc(ActionSetInfoProtocol)
+public protocol ActionSetInfoProtocol: NSObjectProtocol {
+    init()
+    var name: String { get set }
+    var uniqueIdentifier: UUID { get set }
+    var actionUniqueIdentifiers: [UUID] { get set }
 }
 
+public class ActionSetInfo: NSObject, ActionSetInfoProtocol {
+    public var name: String
+    public var uniqueIdentifier: UUID
+    public var actionUniqueIdentifiers: [UUID]
+    
+#if !os(macOS)
+    public init(actionSet: HMActionSet) {
+        self.name = actionSet.name
+        self.uniqueIdentifier = actionSet.uniqueIdentifier
+        self.actionUniqueIdentifiers = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }).map({ $0.characteristic.uniqueIdentifier })
+        super.init()
+    }
+#endif
+    
+    required public override init() {
+        fatalError()
+    }
+}
