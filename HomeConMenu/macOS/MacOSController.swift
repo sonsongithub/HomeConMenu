@@ -78,12 +78,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    var menuItemCount: Int {
-        get {
-            return mainMenu.numberOfItems
-        }
-    }
-
     func bringToFront() {
         NSApp.activate(ignoringOtherApps: true)
     }

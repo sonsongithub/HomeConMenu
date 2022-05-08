@@ -30,14 +30,13 @@ import Foundation
 public protocol iOS2Mac: NSObjectProtocol {
     init()
     func updateItems(of uniqueIdentifier: UUID, value: Any)
-    var iosListener: mac2iOS? { get set }
-    var menuItemCount: Int { get }
     func didUpdate()
     func bringToFront()
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
     var isOpenedPreference: Bool { get set }
+    var iosListener: mac2iOS? { get set }
 }
 
 @objc(mac2iOS)
