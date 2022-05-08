@@ -28,10 +28,27 @@
 import Cocoa
 import os
 
-class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
+class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {
     var mac2ios: mac2iOS?
     let uniqueIdentifier: UUID
     let type: SensorType
+    
+    var reachable: Bool {
+        didSet {
+            if reachable {
+                switch self.type {
+                case .temperature:
+                    self.image = NSImage(systemSymbolName: "thermometer", accessibilityDescription: nil)
+                case .humidity:
+                    self.image = NSImage(systemSymbolName: "humidity", accessibilityDescription: nil)
+                default:
+                    do{}
+                }
+            } else {
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+            }
+        }
+    }
     
     func UUIDs() -> [UUID] {
         return [uniqueIdentifier]
@@ -48,6 +65,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
     }
     
     func update(value: Double) {
+        reachable = true
         switch (self.type, value) {
         case (.temperature, let value):
             self.title = "\(value)℃"
@@ -61,6 +79,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.uniqueIdentifier = UUID()
         self.type = .unknown
+        self.reachable = true
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
 
@@ -87,6 +106,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
 
         guard let (characteristicInfo, type) = decideType(serviceInfo: serviceInfo) else { return nil }
         
+        self.reachable = true
         self.uniqueIdentifier = characteristicInfo.uniqueIdentifier
         self.type = type
         super.init(title: "", action: nil, keyEquivalent: "")

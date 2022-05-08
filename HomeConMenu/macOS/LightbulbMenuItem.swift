@@ -29,6 +29,22 @@ import Cocoa
 
 class LightbulbMenuItem: ToggleMenuItem {
     
+    let subColorMenu = NSMenu()
+    
+    override var reachable: Bool {
+        didSet {
+            if reachable {
+                self.image = icon
+                if subColorMenu.items.count > 0 {
+                    self.submenu = subColorMenu
+                }
+            } else {
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+                self.submenu = nil
+            }
+        }
+    }
+
     override var icon: NSImage? {
         return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
     }
@@ -42,15 +58,15 @@ class LightbulbMenuItem: ToggleMenuItem {
         self.target = self
         
         if let lightColorMenuItem = LightColorMenuItem.item(serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {
-            let subMenu = NSMenu()
-            subMenu.addItem(lightColorMenuItem)
-            self.submenu = subMenu
+            subColorMenu.addItem(lightColorMenuItem)
+            self.submenu = subColorMenu
             self.image = lightColorMenuItem.createImage()
         }
     }
     
     override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
         super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
+        reachable = true
     }
     
     required init(coder: NSCoder) {

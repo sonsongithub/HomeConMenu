@@ -159,20 +159,20 @@ extension HMAccessory {
                 let charaInfo = CharacteristicInfo(characteristic: chara)
                 charaInfo.type = CharacteristicType(key: chara.characteristicType)
                 charaInfo.uniqueIdentifier = chara.uniqueIdentifier
-//                charaInfo.characteristic = chara
                 chara.enableNotification(true) { error in
                     if let error = error {
                         Logger.homeKit.error("\(error.localizedDescription)")
                     }
                 }
-                
                 chara.readValue { error in
                     if let error = error {
                         Logger.homeKit.error("\(error.localizedDescription)")
+                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                            delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)
+                        }
                     } else {
                         if let delegate = UIApplication.shared.delegate as? AppDelegate {
                             delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
-//                            delegate.baseManager?.macOSController?.didUpdate(chracteristicInfo: charaInfo)
                         }
                     }
                 }

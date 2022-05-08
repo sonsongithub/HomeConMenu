@@ -37,13 +37,13 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     var isOpenedPreference = false
         
     func menuWillOpen(_ menu: NSMenu) {
-        let items = NSMenu.getSubItems(menu: menu)
-        let uuids = items.compactMap({ item in
-            item as? MenuItemFromUUID
-        }).map({ item in
-            item.UUIDs()
-        }).flatMap({$0})
-        iosListener?.reload(uniqueIdentifiers: uuids)
+//        let items = NSMenu.getSubItems(menu: menu)
+//        let uuids = items.compactMap({ item in
+//            item as? MenuItemFromUUID
+//        }).map({ item in
+//            item.UUIDs()
+//        }).flatMap({$0})
+//        iosListener?.reload(uniqueIdentifiers: uuids)
     }
     
     func openNoHomeError() {
@@ -88,6 +88,27 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool) {
+        let items = NSMenu.getSubItems(menu: mainMenu)
+        
+        let candidates = items.compactMap({ item in
+            item as? MenuItemFromUUID
+        }).filter ({ item in
+            item.bind(with: uniqueIdentifier)
+        })
+        
+        for item in candidates {
+            switch (item) {
+            case let item as ToggleMenuItem:
+                item.reachable = isReachable
+            case let item as SensorMenuItem:
+                item.reachable = isReachable
+            default:
+                do {}
+            }
+        }
+    }
+    
     func updateItems(of uniqueIdentifier: UUID, value: Any) {
         let items = NSMenu.getSubItems(menu: mainMenu)
         
@@ -106,7 +127,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             case (let item as SensorMenuItem, let doubleValue as Double):
                 item.update(value: doubleValue)
             case (let item as ActionSetMenuItem, _):
-                item.update(enable: true)
+                item.update()
             default:
                 do {}
             }

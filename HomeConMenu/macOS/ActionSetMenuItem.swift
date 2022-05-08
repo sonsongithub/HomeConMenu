@@ -47,7 +47,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         return self.uniqueIdentifier == _uniqueIdentifier || actionUniqueIdentifiers.contains(_uniqueIdentifier)
     }
     
-    func update(enable: Bool) {
+    func update() {
         guard let mac2ios = mac2ios else { return }
         do {
             let targetValues = try mac2ios.getTargetValues(of: uniqueIdentifier)

@@ -30,6 +30,7 @@ import Foundation
 public protocol iOS2Mac: NSObjectProtocol {
     init()
     func updateItems(of uniqueIdentifier: UUID, value: Any)
+    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool)
     func didUpdate()
     func bringToFront()
     func centeringWindows()

@@ -28,7 +28,18 @@
 import Cocoa
 import os
 
-class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
+class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {
+    
+    var reachable: Bool {
+        didSet {
+            if reachable {
+                self.image = icon
+            } else {
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+            }
+        }
+    }
+    
     func UUIDs() -> [UUID] {
         return characteristicIdentifiers
     }
@@ -59,6 +70,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     }
     
     func update(value: Bool) {
+        reachable = true
         self.state = value ? .on : .off
     }
         
@@ -75,6 +87,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
         
         let uuids = infos.map({$0.uniqueIdentifier})
         
+        self.reachable = true
         self.mac2ios = mac2ios
         self.characteristicIdentifiers = uuids
         super.init(title: serviceGroupInfo.name, action: nil, keyEquivalent: "")
@@ -91,7 +104,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
         guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .powerState
         }) else { return nil }
-        
+        self.reachable = true
         self.mac2ios = mac2ios
         self.characteristicIdentifiers = [powerStateChara.uniqueIdentifier]
         super.init(title: serviceInfo.name, action: nil, keyEquivalent: "")
@@ -106,6 +119,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID {
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.characteristicIdentifiers = []
+        self.reachable = true
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     

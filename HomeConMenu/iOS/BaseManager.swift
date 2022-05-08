@@ -151,12 +151,9 @@ extension BaseManager {
                     char.readValue { error in
                         if let error = error {
                             Logger.homeKit.error("\(error.localizedDescription)")
-                            info.enable = false
-//                            self.macOSController?.didUpdate(chracteristicInfo: info)
+                            self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
                         } else {
                             info.value = char.value
-//                            self.macOSController?.didUpdate(chracteristicInfo: info)
-                            info.enable = true
                             self.macOSController?.updateItems(of: uniqueIdentifier, value: char.value as Any)
                         }
                     }
@@ -181,6 +178,7 @@ extension BaseManager {
             characteristic.writeValue(object) { error in
                 if let error = error {
                     Logger.homeKit.error("\(error.localizedDescription)")
+                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
                 } else {
                     self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
                 }
