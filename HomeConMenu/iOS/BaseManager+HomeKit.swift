@@ -90,7 +90,7 @@ extension BaseManager {
         } else {
             Logger.app.info("HomeConMenu is authorized to access HomeKit.")
         }
-        macOSController?.didUpdate()
+        macOSController?.reloadAllMenuItems()
     }
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {

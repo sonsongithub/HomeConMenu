@@ -134,19 +134,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func didUpdate() {
-        mainMenu.removeAllItems()
-        guard let accessories = self.iosListener?.accessories else { return }
-        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
-        guard let rooms = self.iosListener?.rooms else { return }
-        guard let actionSets = self.iosListener?.actionSets else { return }
-        
+    func reloadServiceGroupMenuItem() -> [UUID] {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
-    
         let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
-        
-        let allowDuplicatingServices = UserDefaults.standard.bool(forKey: "allowDuplicatingServices")
-        let useScenes = UserDefaults.standard.bool(forKey: "useScenes")
         
         if serviceGroupItems.count > 0 {
             let groupItem = NSMenuItem()
@@ -158,22 +149,32 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
             mainMenu.addItem(NSMenuItem.separator())
         }
-        
-        if useScenes {
-            if actionSets.count > 0 {
-                let titleItem = NSMenuItem()
-                titleItem.title = NSLocalizedString("Scene", comment: "")
-                titleItem.image = NSImage(systemSymbolName: "moon.stars", accessibilityDescription: nil)
-                mainMenu.addItem(titleItem)
-                
-                let subMenu = NSMenu()
-                titleItem.submenu = subMenu
-                for actionSet in actionSets {
-                    subMenu.addItem(ActionSetMenuItem(actionSetInfo: actionSet, mac2ios: iosListener))
-                }
-                mainMenu.addItem(NSMenuItem.separator())
+        return excludedServiceUUIDs
+    }
+    
+    func reloadSceneMenuItems() {
+        guard UserDefaults.standard.bool(forKey: "useScenes") else { return }
+        guard let actionSets = self.iosListener?.actionSets else { return }
+        if actionSets.count > 0 {
+            let titleItem = NSMenuItem()
+            titleItem.title = NSLocalizedString("Scene", comment: "")
+            titleItem.image = NSImage(systemSymbolName: "moon.stars", accessibilityDescription: nil)
+            mainMenu.addItem(titleItem)
+            
+            let subMenu = NSMenu()
+            titleItem.submenu = subMenu
+            for actionSet in actionSets {
+                subMenu.addItem(ActionSetMenuItem(actionSetInfo: actionSet, mac2ios: iosListener))
             }
+            mainMenu.addItem(NSMenuItem.separator())
         }
+    }
+    
+    func reloadEachRooms(excludedServiceUUIDs: [UUID]) {
+        guard let accessories = self.iosListener?.accessories else { return }
+        guard let rooms = self.iosListener?.rooms else { return }
+        
+        let allowDuplicatingServices = UserDefaults.standard.bool(forKey: "allowDuplicatingServices")
         
         // room
         for room in rooms {
@@ -203,7 +204,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                     buffer.append(contentsOf: candidates)
                 }
             }
-            if  buffer.count > 1 {
+            if buffer.count > 1 {
                 buffer = buffer.compactMap({ $0 as? MenuItemOrder })
                     .sorted(by: { lhs, rhs in
                         lhs.orderPriority > rhs.orderPriority
@@ -218,14 +219,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 mainMenu.addItem(NSMenuItem.separator())
             }
         }
-        
-        if mainMenu.items.count == 0 {
-            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
-            UserDefaults.standard.synchronize()
-        } else {
-            mainMenu.addItem(NSMenuItem.separator())
-        }
-        
+    }
+    
+    func reloadOtherItems() {
         let abouItem = NSMenuItem()
         abouItem.title = NSLocalizedString("About HomeConMenu", comment: "")
         abouItem.action = #selector(MacOSController.about(sender:))
@@ -245,6 +241,14 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         menuItem.action = #selector(MacOSController.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
+    }
+    
+    func reloadAllMenuItems() {
+        mainMenu.removeAllItems()
+        let excludedServiceUUIDs = reloadServiceGroupMenuItem()
+        reloadSceneMenuItems()
+        reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
+        reloadOtherItems()
     }
     
     required override init() {

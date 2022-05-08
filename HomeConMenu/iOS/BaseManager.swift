@@ -82,14 +82,13 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
             macOSController?.openNoHomeError()
-            macOSController?.didUpdate()
+            macOSController?.reloadAllMenuItems()
             return
         }
         home.delegate = self
         
 #if DEBUG
         home.dump()
-#else
 #endif
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
@@ -98,12 +97,17 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
         
+        if accessories.count == 0 {
+            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.synchronize()
+        }
+        
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
-        macOSController?.didUpdate()
+        macOSController?.reloadAllMenuItems()
     }
     
 }

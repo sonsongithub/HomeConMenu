@@ -31,7 +31,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     init()
     func updateItems(of uniqueIdentifier: UUID, value: Any)
     func updateItems(of uniqueIdentifier: UUID, isReachable: Bool)
-    func didUpdate()
+    func reloadAllMenuItems()
     func bringToFront()
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
@@ -42,12 +42,12 @@ public protocol iOS2Mac: NSObjectProtocol {
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
+    func readCharacteristic(of uniqueIdentifier: UUID)
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any]
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAbout()
     func openPreferences()
-    func reload(uniqueIdentifiers: [UUID])
     var accessories: [AccessoryInfoProtocol] { get set }
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }
