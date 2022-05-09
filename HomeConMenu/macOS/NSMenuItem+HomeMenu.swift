@@ -48,7 +48,9 @@ extension NSMenuItem {
         
         let serviceTypes = Set(serviceGroup.services.map({ $0.type}))
         
-        var buffer = Set(serviceGroup.services[0].characteristics.map({ $0.type }))
+        guard let firstService = serviceGroup.services.first else { return [] }
+        
+        var buffer = Set(firstService.characteristics.map({ $0.type }))
         for service in serviceGroup.services {
             buffer = Set(service.characteristics.map({$0.type})).intersection(buffer)
         }
