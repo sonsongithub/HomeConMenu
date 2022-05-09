@@ -45,6 +45,10 @@ extension BaseManager {
         reloadAllItems()
     }
     
+    func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
+        reloadAllItems()
+    }
+    
     func home(_ home: HMHome, didRemove room: HMRoom) {
         reloadAllItems()
     }
