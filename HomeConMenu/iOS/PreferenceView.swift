@@ -47,12 +47,12 @@ struct PreferenceView: View {
                     Toggle(isOn: $model.doesNotShowLaunchViewController) {
                         Spacer(minLength: 0)
                             .frame(width: 5)
-                        Text(NSLocalizedString("Do not show welcome message when launching", comment: ""))
+                        Text(NSLocalizedString("Do not show welcome message on launch", comment: ""))
                     }
                     Toggle(isOn: $model.allowDuplicatingServices) {
                         Spacer(minLength: 0)
                             .frame(width: 5)
-                        Text(NSLocalizedString("Allow duplicate services to be displayed", comment: ""))
+                        Text(NSLocalizedString("Display duplicate services", comment: ""))
                     }
                     Toggle(isOn: $model.useScenes) {
                         Spacer(minLength: 0)
