@@ -62,13 +62,13 @@
                                     <constraint firstAttribute="height" constant="80" id="y0F-KO-2oh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome HomeConMenu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOj-FH-EiA">
-                                <rect key="frame" x="180" y="168" width="343.5" height="34.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuへようこそ" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOj-FH-EiA">
+                                <rect key="frame" x="177" y="168" width="349.5" height="34.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アプリを起動すると，メニューバーに家のアイコンが表示されます．この家のアイコンをクリックするとホームデバイスを制御できます．HomeConMenuは，電源，スイッチ，電球，室温，湿度デバイスの制御，情報表示に対応しています．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-HS-yrR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アプリケーションを起動するとメニューバーに家のアイコンが表示されます。このアイコンをクリックするとホームデバイスを制御できます。HomeConMenuは、電源、スイッチ、電球、室温、湿度デバイスの制御、情報表示に対応しています。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-HS-yrR">
                                 <rect key="frame" x="230" y="323" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Q8F-DA-Dgr"/>
@@ -77,7 +77,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuでホームデバイスを制御するためには，アプリにHomeKitへのアクセス権を与える必要があります．システム環境設定から，HomeConMenuにアクセス権を設定してください．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugb-4b-hrP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム環境設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugb-4b-hrP">
                                 <rect key="frame" x="230" y="223" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="OoB-Gn-w97"/>
@@ -86,7 +86,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたのHomeKit環境にHomeがなかったり，&quot;Home&quot;にホームデバイスが追加されていない場合，HomeConMenuを開いても，何も表示されません．iOSのホームアプリを使って，あなたのホームデバイスをHomeKitに追加してください．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6y-T4-DFR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたのHomeKit環境にHomeがなかったり、Homeにホームデバイスが追加されていない場合、HomeConMenuを開いても何も表示されません。iOSのホームアプリを使って、あなたのホームデバイスをHomeKitに追加してください。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6y-T4-DFR">
                                 <rect key="frame" x="230" y="423" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="EfK-s1-CVL"/>
@@ -116,7 +116,7 @@
                                     <constraint firstAttribute="height" constant="80" id="yCb-mQ-Ndv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuをメニューバーから開き，ホームデバイスを制御できます．" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-Mq-dEp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuをメニューバーから開き、ホームデバイスを制御できます。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-Mq-dEp">
                                 <rect key="frame" x="230" y="523" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KCE-8Y-dBo"/>
