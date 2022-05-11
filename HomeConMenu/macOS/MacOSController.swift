@@ -137,10 +137,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func reloadServiceGroupMenuItem() -> [UUID] {
-        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
+    func reloadServiceGroupMenuItem() {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
-        let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
         
         if serviceGroupItems.count > 0 {
             let groupItem = NSMenuItem()
@@ -152,7 +151,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
             mainMenu.addItem(NSMenuItem.separator())
         }
-        return excludedServiceUUIDs
     }
     
     func reloadSceneMenuItems() {
@@ -246,11 +244,17 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(menuItem)
     }
     
+    func getExcludedServiceUUIDs() -> [UUID] {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
+        return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
+    }
+    
     func reloadAllMenuItems() {
         mainMenu.removeAllItems()
-        let excludedServiceUUIDs = reloadServiceGroupMenuItem()
+        let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
+        reloadServiceGroupMenuItem()
         reloadOtherItems()
     }
     
