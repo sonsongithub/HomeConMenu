@@ -60,12 +60,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     func openHomeKitAuthenticationError() -> Bool {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Authentication error", comment: "")
-        alert.informativeText = NSLocalizedString("HomeConMenu can not access HomeKit because of your privacy settings. Please allow HomeConMenu to access HomeKit via System Preferences.app.", comment:"")
+        alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
+        alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Preferences.", comment:"")
         alert.alertStyle = .informational
 
         alert.addButton(withTitle: "OK")
-        alert.addButton(withTitle: NSLocalizedString("Open System Preferences.app", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: ""))
         
         let ret = alert.runModal()
         switch ret {
@@ -137,10 +137,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func reloadServiceGroupMenuItem() -> [UUID] {
-        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
+    func reloadServiceGroupMenuItem() {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return }
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
-        let excludedServiceUUIDs = serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
         
         if serviceGroupItems.count > 0 {
             let groupItem = NSMenuItem()
@@ -152,7 +151,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
             mainMenu.addItem(NSMenuItem.separator())
         }
-        return excludedServiceUUIDs
     }
     
     func reloadSceneMenuItems() {
@@ -232,7 +230,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(abouItem)
         
         let prefItem = NSMenuItem()
-        prefItem.title = NSLocalizedString("Preferences...", comment: "")
+        prefItem.title = NSLocalizedString("Preferences…", comment: "")
         prefItem.action = #selector(MacOSController.preferences(sender:))
         prefItem.target = self
         mainMenu.addItem(prefItem)
@@ -246,11 +244,17 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(menuItem)
     }
     
+    func getExcludedServiceUUIDs() -> [UUID] {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
+        return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
+    }
+    
     func reloadAllMenuItems() {
         mainMenu.removeAllItems()
-        let excludedServiceUUIDs = reloadServiceGroupMenuItem()
+        let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
+        reloadServiceGroupMenuItem()
         reloadOtherItems()
     }
     
