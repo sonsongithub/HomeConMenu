@@ -47,6 +47,45 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         return self.uniqueIdentifier == _uniqueIdentifier || actionUniqueIdentifiers.contains(_uniqueIdentifier)
     }
     
+    func createImage(check: Bool) -> NSImage? {
+        let view = NSView(frame: NSRect(x: 0, y: 0, width: 14, height: 14))
+        view.wantsLayer = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        if check {
+            view.layer?.backgroundColor = CGColor(red: 247.0/255.0, green: 148.0/255.0, blue: 30.0/255.0, alpha: 1)
+        } else {
+            view.layer?.backgroundColor = CGColor.init(gray: 0.5, alpha: 1.0)
+        }
+        
+        view.layer?.cornerRadius = 2
+        
+        let destinationSize = Double(14)
+        
+        guard let homeIcon = NSImage(named: "house") else { return nil}
+        
+        let image = NSImage(size: NSSize(width: destinationSize, height: destinationSize))
+        
+        let width = Double(16)
+        let height = Double(16)
+        
+        let x = (destinationSize - width) / 2
+        let y = (destinationSize - height) / 2
+        
+        image.lockFocus()
+        guard let ctx = NSGraphicsContext.current?.cgContext else { return nil }
+        
+        view.layer?.render(in: ctx)
+        let source = NSRect(origin: CGPoint.zero, size: homeIcon.size)
+        
+        let destination = NSRect(x: x, y: y, width: width, height: height)
+        
+        homeIcon.draw(in: destination, from: source, operation: .destinationIn, fraction: 1)
+        image.unlockFocus()
+
+        return image
+    }
+    
     func update() {
         guard let mac2ios = mac2ios else { return }
         do {
@@ -66,7 +105,8 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
                     return false
                 }
             }
-            state = check ? .on : .off
+            self.image = createImage(check: check)
+            self.target = check ? nil : self
         } catch {
             Logger.app.error("\(error.localizedDescription)")
         }
