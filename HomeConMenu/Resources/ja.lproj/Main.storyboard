@@ -215,7 +215,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appbigicon" width="1054" height="1054"/>
+        <image name="appbigicon" width="1024" height="1024"/>
         <image name="homeappshot" width="1214" height="542"/>
         <image name="privacy" width="888" height="438"/>
         <image name="shots01" width="500" height="246"/>
@@ -224,7 +224,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
