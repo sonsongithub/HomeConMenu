@@ -49,27 +49,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appbigicon" translatesAutoresizingMaskIntoConstraints="NO" id="SoI-8A-S3Q">
-                                <rect key="frame" x="288" y="20" width="128" height="128"/>
+                                <rect key="frame" x="270" y="20" width="164" height="164"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="9C8-NN-OE4"/>
-                                    <constraint firstAttribute="width" constant="128" id="qGi-Ui-Zbf"/>
+                                    <constraint firstAttribute="height" constant="164" id="9C8-NN-OE4"/>
+                                    <constraint firstAttribute="width" constant="164" id="qGi-Ui-Zbf"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="2l7-50-inM">
-                                <rect key="frame" x="20" y="323" width="200" height="80"/>
+                                <rect key="frame" x="20" y="359" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="OZj-vJ-J6i"/>
                                     <constraint firstAttribute="height" constant="80" id="y0F-KO-2oh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuへようこそ" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOj-FH-EiA">
-                                <rect key="frame" x="177" y="168" width="349.5" height="34.5"/>
+                                <rect key="frame" x="177" y="204" width="349.5" height="34.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アプリケーションを起動するとメニューバーに家のアイコンが表示されます。このアイコンをクリックするとホームデバイスを制御できます。HomeConMenuは、電源、スイッチ、電球、室温、湿度デバイスの制御、情報表示に対応しています。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-HS-yrR">
-                                <rect key="frame" x="230" y="323" width="449" height="80"/>
+                                <rect key="frame" x="230" y="359" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Q8F-DA-Dgr"/>
                                 </constraints>
@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム環境設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugb-4b-hrP">
-                                <rect key="frame" x="230" y="223" width="449" height="80"/>
+                                <rect key="frame" x="230" y="259" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="OoB-Gn-w97"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたのHomeKit環境にHomeがなかったり、Homeにホームデバイスが追加されていない場合、HomeConMenuを開いても何も表示されません。iOSのホームアプリを使って、あなたのホームデバイスをHomeKitに追加してください。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6y-T4-DFR">
-                                <rect key="frame" x="230" y="423" width="449" height="80"/>
+                                <rect key="frame" x="230" y="459" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="EfK-s1-CVL"/>
                                 </constraints>
@@ -96,28 +96,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="FFe-Oe-wpn">
-                                <rect key="frame" x="20" y="423" width="200" height="80"/>
+                                <rect key="frame" x="20" y="459" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="QFh-ab-04O"/>
                                     <constraint firstAttribute="height" constant="80" id="cAn-Dc-yT4"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="yzb-Jg-oef">
-                                <rect key="frame" x="20" y="523" width="200" height="80"/>
+                                <rect key="frame" x="20" y="559" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="AmG-NE-4Vn"/>
                                     <constraint firstAttribute="width" constant="200" id="QkT-iR-Yh0"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="U9l-he-0ZD">
-                                <rect key="frame" x="20" y="223" width="200" height="80"/>
+                                <rect key="frame" x="20" y="259" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="csO-Q8-5aU"/>
                                     <constraint firstAttribute="height" constant="80" id="yCb-mQ-Ndv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeConMenuをメニューバーから開き、ホームデバイスを制御できます。" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-Mq-dEp">
-                                <rect key="frame" x="230" y="523" width="449" height="80"/>
+                                <rect key="frame" x="230" y="559" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KCE-8Y-dBo"/>
                                 </constraints>
@@ -126,16 +126,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muO-t7-K25">
-                                <rect key="frame" x="169" y="623" width="366" height="85.5"/>
+                                <rect key="frame" x="169" y="659" width="366" height="49.5"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="orw-BH-pco">
-                                        <rect key="frame" x="20" y="27" width="51" height="31"/>
+                                        <rect key="frame" x="20" y="9" width="51" height="31"/>
                                         <connections>
                                             <action selector="didChangeWithSender:" destination="lcc-8Q-9QY" eventType="valueChanged" id="cpt-Aw-2oP"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起動時にこのウィンドウを表示しない" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rh0-R4-YHf">
-                                        <rect key="frame" x="79" y="32" width="267" height="21"/>
+                                        <rect key="frame" x="79" y="14" width="267" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
@@ -215,7 +215,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appbigicon" width="1054" height="1054"/>
+        <image name="appbigicon" width="1024" height="1024"/>
         <image name="homeappshot" width="1214" height="542"/>
         <image name="privacy" width="888" height="438"/>
         <image name="shots01" width="500" height="246"/>
