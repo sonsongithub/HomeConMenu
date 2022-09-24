@@ -35,7 +35,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var isOpenedPreference = false
-        
+     
+    
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
             .compactMap({ $0 as? ErrorMenuItem})
@@ -265,6 +266,22 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
+        
+        
+        let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.sonson.HomeConMenu.SwiftUI")
+        let configuration = NSWorkspace.OpenConfiguration()
+        
+        // Create and start an instance of the XPC Service
+        let xpcService = XPCService()
+        xpcService.start()
+        
+        if let appURL = appURL {
+            NSWorkspace.shared.openApplication(at: appURL, configuration: configuration) { (running, error) in
+                if error != nil {
+                    print(error)
+                }
+            }
+        }
     }
     
     @IBAction func preferences(sender: NSButton) {

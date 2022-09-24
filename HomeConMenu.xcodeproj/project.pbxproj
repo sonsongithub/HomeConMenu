@@ -37,6 +37,15 @@
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		14504A4B28DF44250085E729 /* HomeConMenu_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A4A28DF44250085E729 /* HomeConMenu_SwiftUIApp.swift */; };
+		14504A4D28DF44250085E729 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A4C28DF44250085E729 /* ContentView.swift */; };
+		14504A4F28DF44260085E729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14504A4E28DF44260085E729 /* Assets.xcassets */; };
+		14504A5228DF44260085E729 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14504A5128DF44260085E729 /* Preview Assets.xcassets */; };
+		14504A5828DF44A70085E729 /* XPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A5728DF44A70085E729 /* XPCService.swift */; };
+		14504A5A28DF44F00085E729 /* XPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A5928DF44F00085E729 /* XPCServiceProtocol.swift */; };
+		14504A5B28DF44F00085E729 /* XPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A5928DF44F00085E729 /* XPCServiceProtocol.swift */; };
+		14504A5D28DF45A10085E729 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504A5C28DF45A10085E729 /* ConnectionManager.swift */; };
+		14504A5E28DF47E90085E729 /* HomeConMenu.SwiftUI.app in Resources */ = {isa = PBXBuildFile; fileRef = 14504A4828DF44250085E729 /* HomeConMenu.SwiftUI.app */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -71,6 +80,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 142DE09227E8B928006CBAFE;
 			remoteInfo = macOSBridge;
+		};
+		14504A5F28DF47E90085E729 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 142DE06027E8B80E006CBAFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14504A4728DF44250085E729;
+			remoteInfo = HomeConMenu.SwiftUI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -115,6 +131,15 @@
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		14504A4828DF44250085E729 /* HomeConMenu.SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14504A4A28DF44250085E729 /* HomeConMenu_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConMenu_SwiftUIApp.swift; sourceTree = "<group>"; };
+		14504A4C28DF44250085E729 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		14504A4E28DF44260085E729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14504A5128DF44260085E729 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		14504A5328DF44260085E729 /* HomeConMenu_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenu_SwiftUI.entitlements; sourceTree = "<group>"; };
+		14504A5728DF44A70085E729 /* XPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCService.swift; sourceTree = "<group>"; };
+		14504A5928DF44F00085E729 /* XPCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCServiceProtocol.swift; sourceTree = "<group>"; };
+		14504A5C28DF45A10085E729 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -155,6 +180,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14504A4528DF44250085E729 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -162,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				142DE06A27E8B80E006CBAFE /* HomeConMenu */,
+				14504A4928DF44250085E729 /* HomeConMenu.SwiftUI */,
 				142DE06927E8B80E006CBAFE /* Products */,
 				142DE08027E8B89A006CBAFE /* Frameworks */,
 			);
@@ -172,6 +205,7 @@
 			children = (
 				142DE06827E8B80E006CBAFE /* HomeConMenu.app */,
 				142DE09327E8B928006CBAFE /* macOSBridge.bundle */,
+				14504A4828DF44250085E729 /* HomeConMenu.SwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +232,27 @@
 				142DE08127E8B89A006CBAFE /* HomeKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14504A4928DF44250085E729 /* HomeConMenu.SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				14504A4A28DF44250085E729 /* HomeConMenu_SwiftUIApp.swift */,
+				14504A4C28DF44250085E729 /* ContentView.swift */,
+				14504A4E28DF44260085E729 /* Assets.xcassets */,
+				14504A5328DF44260085E729 /* HomeConMenu_SwiftUI.entitlements */,
+				14504A5028DF44260085E729 /* Preview Content */,
+				14504A5C28DF45A10085E729 /* ConnectionManager.swift */,
+			);
+			path = HomeConMenu.SwiftUI;
+			sourceTree = "<group>";
+		};
+		14504A5028DF44260085E729 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				14504A5128DF44260085E729 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		146D209327F03F7800162EB1 /* iOS */ = {
@@ -234,6 +289,8 @@
 				14FA4A9C282117980002ECB8 /* Log.swift */,
 				14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */,
 				14FA4AB42827870F0002ECB8 /* Error.swift */,
+				14504A5728DF44A70085E729 /* XPCService.swift */,
+				14504A5928DF44F00085E729 /* XPCServiceProtocol.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -281,6 +338,7 @@
 			);
 			dependencies = (
 				142DE09927E8B931006CBAFE /* PBXTargetDependency */,
+				14504A6028DF47E90085E729 /* PBXTargetDependency */,
 			);
 			name = HomeConMenu;
 			packageProductDependencies = (
@@ -309,6 +367,23 @@
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		14504A4728DF44250085E729 /* HomeConMenu.SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14504A5628DF44260085E729 /* Build configuration list for PBXNativeTarget "HomeConMenu.SwiftUI" */;
+			buildPhases = (
+				14504A4428DF44250085E729 /* Sources */,
+				14504A4528DF44250085E729 /* Frameworks */,
+				14504A4628DF44250085E729 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeConMenu.SwiftUI;
+			productName = HomeConMenu.SwiftUI;
+			productReference = 14504A4828DF44250085E729 /* HomeConMenu.SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,7 +391,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
@@ -325,6 +400,9 @@
 					142DE09227E8B928006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
 						LastSwiftMigration = 1330;
+					};
+					14504A4728DF44250085E729 = {
+						CreatedOnToolsVersion = 13.4;
 					};
 				};
 			};
@@ -346,6 +424,7 @@
 			targets = (
 				142DE06727E8B80E006CBAFE /* HomeConMenu */,
 				142DE09227E8B928006CBAFE /* macOSBridge */,
+				14504A4728DF44250085E729 /* HomeConMenu.SwiftUI */,
 			);
 		};
 /* End PBXProject section */
@@ -360,6 +439,7 @@
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
+				14504A5E28DF47E90085E729 /* HomeConMenu.SwiftUI.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +448,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14504A4628DF44250085E729 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14504A5228DF44260085E729 /* Preview Assets.xcassets in Resources */,
+				14504A4F28DF44260085E729 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				14504A5A28DF44F00085E729 /* XPCServiceProtocol.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				14FA4A9E282117980002ECB8 /* Log.swift in Sources */,
@@ -418,6 +508,7 @@
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
+				14504A5828DF44A70085E729 /* XPCService.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
@@ -434,6 +525,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14504A4428DF44250085E729 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14504A4D28DF44250085E729 /* ContentView.swift in Sources */,
+				14504A5D28DF45A10085E729 /* ConnectionManager.swift in Sources */,
+				14504A5B28DF44F00085E729 /* XPCServiceProtocol.swift in Sources */,
+				14504A4B28DF44250085E729 /* HomeConMenu_SwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -442,6 +544,11 @@
 			platformFilter = maccatalyst;
 			target = 142DE09227E8B928006CBAFE /* macOSBridge */;
 			targetProxy = 142DE09827E8B931006CBAFE /* PBXContainerItemProxy */;
+		};
+		14504A6028DF47E90085E729 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14504A4728DF44250085E729 /* HomeConMenu.SwiftUI */;
+			targetProxy = 14504A5F28DF47E90085E729 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -736,6 +843,64 @@
 			};
 			name = Release;
 		};
+		14504A5428DF44260085E729 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu.SwiftUI/HomeConMenu_SwiftUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenu.SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		14504A5528DF44260085E729 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeConMenu.SwiftUI/HomeConMenu_SwiftUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenu.SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -762,6 +927,15 @@
 			buildConfigurations = (
 				142DE09527E8B928006CBAFE /* Debug */,
 				142DE09627E8B928006CBAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14504A5628DF44260085E729 /* Build configuration list for PBXNativeTarget "HomeConMenu.SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14504A5428DF44260085E729 /* Debug */,
+				14504A5528DF44260085E729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
