@@ -265,6 +265,28 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
+        
+        let bundleFile = "HomeConMenuSwiftUI.app"
+
+        guard let bundleURL = Bundle.main.builtInPlugInsURL?.appendingPathComponent(bundleFile) else {
+            Logger.app.error("Failed to create bundle URL.")
+            return
+        }
+        
+        print()
+        
+        Task.detached {
+            let source = "tell application \"\(bundleURL.path)\"\nactivate\nsendKey \"vrr34r3r\"\nend tell"
+            let applescript = NSAppleScript(source: source)!
+
+            var error: NSDictionary?
+            applescript.executeAndReturnError(&error)
+
+            if let error {
+                print(error.object(forKey: "NSAppleScriptErrorMessage"))
+                print(error.description)
+            }
+        }
     }
     
     @IBAction func preferences(sender: NSButton) {

@@ -4,5 +4,7 @@
 <dict>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
+	<key>OSAScriptingDefinition</key>
+	<string>HomeConMenuSwiftUIApp.sdef</string>
 </dict>
 </plist>

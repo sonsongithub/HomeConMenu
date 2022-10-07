@@ -12,7 +12,6 @@
 		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
-		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */; };
 		142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09C27E8B9C3006CBAFE /* BaseManager.swift */; };
 		142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */; };
@@ -62,10 +61,25 @@
 		14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB028260D730002ECB8 /* PreferenceModel.swift */; };
 		14FA4AB52827870F0002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 		14FA4AB6282787C00002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
+		14FA5D4328E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */; };
+		14FA5D4528E134E700C75BB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA5D4428E134E700C75BB2 /* ContentView.swift */; };
+		14FA5D4728E134E800C75BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14FA5D4628E134E800C75BB2 /* Assets.xcassets */; };
+		14FA5D4A28E134E800C75BB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14FA5D4928E134E800C75BB2 /* Preview Assets.xcassets */; };
+		14FA5D5028E1355B00C75BB2 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA5D4F28E1355B00C75BB2 /* Controller.swift */; };
+		14FA5D5228E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 14FA5D5128E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef */; };
+		14FA5D6428E146F200C75BB2 /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14FA5D6C28E148C600C75BB2 /* HomeConMenuSwiftUI.app in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		142DE09827E8B931006CBAFE /* PBXContainerItemProxy */ = {
+		14FA5D5428E1456F00C75BB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 142DE06027E8B80E006CBAFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14FA5D3F28E134E700C75BB2;
+			remoteInfo = HomeConMenuSwiftUI;
+		};
+		14FA5D6528E146F200C75BB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 142DE06027E8B80E006CBAFE /* Project object */;
 			proxyType = 1;
@@ -75,13 +89,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		142DE08E27E8B910006CBAFE /* Embed PlugIns */ = {
+		14FA5D6728E146F300C75BB2 /* Embed PlugIns */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */,
+				14FA5D6C28E148C600C75BB2 /* HomeConMenuSwiftUI.app in Embed PlugIns */,
+				14FA5D6428E146F200C75BB2 /* macOSBridge.bundle in Embed PlugIns */,
 			);
 			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +151,15 @@
 		14FA4AAC28256B940002ECB8 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		14FA4AB028260D730002ECB8 /* PreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
 		14FA4AB42827870F0002ECB8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenuSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConMenuSwiftUIApp.swift; sourceTree = "<group>"; };
+		14FA5D4428E134E700C75BB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		14FA5D4628E134E800C75BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14FA5D4928E134E800C75BB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		14FA5D4B28E134E800C75BB2 /* HomeConMenuSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenuSwiftUI.entitlements; sourceTree = "<group>"; };
+		14FA5D4F28E1355B00C75BB2 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		14FA5D5128E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HomeConMenuSwiftUIApp.sdef; sourceTree = "<group>"; };
+		14FA5D6D28E1627F00C75BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +179,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14FA5D3D28E134E700C75BB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -162,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				142DE06A27E8B80E006CBAFE /* HomeConMenu */,
+				14FA5D4128E134E700C75BB2 /* HomeConMenuSwiftUI */,
 				142DE06927E8B80E006CBAFE /* Products */,
 				142DE08027E8B89A006CBAFE /* Frameworks */,
 			);
@@ -172,6 +204,7 @@
 			children = (
 				142DE06827E8B80E006CBAFE /* HomeConMenu.app */,
 				142DE09327E8B928006CBAFE /* macOSBridge.bundle */,
+				14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +298,29 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		14FA5D4128E134E700C75BB2 /* HomeConMenuSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				14FA5D6D28E1627F00C75BB2 /* Info.plist */,
+				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
+				14FA5D4F28E1355B00C75BB2 /* Controller.swift */,
+				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
+				14FA5D4628E134E800C75BB2 /* Assets.xcassets */,
+				14FA5D4B28E134E800C75BB2 /* HomeConMenuSwiftUI.entitlements */,
+				14FA5D5128E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef */,
+				14FA5D4828E134E800C75BB2 /* Preview Content */,
+			);
+			path = HomeConMenuSwiftUI;
+			sourceTree = "<group>";
+		};
+		14FA5D4828E134E800C75BB2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				14FA5D4928E134E800C75BB2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,12 +331,13 @@
 				142DE06427E8B80E006CBAFE /* Sources */,
 				142DE06527E8B80E006CBAFE /* Frameworks */,
 				142DE06627E8B80E006CBAFE /* Resources */,
-				142DE08E27E8B910006CBAFE /* Embed PlugIns */,
+				14FA5D6728E146F300C75BB2 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				142DE09927E8B931006CBAFE /* PBXTargetDependency */,
+				14FA5D5528E1456F00C75BB2 /* PBXTargetDependency */,
+				14FA5D6628E146F200C75BB2 /* PBXTargetDependency */,
 			);
 			name = HomeConMenu;
 			packageProductDependencies = (
@@ -309,6 +366,23 @@
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		14FA5D3F28E134E700C75BB2 /* HomeConMenuSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14FA5D4E28E134E800C75BB2 /* Build configuration list for PBXNativeTarget "HomeConMenuSwiftUI" */;
+			buildPhases = (
+				14FA5D3C28E134E700C75BB2 /* Sources */,
+				14FA5D3D28E134E700C75BB2 /* Frameworks */,
+				14FA5D3E28E134E700C75BB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeConMenuSwiftUI;
+			productName = HomeConMenuSwiftUI;
+			productReference = 14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,7 +390,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
@@ -325,6 +399,9 @@
 					142DE09227E8B928006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
 						LastSwiftMigration = 1330;
+					};
+					14FA5D3F28E134E700C75BB2 = {
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
@@ -346,6 +423,7 @@
 			targets = (
 				142DE06727E8B80E006CBAFE /* HomeConMenu */,
 				142DE09227E8B928006CBAFE /* macOSBridge */,
+				14FA5D3F28E134E700C75BB2 /* HomeConMenuSwiftUI */,
 			);
 		};
 /* End PBXProject section */
@@ -368,6 +446,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14FA5D3E28E134E700C75BB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14FA5D4A28E134E800C75BB2 /* Preview Assets.xcassets in Resources */,
+				14FA5D4728E134E800C75BB2 /* Assets.xcassets in Resources */,
+				14FA5D5228E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,14 +522,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14FA5D3C28E134E700C75BB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14FA5D5028E1355B00C75BB2 /* Controller.swift in Sources */,
+				14FA5D4528E134E700C75BB2 /* ContentView.swift in Sources */,
+				14FA5D4328E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		142DE09927E8B931006CBAFE /* PBXTargetDependency */ = {
+		14FA5D5528E1456F00C75BB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = maccatalyst;
+			target = 14FA5D3F28E134E700C75BB2 /* HomeConMenuSwiftUI */;
+			targetProxy = 14FA5D5428E1456F00C75BB2 /* PBXContainerItemProxy */;
+		};
+		14FA5D6628E146F200C75BB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
 			target = 142DE09227E8B928006CBAFE /* macOSBridge */;
-			targetProxy = 142DE09827E8B931006CBAFE /* PBXContainerItemProxy */;
+			targetProxy = 14FA5D6528E146F200C75BB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -586,7 +689,6 @@
 		142DE07D27E8B80F006CBAFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -602,6 +704,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -617,18 +720,18 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Debug;
 		};
 		142DE07E27E8B80F006CBAFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -644,6 +747,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -659,11 +763,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Release;
 		};
@@ -736,6 +841,70 @@
 			};
 			name = Release;
 		};
+		14FA5D4C28E134E800C75BB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = HomeConMenuSwiftUI/HomeConMenuSwiftUI.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenuSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomeConMenuSwiftUI/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		14FA5D4D28E134E800C75BB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = HomeConMenuSwiftUI/HomeConMenuSwiftUI.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenuSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = JP866VWWSD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomeConMenuSwiftUI/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -762,6 +931,15 @@
 			buildConfigurations = (
 				142DE09527E8B928006CBAFE /* Debug */,
 				142DE09627E8B928006CBAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14FA5D4E28E134E800C75BB2 /* Build configuration list for PBXNativeTarget "HomeConMenuSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14FA5D4C28E134E800C75BB2 /* Debug */,
+				14FA5D4D28E134E800C75BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
