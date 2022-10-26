@@ -4,7 +4,7 @@
 <!--    <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>-->
     <suite name="HomeConMenuSwiftUIKey" code="hcom" description="HomeConMenu">
         <command name="sendKey" code="hcomskey" description="Send a secret key">
-            <cocoa class="HomeConMenuSwiftUI.Controller"/>
+            <cocoa class="HomeConMenuSwiftUI.AppleScriptController"/>
             <access-group identifier="*"/>
             <direct-parameter code="mesg" type="text" description="The message to send."/>
         </command>

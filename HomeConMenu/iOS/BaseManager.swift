@@ -76,6 +76,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func reloadAllItems() {
+        reloadAllItems2()
+
         guard let home = self.homeManager?.primaryHome else {
             Logger.app.info("Primary home has not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
@@ -86,22 +88,22 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             return
         }
         home.delegate = self
-        
-#if DEBUG
-        home.dump()
-#endif
+
+//#if DEBUG
+//        home.dump()
+//#endif
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        
+
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
-        
+
         if accessories.count == 0 {
             UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
             UserDefaults.standard.synchronize()
         }
-        
+
         if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"

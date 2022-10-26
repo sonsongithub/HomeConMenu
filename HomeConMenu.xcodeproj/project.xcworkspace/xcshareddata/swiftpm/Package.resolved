@@ -8,6 +8,15 @@
         "branch" : "main",
         "revision" : "9df7cbc040c17141da6261f377a31cc3b400d174"
       }
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sonsongithub/CryptoSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d636cbf1c3029cf818d84b0fb31d03b4fa840b0d"
+      }
     }
   ],
   "version" : 2

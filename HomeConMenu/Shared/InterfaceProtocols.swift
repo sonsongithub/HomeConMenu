@@ -36,6 +36,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
+    func post(string: String)
     var isOpenedPreference: Bool { get set }
     var iosListener: mac2iOS? { get set }
 }

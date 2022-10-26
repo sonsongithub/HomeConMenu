@@ -258,6 +258,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         reloadOtherItems()
     }
     
+    func post(string: String) {
+        DistributedNotificationCenter.default().postNotificationName(.to_macNotification, object: string, deliverImmediately: true)
+    }
+    
     required override init() {
         super.init()
         if let button = self.statusItem.button {
@@ -272,22 +276,29 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             Logger.app.error("Failed to create bundle URL.")
             return
         }
-        
-        print()
-        
+
+        print(bundleURL.path)
+
         Task.detached {
-            let source = "tell application \"\(bundleURL.path)\"\nactivate\nsendKey \"vrr34r3r\"\nend tell"
+            let source = "tell application \"\(bundleURL.path)\"\nsendKey \"vrr34r3r\"\nend tell"
             let applescript = NSAppleScript(source: source)!
 
             var error: NSDictionary?
             applescript.executeAndReturnError(&error)
-
-            if let error {
+            print(error)
+            if let error = error {
                 print(error.object(forKey: "NSAppleScriptErrorMessage"))
                 print(error.description)
             }
         }
+        
+//        DistributedNotificationCenter.default().addObserver(self, selector: #selector(testNotification), name: .testNotification, object: nil)
     }
+//
+//    @objc func testNotification(_ notification: Notification) {
+//        let obj = notification.object
+//        print(obj)
+//    }
     
     @IBAction func preferences(sender: NSButton) {
         if !isOpenedPreference {
@@ -300,6 +311,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func about(sender: NSButton) {
         self.iosListener?.openAbout()
+//        self.post(string: "ajfijf89ejf89ewaf")
     }
     
     @IBAction func quit(sender: NSButton) {
