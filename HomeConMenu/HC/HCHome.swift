@@ -33,6 +33,7 @@ import HomeKit
 
 extension NSNotification.Name {
     static let to_macNotification = Self("to_macNotification")
+    static let to_char_notify = Self("chara_notify")
     static let to_iosNotification = Self("to_iOSNotification")
 }
 

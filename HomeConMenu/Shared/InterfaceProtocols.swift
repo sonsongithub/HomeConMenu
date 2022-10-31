@@ -37,6 +37,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
     func post(string: String)
+    func post(string: String, name: NSNotification.Name)
     var isOpenedPreference: Bool { get set }
     var iosListener: mac2iOS? { get set }
 }

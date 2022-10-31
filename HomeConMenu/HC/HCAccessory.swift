@@ -31,12 +31,13 @@ import Foundation
 import HomeKit
 #endif
 
-struct HCAccessory: Codable {
-    let accessoryName: String
+class HCAccessory: Codable {
+    var accessoryName: String = ""
     let uniqueIdentifier: UUID
     let type: HCAccessoryType
-    let serivces: [HCService]
-    let room: HCRoom?
+    var serivces: [HCService] = []
+    var room: HCRoom? = nil
+
 #if !os(macOS)
     init(with _hmaccessory: HMAccessory) {
         accessoryName = _hmaccessory.name
@@ -47,7 +48,14 @@ struct HCAccessory: Codable {
         } else {
             room = nil
         }
-        serivces = _hmaccessory.services.map({HCService(with: $0)})
+        serivces = _hmaccessory
+            .services
+            .map({HCService(with: $0)})
+            .filter({$0.isSupported})
     }
 #endif
+    
+    var isAvailable: Bool {
+        serivces.count > 0
+    }
 }

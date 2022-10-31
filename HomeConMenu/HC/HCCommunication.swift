@@ -39,7 +39,10 @@ class HCCommunication : Codable {
     
 #if !os(macOS)
     init(with home: HMHome) {
-        accessories = home.accessories.map({HCAccessory(with: $0)})
+        accessories = home
+            .accessories
+            .map({HCAccessory(with: $0)})
+            .filter({$0.isAvailable})
         serviceGroups = home.serviceGroups.map({HCServiceGroup(serviceGroup: $0)})
         rooms = home.rooms.map({HCRoom(with: $0)})
         actionSets = home.actionSets

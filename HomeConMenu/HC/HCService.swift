@@ -37,14 +37,35 @@ class HCService : Codable {
     var isUserInteractive: Bool
     var characteristics: [HCCharacteristic]
     let type: HCServiceType
+    
+    var id: UUID {
+        uniqueIdentifier
+    }
+    
+    init() {
+        serviceName = ""
+        uniqueIdentifier = UUID()
+        isUserInteractive = false
+        characteristics = []
+        type = .unknown
+    }
 #if !os(macOS)
     init(with _hmservice: HMService) {
         serviceName = _hmservice.name
         uniqueIdentifier = _hmservice.uniqueIdentifier
         type = HCServiceType(key: _hmservice.serviceType)
         isUserInteractive = _hmservice.isUserInteractive
-        characteristics = _hmservice.characteristics.map({ HCCharacteristic(with: $0)})
+        characteristics = _hmservice
+            .characteristics
+            .map({ HCCharacteristic(with: $0)})
     }
 #endif
+    
+    var isSupported: Bool {
+        let supportedTypes: [HCServiceType] = [.humiditySensor, .temperatureSensor, .lightbulb, .switch, .outlet]
+        return supportedTypes.contains {
+            $0 == self.type
+        }
+    }
 }
 

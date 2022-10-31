@@ -34,9 +34,70 @@ import HomeKit
 class HCCharacteristic: Codable {
     var charName: String
     let uniqueIdentifier: UUID
-    var stringValue: String?
-    var numberValue: Float?
+    var stringValue: String? = nil {
+        didSet {
+            if let stringValue {
+                string = stringValue
+            }
+        }
+    }
+    var numberValue: Float? = nil {
+        didSet {
+            if let numberValue {
+                string = "\(numberValue)"
+            }
+        }
+    }
+    var doubleValue: Double? = nil {
+        didSet {
+            if let doubleValue {
+                string = "\(doubleValue)"
+            }
+        }
+    }
+    var intValue: Int? = nil {
+        didSet {
+            if let intValue {
+                string = "\(intValue)"
+            }
+        }
+    }
+    var boolValue: Bool? = nil {
+        didSet {
+            if let boolValue {
+                string = "\(boolValue)"
+            }
+        }
+    }
     let type: HCCharacteristicType
+    
+    var string: String = ""
+    
+    init() {
+        charName = ""
+        uniqueIdentifier = UUID()
+        type = .unknown
+    }
+    
+    var id: UUID {
+        uniqueIdentifier
+    }
+    
+    var message: String {
+        if let stringValue {
+            return stringValue
+        } else if let numberValue {
+            return "\(numberValue)"
+        } else if let intValue {
+            return "\(intValue)"
+        } else if let boolValue {
+            return "\(boolValue)"
+        } else if let doubleValue {
+            return "\(doubleValue)"
+        }
+        return "None"
+    }
+    
 #if !os(macOS)
     init(with _hmcharacteristic: HMCharacteristic) {
         charName = _hmcharacteristic.localizedDescription
@@ -44,6 +105,22 @@ class HCCharacteristic: Codable {
         type = HCCharacteristicType(key: _hmcharacteristic.characteristicType)
         stringValue = nil
         numberValue = nil
+        
+        print("\(_hmcharacteristic.descriptionType.description) - \(_hmcharacteristic.value)")
+        
+        if let value = _hmcharacteristic.value as? String {
+            stringValue = value
+        } else if let value = _hmcharacteristic.value as? Float {
+            numberValue = value
+        } else if let value = _hmcharacteristic.value as? Int {
+            intValue = value
+        } else if let value = _hmcharacteristic.value as? Bool {
+            boolValue = value
+        } else if let value = _hmcharacteristic.value as? Double {
+            doubleValue = value
+        } else {
+            print("can not convert")
+        }
     }
 #endif
 }

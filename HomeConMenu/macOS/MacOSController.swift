@@ -35,7 +35,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var isOpenedPreference = false
-        
+    
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
             .compactMap({ $0 as? ErrorMenuItem})
@@ -63,7 +63,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
         alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Preferences.", comment:"")
         alert.alertStyle = .informational
-
+        
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: ""))
         
@@ -197,8 +197,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                         items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
                         items.append(contentsOf: info.services.filter({ !excludedServiceUUIDs.contains($0.uniqueIdentifier) })
                             .map { serviceInfo in
-                            NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
-                        }.flatMap({$0}))
+                                NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
+                            }.flatMap({$0}))
                     }
                     
                     let candidates = items.compactMap({$0})
@@ -262,6 +262,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         DistributedNotificationCenter.default().postNotificationName(.to_macNotification, object: string, deliverImmediately: true)
     }
     
+    func post(string: String, name: NSNotification.Name) {
+        DistributedNotificationCenter.default().postNotificationName(name, object: string, deliverImmediately: true)
+    }
+    
     required override init() {
         super.init()
         if let button = self.statusItem.button {
@@ -278,11 +282,27 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
 
         print(bundleURL.path)
+        
+        let isRunning = NSWorkspace.shared.runningApplications.contains {
+            $0.bundleIdentifier == "com.sonson.HomeConMenu.SwiftUI"
+        }
+        
+//        let apps = NSWorkspace.shared.runningApplications
+//
+//        let a = apps.first {
+//            $0.bundleIdentifier == "com.sonson.HomeConMenu.SwiftUI"
+//        }
+//
+//        if let a = a {
+//            a.terminate()
+//        }
 
-        Task.detached {
+        if !isRunning {
+            
+            //        Task.detached {
             let source = "tell application \"\(bundleURL.path)\"\nsendKey \"vrr34r3r\"\nend tell"
             let applescript = NSAppleScript(source: source)!
-
+            
             var error: NSDictionary?
             applescript.executeAndReturnError(&error)
             print(error)
@@ -291,6 +311,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 print(error.description)
             }
         }
+//        }
         
 //        DistributedNotificationCenter.default().addObserver(self, selector: #selector(testNotification), name: .testNotification, object: nil)
     }

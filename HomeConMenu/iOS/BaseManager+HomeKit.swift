@@ -78,10 +78,23 @@ extension BaseManager {
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         Logger.homeKit.info(#function)
-        guard let _ = self.accessories.first(where: { info in
-            return info.uniqueIdentifier == accessory.uniqueIdentifier
-        }) else { return }
-        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
+//        guard let _ = self.accessories.first(where: { info in
+//            return info.uniqueIdentifier == accessory.uniqueIdentifier
+//        }) else { return }
+//        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
+        
+        let temp = HCCharacteristic(with: characteristic)
+        
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(temp)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                throw NSError(domain: "", code: 0)
+            }
+            macOSController?.post(string: jsonString, name: .to_char_notify)
+        } catch {
+            print(error)
+        }
     }
     
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {

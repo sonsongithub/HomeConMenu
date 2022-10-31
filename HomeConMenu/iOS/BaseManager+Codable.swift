@@ -36,6 +36,37 @@ extension BaseManager {
         } catch {
             print(error)
         }
+        
+        home.accessories.forEach { accessory in
+            
+            accessory.delegate = self
+            
+            accessory.services.forEach { service in
+                service.characteristics.forEach { characteristic in
+                    Task {
+                        do {
+                            characteristic.enableNotification(true, completionHandler: { error in
+                                if let error = error {
+                                    print("\(characteristic.characteristicType.description) - \(error)")
+                                }
+                            })
+                            try await characteristic.readValue()
+
+                            let char = HCCharacteristic(with: characteristic)
+
+                            let data = try encoder.encode(char)
+                            guard let jsonString = String(data: data, encoding: .utf8) else {
+                                throw NSError(domain: "", code: 0)
+                            }
+                            macOSController?.post(string: jsonString, name: .to_char_notify)
+                            print("OK - \(characteristic.characteristicType)")
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
