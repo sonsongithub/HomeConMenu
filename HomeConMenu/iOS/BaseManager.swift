@@ -78,6 +78,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     func reloadAllItems() {
         reloadAllItems2()
 
+//        return//
         guard let home = self.homeManager?.primaryHome else {
             Logger.app.info("Primary home has not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")

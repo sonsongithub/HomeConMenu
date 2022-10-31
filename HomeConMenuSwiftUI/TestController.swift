@@ -9,9 +9,11 @@ import Foundation
 import os
 import AppKit
 
-class TestController {
+class TestController : NSObject, NSMenuDelegate {
+    
     
     @objc func fromMacNotification(_ notification: Notification) {
+        
         print("a")
         print(#function)
         let obj = notification.object
@@ -30,14 +32,22 @@ class TestController {
         do {
             let obj = try decoder.decode(HCCommunication.self, from: data)
             print(obj)
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Shared key", comment: "")
+            alert.informativeText = NSLocalizedString("aaaaa", comment:"")
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: "OK")
+            _ = alert.runModal()
         } catch {
             print(error)
         }
         
     }
     
-    init() {
-        print("aaaaa")
+    override init() {
+        
+        super.init()
+
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(fromMacNotification), name: .to_macNotification, object: nil)
     }
 }

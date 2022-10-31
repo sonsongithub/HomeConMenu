@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14000AD7290C21E400CE15B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14000AD6290C21E400CE15B2 /* AppDelegate.swift */; };
+		14000ADB290D29F300CE15B2 /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14000ADA290D29F300CE15B2 /* SensorMenuItem.swift */; };
 		142C4DBA2906718700A8A872 /* HCRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C4DB92906718700A8A872 /* HCRoom.swift */; };
 		142C4DBB2906718700A8A872 /* HCRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C4DB92906718700A8A872 /* HCRoom.swift */; };
 		142C4DBC2906718700A8A872 /* HCRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C4DB92906718700A8A872 /* HCRoom.swift */; };
@@ -79,6 +81,18 @@
 		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
 		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
+		14A4D27F290D490800F76356 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D27E290D490800F76356 /* MenuView.swift */; };
+		14A4D281290D6A8100F76356 /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D280290D6A8100F76356 /* MainData.swift */; };
+		14A4D283290E5B9D00F76356 /* SUTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D282290E5B9D00F76356 /* SUTemperature.swift */; };
+		14A4D285290E5BAC00F76356 /* SUHumidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D284290E5BAC00F76356 /* SUHumidity.swift */; };
+		14A4D287290E5BBB00F76356 /* SUSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D286290E5BBB00F76356 /* SUSwitch.swift */; };
+		14A4D28D290E5C8600F76356 /* SUAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D28C290E5C8600F76356 /* SUAccessory.swift */; };
+		14A4D28F290E5CF300F76356 /* SUClimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D28E290E5CF300F76356 /* SUClimate.swift */; };
+		14A4D291290E759A00F76356 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D290290E759A00F76356 /* MenuData.swift */; };
+		14A4D293290E78C100F76356 /* SURoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D292290E78C100F76356 /* SURoom.swift */; };
+		14A4D295290E795000F76356 /* SUCharateristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D294290E795000F76356 /* SUCharateristic.swift */; };
+		14A4D297290FEAD800F76356 /* SUColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4D296290FEAD800F76356 /* SUColorPanel.swift */; };
+		14A4D299290FEB2600F76356 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14A4D298290FEB2600F76356 /* ColorWheelPanelView */; };
 		14A7D66D28F50F77007088BB /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 14A7D66C28F50F77007088BB /* CryptoSwift */; };
 		14A7D66F28F50F95007088BB /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 14A7D66E28F50F95007088BB /* CryptoSwift */; };
 		14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewController.swift */; };
@@ -142,6 +156,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14000AD6290C21E400CE15B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14000ADA290D29F300CE15B2 /* SensorMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		142C4DB92906718700A8A872 /* HCRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRoom.swift; sourceTree = "<group>"; };
 		142C4DBD290671BC00A8A872 /* HCAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccessory.swift; sourceTree = "<group>"; };
 		142C4DC1290671E200A8A872 /* HCCharacteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCharacteristic.swift; sourceTree = "<group>"; };
@@ -187,6 +203,17 @@
 		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
 		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
+		14A4D27E290D490800F76356 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		14A4D280290D6A8100F76356 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
+		14A4D282290E5B9D00F76356 /* SUTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUTemperature.swift; sourceTree = "<group>"; };
+		14A4D284290E5BAC00F76356 /* SUHumidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUHumidity.swift; sourceTree = "<group>"; };
+		14A4D286290E5BBB00F76356 /* SUSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUSwitch.swift; sourceTree = "<group>"; };
+		14A4D28C290E5C8600F76356 /* SUAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUAccessory.swift; sourceTree = "<group>"; };
+		14A4D28E290E5CF300F76356 /* SUClimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUClimate.swift; sourceTree = "<group>"; };
+		14A4D290290E759A00F76356 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		14A4D292290E78C100F76356 /* SURoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SURoom.swift; sourceTree = "<group>"; };
+		14A4D294290E795000F76356 /* SUCharateristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUCharateristic.swift; sourceTree = "<group>"; };
+		14A4D296290FEAD800F76356 /* SUColorPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUColorPanel.swift; sourceTree = "<group>"; };
 		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -235,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A4D299290FEB2600F76356 /* ColorWheelPanelView in Frameworks */,
 				14A7D66F28F50F95007088BB /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,14 +403,27 @@
 			isa = PBXGroup;
 			children = (
 				14FA5D6D28E1627F00C75BB2 /* Info.plist */,
+				14A4D290290E759A00F76356 /* MenuData.swift */,
 				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
+				14A4D280290D6A8100F76356 /* MainData.swift */,
+				14A4D27E290D490800F76356 /* MenuView.swift */,
+				14A4D296290FEAD800F76356 /* SUColorPanel.swift */,
+				14000AD6290C21E400CE15B2 /* AppDelegate.swift */,
 				14B0F96B28F293510014AA07 /* TestController.swift */,
 				14B0F96E28F457210014AA07 /* AppleScriptController.swift */,
+				14000ADA290D29F300CE15B2 /* SensorMenuItem.swift */,
 				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
 				14FA5D4628E134E800C75BB2 /* Assets.xcassets */,
 				14FA5D4B28E134E800C75BB2 /* HomeConMenuSwiftUI.entitlements */,
 				14FA5D5128E1429600C75BB2 /* HomeConMenuSwiftUIApp.sdef */,
 				14FA5D4828E134E800C75BB2 /* Preview Content */,
+				14A4D292290E78C100F76356 /* SURoom.swift */,
+				14A4D28C290E5C8600F76356 /* SUAccessory.swift */,
+				14A4D294290E795000F76356 /* SUCharateristic.swift */,
+				14A4D28E290E5CF300F76356 /* SUClimate.swift */,
+				14A4D282290E5B9D00F76356 /* SUTemperature.swift */,
+				14A4D284290E5BAC00F76356 /* SUHumidity.swift */,
+				14A4D286290E5BBB00F76356 /* SUSwitch.swift */,
 			);
 			path = HomeConMenuSwiftUI;
 			sourceTree = "<group>";
@@ -456,6 +497,7 @@
 			name = HomeConMenuSwiftUI;
 			packageProductDependencies = (
 				14A7D66E28F50F95007088BB /* CryptoSwift */,
+				14A4D298290FEB2600F76356 /* ColorWheelPanelView */,
 			);
 			productName = HomeConMenuSwiftUI;
 			productReference = 14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */;
@@ -628,22 +670,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A4D291290E759A00F76356 /* MenuData.swift in Sources */,
+				14A4D281290D6A8100F76356 /* MainData.swift in Sources */,
 				14669EF028F22CF500FFF73F /* HCAccessoryType.swift in Sources */,
+				14A4D28F290E5CF300F76356 /* SUClimate.swift in Sources */,
 				142C4DD02906CB2200A8A872 /* HCCommunication.swift in Sources */,
 				142C4DC4290671E200A8A872 /* HCCharacteristic.swift in Sources */,
+				14A4D27F290D490800F76356 /* MenuView.swift in Sources */,
 				142C4DCC2906743800A8A872 /* HCServiceGroup.swift in Sources */,
+				14A4D293290E78C100F76356 /* SURoom.swift in Sources */,
 				14B0F96D28F293D00014AA07 /* Log.swift in Sources */,
+				14A4D295290E795000F76356 /* SUCharateristic.swift in Sources */,
 				14FA5D4528E134E700C75BB2 /* ContentView.swift in Sources */,
+				14A4D28D290E5C8600F76356 /* SUAccessory.swift in Sources */,
 				14FA5D4328E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift in Sources */,
 				142C4DBC2906718700A8A872 /* HCRoom.swift in Sources */,
 				14669EEC28F17F1400FFF73F /* HCHome.swift in Sources */,
 				142C4DC8290672C700A8A872 /* HCActionSet.swift in Sources */,
 				14669EF428F22D1700FFF73F /* HCCharacteristicType.swift in Sources */,
 				14B0F96C28F293510014AA07 /* TestController.swift in Sources */,
+				14A4D285290E5BAC00F76356 /* SUHumidity.swift in Sources */,
 				14669EFD28F241A800FFF73F /* HCService.swift in Sources */,
+				14A4D297290FEAD800F76356 /* SUColorPanel.swift in Sources */,
 				14669EF828F2416400FFF73F /* HCServiceType.swift in Sources */,
 				14B0F96F28F457210014AA07 /* AppleScriptController.swift in Sources */,
+				14A4D287290E5BBB00F76356 /* SUSwitch.swift in Sources */,
+				14A4D283290E5B9D00F76356 /* SUTemperature.swift in Sources */,
+				14000AD7290C21E400CE15B2 /* AppDelegate.swift in Sources */,
 				142C4DC0290671BC00A8A872 /* HCAccessory.swift in Sources */,
+				14000ADB290D29F300CE15B2 /* SensorMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +792,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -792,6 +848,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -830,6 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -873,6 +931,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -907,7 +966,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -942,7 +1001,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -978,7 +1037,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1010,7 +1069,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1082,6 +1141,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		14746C4B2813C1BE00666682 /* ColorWheelPanelView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;
+			productName = ColorWheelPanelView;
+		};
+		14A4D298290FEB2600F76356 /* ColorWheelPanelView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;
 			productName = ColorWheelPanelView;
