@@ -249,6 +249,14 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
     }
     
+    func loadQuit() {
+        let menuItem = NSMenuItem()
+        menuItem.title = NSLocalizedString("Quit HomeConMenu", comment: "")
+        menuItem.action = #selector(MacOSController.quit(sender:))
+        menuItem.target = self
+        mainMenu.addItem(menuItem)
+    }
+    
     func reloadAllMenuItems() {
         mainMenu.removeAllItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()

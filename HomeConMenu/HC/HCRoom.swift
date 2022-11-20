@@ -31,9 +31,14 @@ import Foundation
 import HomeKit
 #endif
 
-class HCRoom: Codable {
+class HCRoom: Codable, Equatable {
     var roomName: String
     let uniqueIdentifier: UUID
+    
+    static func == (lhs: HCRoom, rhs: HCRoom) -> Bool {
+        return lhs.uniqueIdentifier == rhs.uniqueIdentifier
+    }
+    
 #if !os(macOS)
     init(with _hmroom: HMRoom) {
         roomName = _hmroom.name

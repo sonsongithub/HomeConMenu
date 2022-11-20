@@ -37,6 +37,18 @@ class HCCommunication : Codable {
     let accessories: [HCAccessory]
     let serviceGroups: [HCServiceGroup]
     
+    func excludedAccessories() -> [HCAccessory] {
+        return accessories.filter { accessory in
+            return (accessory.room == nil)
+        }
+    }
+    
+    func accessories(in room: HCRoom) -> [HCAccessory] {
+        return accessories.filter { accessory in
+            return (accessory.room == room)
+        }
+    }
+    
 #if !os(macOS)
     init(with home: HMHome) {
         accessories = home

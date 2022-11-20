@@ -10,6 +10,7 @@ import AppKit
 
 class AppleScriptController : NSScriptCommand {
     
+    
     override init(commandDescription commandDef: NSScriptCommandDescription) {
         super.init(commandDescription: commandDef)
     }

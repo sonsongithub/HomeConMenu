@@ -88,6 +88,12 @@
 		14B0F96C28F293510014AA07 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0F96B28F293510014AA07 /* TestController.swift */; };
 		14B0F96D28F293D00014AA07 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14B0F96F28F457210014AA07 /* AppleScriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0F96E28F457210014AA07 /* AppleScriptController.swift */; };
+		14B869C92929CBD400FF6EB2 /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */; };
+		14B869CB2929D08500FF6EB2 /* ToggleMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B869CA2929D08500FF6EB2 /* ToggleMenuItem.swift */; };
+		14B869CD2929D3F300FF6EB2 /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */; };
+		14B869CF2929DC8000FF6EB2 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14B869CE2929DC8000FF6EB2 /* ColorWheelPanelView */; };
+		14B869D12929DCE200FF6EB2 /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */; };
+		14B869D2292A209E00FF6EB2 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
@@ -194,6 +200,10 @@
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14B0F96B28F293510014AA07 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		14B0F96E28F457210014AA07 /* AppleScriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptController.swift; sourceTree = "<group>"; };
+		14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
+		14B869CA2929D08500FF6EB2 /* ToggleMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
+		14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
+		14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -235,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B869CF2929DC8000FF6EB2 /* ColorWheelPanelView in Frameworks */,
 				14A7D66F28F50F95007088BB /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +386,11 @@
 			isa = PBXGroup;
 			children = (
 				14FA5D6D28E1627F00C75BB2 /* Info.plist */,
+				14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */,
+				14B869CA2929D08500FF6EB2 /* ToggleMenuItem.swift */,
+				14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */,
 				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
+				14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */,
 				14B0F96B28F293510014AA07 /* TestController.swift */,
 				14B0F96E28F457210014AA07 /* AppleScriptController.swift */,
 				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
@@ -456,6 +471,7 @@
 			name = HomeConMenuSwiftUI;
 			packageProductDependencies = (
 				14A7D66E28F50F95007088BB /* CryptoSwift */,
+				14B869CE2929DC8000FF6EB2 /* ColorWheelPanelView */,
 			);
 			productName = HomeConMenuSwiftUI;
 			productReference = 14FA5D4028E134E700C75BB2 /* HomeConMenuSwiftUI.app */;
@@ -631,10 +647,13 @@
 				14669EF028F22CF500FFF73F /* HCAccessoryType.swift in Sources */,
 				142C4DD02906CB2200A8A872 /* HCCommunication.swift in Sources */,
 				142C4DC4290671E200A8A872 /* HCCharacteristic.swift in Sources */,
+				14B869CD2929D3F300FF6EB2 /* LightColorMenuItem.swift in Sources */,
 				142C4DCC2906743800A8A872 /* HCServiceGroup.swift in Sources */,
 				14B0F96D28F293D00014AA07 /* Log.swift in Sources */,
 				14FA5D4528E134E700C75BB2 /* ContentView.swift in Sources */,
+				14B869D12929DCE200FF6EB2 /* LightbulbMenuItem.swift in Sources */,
 				14FA5D4328E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift in Sources */,
+				14B869CB2929D08500FF6EB2 /* ToggleMenuItem.swift in Sources */,
 				142C4DBC2906718700A8A872 /* HCRoom.swift in Sources */,
 				14669EEC28F17F1400FFF73F /* HCHome.swift in Sources */,
 				142C4DC8290672C700A8A872 /* HCActionSet.swift in Sources */,
@@ -642,7 +661,9 @@
 				14B0F96C28F293510014AA07 /* TestController.swift in Sources */,
 				14669EFD28F241A800FFF73F /* HCService.swift in Sources */,
 				14669EF828F2416400FFF73F /* HCServiceType.swift in Sources */,
+				14B869C92929CBD400FF6EB2 /* SensorMenuItem.swift in Sources */,
 				14B0F96F28F457210014AA07 /* AppleScriptController.swift in Sources */,
+				14B869D2292A209E00FF6EB2 /* Error.swift in Sources */,
 				142C4DC0290671BC00A8A872 /* HCAccessory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1095,6 +1116,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 14A7D66928F50F4A007088BB /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		14B869CE2929DC8000FF6EB2 /* ColorWheelPanelView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;
+			productName = ColorWheelPanelView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

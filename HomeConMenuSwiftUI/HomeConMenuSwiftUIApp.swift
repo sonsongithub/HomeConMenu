@@ -9,8 +9,7 @@ import SwiftUI
 
 @main
 struct HomeConMenuSwiftUIApp: App {
-    
-    let testController = TestController()
+    @NSApplicationDelegateAdaptor (TestController.self) var appDelegate
     
     static var shared: HomeConMenuSwiftUIApp!
     

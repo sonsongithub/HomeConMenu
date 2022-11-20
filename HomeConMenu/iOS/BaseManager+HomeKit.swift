@@ -83,6 +83,8 @@ extension BaseManager {
 //        }) else { return }
 //        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
         
+        reloadAllItems2()
+        
         let temp = HCCharacteristic(with: characteristic)
         
         let encoder = JSONEncoder()

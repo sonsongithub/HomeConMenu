@@ -41,13 +41,15 @@ class HCCharacteristic: Codable {
             }
         }
     }
-    var numberValue: Float? = nil {
-        didSet {
-            if let numberValue {
-                string = "\(numberValue)"
-            }
-        }
-    }
+//
+//    var numberValue: Float? = nil {
+//        didSet {
+//            if let numberValue {
+//                string = "\(numberValue)"
+//            }
+//        }
+//    }
+    
     var doubleValue: Double? = nil {
         didSet {
             if let doubleValue {
@@ -55,20 +57,20 @@ class HCCharacteristic: Codable {
             }
         }
     }
-    var intValue: Int? = nil {
-        didSet {
-            if let intValue {
-                string = "\(intValue)"
-            }
-        }
-    }
-    var boolValue: Bool? = nil {
-        didSet {
-            if let boolValue {
-                string = "\(boolValue)"
-            }
-        }
-    }
+//    var intValue: Int? = nil {
+//        didSet {
+//            if let intValue {
+//                string = "\(intValue)"
+//            }
+//        }
+//    }
+//    var boolValue: Bool? = nil {
+//        didSet {
+//            if let boolValue {
+//                string = "\(boolValue)"
+//            }
+//        }
+//    }
     let type: HCCharacteristicType
     
     var string: String = ""
@@ -86,12 +88,12 @@ class HCCharacteristic: Codable {
     var message: String {
         if let stringValue {
             return stringValue
-        } else if let numberValue {
-            return "\(numberValue)"
-        } else if let intValue {
-            return "\(intValue)"
-        } else if let boolValue {
-            return "\(boolValue)"
+//        } else if let numberValue {
+//            return "\(numberValue)"
+//        } else if let intValue {
+//            return "\(intValue)"
+//        } else if let boolValue {
+//            return "\(boolValue)"
         } else if let doubleValue {
             return "\(doubleValue)"
         }
@@ -104,23 +106,32 @@ class HCCharacteristic: Codable {
         uniqueIdentifier = _hmcharacteristic.uniqueIdentifier
         type = HCCharacteristicType(key: _hmcharacteristic.characteristicType)
         stringValue = nil
-        numberValue = nil
+//        numberValue = nild
+        doubleValue = nil
         
-        print("\(_hmcharacteristic.descriptionType.description) - \(_hmcharacteristic.value)")
+//        print("\(_hmcharacteristic.descriptionType.description) - \(_hmcharacteristic.value)")
         
         if let value = _hmcharacteristic.value as? String {
             stringValue = value
-        } else if let value = _hmcharacteristic.value as? Float {
-            numberValue = value
-        } else if let value = _hmcharacteristic.value as? Int {
-            intValue = value
-        } else if let value = _hmcharacteristic.value as? Bool {
-            boolValue = value
         } else if let value = _hmcharacteristic.value as? Double {
             doubleValue = value
         } else {
-            print("can not convert")
+            print("can not convert - \(_hmcharacteristic.value)")
         }
+//
+//        if let value = _hmcharacteristic.value as? String {
+//            stringValue = value
+//        } else if let value = _hmcharacteristic.value as? Float {
+//            numberValue = value
+//        } else if let value = _hmcharacteristic.value as? Int {
+//            intValue = value
+//        } else if let value = _hmcharacteristic.value as? Bool {
+//            boolValue = value
+//        } else if let value = _hmcharacteristic.value as? Double {
+//            doubleValue = value
+//        } else {
+//            print("can not convert")
+//        }
     }
 #endif
 }

@@ -32,6 +32,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func updateItems(of uniqueIdentifier: UUID, value: Any)
     func updateItems(of uniqueIdentifier: UUID, isReachable: Bool)
     func reloadAllMenuItems()
+    func loadQuit()
     func bringToFront()
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
