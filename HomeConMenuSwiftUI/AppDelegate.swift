@@ -68,43 +68,77 @@ class AppDelegate : NSObject, NSApplicationDelegate {
 #endif
     }
     
-    @objc func didReceiveCharacateristicUpdate(_ notification: Notification) {
+    func updateMenuItem(with characteristic: HCCharacteristic) {
+
+        let items = NSMenu.getSubItems(menu: mainMenu)
+            .compactMap({ $0 as? MenuItemFromUUID })
+            .compactMap({ $0 })
+            .filter ({ item in
+                item.bind(with: characteristic.uniqueIdentifier)
+            })
         
-        do {
-            guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
-            guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
+        items.forEach { item in
+            switch item {
+            case let menuItem as LightColorMenuItem:
+                if let temp = characteristic.doubleValue {
+                    menuItem.update(of: characteristic.uniqueIdentifier, value: temp)
+                }
+            case let menuItem as ToggleMenuItem:
+                if let temp = characteristic.doubleValue {
+                    menuItem.update(value: temp > 0)
+                }
+                menuItem.reachable = characteristic.reachable
+            default:
+                do {}
+            }
+        }
+    }
+    
+    func updateAllMenuItems(with communication: HCCommunication) {
+        mainMenu.removeAllItems()
+        
+        communication.rooms.forEach { room in
+            let sub = NSMenuItem(title: room.roomName, action: nil, keyEquivalent: "")
+            mainMenu.addItem(sub)
             
-            let decoder = JSONDecoder()
-            
-            let obj = try decoder.decode(HCCharacteristic.self, from: data)
-            
-            let items = NSMenu.getSubItems(menu: mainMenu)
-                .compactMap({ $0 as? MenuItemFromUUID })
-                .compactMap({ $0 })
-                .filter ({ item in
-                    item.bind(with: obj.uniqueIdentifier)
-                })
-            
-            items.forEach { item in
-                switch item {
-                case let menuItem as LightColorMenuItem:
-                    if let temp = obj.doubleValue {
-                        menuItem.update(of: obj.uniqueIdentifier, value: temp)
+            communication.accessories(in: room).forEach { accessory in
+                accessory.serivces.forEach { service in
+                    if let item = SensorMenuItem(service: service) {
+                        mainMenu.addItem(item)
                     }
-                case let menuItem as ToggleMenuItem:
-                    if let temp = obj.doubleValue {
-                        menuItem.update(value: temp > 0)
+                    if service.type == .switch {
+                        if let item = SwitchMenuItem(service: service) {
+                            mainMenu.addItem(item)
+                        }
                     }
-                    menuItem.reachable = obj.reachable
-                default:
-                    do {}
+                    if service.type == .outlet {
+                        if let item = OutletMenuItem(service: service) {
+                            mainMenu.addItem(item)
+                        }
+                    }
+                    if service.type == .lightbulb {
+                        if let item = LightbulbMenuItem(service: service) {
+                            mainMenu.addItem(item)
+                        }
+                    }
                 }
             }
             
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+        
+    }
+    
+    @objc func didReceiveCharacateristicUpdate(_ notification: Notification) {
+        do {
+            guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
+            guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
+            let decoder = JSONDecoder()
+            let characteristic = try decoder.decode(HCCharacteristic.self, from: data)
+            updateMenuItem(with: characteristic)
         } catch {
             print(error)
         }
-        
     }
     
     @objc func didReceiveAllUpdateNotification(_ notification: Notification) {
@@ -113,41 +147,8 @@ class AppDelegate : NSObject, NSApplicationDelegate {
             guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
             guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
             let decoder = JSONDecoder()
-            
-            let obj = try decoder.decode(HCCommunication.self, from: data)
-            
-            mainMenu.removeAllItems()
-            
-            obj.rooms.forEach { room in
-                let sub = NSMenuItem(title: room.roomName, action: nil, keyEquivalent: "")
-                mainMenu.addItem(sub)
-                
-                obj.accessories(in: room).forEach { accessory in
-                    accessory.serivces.forEach { service in
-                        if let item = SensorMenuItem(service: service) {
-                            mainMenu.addItem(item)
-                        }
-                        if service.type == .switch {
-                            if let item = SwitchMenuItem(service: service) {
-                                mainMenu.addItem(item)
-                            }
-                        }
-                        if service.type == .outlet {
-                            if let item = OutletMenuItem(service: service) {
-                                mainMenu.addItem(item)
-                            }
-                        }
-                        if service.type == .lightbulb {
-                            if let item = LightbulbMenuItem(service: service) {
-                                mainMenu.addItem(item)
-                            }
-                        }
-                    }
-                }
-                
-                mainMenu.addItem(NSMenuItem.separator())
-            }
-            
+            let communication = try decoder.decode(HCCommunication.self, from: data)
+            updateAllMenuItems(with: communication)
         } catch {
             print(error)
         }
