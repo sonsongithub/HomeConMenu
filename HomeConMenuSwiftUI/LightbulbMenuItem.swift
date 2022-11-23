@@ -68,10 +68,10 @@ class LightbulbMenuItem: ToggleMenuItem {
         }
     }
     
-//    override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
-//        super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
-//        reachable = true
-//    }
+    override init?(serviceGroup: HCServiceGroup) {
+        super.init(serviceGroup: serviceGroup)
+        reachable = true
+    }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

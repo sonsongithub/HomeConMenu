@@ -59,29 +59,33 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, Updatable {//
     }
     
     let characteristicIdentifiers: [UUID]
+    var characteristics: [HCCharacteristic] = []
     
     @IBAction func toggle(sender: NSMenuItem) {
-        guard let uuid = characteristicIdentifiers.first else { return }
-        do {
-            
-            let characteristic = HCCharacteristic(uuid: uuid)
-            
-            if self.state == .on {
-                characteristic.doubleValue = 0
-                self.state = .off
-            } else {
-                characteristic.doubleValue = 1
-                self.state = .on
-            }
+        let current = (self.state == .on)
+        
+        characteristicIdentifiers.forEach { uuid in
+            do {
+                
+                let characteristic = HCCharacteristic(uuid: uuid)
+                
+                if current {
+                    characteristic.doubleValue = 0
+                    self.state = .off
+                } else {
+                    characteristic.doubleValue = 1
+                    self.state = .on
+                }
 
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(characteristic)
-            guard let jsonString = String(data: data, encoding: .utf8) else {
-                throw NSError(domain: "", code: 0)
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(characteristic)
+                guard let jsonString = String(data: data, encoding: .utf8) else {
+                    throw NSError(domain: "", code: 0)
+                }
+                DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
+            } catch {
+                Logger.app.error("\(error.localizedDescription)")
             }
-            DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
-        } catch {
-            Logger.app.error("\(error.localizedDescription)")
         }
     }
     
@@ -97,6 +101,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, Updatable {//
             obj.type == .powerState
         }) else { return nil }
         
+        characteristics = [powerStateChara]
         
         self.characteristicIdentifiers = [powerStateChara.uniqueIdentifier]
         super.init(title: service.serviceName, action: nil, keyEquivalent: "")
@@ -114,6 +119,31 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, Updatable {//
         }
         self.action = #selector(self.toggle(sender:))
 //        self.target = self
+    }
+    
+    init?(serviceGroup: HCServiceGroup) {
+
+        let characteristicInfos = serviceGroup.services.map({ $0.characteristics }).flatMap({ $0 })
+           
+        characteristics = characteristicInfos.filter({ $0.type == .powerState })
+        
+        guard characteristics.count > 0 else { return nil }
+        
+        guard let sample = characteristics.first else { return nil}
+        
+        let uuids = characteristics.map({$0.uniqueIdentifier})
+        
+        self.reachable = true
+//        self.mac2ios = mac2ios
+        self.characteristicIdentifiers = uuids
+        super.init(title: serviceGroup.serviceGroupName, action: nil, keyEquivalent: "")
+
+        if let number = sample.doubleValue {
+            self.state = (number > 0) ? .on : .off
+        }
+        self.image = self.icon
+        self.action = #selector(self.toggle(sender:))
+        self.target = self
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {

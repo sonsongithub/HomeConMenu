@@ -23,6 +23,50 @@ extension NSMenu {
     }
 }
 
+extension NSMenuItem {
+//    class func HomeMenus(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
+//        switch serviceInfo.type {
+//        case .humiditySensor, .temperatureSensor:
+//            return [SensorMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+//        case .lightbulb:
+//            return [LightbulbMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+//        case .switch:
+//            return [SwitchMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+//        case .outlet:
+//            return [OutletMenuItem(serviceInfo: serviceInfo, mac2ios: mac2ios)]
+//        default:
+//            return []
+//        }
+//    }
+    
+    class func HomeMenus(serviceGroup: HCServiceGroup) -> [NSMenuItem?] {
+        
+        let serviceTypes = Set(serviceGroup.services.map({ $0.type}))
+        
+        guard let firstService = serviceGroup.services.first else { return [] }
+//
+//        var buffer = Set(firstService.characteristics.map({ $0.type }))
+//        for service in serviceGroup.services {
+//            buffer = Set(service.characteristics.map({$0.type})).intersection(buffer)
+//        }
+        
+        let buffer = serviceGroup.services.reduce(Set(firstService.characteristics.map({ $0.type }))) { partialResult, service in
+            Set(service.characteristics.map({$0.type})).intersection(partialResult)
+        }
+        
+        if buffer.contains(.powerState) && serviceTypes.contains(.outlet) {
+            return [OutletMenuItem(serviceGroup: serviceGroup)]
+        }
+        if buffer.contains(.powerState) && serviceTypes.contains(.switch) {
+            return [SwitchMenuItem(serviceGroup: serviceGroup)]
+        }
+        if buffer.contains(.powerState) && serviceTypes.contains(.lightbulb) {
+            return [LightbulbMenuItem(serviceGroup: serviceGroup)]
+        }
+        return []
+    }
+}
+
 class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     let mainMenu = NSMenu()
@@ -44,7 +88,7 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func postNotificationToTerminateCatalystApp() {
-        DistributedNotificationCenter.default().postNotificationName(.terminate_iOSNotification, object: nil, deliverImmediately: true)
+        DistributedNotificationCenter.default().postNotificationName(.requestTerminateIOSNotification, object: nil, deliverImmediately: true)
     }
     
     func applicationWillTerminate(_ notification: Notification) {
@@ -76,7 +120,6 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func updateMenuItem(with characteristic: HCCharacteristic) {
-
         NSMenu.getSubItems(menu: mainMenu)
             .compactMap({ $0 as? MenuItemFromUUID })
             .compactMap({ $0 })
@@ -85,17 +128,6 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
             })
             .compactMap({ $0 as? Updatable })
             .forEach({ $0.update(with: characteristic)})
-        
-//        items.forEach { item in
-//            switch item {
-//            case let menuItem as LightColorMenuItem:
-//                menuItem.update(with: characteristic)
-//            case let menuItem as ToggleMenuItem:
-//                menuItem.update(with: characteristic)
-//            default:
-//                do {}
-//            }
-//        }
     }
     
     func updateAllMenuItems(with communication: HCCommunication) {
@@ -127,9 +159,27 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
                     }
                 }
             }
-            
             mainMenu.addItem(NSMenuItem.separator())
         }
+        
+        let serviceGroupItems = communication.serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0) }).flatMap({ $0 }).compactMap({$0})
+        
+        if serviceGroupItems.count > 0 {
+            let groupItem = NSMenuItem()
+            groupItem.title = NSLocalizedString("Group", comment: "")
+            groupItem.image = NSImage(systemSymbolName: "rectangle.3.group", accessibilityDescription: nil)
+            mainMenu.addItem(groupItem)
+            for item in serviceGroupItems {
+                mainMenu.addItem(item)
+            }
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+        
+        let menuItem = NSMenuItem()
+        menuItem.title = NSLocalizedString("Quit HomeConMenu", comment: "")
+        menuItem.action = #selector(AppDelegate.quit(sender:))
+        menuItem.target = self
+        mainMenu.addItem(menuItem)
         
     }
     
@@ -157,5 +207,9 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
             print(error)
         }
         
+    }
+    
+    @IBAction func quit(sender: NSButton) {
+        NSApplication.shared.terminate(self)
     }
 }

@@ -1,8 +1,8 @@
 //
-//  HCHome.swift
+//  Notification.swift
 //  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/10/08.
+//  Created by Yuichi Yoshida on 2022/11/23.
 //
 //  MIT License
 //
@@ -27,19 +27,12 @@
 
 import Foundation
 
-#if !os(macOS)
-import HomeKit
-#endif
-
-class HCHome: Codable {
-    var homeName: String
-    let uniqueIdentifier: UUID
-    var rooms: [HCRoom]
-#if !os(macOS)
-    init(with _hmhome: HMHome) {
-        homeName = _hmhome.name
-        uniqueIdentifier = _hmhome.uniqueIdentifier
-        rooms = _hmhome.rooms.map({HCRoom(with: $0)})
-    }
-#endif
+extension NSNotification.Name {
+    static let didUpdateAllItems = Self("to_macNotification")
+    static let didUpdateCharacteristic = Self("chara_notify")
+    static let to_iosNotification = Self("to_iOSNotification")
+    
+    static let requestTerminateIOSNotification = Self("requestTerminateIOSNotification")
+    static let requestTerminateSwiftUINotification = Self("requestTerminateSwiftUINotification")
+    static let requestReloadHomeKitNotification = Self("requestReloadHomeKitNotification")
 }
