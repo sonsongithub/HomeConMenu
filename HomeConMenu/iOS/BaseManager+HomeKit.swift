@@ -77,16 +77,18 @@ extension BaseManager {
     }
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
+        print(#function)
         Logger.homeKit.info(#function)
 //        guard let _ = self.accessories.first(where: { info in
 //            return info.uniqueIdentifier == accessory.uniqueIdentifier
 //        }) else { return }
 //        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
         
-        reloadAllItems2()
+//        reloadAllItems2()
         
         let temp = HCCharacteristic(with: characteristic)
-        
+        print(characteristic.characteristicType.description)
+        print(characteristic.uniqueIdentifier)
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(temp)

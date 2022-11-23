@@ -28,18 +28,19 @@
 import Cocoa
 import os
 
-class ToggleMenuItem: NSMenuItem {//}, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
+class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {//}, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
     var orderPriority: Int {
         100
     }
     
-    
-    var reachable: Bool {
+    var reachable: Bool = false {
         didSet {
             if reachable {
+                self.target = self
                 self.image = icon
             } else {
+                self.target = nil
                 self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
             }
         }
@@ -58,58 +59,42 @@ class ToggleMenuItem: NSMenuItem {//}, MenuItemFromUUID, ErrorMenuItem, MenuItem
     }
     
     let characteristicIdentifiers: [UUID]
-//    var mac2ios: mac2iOS?
     
     @IBAction func toggle(sender: NSMenuItem) {
         guard let uuid = characteristicIdentifiers.first else { return }
         do {
-//            let value = try self.mac2ios?.getCharacteristic(of: uuid)
-//            if let boolValue = value as? Bool {
-//                for uuid in characteristicIdentifiers {
-//                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
-//                }
-//            }
+            
+            let characteristic = HCCharacteristic(uuid: uuid)
+            
+            if self.state == .on {
+                characteristic.doubleValue = 0
+                self.state = .off
+            } else {
+                characteristic.doubleValue = 1
+                self.state = .on
+            }
+
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(characteristic)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                throw NSError(domain: "", code: 0)
+            }
+            DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
         } catch {
             Logger.app.error("\(error.localizedDescription)")
         }
     }
     
     func update(value: Bool) {
-        reachable = true
+//        reachable = true
         self.state = value ? .on : .off
     }
-        
-//    init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
-//
-//        let characteristicInfos = serviceGroupInfo.services.map({ $0.characteristics }).flatMap({ $0 })
-//
-//        let infos = characteristicInfos.filter({ $0.type == .powerState })
-//
-//        guard infos.count > 0 else { return nil }
-//
-//        guard let sample = infos.first else { return nil}
-//
-//
-//        let uuids = infos.map({$0.uniqueIdentifier})
-//
-//        self.reachable = true
-//        self.mac2ios = mac2ios
-//        self.characteristicIdentifiers = uuids
-//        super.init(title: serviceGroupInfo.name, action: nil, keyEquivalent: "")
-//
-//        if let number = sample.value as? Int {
-//            self.state = (number == 0) ? .off : .on
-//        }
-//        self.image = self.icon
-//        self.action = #selector(self.toggle(sender:))
-//        self.target = self
-//    }
-        
+                
     init?(service: HCService) {
         guard let powerStateChara = service.characteristics.first(where: { obj in
             obj.type == .powerState
         }) else { return nil }
-        self.reachable = true
+        
         
         self.characteristicIdentifiers = [powerStateChara.uniqueIdentifier]
         super.init(title: service.serviceName, action: nil, keyEquivalent: "")
@@ -117,14 +102,20 @@ class ToggleMenuItem: NSMenuItem {//}, MenuItemFromUUID, ErrorMenuItem, MenuItem
         if let number = powerStateChara.doubleValue {
             self.state = (number > 0) ? .on : .off
         }
-        self.image = self.icon
+        
+        self.reachable = powerStateChara.reachable
+        
+        if reachable {
+            self.image = icon
+        } else {
+            self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+        }
         self.action = #selector(self.toggle(sender:))
-        self.target = self
+//        self.target = self
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.characteristicIdentifiers = []
-        self.reachable = true
         super.init(title: string, action: selector, keyEquivalent: charCode)
     }
     

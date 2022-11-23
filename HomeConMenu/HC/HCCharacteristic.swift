@@ -29,11 +29,30 @@ import Foundation
 
 #if !os(macOS)
 import HomeKit
+
+extension HMCharacteristic {
+    var isSupported: Bool {
+        let supportedTypes: [HCCharacteristicType] = [
+            .currentRelativeHumidity,
+            .currentTemperature,
+            .powerState,
+            .brightness,
+            .hue,
+            .saturation
+        ]
+        
+        return supportedTypes.contains {
+            $0.type == self.characteristicType
+        }
+    }
+}
+
 #endif
 
 class HCCharacteristic: Codable {
     var charName: String
     let uniqueIdentifier: UUID
+    var reachable: Bool = false
     var stringValue: String? = nil {
         didSet {
             if let stringValue {
@@ -41,14 +60,6 @@ class HCCharacteristic: Codable {
             }
         }
     }
-//
-//    var numberValue: Float? = nil {
-//        didSet {
-//            if let numberValue {
-//                string = "\(numberValue)"
-//            }
-//        }
-//    }
     
     var doubleValue: Double? = nil {
         didSet {
@@ -57,27 +68,13 @@ class HCCharacteristic: Codable {
             }
         }
     }
-//    var intValue: Int? = nil {
-//        didSet {
-//            if let intValue {
-//                string = "\(intValue)"
-//            }
-//        }
-//    }
-//    var boolValue: Bool? = nil {
-//        didSet {
-//            if let boolValue {
-//                string = "\(boolValue)"
-//            }
-//        }
-//    }
     let type: HCCharacteristicType
     
     var string: String = ""
     
-    init() {
+    init(uuid: UUID) {
         charName = ""
-        uniqueIdentifier = UUID()
+        uniqueIdentifier = uuid
         type = .unknown
     }
     
@@ -88,16 +85,24 @@ class HCCharacteristic: Codable {
     var message: String {
         if let stringValue {
             return stringValue
-//        } else if let numberValue {
-//            return "\(numberValue)"
-//        } else if let intValue {
-//            return "\(intValue)"
-//        } else if let boolValue {
-//            return "\(boolValue)"
         } else if let doubleValue {
             return "\(doubleValue)"
         }
         return "None"
+    }
+    
+    var isSupported: Bool {
+        let supportedTypes: [HCCharacteristicType] = [
+            .currentRelativeHumidity,
+            .currentTemperature,
+            .powerState,
+            .brightness,
+            .hue,
+            .saturation
+        ]
+        return supportedTypes.contains {
+            $0 == self.type
+        }
     }
     
 #if !os(macOS)
@@ -106,32 +111,17 @@ class HCCharacteristic: Codable {
         uniqueIdentifier = _hmcharacteristic.uniqueIdentifier
         type = HCCharacteristicType(key: _hmcharacteristic.characteristicType)
         stringValue = nil
-//        numberValue = nild
         doubleValue = nil
         
-//        print("\(_hmcharacteristic.descriptionType.description) - \(_hmcharacteristic.value)")
+        print(_hmcharacteristic.value)
         
         if let value = _hmcharacteristic.value as? String {
             stringValue = value
         } else if let value = _hmcharacteristic.value as? Double {
             doubleValue = value
         } else {
-            print("can not convert - \(_hmcharacteristic.value)")
+            print("can not convert - \(type.description) - \(_hmcharacteristic.value)")
         }
-//
-//        if let value = _hmcharacteristic.value as? String {
-//            stringValue = value
-//        } else if let value = _hmcharacteristic.value as? Float {
-//            numberValue = value
-//        } else if let value = _hmcharacteristic.value as? Int {
-//            intValue = value
-//        } else if let value = _hmcharacteristic.value as? Bool {
-//            boolValue = value
-//        } else if let value = _hmcharacteristic.value as? Double {
-//            doubleValue = value
-//        } else {
-//            print("can not convert")
-//        }
     }
 #endif
 }

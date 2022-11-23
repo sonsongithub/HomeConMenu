@@ -12,6 +12,41 @@ import os
 
 extension BaseManager {
     
+    func read_all_values() {
+        guard let home = self.homeManager?.primaryHome else {
+            return
+        }
+        home.accessories.forEach { accessory in
+            accessory.services.forEach { service in
+                service.characteristics.filter({ $0.isSupported }).forEach { characteristic in
+                    Task {
+                        do {
+                            try await characteristic.readValue()
+                            let char = HCCharacteristic(with: characteristic)
+                            char.reachable = true
+                            let encoder = JSONEncoder()
+                            let data = try encoder.encode(char)
+                            
+                            guard let jsonString = String(data: data, encoding: .utf8) else {
+                                throw NSError(domain: "", code: 0)
+                            }
+                            macOSController?.post(string: jsonString, name: .to_char_notify)
+                        } catch {
+                            let char = HCCharacteristic(with: characteristic)
+                            char.reachable = false
+                            let encoder = JSONEncoder()
+                            let data = try encoder.encode(char)
+                            guard let jsonString = String(data: data, encoding: .utf8) else {
+                                throw NSError(domain: "", code: 0)
+                            }
+                            macOSController?.post(string: jsonString, name: .to_char_notify)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func reloadAllItems2() {
         
         guard let home = self.homeManager?.primaryHome else {
@@ -33,25 +68,9 @@ extension BaseManager {
                 service.characteristics.forEach { characteristic in
                     Task {
                         do {
-                            characteristic.enableNotification(true, completionHandler: { error in
-                                if let error = error {
-//                                    print("\(characteristic.characteristicType.description) - \(error)")
-                                }
-                            })
-                            try await characteristic.readValue()
-//
-                            print(characteristic.value)
-//
-//                            let char = HCCharacteristic(with: characteristic)
-//
-//                            let data = try encoder.encode(char)
-//                            guard let jsonString = String(data: data, encoding: .utf8) else {
-//                                throw NSError(domain: "", code: 0)
-//                            }
-//                            macOSController?.post(string: jsonString, name: .to_char_notify)
-////                            print("OK - \(characteristic.characteristicType)")
+                            try await characteristic.enableNotification(true)
                         } catch {
-//                            print(error)
+                            print(error)
                         }
                     }
                 }
@@ -69,6 +88,8 @@ extension BaseManager {
         } catch {
             print(error)
         }
+        
+//        read_all_values()
     }
 
 }

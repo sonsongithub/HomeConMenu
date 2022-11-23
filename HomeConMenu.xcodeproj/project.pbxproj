@@ -96,6 +96,7 @@
 		14B869D2292A209E00FF6EB2 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
+		14ED60ED292AF72200F8BA01 /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
@@ -389,8 +390,8 @@
 				14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */,
 				14B869CA2929D08500FF6EB2 /* ToggleMenuItem.swift */,
 				14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */,
-				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
 				14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */,
+				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
 				14B0F96B28F293510014AA07 /* TestController.swift */,
 				14B0F96E28F457210014AA07 /* AppleScriptController.swift */,
 				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
@@ -652,6 +653,7 @@
 				14B0F96D28F293D00014AA07 /* Log.swift in Sources */,
 				14FA5D4528E134E700C75BB2 /* ContentView.swift in Sources */,
 				14B869D12929DCE200FF6EB2 /* LightbulbMenuItem.swift in Sources */,
+				14ED60ED292AF72200F8BA01 /* MenuItemFromUUID.swift in Sources */,
 				14FA5D4328E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift in Sources */,
 				14B869CB2929D08500FF6EB2 /* ToggleMenuItem.swift in Sources */,
 				142C4DBC2906718700A8A872 /* HCRoom.swift in Sources */,

@@ -55,9 +55,12 @@ class HCService : Codable {
         uniqueIdentifier = _hmservice.uniqueIdentifier
         type = HCServiceType(key: _hmservice.serviceType)
         isUserInteractive = _hmservice.isUserInteractive
+        
         characteristics = _hmservice
             .characteristics
+            .filter({$0.isSupported})
             .map({ HCCharacteristic(with: $0)})
+        print("\(serviceName) \(type.description)- \(characteristics.count)")
     }
 #endif
     

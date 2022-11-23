@@ -29,7 +29,7 @@ import Cocoa
 import ColorWheelPanelView
 import os
 
-class LightColorMenuItem: NSMenuItem {//}, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder, ErrorMenuItem {
+class LightColorMenuItem: NSMenuItem, MenuItemFromUUID {//}, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder, ErrorMenuItem {
 
     var reachable: Bool = true
     
@@ -37,7 +37,7 @@ class LightColorMenuItem: NSMenuItem {//}, NSWindowDelegate, MenuItemFromUUID, M
         100
     }
     
-    var color = NSColor.white
+    var color = NSColor.white.usingColorSpace(.sRGB)!
     
     func UUIDs() -> [UUID] {
         return []
@@ -59,7 +59,7 @@ class LightColorMenuItem: NSMenuItem {//}, NSWindowDelegate, MenuItemFromUUID, M
     }
     
     func createImage() -> NSImage? {
-        let view = NSView(frame: NSRect(x: 0, y: 0, width: 14, height: 14))
+        let view = NSView(frame: NSRect(x: 0, y: 0, width: 14, height: 16))
         view.wantsLayer = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer?.backgroundColor = color.cgColor
@@ -91,7 +91,7 @@ class LightColorMenuItem: NSMenuItem {//}, NSWindowDelegate, MenuItemFromUUID, M
         view.layer?.render(in: ctx)
         let source = NSRect(origin: CGPoint.zero, size: icon.size)
         
-        let destination = NSRect(x: x, y: y, width: width, height: height)
+        let destination = NSRect(x: x, y: y, width: width, height: height-2)
         
         icon.draw(in: destination, from: source, operation: .destinationIn, fraction: 1)
         frameIcon.draw(in: destination, from: source, operation: .darken, fraction: 1)
@@ -186,12 +186,28 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         switch uniqueIdentifier {
         case brightnessCharcteristicIdentifier:
             updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
+            if let graySlider = self.view as? GraySliderPanelView {
+                graySlider.brightness = value / 100.0
+            }
         default:
             do {}
         }
     }
     
     func didChangeColor(brightness: Double) {
+        updateColor(hue: nil, saturation: nil, brightness: brightness)
+        do {
+            let characteristic = HCCharacteristic(uuid: brightnessCharcteristicIdentifier)
+            characteristic.doubleValue = brightness * 100
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(characteristic)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                throw NSError(domain: "", code: 0)
+            }
+            DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
+        } catch {
+            print(error)
+        }
 //        let brightness100 = brightness * 100
 //        mac2ios?.setCharacteristic(of: brightnessCharcteristicIdentifier, object: brightness100)
     }
@@ -219,12 +235,24 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         switch uniqueIdentifier {
         case hueCharcteristicIdentifier:
             updateColor(hue: value / 360.0, saturation: nil, brightness: nil)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.hue = value / 360.0
+            }
         case saturationCharcteristicIdentifier:
             updateColor(hue: nil, saturation: value / 100.0, brightness: nil)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.saturation = value / 100.0
+            }
         case brightnessCharcteristicIdentifier:
             updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.brightness = value / 100.0
+            }
         default:
             do {}
+        }
+        if let parent = self.parent {
+            parent.image = createImage()
         }
     }
     
@@ -274,9 +302,24 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         let saturation100 = saturation * 100
         let brightness100 = brightness * 100
         
-//        mac2ios?.setCharacteristic(of: hueCharcteristicIdentifier, object: hue360)
-//        mac2ios?.setCharacteristic(of: saturationCharcteristicIdentifier, object: saturation100)
-//        mac2ios?.setCharacteristic(of: brightnessCharcteristicIdentifier, object: brightness100)
+        let data_array: [(UUID, Double)] = [(hueCharcteristicIdentifier, hue360), (saturationCharcteristicIdentifier, saturation100), (brightnessCharcteristicIdentifier, brightness100)]
+        
+        updateColor(hue: hue, saturation: saturation, brightness: brightness)
+        
+        do {
+            try data_array.forEach { (uuid, value) in
+                let characteristic = HCCharacteristic(uuid: uuid)
+                characteristic.doubleValue = value
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(characteristic)
+                guard let jsonString = String(data: data, encoding: .utf8) else {
+                    throw NSError(domain: "", code: 0)
+                }
+                DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
+            }
+        } catch {
+            print(error)
+        }
     }
     
     required init(coder: NSCoder) {

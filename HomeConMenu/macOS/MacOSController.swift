@@ -321,7 +321,36 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
 //        }
         
-//        DistributedNotificationCenter.default().addObserver(self, selector: #selector(testNotification), name: .testNotification, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(getNotification), name: .to_iosNotification, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(quitNotification), name: .terminate_iOSNotification, object: nil)
+    }
+    
+    @objc func getNotification(_ notification: Notification) {
+        print("a")
+        print(#function)
+        let obj = notification.object
+        print(obj)
+        
+        let decoder = JSONDecoder()
+        
+        guard let stringJson = notification.object as? String else {
+            return
+        }
+        
+        guard let data = stringJson.data(using: .utf8) else {
+            return
+        }
+        
+        do {
+            let obj = try decoder.decode(HCCharacteristic.self, from: data)
+            iosListener?.update(of: obj.uniqueIdentifier, object: obj.doubleValue)
+        } catch {
+            print(error)
+        }
+    }
+    
+    @IBAction func quitNotification(_ notification: Notification) {
+        NSApplication.shared.terminate(self)
     }
 //
 //    @objc func testNotification(_ notification: Notification) {

@@ -35,6 +35,9 @@ extension NSNotification.Name {
     static let to_macNotification = Self("to_macNotification")
     static let to_char_notify = Self("chara_notify")
     static let to_iosNotification = Self("to_iOSNotification")
+    
+    static let terminate_iOSNotification = Self("terminate_iOSNotification")
+    static let terminate_SwiftUINotification = Self("terminate_SwiftUINotification")
 }
 
 class HCHome: Codable {

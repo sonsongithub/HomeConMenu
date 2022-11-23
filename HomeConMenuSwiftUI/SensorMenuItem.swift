@@ -28,7 +28,7 @@
 import Cocoa
 import os
 
-class SensorMenuItem: NSMenuItem {
+class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
     var orderPriority: Int {
         switch self.type {
         case .temperature:
@@ -40,7 +40,7 @@ class SensorMenuItem: NSMenuItem {
         }
     }
 //
-//    let uniqueIdentifier: UUID
+    let uniqueIdentifier: UUID
     let type: SensorType
     
     var reachable: Bool {
@@ -60,19 +60,19 @@ class SensorMenuItem: NSMenuItem {
         }
     }
     
-//    func UUIDs() -> [UUID] {
-//        return [uniqueIdentifier]
-//    }
-//
+    func UUIDs() -> [UUID] {
+        return [uniqueIdentifier]
+    }
+
     public enum SensorType {
         case temperature
         case humidity
         case unknown
     }
     
-//    func bind(with uniqueIdentifier: UUID) -> Bool {
-//        return self.uniqueIdentifier == uniqueIdentifier
-//    }
+    func bind(with uniqueIdentifier: UUID) -> Bool {
+        return self.uniqueIdentifier == uniqueIdentifier
+    }
     
     func update(value: Double) {
         reachable = true
@@ -87,7 +87,7 @@ class SensorMenuItem: NSMenuItem {
     }
 
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
-//        self.uniqueIdentifier = UUID()
+        self.uniqueIdentifier = UUID()
         self.type = .unknown
         self.reachable = true
         super.init(title: string, action: selector, keyEquivalent: charCode)
@@ -117,7 +117,7 @@ class SensorMenuItem: NSMenuItem {
         guard let (characteristic, type) = decideType(service: service) else { return nil }
         
         self.reachable = true
-//        self.uniqueIdentifier = characteristic.uniqueIdentifier
+        self.uniqueIdentifier = characteristic.uniqueIdentifier
         self.type = type
         super.init(title: "", action: nil, keyEquivalent: "")
         

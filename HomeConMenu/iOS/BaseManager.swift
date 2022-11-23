@@ -30,6 +30,29 @@ import HomeKit
 import os
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
+    
+    func update(of uuid: UUID, object: Any) {
+        guard let characteristic = homeManager?.getCharacteristic(with: uuid) else { return }
+        
+        if characteristic.characteristicType == HMCharacteristicTypePowerState {
+            if let value = object as? Double {
+                let flag: Bool = (value > 0)
+                characteristic.writeValue(flag) { error in
+                    if let error = error {
+                        print(error)
+                    }
+                }
+            }
+        } else {
+            characteristic.writeValue(object) { error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+        
+    }
+    
 
     var homeManager: HMHomeManager?
     var macOSController: iOS2Mac?
