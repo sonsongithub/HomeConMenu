@@ -23,7 +23,7 @@ extension NSMenu {
     }
 }
 
-class AppDelegate : NSObject, NSApplicationDelegate {
+class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     let mainMenu = NSMenu()
     var statusItem: NSStatusItem?
@@ -53,15 +53,22 @@ class AppDelegate : NSObject, NSApplicationDelegate {
 #endif
     }
     
+    func menuWillOpen(_ menu: NSMenu) {
+        DistributedNotificationCenter.default().postNotificationName(.requestReloadHomeKitNotification, object: nil, deliverImmediately: true)
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
         if let button = self.statusItem!.button {
             button.image = NSImage.init(systemSymbolName: "wrench.and.screwdriver", accessibilityDescription: nil)
         }
         self.statusItem!.menu = mainMenu
+        mainMenu.delegate = self
         
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveAllUpdateNotification), name: .didUpdateAllItems, object: nil)
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveCharacateristicUpdate), name: .didUpdateCharacteristic, object: nil)
+        
+        
         
 #if DEBUG
         runBaseCatalystApp()
@@ -70,28 +77,25 @@ class AppDelegate : NSObject, NSApplicationDelegate {
     
     func updateMenuItem(with characteristic: HCCharacteristic) {
 
-        let items = NSMenu.getSubItems(menu: mainMenu)
+        NSMenu.getSubItems(menu: mainMenu)
             .compactMap({ $0 as? MenuItemFromUUID })
             .compactMap({ $0 })
             .filter ({ item in
                 item.bind(with: characteristic.uniqueIdentifier)
             })
+            .compactMap({ $0 as? Updatable })
+            .forEach({ $0.update(with: characteristic)})
         
-        items.forEach { item in
-            switch item {
-            case let menuItem as LightColorMenuItem:
-                if let temp = characteristic.doubleValue {
-                    menuItem.update(of: characteristic.uniqueIdentifier, value: temp)
-                }
-            case let menuItem as ToggleMenuItem:
-                if let temp = characteristic.doubleValue {
-                    menuItem.update(value: temp > 0)
-                }
-                menuItem.reachable = characteristic.reachable
-            default:
-                do {}
-            }
-        }
+//        items.forEach { item in
+//            switch item {
+//            case let menuItem as LightColorMenuItem:
+//                menuItem.update(with: characteristic)
+//            case let menuItem as ToggleMenuItem:
+//                menuItem.update(with: characteristic)
+//            default:
+//                do {}
+//            }
+//        }
     }
     
     func updateAllMenuItems(with communication: HCCommunication) {

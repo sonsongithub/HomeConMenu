@@ -28,6 +28,10 @@
 import Foundation
 import Cocoa
 
+protocol Updatable {
+    func update(with characteristic: HCCharacteristic)
+}
+
 protocol MenuItemFromUUID {
     func bind(with uniqueIdentifier: UUID) -> Bool
     func UUIDs() -> [UUID]

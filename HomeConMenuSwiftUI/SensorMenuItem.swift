@@ -28,7 +28,7 @@
 import Cocoa
 import os
 
-class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
+class SensorMenuItem: NSMenuItem, MenuItemFromUUID, Updatable {
     var orderPriority: Int {
         switch self.type {
         case .temperature:
@@ -74,8 +74,9 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         return self.uniqueIdentifier == uniqueIdentifier
     }
     
-    func update(value: Double) {
-        reachable = true
+    func update(with characteristic: HCCharacteristic) {
+        guard let value = characteristic.doubleValue else { return }
+        reachable = characteristic.reachable
         switch (self.type, value) {
         case (.temperature, let value):
             self.title = "\(value)℃"
@@ -85,7 +86,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
             self.title = "unsupported"
         }
     }
-
+    
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.uniqueIdentifier = UUID()
         self.type = .unknown
@@ -129,19 +130,5 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
         default:
             do{}
         }
-        
-        if let floatValue = characteristic.doubleValue {
-            update(value: Double(floatValue))
-        }
-        
-//        if let mac2ios = mac2ios {
-//            do {
-//                guard let value = try mac2ios.getCharacteristic(of: uniqueIdentifier) as? Double
-//                else { throw HomeConMenuError.characteristicTypeError }
-//                update(value: value)
-//            } catch {
-//                Logger.app.error("\(error.localizedDescription)")
-//            }
-//        }
     }
 }

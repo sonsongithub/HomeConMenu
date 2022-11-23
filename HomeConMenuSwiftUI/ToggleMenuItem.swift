@@ -28,7 +28,7 @@
 import Cocoa
 import os
 
-class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {//}, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
+class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, Updatable {//}, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
     var orderPriority: Int {
         100
@@ -85,9 +85,11 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem {//}, MenuItem
         }
     }
     
-    func update(value: Bool) {
-//        reachable = true
-        self.state = value ? .on : .off
+    func update(with characteristic: HCCharacteristic) {
+        reachable = characteristic.reachable
+        if let tmp = characteristic.doubleValue {
+            self.state = (tmp > 0) ? .on : .off
+        }
     }
                 
     init?(service: HCService) {

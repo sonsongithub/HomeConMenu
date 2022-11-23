@@ -29,7 +29,7 @@ import Cocoa
 import ColorWheelPanelView
 import os
 
-class LightColorMenuItem: NSMenuItem, MenuItemFromUUID {//}, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder, ErrorMenuItem {
+class LightColorMenuItem: NSMenuItem, MenuItemFromUUID, Updatable {//}, NSWindowDelegate, MenuItemFromUUID, MenuItemOrder, ErrorMenuItem {
 
     var reachable: Bool = true
     
@@ -109,6 +109,10 @@ class LightColorMenuItem: NSMenuItem, MenuItemFromUUID {//}, NSWindowDelegate, M
         // dummy
     }
     
+    func update(with characteristic: HCCharacteristic) {
+        // dummy
+    }
+    
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -182,6 +186,19 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         view.delegate = self
     }
     
+    override func update(with characteristic: HCCharacteristic) {
+        guard let value = characteristic.doubleValue else { return }
+        switch characteristic.uniqueIdentifier {
+        case brightnessCharcteristicIdentifier:
+            updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
+            if let graySlider = self.view as? GraySliderPanelView {
+                graySlider.brightness = value / 100.0
+            }
+        default:
+            do {}
+        }
+    }
+    
     override func update(of uniqueIdentifier: UUID, value: Double) {
         switch uniqueIdentifier {
         case brightnessCharcteristicIdentifier:
@@ -208,8 +225,6 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         } catch {
             print(error)
         }
-//        let brightness100 = brightness * 100
-//        mac2ios?.setCharacteristic(of: brightnessCharcteristicIdentifier, object: brightness100)
     }
 
     required init(coder: NSCoder) {
@@ -229,6 +244,32 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
     
     override func bind(with uniqueIdentifier: UUID) -> Bool {
         return uniqueIdentifier == hueCharcteristicIdentifier || uniqueIdentifier == saturationCharcteristicIdentifier || uniqueIdentifier == brightnessCharcteristicIdentifier
+    }
+    
+    override func update(with characteristic: HCCharacteristic) {
+        guard let value = characteristic.doubleValue else { return }
+        switch characteristic.uniqueIdentifier {
+        case hueCharcteristicIdentifier:
+            updateColor(hue: value / 360.0, saturation: nil, brightness: nil)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.hue = value / 360.0
+            }
+        case saturationCharcteristicIdentifier:
+            updateColor(hue: nil, saturation: value / 100.0, brightness: nil)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.saturation = value / 100.0
+            }
+        case brightnessCharcteristicIdentifier:
+            updateColor(hue: nil, saturation: nil, brightness: value / 100.0)
+            if let colorPanel = self.view as? ColorWheelPanelView {
+                colorPanel.brightness = value / 100.0
+            }
+        default:
+            do {}
+        }
+        if let parent = self.parent {
+            parent.image = createImage()
+        }
     }
     
     override func update(of uniqueIdentifier: UUID, value: Double) {

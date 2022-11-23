@@ -17,6 +17,7 @@ enum HomeConMenuError: Error {
     
     case distributedNotificationHasNoString
     case stringCannotBeConvertedToData
+    case jsonCannotBeConvertedToString
     
     var localizedDescription: String {
         switch self {
@@ -37,6 +38,8 @@ enum HomeConMenuError: Error {
             return "DistributedNotification does not have any string object."
         case .stringCannotBeConvertedToData:
             return "String can not been encoded to Data."
+        case .jsonCannotBeConvertedToString:
+            return "JSON can not been encoded to String."
         }
     }
 }

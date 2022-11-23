@@ -323,6 +323,13 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(getNotification), name: .to_iosNotification, object: nil)
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(quitNotification), name: .terminate_iOSNotification, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(reveiceRequestReloadHomeKit), name: .requestReloadHomeKitNotification, object: nil)
+        
+        
+    }
+    
+    @objc func reveiceRequestReloadHomeKit(_ notification: Notification) {
+        self.iosListener?.read_all_values()
     }
     
     @objc func getNotification(_ notification: Notification) {

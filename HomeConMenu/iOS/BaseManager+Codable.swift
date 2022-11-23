@@ -27,18 +27,14 @@ extension BaseManager {
                             let encoder = JSONEncoder()
                             let data = try encoder.encode(char)
                             
-                            guard let jsonString = String(data: data, encoding: .utf8) else {
-                                throw NSError(domain: "", code: 0)
-                            }
+                            guard let jsonString = String(data: data, encoding: .utf8) else { throw HomeConMenuError.jsonCannotBeConvertedToString}
                             macOSController?.post(string: jsonString, name: .didUpdateCharacteristic)
                         } catch {
                             let char = HCCharacteristic(with: characteristic)
                             char.reachable = false
                             let encoder = JSONEncoder()
                             let data = try encoder.encode(char)
-                            guard let jsonString = String(data: data, encoding: .utf8) else {
-                                throw NSError(domain: "", code: 0)
-                            }
+                            guard let jsonString = String(data: data, encoding: .utf8) else { throw HomeConMenuError.jsonCannotBeConvertedToString}
                             macOSController?.post(string: jsonString, name: .didUpdateCharacteristic)
                         }
                     }
@@ -81,15 +77,13 @@ extension BaseManager {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(com)
-            guard let jsonString = String(data: data, encoding: .utf8) else {
-                throw NSError(domain: "", code: 0)
-            }
+            guard let jsonString = String(data: data, encoding: .utf8) else { throw HomeConMenuError.jsonCannotBeConvertedToString }
             macOSController?.post(string: jsonString)
         } catch {
             print(error)
         }
         
-//        read_all_values()
+        read_all_values()
     }
 
 }

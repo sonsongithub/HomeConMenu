@@ -38,6 +38,7 @@ extension NSNotification.Name {
     
     static let terminate_iOSNotification = Self("terminate_iOSNotification")
     static let terminate_SwiftUINotification = Self("terminate_SwiftUINotification")
+    static let requestReloadHomeKitNotification = Self("requestReloadHomeKitNotification")
 }
 
 class HCHome: Codable {

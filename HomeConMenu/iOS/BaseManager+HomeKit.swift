@@ -87,6 +87,7 @@ extension BaseManager {
 //        reloadAllItems2()
         
         let temp = HCCharacteristic(with: characteristic)
+        temp.reachable = true
         print(characteristic.characteristicType.description)
         print(characteristic.uniqueIdentifier)
         let encoder = JSONEncoder()
