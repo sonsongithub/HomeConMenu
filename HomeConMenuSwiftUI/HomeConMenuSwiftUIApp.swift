@@ -9,20 +9,20 @@ import SwiftUI
 
 @main
 struct HomeConMenuSwiftUIApp: App {
-    @NSApplicationDelegateAdaptor (TestController.self) var appDelegate
+    @NSApplicationDelegateAdaptor (AppDelegate.self) var appDelegate
     
     static var shared: HomeConMenuSwiftUIApp!
     
     var sharedKey: String? = nil {
         didSet {
-            if let sharedKey = sharedKey {
+//            if let sharedKey = sharedKey {
 //                let alert = NSAlert()
 //                alert.messageText = NSLocalizedString("Shared key", comment: "")
 //                alert.informativeText = NSLocalizedString(sharedKey, comment:"")
 //                alert.alertStyle = .informational
 //                alert.addButton(withTitle: "OK")
 //                _ = alert.runModal()
-            }
+//            }
         }
     }
     

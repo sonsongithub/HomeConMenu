@@ -267,7 +267,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     func post(string: String) {
-        DistributedNotificationCenter.default().postNotificationName(.to_macNotification, object: string, deliverImmediately: true)
+        DistributedNotificationCenter.default().postNotificationName(.didUpdateAllItems, object: string, deliverImmediately: true)
     }
     
     func post(string: String, name: NSNotification.Name) {

@@ -15,6 +15,9 @@ enum HomeConMenuError: Error {
     case characteristicNotFound
     case characteristicValueNil
     
+    case distributedNotificationHasNoString
+    case stringCannotBeConvertedToData
+    
     var localizedDescription: String {
         switch self {
         case .characteristicTypeError:
@@ -29,6 +32,11 @@ enum HomeConMenuError: Error {
             return "No characteristics which have the specified unique identifier are found."
         case .characteristicValueNil:
             return "Value of the specified characteristic is nil."
+            
+        case .distributedNotificationHasNoString:
+            return "DistributedNotification does not have any string object."
+        case .stringCannotBeConvertedToData:
+            return "String can not been encoded to Data."
         }
     }
 }

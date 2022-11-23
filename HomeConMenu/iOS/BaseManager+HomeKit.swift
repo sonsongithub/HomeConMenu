@@ -95,7 +95,7 @@ extension BaseManager {
             guard let jsonString = String(data: data, encoding: .utf8) else {
                 throw NSError(domain: "", code: 0)
             }
-            macOSController?.post(string: jsonString, name: .to_char_notify)
+            macOSController?.post(string: jsonString, name: .didUpdateCharacteristic)
         } catch {
             print(error)
         }

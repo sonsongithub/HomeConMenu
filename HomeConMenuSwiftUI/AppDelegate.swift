@@ -1,5 +1,5 @@
 //
-//  TestController.swift
+//  AppDelegate.swift
 //  HomeConMenuSwiftUI
 //
 //  Created by Yuichi Yoshida on 2022/10/09.
@@ -12,29 +12,44 @@ import AppKit
 
 extension NSMenu {
     static func getSubItems(menu: NSMenu) -> [NSMenuItem] {
-        
         var buffer: [NSMenuItem] = []
-        
         for item in menu.items {
             buffer.append(item)
             if let submenu = item.submenu {
                 buffer.append(contentsOf: getSubItems(menu: submenu))
             }
         }
-        
         return buffer
     }
 }
 
-
-class TestController : NSObject, NSApplicationDelegate {
+class AppDelegate : NSObject, NSApplicationDelegate {
     
     let mainMenu = NSMenu()
     var statusItem: NSStatusItem?
     
+    func runBaseCatalystApp() {
+        let workspace = NSWorkspace.shared
+        let applicationURL = workspace.urlForApplication(withBundleIdentifier: "com.sonson.HomeConMenu.macOS")!
+        
+        if let _ = workspace.runningApplications.firstIndex(where: { application in
+            application.bundleIdentifier == "com.sonson.HomeConMenu.macOS"
+        }) {
+            return
+        }
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.createsNewApplicationInstance = true
+        configuration.arguments = []
+        NSWorkspace.shared.openApplication(at: applicationURL, configuration: configuration)
+    }
+    
+    func postNotificationToTerminateCatalystApp() {
+        DistributedNotificationCenter.default().postNotificationName(.terminate_iOSNotification, object: nil, deliverImmediately: true)
+    }
+    
     func applicationWillTerminate(_ notification: Notification) {
 #if DEBUG
-        DistributedNotificationCenter.default().postNotificationName(.terminate_iOSNotification, object: nil, deliverImmediately: true)
+        postNotificationToTerminateCatalystApp()
 #endif
     }
     
@@ -45,37 +60,22 @@ class TestController : NSObject, NSApplicationDelegate {
         }
         self.statusItem!.menu = mainMenu
         
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(fromMacNotification), name: .to_macNotification, object: nil)
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(to_char_notify), name: .to_char_notify, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveAllUpdateNotification), name: .didUpdateAllItems, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveCharacateristicUpdate), name: .didUpdateCharacteristic, object: nil)
         
 #if DEBUG
-        let workspace = NSWorkspace.shared
-        let applicationURL = workspace.urlForApplication(withBundleIdentifier: "com.sonson.HomeConMenu.macOS")!
-        
-        if let _ = workspace.runningApplications.firstIndex { application in
-            application.bundleIdentifier == "com.sonson.HomeConMenu.macOS"
-        } {
-            return
-        }
-        
-        
-        let configuration = NSWorkspace.OpenConfiguration()
-        configuration.createsNewApplicationInstance = true
-        configuration.arguments = []
-        NSWorkspace.shared.openApplication(at: applicationURL, configuration: configuration)
+        runBaseCatalystApp()
 #endif
     }
     
-    @objc func to_char_notify(_ notification: Notification) {
-        print(#function)
-        guard let stringJson = notification.object as? String else {
-            return
-        }
-        guard let data = stringJson.data(using: .utf8) else {
-            return
-        }
-        let decoder = JSONDecoder()
+    @objc func didReceiveCharacateristicUpdate(_ notification: Notification) {
+        
         do {
+            guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
+            guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
+            
+            let decoder = JSONDecoder()
+            
             let obj = try decoder.decode(HCCharacteristic.self, from: data)
             
             let items = NSMenu.getSubItems(menu: mainMenu)
@@ -107,25 +107,14 @@ class TestController : NSObject, NSApplicationDelegate {
         
     }
     
-    @objc func fromMacNotification(_ notification: Notification) {
-        print("a")
-        print(#function)
-        let obj = notification.object
-        print(obj)
-        
-        let decoder = JSONDecoder()
-        
-        guard let stringJson = notification.object as? String else {
-            return
-        }
-        
-        guard let data = stringJson.data(using: .utf8) else {
-            return
-        }
-        
+    @objc func didReceiveAllUpdateNotification(_ notification: Notification) {
+       
         do {
+            guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
+            guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
+            let decoder = JSONDecoder()
+            
             let obj = try decoder.decode(HCCommunication.self, from: data)
-            print(obj)
             
             mainMenu.removeAllItems()
             
@@ -162,12 +151,6 @@ class TestController : NSObject, NSApplicationDelegate {
         } catch {
             print(error)
         }
-        
-    }
-    
-    override init() {
-        super.init()
-        
         
     }
 }

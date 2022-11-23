@@ -85,7 +85,7 @@
 		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
-		14B0F96C28F293510014AA07 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0F96B28F293510014AA07 /* TestController.swift */; };
+		14B0F96C28F293510014AA07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0F96B28F293510014AA07 /* AppDelegate.swift */; };
 		14B0F96D28F293D00014AA07 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14B0F96F28F457210014AA07 /* AppleScriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0F96E28F457210014AA07 /* AppleScriptController.swift */; };
 		14B869C92929CBD400FF6EB2 /* SensorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */; };
@@ -197,9 +197,8 @@
 		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
-		14B0F96B28F293510014AA07 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		14B0F96B28F293510014AA07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B0F96E28F457210014AA07 /* AppleScriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptController.swift; sourceTree = "<group>"; };
 		14B869C82929CBD400FF6EB2 /* SensorMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14B869CA2929D08500FF6EB2 /* ToggleMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightbulbMenuItem.swift; sourceTree = "<group>"; };
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14ED60EE292DC3CA00F8BA01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 				14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */,
 				14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */,
 				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
-				14B0F96B28F293510014AA07 /* TestController.swift */,
+				14B0F96B28F293510014AA07 /* AppDelegate.swift */,
 				14B0F96E28F457210014AA07 /* AppleScriptController.swift */,
 				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
 				14FA5D4628E134E800C75BB2 /* Assets.xcassets */,
@@ -486,7 +486,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -507,6 +507,7 @@
 			knownRegions = (
 				en,
 				ja,
+				Base,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
@@ -660,7 +661,7 @@
 				14669EEC28F17F1400FFF73F /* HCHome.swift in Sources */,
 				142C4DC8290672C700A8A872 /* HCActionSet.swift in Sources */,
 				14669EF428F22D1700FFF73F /* HCCharacteristicType.swift in Sources */,
-				14B0F96C28F293510014AA07 /* TestController.swift in Sources */,
+				14B0F96C28F293510014AA07 /* AppDelegate.swift in Sources */,
 				14669EFD28F241A800FFF73F /* HCService.swift in Sources */,
 				14669EF828F2416400FFF73F /* HCServiceType.swift in Sources */,
 				14B869C92929CBD400FF6EB2 /* SensorMenuItem.swift in Sources */,
@@ -690,8 +691,8 @@
 		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14A839FD280FEE530083EE1D /* en */,
 				14A839FF280FEE5E0083EE1D /* ja */,
+				14ED60EE292DC3CA00F8BA01 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -917,6 +918,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -952,6 +954,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -990,6 +993,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenuSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1022,6 +1026,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeConMenuSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_HARDENED_RUNTIME = YES;

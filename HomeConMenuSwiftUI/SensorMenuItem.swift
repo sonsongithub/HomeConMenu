@@ -130,9 +130,6 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID {
             do{}
         }
         
-        print(characteristic.stringValue)
-        print(characteristic.doubleValue)
-        
         if let floatValue = characteristic.doubleValue {
             update(value: Double(floatValue))
         }
