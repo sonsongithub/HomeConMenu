@@ -44,3 +44,7 @@ protocol ErrorMenuItem {
 protocol MenuItemOrder  {
     var orderPriority: Int { get }
 }
+
+protocol ActionSetUpdatable {
+    func update(with actionSet: HCActionSet)
+}

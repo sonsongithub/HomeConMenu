@@ -330,6 +330,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @objc func reveiceRequestReloadHomeKit(_ notification: Notification) {
         self.iosListener?.read_all_values()
+        self.iosListener?.read_actionSet()
     }
     
     @objc func getNotification(_ notification: Notification) {

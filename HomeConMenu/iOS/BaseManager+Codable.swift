@@ -43,6 +43,23 @@ extension BaseManager {
         }
     }
     
+    func read_actionSet() {
+        guard let home = self.homeManager?.primaryHome else {
+            return
+        }
+        let actionSets = home.actionSets
+            .filter({ $0.isHomeKitScene })
+            .map({HCActionSet(actionSet: $0)})
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(actionSets)
+            guard let jsonString = String(data: data, encoding: .utf8) else { throw HomeConMenuError.jsonCannotBeConvertedToString}
+            macOSController?.post(string: jsonString, name: .didUpdateActionSets)
+        } catch {
+            print(error)
+        }
+    }
+    
     func reloadAllItems2() {
         
         guard let home = self.homeManager?.primaryHome else {
@@ -84,6 +101,7 @@ extension BaseManager {
         }
         
         read_all_values()
+        read_actionSet()
     }
 
 }

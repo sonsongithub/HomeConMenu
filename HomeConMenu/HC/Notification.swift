@@ -28,8 +28,9 @@
 import Foundation
 
 extension NSNotification.Name {
-    static let didUpdateAllItems = Self("to_macNotification")
-    static let didUpdateCharacteristic = Self("chara_notify")
+    static let didUpdateAllItems = Self("didUpdateAllItems")
+    static let didUpdateCharacteristic = Self("didUpdateCharacteristic")
+    static let didUpdateActionSets = Self("didUpdateActionSets")
     static let to_iosNotification = Self("to_iOSNotification")
     
     static let requestTerminateIOSNotification = Self("requestTerminateIOSNotification")

@@ -111,6 +111,7 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
         
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveAllUpdateNotification), name: .didUpdateAllItems, object: nil)
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveCharacateristicUpdate), name: .didUpdateCharacteristic, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(didReceiveActionSetsUpdate), name: .didUpdateActionSets, object: nil)
         
         
         
@@ -175,6 +176,11 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
             mainMenu.addItem(NSMenuItem.separator())
         }
         
+        communication.actionSets.forEach { actionSet in
+            let item = ActionSetMenuItem(actionSet: actionSet)
+            mainMenu.addItem(item)
+        }
+        
         let menuItem = NSMenuItem()
         menuItem.title = NSLocalizedString("Quit HomeConMenu", comment: "")
         menuItem.action = #selector(AppDelegate.quit(sender:))
@@ -203,6 +209,33 @@ class AppDelegate : NSObject, NSApplicationDelegate, NSMenuDelegate {
             let decoder = JSONDecoder()
             let communication = try decoder.decode(HCCommunication.self, from: data)
             updateAllMenuItems(with: communication)
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    @objc func didReceiveActionSetsUpdate(_ notification: Notification) {
+       
+        do {
+            guard let stringJson = notification.object as? String else { throw HomeConMenuError.distributedNotificationHasNoString }
+            guard let data = stringJson.data(using: .utf8) else { throw HomeConMenuError.stringCannotBeConvertedToData }
+            let decoder = JSONDecoder()
+            let temp: [HCActionSet] = try decoder.decode([HCActionSet].self, from: data)
+            
+            temp.forEach { actionSet in
+                NSMenu.getSubItems(menu: mainMenu)
+                    .compactMap({ $0 as? MenuItemFromUUID })
+                    .compactMap({ $0 })
+                    .filter ({ item in
+                        item.bind(with: actionSet.uniqueIdentifier)
+                    })
+                    .compactMap({ $0 as? ActionSetUpdatable })
+                    .forEach({ $0.update(with: actionSet)})
+            }
+                        
+
+            
         } catch {
             print(error)
         }

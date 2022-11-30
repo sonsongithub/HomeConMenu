@@ -47,7 +47,7 @@ public protocol iOS2Mac: NSObjectProtocol {
 public protocol mac2iOS: NSObjectProtocol {
     func update(of characteristic: UUID, object: Any)
     func read_all_values()
-    
+    func read_actionSet()
     func readCharacteristic(of uniqueIdentifier: UUID)
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any]
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any

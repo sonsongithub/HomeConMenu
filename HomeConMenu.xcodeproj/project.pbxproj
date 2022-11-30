@@ -101,6 +101,7 @@
 		14ED60F2292DE9B300F8BA01 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ED60F1292DE9B300F8BA01 /* Notification.swift */; };
 		14ED60F3292DE9CA00F8BA01 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ED60F1292DE9B300F8BA01 /* Notification.swift */; };
 		14ED60F4292DEB2400F8BA01 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ED60F1292DE9B300F8BA01 /* Notification.swift */; };
+		14ED60F6292E5B8600F8BA01 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ED60F5292E5B8600F8BA01 /* ActionSetMenuItem.swift */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
@@ -212,6 +213,7 @@
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14ED60EE292DC3CA00F8BA01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14ED60F1292DE9B300F8BA01 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		14ED60F5292E5B8600F8BA01 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				14B869CC2929D3F300FF6EB2 /* LightColorMenuItem.swift */,
 				14B869D02929DCE200FF6EB2 /* LightbulbMenuItem.swift */,
 				14FA5D4228E134E700C75BB2 /* HomeConMenuSwiftUIApp.swift */,
+				14ED60F5292E5B8600F8BA01 /* ActionSetMenuItem.swift */,
 				14B0F96B28F293510014AA07 /* AppDelegate.swift */,
 				14B0F96E28F457210014AA07 /* AppleScriptController.swift */,
 				14FA5D4428E134E700C75BB2 /* ContentView.swift */,
@@ -671,6 +674,7 @@
 				14669EEC28F17F1400FFF73F /* HCHome.swift in Sources */,
 				142C4DC8290672C700A8A872 /* HCActionSet.swift in Sources */,
 				14669EF428F22D1700FFF73F /* HCCharacteristicType.swift in Sources */,
+				14ED60F6292E5B8600F8BA01 /* ActionSetMenuItem.swift in Sources */,
 				14B0F96C28F293510014AA07 /* AppDelegate.swift in Sources */,
 				14669EFD28F241A800FFF73F /* HCService.swift in Sources */,
 				14669EF828F2416400FFF73F /* HCServiceType.swift in Sources */,

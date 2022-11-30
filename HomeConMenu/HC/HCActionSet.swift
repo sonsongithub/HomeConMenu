@@ -35,12 +35,14 @@ struct HCActionSet: Codable {
     public var actionSetName: String
     public let uniqueIdentifier: UUID
     public var actionUniqueIdentifiers: [UUID]
+    public var targetValues: [Double] = []
     
 #if !os(macOS)
     public init(actionSet: HMActionSet) {
         self.actionSetName = actionSet.name
         self.uniqueIdentifier = actionSet.uniqueIdentifier
         self.actionUniqueIdentifiers = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }).map({ $0.characteristic.uniqueIdentifier })
+        self.targetValues = actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }).compactMap({ $0.targetValue as? Double })
     }
 #endif
 }
