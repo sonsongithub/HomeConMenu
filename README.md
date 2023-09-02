@@ -3,9 +3,9 @@
 <img src="https://user-images.githubusercontent.com/33768/174439852-7ea10054-e9d7-49af-a51e-dd186da575e4.png" width="164px"/>
 App to control HomeKit Devices from macOS system
 
-## Screenshots
+## Movie
 
-<img src="https://user-images.githubusercontent.com/33768/167437989-2297c1af-2458-439f-9c2d-aaa735e2acb9.gif"/>
+https://user-images.githubusercontent.com/33768/197396558-0a3675d9-df77-44e5-9112-0a616991e915.mov
 
 ## Download
 
