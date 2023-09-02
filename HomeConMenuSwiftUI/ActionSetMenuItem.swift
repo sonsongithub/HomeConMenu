@@ -35,6 +35,23 @@ enum ActionSetMenuItemStatus {
 }
 
 class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdatable {
+    
+    var status: ActionSetMenuItemStatus = .disabled {
+        didSet {
+            switch status {
+            case .executable:
+                self.target = self
+                self.image = createImage(check: false)
+            case .excecuted:
+                self.target = nil
+                self.image = createImage(check: true)
+            case .disabled:
+                self.target = nil
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+            }
+        }
+    }
+    
     let uniqueIdentifier: UUID
     let actionUniqueIdentifiers: [UUID]
     
@@ -70,12 +87,12 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
         
         let destinationSize = Double(14)
         
-        guard let homeIcon = NSImage(named: "house") else { return nil}
+        guard let homeIcon = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil) else { return nil }
         
         let image = NSImage(size: NSSize(width: destinationSize, height: destinationSize))
         
-        let width = Double(16)
-        let height = Double(16)
+        let width = Double(homeIcon.size.width)
+        let height = Double(homeIcon.size.height)
         
         let x = (destinationSize - width) / 2
         let y = (destinationSize - height) / 2
@@ -96,7 +113,27 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
     
     func update() {
         do {
+            
+            print(actionUniqueIdentifiers.count)
+            
+            let temp = actionUniqueIdentifiers.compactMap({currentValues[$0]})
+            
+            print(actionSet.actionSetName)
+            
+            print(temp.count)
+            print("temp = \(temp.count)")
+            
+            let temp2 = temp.filter({$0.reachable})
+            
+            print(temp2.count)
+            print("temp2 = \(temp2.count)")
+            
             let chars = actionUniqueIdentifiers.compactMap({currentValues[$0]}).filter({$0.reachable}).compactMap({$0.doubleValue})
+            
+            
+            print("chars = \(chars.count)")
+            
+            print("targetValues = \(actionSet.targetValues)")
             
             guard actionSet.targetValues.count == chars.count else { throw HomeConMenuError.actionSetCharacteristicsCountError }
             
@@ -104,10 +141,12 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
                 return partialResult && (tuple.0 == tuple.1)
             }
             
-            print("\(actionSet.actionSetName) - \(check)")
+            status = check ? .excecuted : .executable
             
         } catch {
-            print("error")
+            print(error)
+            print("a")
+            status = .disabled
         }
     }
     
@@ -121,32 +160,6 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
         update()
     }
     
-//    func update() {
-//        guard let mac2ios = mac2ios else { return }
-//        do {
-//            let targetValues = try mac2ios.getTargetValues(of: uniqueIdentifier)
-//            let currentValues = try actionUniqueIdentifiers.map { uuid in
-//                return try mac2ios.getCharacteristic(of: uuid)
-//            }
-//            guard targetValues.count == currentValues.count else { throw HomeConMenuError.actionSetCharacteristicsCountError }
-//
-//            let check = zip(targetValues, currentValues).reduce(true) { partialResult, tuple in
-//                switch tuple {
-//                case (let a as Int, let b as Int):
-//                    return partialResult && (a == b)
-//                case (let a as Double, let b as Double):
-//                    return partialResult && (a == b)
-//                default:
-//                    return false
-//                }
-//            }
-//            self.image = createImage(check: check)
-//            self.target = check ? nil : self
-//        } catch {
-//            Logger.app.error("\(error.localizedDescription)")
-//        }
-//    }
-
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         self.uniqueIdentifier = UUID()
         self.actionUniqueIdentifiers = []
@@ -159,6 +172,27 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
     }
     
     @IBAction func execute(sender: NSMenuItem) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(actionSet)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                throw NSError(domain: "", code: 0)
+            }
+            DistributedNotificationCenter.default().postNotificationName(.requestExecuteActionSetNotification, object: jsonString, deliverImmediately: true)
+//            try data_array.forEach { (uuid, value) in
+//                let characteristic = HCCharacteristic(uuid: uuid)
+//                characteristic.doubleValue = value
+//                let encoder = JSONEncoder()
+//                let data = try encoder.encode(characteristic)
+//                guard let jsonString = String(data: data, encoding: .utf8) else {
+//                    throw NSError(domain: "", code: 0)
+//                }
+//                DistributedNotificationCenter.default().postNotificationName(.to_iosNotification, object: jsonString, deliverImmediately: true)
+//            }
+        } catch {
+            print(error)
+        }
+//        requestExecuteActionSetNotification
 //        if let mac2ios = mac2ios {
 //            mac2ios.executeActionSet(uniqueIdentifier: uniqueIdentifier)
 //        }
@@ -170,6 +204,6 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID, Updatable, ActionSetUpdat
         self.actionSet = actionSet
         super.init(title: actionSet.actionSetName, action: nil, keyEquivalent: "")
         self.action = #selector(self.execute(sender:))
-        self.target = self
+//        self.target = self
     }
 }

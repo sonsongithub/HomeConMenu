@@ -36,4 +36,5 @@ extension NSNotification.Name {
     static let requestTerminateIOSNotification = Self("requestTerminateIOSNotification")
     static let requestTerminateSwiftUINotification = Self("requestTerminateSwiftUINotification")
     static let requestReloadHomeKitNotification = Self("requestReloadHomeKitNotification")
+    static let requestExecuteActionSetNotification = Self("requestExecuteActionSetNotification")
 }

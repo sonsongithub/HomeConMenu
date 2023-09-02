@@ -31,6 +31,11 @@ import os
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
     
+    
+    func executeActionItem(with uniqueIdentifier:UUID) {
+        print(uniqueIdentifier)
+    }
+    
     func update(of uuid: UUID, object: Any) {
         guard let characteristic = homeManager?.getCharacteristic(with: uuid) else { return }
         

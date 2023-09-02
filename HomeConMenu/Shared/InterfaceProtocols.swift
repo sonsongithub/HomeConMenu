@@ -45,6 +45,7 @@ public protocol iOS2Mac: NSObjectProtocol {
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
+    func executeActionItem(with uniqueIdentifier:UUID)
     func update(of characteristic: UUID, object: Any)
     func read_all_values()
     func read_actionSet()

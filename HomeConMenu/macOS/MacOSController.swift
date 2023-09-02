@@ -324,7 +324,30 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(getNotification), name: .to_iosNotification, object: nil)
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(quitNotification), name: .requestTerminateIOSNotification, object: nil)
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(reveiceRequestReloadHomeKit), name: .requestReloadHomeKitNotification, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(requestExecuteActionSet), name: .requestExecuteActionSetNotification, object: nil)
+    }
+    
+    @objc func requestExecuteActionSet(_ notification: Notification) {
+        print(#function)
         
+        let decoder = JSONDecoder()
+        
+        guard let stringJson = notification.object as? String else {
+            return
+        }
+        
+        guard let data = stringJson.data(using: .utf8) else {
+            return
+        }
+        
+        do {
+            let obj = try decoder.decode(HCActionSet.self, from: data)
+            
+            self.iosListener?.executeActionSet(uniqueIdentifier: obj.uniqueIdentifier)
+            
+        } catch {
+            print(error)
+        }
         
     }
     
@@ -334,10 +357,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @objc func getNotification(_ notification: Notification) {
-        print("a")
         print(#function)
         let obj = notification.object
-        print(obj)
         
         let decoder = JSONDecoder()
         
@@ -385,3 +406,4 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
 }
 
+ 
