@@ -78,7 +78,6 @@ struct PreferenceView: View {
         }
         .onDisappear {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            appDelegate.baseManager?.macOSController?.isOpenedPreference = false
             appDelegate.baseManager?.reloadAllItems()
         }
     }

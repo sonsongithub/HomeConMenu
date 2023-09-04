@@ -28,6 +28,7 @@
 import Foundation
 import HomeKit
 import os
+import SwiftUI
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
@@ -187,12 +188,28 @@ extension BaseManager {
     }
     
     func openPreferences() {
+        let candidates = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .compactMap({ $0.rootViewController as? UIHostingController<PreferenceView> })
+        if candidates.count > 0 {
+            return
+        }
+        
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
         userActivity.title = "default"
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
     
     func openAbout() {
+        let candidates = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .compactMap({ $0.rootViewController as? LaunchViewController })
+        if candidates.count > 0 {
+            return
+        }
+        
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
         userActivity.title = "default"
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)

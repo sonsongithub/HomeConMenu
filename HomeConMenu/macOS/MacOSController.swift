@@ -34,7 +34,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    var isOpenedPreference = false
         
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
@@ -235,6 +234,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         prefItem.target = self
         mainMenu.addItem(prefItem)
         
+        let openHomeItem = NSMenuItem()
+        openHomeItem.title = NSLocalizedString("Open Home.app", comment: "")
+        openHomeItem.action = #selector(MacOSController.openHomeApp(sender:))
+        openHomeItem.target = self
+        mainMenu.addItem(openHomeItem)
+        
         mainMenu.addItem(NSMenuItem.separator())
         
         let menuItem = NSMenuItem()
@@ -268,11 +273,17 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func preferences(sender: NSButton) {
-        if !isOpenedPreference {
-            isOpenedPreference = true
-            self.iosListener?.openPreferences()
+        self.iosListener?.openPreferences()
+    }
+    
+    @IBAction func openHomeApp(sender: NSButton) {
+        if #available(macOS 10.15, *) {
+            if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Home") {
+                NSWorkspace.shared.open([], withApplicationAt: url, configuration: NSWorkspace.OpenConfiguration())
+            }
         } else {
-            self.bringToFront()
+            // Fallback on earlier versions
+            NSWorkspace.shared.launchApplication("Home")
         }
     }
     
