@@ -152,17 +152,6 @@ extension BaseManager {
         }
     }
     
-    func openCamera(uniqueIdentifier: UUID) {
-        guard let accesory = self.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
-        guard let cameraProfile = accesory.cameraProfiles?.first else { return }
-        guard cameraProfile.streamControl?.delegate == nil else { return }
-        
-        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.openCamera")
-        userActivity.title = "default"
-        userActivity.addUserInfoEntries(from: ["uniqueIdentifier": uniqueIdentifier])
-        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-    }
-        
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
         guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
         Task.detached {
@@ -187,31 +176,67 @@ extension BaseManager {
         return characteristic.value as Any
     }
     
-    func openPreferences() {
-        let candidates = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .flatMap({ $0.windows })
-            .compactMap({ $0.rootViewController as? UIHostingController<PreferenceView> })
-        if candidates.count > 0 {
-            return
+    func closeDummyViewController() {
+        let windowScenes = DummyViewController.windowScenesIncludingThisClass()
+        windowScenes.forEach { windowScene in
+            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+            windowScene.windows.forEach { window in
+                window.rootViewController = nil
+            }
+        }
+    }
+    
+    func openCamera(uniqueIdentifier: UUID) {
+        closeDummyViewController()
+        
+        let windowScenes = CameraViewController.windowScenesIncludingThisClass()
+        
+        windowScenes.forEach { windowScene in
+            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+            windowScene.windows.forEach { window in
+                window.rootViewController = nil
+            }
         }
         
-        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
+        guard let accesory = self.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
+        guard let cameraProfile = accesory.cameraProfiles?.first else { return }
+        guard cameraProfile.streamControl?.delegate == nil else { return }
+        
+        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.openCamera")
         userActivity.title = "default"
+        userActivity.addUserInfoEntries(from: ["uniqueIdentifier": uniqueIdentifier])
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        
+        self.macOSController?.bringToFront()
+    }
+    
+    func openPreferences() {
+        closeDummyViewController()
+    
+        let windowScenes = PreferenceView.windowScenesIncludingThisClass()
+        
+        if windowScenes.count == 0 {
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        } else {
+            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
+        }
+        self.macOSController?.bringToFront()
     }
     
     func openAbout() {
-        let candidates = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .flatMap({ $0.windows })
-            .compactMap({ $0.rootViewController as? LaunchViewController })
-        if candidates.count > 0 {
-            return
-        }
+        closeDummyViewController()
         
-        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-        userActivity.title = "default"
-        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        let windowScenes = LaunchViewController.windowScenesIncludingThisClass()
+        
+        if windowScenes.count == 0 {
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+            userActivity.title = "default"
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        } else {
+            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
+        }
+        self.macOSController?.bringToFront()
     }
 }
