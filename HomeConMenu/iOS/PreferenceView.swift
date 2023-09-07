@@ -43,33 +43,25 @@ struct PreferenceView: View {
         
         VStack {
             GroupBox {
-                VStack(alignment: .leading) {
-                    Toggle(isOn: $model.doesNotShowLaunchViewController) {
-                        Spacer(minLength: 0)
-                            .frame(width: 5)
-                        Text(NSLocalizedString("Do not show welcome message on launch", comment: ""))
+                ZStack(alignment: .bottom) {
+                    VStack(alignment: .leading) {
+                        Toggle(isOn: $model.doesNotShowLaunchViewController) {
+                            Text(NSLocalizedString("Do not show welcome message on launch", comment: ""))
+                        }
+                        Toggle(isOn: $model.allowDuplicatingServices) {
+                            Text(NSLocalizedString("Display duplicate services", comment: ""))
+                        }
+                        Toggle(isOn: $model.useScenes) {
+                            Text(NSLocalizedString("Use scenes", comment: ""))
+                        }
                     }
-                    Toggle(isOn: $model.allowDuplicatingServices) {
-                        Spacer(minLength: 0)
-                            .frame(width: 5)
-                        Text(NSLocalizedString("Display duplicate services", comment: ""))
-                    }
-                    Toggle(isOn: $model.useScenes) {
-                        Spacer(minLength: 0)
-                            .frame(width: 5)
-                        Text(NSLocalizedString("Use scenes", comment: ""))
-                    }
-                    
-                    Spacer(minLength: 0)
-                    
-                    Text("version: \(version)(\(build))")
-                        .font(.caption)
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        Text("version: \(version)(\(build))")
+                            .font(.caption)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            
-            
         }
         .padding()
         .onAppear {
