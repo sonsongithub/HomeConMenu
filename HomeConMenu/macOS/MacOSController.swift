@@ -301,6 +301,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
         reloadServiceGroupMenuItem()
         reloadOtherItems()
+        
+        preferences(sender: nil)
     }
     
     required override init() {
@@ -312,9 +314,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.delegate = self
     }
     
-    @IBAction func preferences(sender: NSButton) {
-//        self.iosListener?.openPreferences()
-        
+    @IBAction func preferences(sender: NSButton?) {
         let windowController = SettingsWindowController()
         if let a = windowController.settingsTabViewController {
             if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {

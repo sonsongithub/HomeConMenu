@@ -47,8 +47,6 @@
 		1432F27C2AAB54F900E1B9E9 /* ShortcutsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */; };
 		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		145E21F72AAA15F1005DF18F /* ShortcutsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */; };
-		145E21F92AAA16D3005DF18F /* ShortcutsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */; };
-		145E22192AAB109F005DF18F /* PreferenceWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E22182AAB109F005DF18F /* PreferenceWindowController.xib */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -136,8 +134,6 @@
 		1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPane.xib; sourceTree = "<group>"; };
 		1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutsPane.xib; sourceTree = "<group>"; };
 		145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsWindowController.swift; sourceTree = "<group>"; };
-		145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortcutsWindowController.xib; sourceTree = "<group>"; };
-		145E22182AAB109F005DF18F /* PreferenceWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindowController.xib; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -275,15 +271,13 @@
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
 				145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */,
-				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
 				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
 				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
 				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
 				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
-				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
-				145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */,
-				145E22182AAB109F005DF18F /* PreferenceWindowController.xib */,
+				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
 				1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */,
+				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
 				1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */,
 			);
 			path = macOS;
@@ -407,8 +401,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
-				145E21F92AAA16D3005DF18F /* ShortcutsWindowController.xib in Resources */,
-				145E22192AAB109F005DF18F /* PreferenceWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
