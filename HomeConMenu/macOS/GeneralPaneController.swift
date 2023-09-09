@@ -9,16 +9,17 @@ import Foundation
 import AppKit
 
 class GeneralPaneController: NSViewController {
-    @IBOutlet var doesNotShowLaunchViewController: NSButton?
+    @IBOutlet var showLaunchViewController: NSButton?
     @IBOutlet var allowDuplicatingServices: NSButton?
     @IBOutlet var useScenes: NSButton?
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        if let value = UserDefaults.standard.object(forKey: "doesNotShowLaunchViewController") as? Bool {
-            doesNotShowLaunchViewController?.state = value ? .on : .off
+        if let value = UserDefaults.standard.object(forKey: "showLaunchViewController") as? Bool {
+            showLaunchViewController?.state = value ? .on : .off
         } else {
-            doesNotShowLaunchViewController?.state = .off
+            UserDefaults.standard.setValue(true, forKey: "showLaunchViewController")
+            showLaunchViewController?.state = .on
         }
         
         if let value = UserDefaults.standard.object(forKey: "allowDuplicatingServices") as? Bool {
@@ -34,9 +35,9 @@ class GeneralPaneController: NSViewController {
         }
     }
     
-    @IBAction func didChangeDoesNotShowLaunchViewController(sender: NSButton) {
+    @IBAction func didChangeShowLaunchViewController(sender: NSButton) {
         print(#function)
-        UserDefaults.standard.set(sender.state == .on, forKey: "doesNotShowLaunchViewController")
+        UserDefaults.standard.set(sender.state == .on, forKey: "showLaunchViewController")
     }
     
     @IBAction func didChangeAllowDuplicatingServices(sender: NSButton) {

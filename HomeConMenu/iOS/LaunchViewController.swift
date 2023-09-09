@@ -34,14 +34,14 @@ class LaunchViewController: UIViewController {
     @objc func userDidTapLabel(tapGestureRecognizer: UITapGestureRecognizer) {
         if let button = button {
             button.isOn = !button.isOn
-            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.set(button.isOn, forKey: "showLaunchViewController")
             UserDefaults.standard.synchronize()
         }
     }
     
     @IBAction func didChange(sender: UISwitch) {
         if let button = button {
-            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.set(button.isOn, forKey: "showLaunchViewController")
             UserDefaults.standard.synchronize()
         }
     }
@@ -66,7 +66,7 @@ class LaunchViewController: UIViewController {
         button?.tintColor = .systemBlue
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.baseManager?.macOSController?.centeringWindows()
-            button?.isOn = UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController")
+            button?.isOn = UserDefaults.standard.bool(forKey: "showLaunchViewController")
         }
     }
     

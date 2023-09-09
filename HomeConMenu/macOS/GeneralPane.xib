@@ -8,7 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="GeneralPaneController" customModule="HomeConMenu" customModuleProvider="target">
             <connections>
                 <outlet property="allowDuplicatingServices" destination="54O-O0-p2M" id="ip2-Vg-vaC"/>
-                <outlet property="doesNotShowLaunchViewController" destination="Xha-OB-N1o" id="msC-9x-5RW"/>
+                <outlet property="showLaunchViewController" destination="Xha-OB-N1o" id="msC-9x-5RW"/>
                 <outlet property="useScenes" destination="M2E-B5-fTf" id="Fwj-1q-B2b"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5jD-FH-HkF"/>
             </connections>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="gRy-QW-fFD">
-                    <rect key="frame" x="53" y="0.0" width="394" height="134"/>
+                    <rect key="frame" x="74" y="0.0" width="352" height="134"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2E-B5-fTf">
                             <rect key="frame" x="95" y="29" width="97" height="18"/>
@@ -41,13 +41,13 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xha-OB-N1o">
-                            <rect key="frame" x="95" y="97" width="279" height="18"/>
-                            <buttonCell key="cell" type="check" title="Do not show welcome message on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vt-E6-mDP">
+                            <rect key="frame" x="95" y="97" width="237" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show welcome message on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vt-E6-mDP">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="didChangeDoesNotShowLaunchViewControllerWithSender:" target="-2" id="NMV-gp-0Ah"/>
+                                <action selector="didChangeShowLaunchViewControllerWithSender:" target="-2" id="NMV-gp-0Ah"/>
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y78-4e-KS2">

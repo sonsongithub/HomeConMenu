@@ -99,15 +99,17 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
         
         if accessories.count == 0 {
-            UserDefaults.standard.set(false, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.set(true, forKey: "showLaunchViewController")
             UserDefaults.standard.synchronize()
         }
         
-        if !UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController") {
+        if UserDefaults.standard.bool(forKey: "showLaunchViewController") {
+            // open launchview
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
+        
         macOSController?.reloadAllMenuItems()
         
     }

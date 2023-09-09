@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="mac" appearance="light">
         <simulatedSceneSize key="mac" width="704" height="693"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'd like to hide this window, when this app has just launched. How do I do it?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-iC-27o">
-                                <rect key="frame" x="66" y="336" width="572" height="20.5"/>
+                                <rect key="frame" x="54" y="337" width="596" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,20 +50,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots01" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-yF-rMA">
-                                <rect key="frame" x="20" y="359" width="200" height="80"/>
+                                <rect key="frame" x="20" y="358" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8qd-P3-ZZ7"/>
                                     <constraint firstAttribute="height" constant="80" id="tJD-Fq-xW5"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to HomeConMenu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nS-xe-LYs">
-                                <rect key="frame" x="164" y="204" width="377" height="34.5"/>
+                                <rect key="frame" x="164" y="204" width="377" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmr-Rt-GzQ">
-                                <rect key="frame" x="230" y="359" width="449" height="80"/>
+                                <rect key="frame" x="230" y="358" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="oL0-Y6-e4J"/>
                                 </constraints>
@@ -72,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To use this application, go to Security &amp; Privacy settings in System Preferences and allow HomeConMenu to access HomeKit." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDQ-uH-yjr">
-                                <rect key="frame" x="230" y="259" width="449" height="80"/>
+                                <rect key="frame" x="230" y="258" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="e0Q-rI-WEW"/>
                                 </constraints>
@@ -81,7 +82,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-CV-xVu">
-                                <rect key="frame" x="230" y="459" width="449" height="80"/>
+                                <rect key="frame" x="230" y="458" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Sed-EX-vmH"/>
                                 </constraints>
@@ -91,28 +92,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeappshot" translatesAutoresizingMaskIntoConstraints="NO" id="l9M-g8-ggI">
-                                <rect key="frame" x="20" y="459" width="200" height="80"/>
+                                <rect key="frame" x="20" y="458" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Q19-Pf-LoF"/>
                                     <constraint firstAttribute="width" constant="200" id="dre-SI-xI1"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shots02" translatesAutoresizingMaskIntoConstraints="NO" id="jZp-FN-Fh2">
-                                <rect key="frame" x="20" y="559" width="200" height="80"/>
+                                <rect key="frame" x="20" y="558" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ujf-Rq-L7j"/>
                                     <constraint firstAttribute="height" constant="80" id="ztD-rN-Swr"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="gLQ-BY-Mpy">
-                                <rect key="frame" x="20" y="259" width="200" height="80"/>
+                                <rect key="frame" x="20" y="258" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="LHA-sH-DUo"/>
                                     <constraint firstAttribute="height" constant="80" id="by9-xg-Wx0"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1Z-oA-yZR">
-                                <rect key="frame" x="146" y="659" width="412" height="14.5"/>
+                                <rect key="frame" x="168" y="658" width="368.5" height="15"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-8i-0fY">
                                         <rect key="frame" x="20" y="-8" width="51" height="31"/>
@@ -120,8 +121,8 @@
                                             <action selector="didChangeWithSender:" destination="Btt-p6-dSE" eventType="valueChanged" id="2s8-a9-b3A"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not show this window when launching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYC-1v-Zv5">
-                                        <rect key="frame" x="79" y="-3" width="313" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show this window when launching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYC-1v-Zv5">
+                                        <rect key="frame" x="79" y="-3" width="269.5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
@@ -136,7 +137,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on." lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLd-uj-EpJ">
-                                <rect key="frame" x="230" y="559" width="449" height="80"/>
+                                <rect key="frame" x="230" y="558" width="449" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="hZL-AE-Vsx"/>
                                 </constraints>
@@ -202,7 +203,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
