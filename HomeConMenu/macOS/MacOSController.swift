@@ -28,13 +28,15 @@
 import Foundation
 import AppKit
 import os
+import KeyboardShortcuts
 
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-        
+    var windowController: ShortcutsWindowController?
+    
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
             .compactMap({ $0 as? ErrorMenuItem})
@@ -136,8 +138,46 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    func actionItems() -> [String] {
+        
+        var names: [String] = []
+        
+//        if let serviceGroups = self.iosListener?.serviceGroups {
+//            names.append(contentsOf: serviceGroups.map({ $0.name }))
+//        }
+        
+        if let actionSets = self.iosListener?.actionSets {
+            names.append(contentsOf: actionSets.map({ $0.name }))
+        }
+        
+        print(names)
+        
+        if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
+            for room in rooms {
+                for info in accessories {
+                    if info.room?.uniqueIdentifier == room.uniqueIdentifier {
+                        info.services.forEach { serviceInfo in
+                            switch serviceInfo.type {
+                            case .lightbulb:
+                                names.append(serviceInfo.name)
+                            case .outlet:
+                                names.append(serviceInfo.name)
+                            case .switch:
+                                names.append(serviceInfo.name)
+                            default:
+                                do {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return names
+    }
+    
     func reloadServiceGroupMenuItem() {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return }
+        
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
         
         if serviceGroupItems.count > 0 {
@@ -273,7 +313,18 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func preferences(sender: NSButton) {
-        self.iosListener?.openPreferences()
+//        self.iosListener?.openPreferences()
+        
+        let windowController = SettingsWindowController()
+        if let a = windowController.settingsTabViewController {
+            if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
+                if let vc = item.viewController as? ShortcutsPaneController {
+                    vc.names = actionItems()
+                }
+            }
+        }
+        windowController.showWindow(nil)
+        self.bringToFront()
     }
     
     @IBAction func openHomeApp(sender: NSButton) {

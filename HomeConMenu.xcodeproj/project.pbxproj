@@ -37,6 +37,18 @@
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		1432F2722AAB544D00E1B9E9 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */; };
+		1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */; };
+		1432F2752AAB544D00E1B9E9 /* GeneralPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */; };
+		1432F2762AAB544D00E1B9E9 /* ShortcutsPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */; };
+		1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */; };
+		1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */; };
+		1432F27B2AAB54F900E1B9E9 /* GeneralPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */; };
+		1432F27C2AAB54F900E1B9E9 /* ShortcutsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */; };
+		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
+		145E21F72AAA15F1005DF18F /* ShortcutsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */; };
+		145E21F92AAA16D3005DF18F /* ShortcutsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */; };
+		145E22192AAB109F005DF18F /* PreferenceWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E22182AAB109F005DF18F /* PreferenceWindowController.xib */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -115,6 +127,17 @@
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPane.swift; sourceTree = "<group>"; };
+		1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPaneController.swift; sourceTree = "<group>"; };
+		1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPaneController.swift; sourceTree = "<group>"; };
+		1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPane.xib; sourceTree = "<group>"; };
+		1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutsPane.xib; sourceTree = "<group>"; };
+		145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsWindowController.swift; sourceTree = "<group>"; };
+		145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortcutsWindowController.xib; sourceTree = "<group>"; };
+		145E22182AAB109F005DF18F /* PreferenceWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindowController.xib; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -152,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */,
+				145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +274,17 @@
 				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+				145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */,
+				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
+				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
+				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
+				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
+				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
+				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
+				145E21F82AAA16D3005DF18F /* ShortcutsWindowController.xib */,
+				145E22182AAB109F005DF18F /* PreferenceWindowController.xib */,
+				1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */,
+				1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -304,6 +339,7 @@
 			name = macOSBridge;
 			packageProductDependencies = (
 				14746C4B2813C1BE00666682 /* ColorWheelPanelView */,
+				145E21F22AAA14B1005DF18F /* KeyboardShortcuts */,
 			);
 			productName = macOSBridge;
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
@@ -339,6 +375,7 @@
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
 				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
+				145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
@@ -355,6 +392,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1432F27B2AAB54F900E1B9E9 /* GeneralPane.xib in Resources */,
+				1432F27C2AAB54F900E1B9E9 /* ShortcutsPane.xib in Resources */,
 				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
@@ -368,6 +407,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
+				145E21F92AAA16D3005DF18F /* ShortcutsWindowController.xib in Resources */,
+				145E22192AAB109F005DF18F /* PreferenceWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,18 +459,25 @@
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
+				1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
+				1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */,
+				145E21F72AAA15F1005DF18F /* ShortcutsWindowController.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
+				1432F2722AAB544D00E1B9E9 /* SettingsWindow.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
+				1432F2752AAB544D00E1B9E9 /* GeneralPaneController.swift in Sources */,
+				1432F2762AAB544D00E1B9E9 /* ShortcutsPaneController.swift in Sources */,
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
 				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
+				1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */,
 				14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +817,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sonsongithub/ColorWheelPanelView";
@@ -780,6 +836,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		145E21F22AAA14B1005DF18F /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
 		14746C4B2813C1BE00666682 /* ColorWheelPanelView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;

@@ -27,6 +27,7 @@
 
 import Cocoa
 import os
+import KeyboardShortcuts
 
 class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     let uniqueIdentifier: UUID
@@ -135,5 +136,11 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         super.init(title: actionSetInfo.name, action: nil, keyEquivalent: "")
         self.action = #selector(self.execute(sender:))
         self.target = self
+        if let r = KeyboardShortcuts.Name(rawValue: actionSetInfo.name) {
+            self.setShortcut(for: r)
+            KeyboardShortcuts.onKeyDown(for: r, action: {
+                self.execute(sender: self)
+            })
+        }
     }
 }

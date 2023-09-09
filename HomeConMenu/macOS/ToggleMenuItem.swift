@@ -27,6 +27,7 @@
 
 import Cocoa
 import os
+import KeyboardShortcuts
 
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
@@ -120,6 +121,12 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         self.image = self.icon
         self.action = #selector(self.toggle(sender:))
         self.target = self
+        if let r = KeyboardShortcuts.Name(rawValue: serviceInfo.name) {
+            self.setShortcut(for: r)
+            KeyboardShortcuts.onKeyDown(for: r, action: {
+                self.toggle(sender: self)
+            })
+        }
     }
     
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {

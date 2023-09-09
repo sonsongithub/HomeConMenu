@@ -1,5 +1,5 @@
 //
-//  LightColorMenu.swift
+//  LightColorMenuItem.swift
 //  macOSBridge
 //
 //  Created by Yuichi Yoshida on 2022/03/20.
