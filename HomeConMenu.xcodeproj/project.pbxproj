@@ -63,6 +63,7 @@
 		14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6D02AAC54120023F71D /* InformationPaneController.swift */; };
 		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
 		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
+		14ABD6DE2AAC8D6A0023F71D /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 14ABD6DD2AAC8D6A0023F71D /* Acknowledgments.css */; };
 		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
@@ -151,6 +152,7 @@
 		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14ABD6D92AAC79490023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		14ABD6DD2AAC8D6A0023F71D /* Acknowledgments.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Acknowledgments.css; sourceTree = "<group>"; };
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		146D209627F03FD000162EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14ABD6DD2AAC8D6A0023F71D /* Acknowledgments.css */,
 				14ABD6D22AAC5A0A0023F71D /* Acknowledgments.html */,
 				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
@@ -392,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14ABD6DE2AAC8D6A0023F71D /* Acknowledgments.css in Resources */,
 				1432F27B2AAB54F900E1B9E9 /* GeneralPane.xib in Resources */,
 				1432F27C2AAB54F900E1B9E9 /* ShortcutsPane.xib in Resources */,
 				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,

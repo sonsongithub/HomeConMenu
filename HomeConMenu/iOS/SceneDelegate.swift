@@ -65,6 +65,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
+    func openWebView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+        let vc = WebViewController()
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        self.window?.rootViewController = vc
+        
+        windowScene.userActivity = connectionOptions.userActivities.first
+
+        self.window?.makeKeyAndVisible()
+        
+//        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
+//            let window = UIWindow(windowScene: windowScene)
+//            self.window = window
+//            self.window?.rootViewController = vc
+//
+//            windowScene.userActivity = connectionOptions.userActivities.first
+//
+//            self.window?.makeKeyAndVisible()
+//        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -79,6 +100,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
         case ("com.sonson.HomeMenu.LaunchView", "default"):
             openLaunchView(windowScene: windowScene, connectionOptions: connectionOptions)
+            #if targetEnvironment(macCatalyst)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 720)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 720)
+            #endif
+        case ("com.sonson.HomeMenu.WebView", "default"):
+            openWebView(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 720)
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 720)

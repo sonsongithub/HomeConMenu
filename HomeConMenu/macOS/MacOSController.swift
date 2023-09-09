@@ -321,6 +321,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                     vc.names = actionItems()
                 }
             }
+            if let item = a.tabViewItems.first(where: { $0.viewController is InformationPaneController }) {
+                if let vc = item.viewController as? InformationPaneController {
+                    vc.mac2ios = self.iosListener
+                }
+            }
         }
         windowController.showWindow(nil)
         self.bringToFront()
