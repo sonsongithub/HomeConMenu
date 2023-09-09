@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
-		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
 		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -68,8 +67,6 @@
 		14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */; };
-		14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAC28256B940002ECB8 /* PreferenceView.swift */; };
-		14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB028260D730002ECB8 /* PreferenceModel.swift */; };
 		14FA4AB52827870F0002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 		14FA4AB6282787C00002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 /* End PBXBuildFile section */
@@ -102,7 +99,6 @@
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		142DE06F27E8B80E006CBAFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		142DE07427E8B80F006CBAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142DE07927E8B80F006CBAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		142DE07F27E8B814006CBAFE /* HomeConMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenu.entitlements; sourceTree = "<group>"; };
@@ -152,8 +148,6 @@
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
-		14FA4AAC28256B940002ECB8 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
-		14FA4AB028260D730002ECB8 /* PreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
 		14FA4AB42827870F0002ECB8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,8 +217,6 @@
 		146D209327F03F7800162EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				14FA4AAC28256B940002ECB8 /* PreferenceView.swift */,
-				14FA4AB028260D730002ECB8 /* PreferenceModel.swift */,
 				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
 				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
@@ -233,7 +225,6 @@
 				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
-				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -413,13 +404,11 @@
 			files = (
 				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
 				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
-				14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */,
 				14FA4A9D282117980002ECB8 /* Log.swift in Sources */,
 				142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */,
 				142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
-				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
 				14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
@@ -434,7 +423,6 @@
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */,
-				14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -210,21 +210,6 @@ extension BaseManager {
         self.macOSController?.bringToFront()
     }
     
-    func openPreferences() {
-        closeDummyViewController()
-    
-        let windowScenes = PreferenceView.windowScenesIncludingThisClass()
-        
-        if windowScenes.count == 0 {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.PreferenceView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
-        }
-        self.macOSController?.bringToFront()
-    }
-    
     func openAbout() {
         closeDummyViewController()
         
