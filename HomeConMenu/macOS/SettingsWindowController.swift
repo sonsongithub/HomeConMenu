@@ -66,6 +66,8 @@ private extension SettingsPane {
             return GeneralPaneController(nibName: NSNib.Name("GeneralPane"), bundle: nil)
         case .shortcuts:
             return ShortcutsPaneController(nibName: NSNib.Name("ShortcutsPane"), bundle: nil)
+        case .information:
+            return InformationPaneController(nibName: NSNib.Name("InformationPane"), bundle: nil)
         }
     }
 }

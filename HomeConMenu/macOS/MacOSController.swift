@@ -35,7 +35,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    var windowController: ShortcutsWindowController?
     
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)

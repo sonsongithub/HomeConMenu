@@ -45,7 +45,6 @@
 		1432F27B2AAB54F900E1B9E9 /* GeneralPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */; };
 		1432F27C2AAB54F900E1B9E9 /* ShortcutsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */; };
 		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
-		145E21F72AAA15F1005DF18F /* ShortcutsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -59,6 +58,11 @@
 		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
+		14ABD6CF2AAC54040023F71D /* InformationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14ABD6CE2AAC54040023F71D /* InformationPane.xib */; };
+		14ABD6D32AAC5A0A0023F71D /* Acknowledgments.html in Resources */ = {isa = PBXBuildFile; fileRef = 14ABD6D22AAC5A0A0023F71D /* Acknowledgments.html */; };
+		14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6D02AAC54120023F71D /* InformationPaneController.swift */; };
+		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
+		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
 		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
@@ -129,7 +133,6 @@
 		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPane.xib; sourceTree = "<group>"; };
 		1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutsPane.xib; sourceTree = "<group>"; };
-		145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsWindowController.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -142,6 +145,12 @@
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14ABD6CE2AAC54040023F71D /* InformationPane.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationPane.xib; sourceTree = "<group>"; };
+		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
+		14ABD6D22AAC5A0A0023F71D /* Acknowledgments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Acknowledgments.html; sourceTree = "<group>"; };
+		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		14ABD6D92AAC79490023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -156,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */,
 				142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +219,8 @@
 		142DE08027E8B89A006CBAFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14ABD6D72AAC79410023F71D /* WebKit.framework */,
+				14ABD6D92AAC79490023F71D /* WebKit.framework */,
 				142DE08127E8B89A006CBAFE /* HomeKit.framework */,
 			);
 			name = Frameworks;
@@ -223,6 +235,7 @@
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
 				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
+				14ABD6DB2AAC87A30023F71D /* WebViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
 			);
@@ -261,15 +274,16 @@
 				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
-				145E21F62AAA15F1005DF18F /* ShortcutsWindowController.swift */,
 				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
-				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
-				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
 				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
+				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
+				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
 				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
 				1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */,
 				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
 				1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */,
+				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
+				14ABD6CE2AAC54040023F71D /* InformationPane.xib */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -277,6 +291,7 @@
 		146D209627F03FD000162EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14ABD6D22AAC5A0A0023F71D /* Acknowledgments.html */,
 				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
@@ -383,6 +398,8 @@
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
+				14ABD6D32AAC5A0A0023F71D /* Acknowledgments.html in Resources */,
+				14ABD6CF2AAC54040023F71D /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */,
 				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
 				14FA4A9D282117980002ECB8 /* Log.swift in Sources */,
 				142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */,
@@ -435,6 +453,7 @@
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				14FA4A9E282117980002ECB8 /* Log.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
+				14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -442,7 +461,6 @@
 				1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
 				1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */,
-				145E21F72AAA15F1005DF18F /* ShortcutsWindowController.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
