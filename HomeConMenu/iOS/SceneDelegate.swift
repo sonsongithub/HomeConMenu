@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
-        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewControllerOld {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             self.window?.rootViewController = vc
@@ -65,35 +65,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func openPreferenceView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+    func openWebView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+        let vc = WebViewController()
         let window = UIWindow(windowScene: windowScene)
-        
-        
         self.window = window
+        self.window?.rootViewController = vc
         
-        let fixedSize = CGSize(width: 480, height: 240)
-        window.windowScene?.sizeRestrictions?.minimumSize = fixedSize
-        window.windowScene?.sizeRestrictions?.maximumSize = fixedSize
-        
-        let contentView = PreferenceView()
+        windowScene.userActivity = connectionOptions.userActivities.first
 
-        let hostingController = UIHostingController(rootView: contentView)
-        hostingController.view.backgroundColor = .clear
-        hostingController.view.isOpaque = false
-        
-        windowScene.title = NSLocalizedString("Preferences", comment: "")
-        window.rootViewController = hostingController
         self.window?.makeKeyAndVisible()
+        
+//        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
+//            let window = UIWindow(windowScene: windowScene)
+//            self.window = window
+//            self.window?.rootViewController = vc
+//
+//            windowScene.userActivity = connectionOptions.userActivities.first
+//
+//            self.window?.makeKeyAndVisible()
+//        }
     }
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let activity = connectionOptions.userActivities.first
 
         switch (activity?.activityType, activity?.title) {
-        case ("com.sonson.HomeMenu.PreferenceView", "default"):
-            openPreferenceView(windowScene: windowScene, connectionOptions: connectionOptions)
         case ("com.sonson.HomeMenu.openCamera", "default"):
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 240)
@@ -102,6 +100,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
         case ("com.sonson.HomeMenu.LaunchView", "default"):
             openLaunchView(windowScene: windowScene, connectionOptions: connectionOptions)
+            #if targetEnvironment(macCatalyst)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 720)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 720)
+            #endif
+        case ("com.sonson.HomeMenu.WebView", "default"):
+            openWebView(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 720)
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 720)

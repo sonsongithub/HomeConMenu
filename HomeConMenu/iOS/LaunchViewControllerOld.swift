@@ -27,21 +27,21 @@
 
 import UIKit
 
-class LaunchViewController: UIViewController {
+class LaunchViewControllerOld: UIViewController {
     @IBOutlet var button: UISwitch?
     @IBOutlet var label: UILabel?
     
     @objc func userDidTapLabel(tapGestureRecognizer: UITapGestureRecognizer) {
         if let button = button {
             button.isOn = !button.isOn
-            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.set(button.isOn, forKey: "showLaunchViewController")
             UserDefaults.standard.synchronize()
         }
     }
     
     @IBAction func didChange(sender: UISwitch) {
         if let button = button {
-            UserDefaults.standard.set(button.isOn, forKey: "doesNotShowLaunchViewController")
+            UserDefaults.standard.set(button.isOn, forKey: "showLaunchViewController")
             UserDefaults.standard.synchronize()
         }
     }
@@ -66,7 +66,7 @@ class LaunchViewController: UIViewController {
         button?.tintColor = .systemBlue
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.baseManager?.macOSController?.centeringWindows()
-            button?.isOn = UserDefaults.standard.bool(forKey: "doesNotShowLaunchViewController")
+            button?.isOn = UserDefaults.standard.bool(forKey: "showLaunchViewController")
         }
     }
     
@@ -77,7 +77,7 @@ class LaunchViewController: UIViewController {
         let targetWindowScenes = candidateWindowScenes.filter({
             var flag = false
             $0.windows.forEach { window in
-                if window.rootViewController is LaunchViewController {
+                if window.rootViewController is LaunchViewControllerOld {
                     flag = true
                 }
             }

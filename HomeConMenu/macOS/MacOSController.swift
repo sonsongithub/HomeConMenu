@@ -28,13 +28,14 @@
 import Foundation
 import AppKit
 import os
+import KeyboardShortcuts
 
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-        
+    
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
             .compactMap({ $0 as? ErrorMenuItem})
@@ -136,8 +137,44 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    func actionItems() -> [String] {
+        
+        var names: [String] = []
+        
+//        if let serviceGroups = self.iosListener?.serviceGroups {
+//            names.append(contentsOf: serviceGroups.map({ $0.name }))
+//        }
+        
+        if let actionSets = self.iosListener?.actionSets {
+            names.append(contentsOf: actionSets.map({ $0.name }))
+        }
+        
+        if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
+            for room in rooms {
+                for info in accessories {
+                    if info.room?.uniqueIdentifier == room.uniqueIdentifier {
+                        info.services.forEach { serviceInfo in
+                            switch serviceInfo.type {
+                            case .lightbulb:
+                                names.append(serviceInfo.name)
+                            case .outlet:
+                                names.append(serviceInfo.name)
+                            case .switch:
+                                names.append(serviceInfo.name)
+                            default:
+                                do {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return names
+    }
+    
     func reloadServiceGroupMenuItem() {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return }
+        
         let serviceGroupItems = serviceGroups.compactMap({ NSMenuItem.HomeMenus(serviceGroup: $0, mac2ios: iosListener) }).flatMap({ $0 }).compactMap({$0})
         
         if serviceGroupItems.count > 0 {
@@ -261,6 +298,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
         reloadServiceGroupMenuItem()
         reloadOtherItems()
+        
+        preferences(sender: nil)
     }
     
     required override init() {
@@ -272,8 +311,22 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.delegate = self
     }
     
-    @IBAction func preferences(sender: NSButton) {
-        self.iosListener?.openPreferences()
+    @IBAction func preferences(sender: NSButton?) {
+        let windowController = SettingsWindowController()
+        if let a = windowController.settingsTabViewController {
+            if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
+                if let vc = item.viewController as? ShortcutsPaneController {
+                    vc.names = actionItems()
+                }
+            }
+            if let item = a.tabViewItems.first(where: { $0.viewController is InformationPaneController }) {
+                if let vc = item.viewController as? InformationPaneController {
+                    vc.mac2ios = self.iosListener
+                }
+            }
+        }
+        windowController.showWindow(nil)
+        self.bringToFront()
     }
     
     @IBAction func openHomeApp(sender: NSButton) {
@@ -288,7 +341,18 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func about(sender: NSButton) {
-        self.iosListener?.openAbout()
+        showLaunchView()
+    }
+    
+    func showLaunchView() {
+        
+        
+        let vc = LaunchViewController(nibName: NSNib.Name("LaunchView"), bundle: nil)
+        let window = NSWindow(contentViewController: vc)
+        let wc = NSWindowController(window: window)
+        window.title = NSLocalizedString("Welcome to HomeConMenu", comment: "")
+        window.styleMask.remove( [ .resizable ] )
+        wc.showWindow(self)
     }
     
     @IBAction func quit(sender: NSButton) {

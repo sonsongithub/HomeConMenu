@@ -1,0 +1,15 @@
+
+/* Class = "NSButtonCell"; title = "Show welcome message on launch"; ObjectID = "3Vt-E6-mDP"; */
+"3Vt-E6-mDP.title" = "ウェルカムメッセージを表示する";
+
+/* Class = "NSTextFieldCell"; title = "On startup:"; ObjectID = "LVi-Yv-OrG"; */
+"LVi-Yv-OrG.title" = "起動時:";
+
+/* Class = "NSButtonCell"; title = "Display duplicate services"; ObjectID = "stD-Gu-pED"; */
+"stD-Gu-pED.title" = "グループに登録されているサービスも表示";
+
+/* Class = "NSTextFieldCell"; title = "HomeKit:"; ObjectID = "u01-P0-DLH"; */
+"u01-P0-DLH.title" = "HomeKit:";
+
+/* Class = "NSButtonCell"; title = "Use scenes"; ObjectID = "xwK-VA-rRD"; */
+"xwK-VA-rRD.title" = "シーンを利用";
