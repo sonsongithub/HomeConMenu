@@ -51,8 +51,20 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     @IBOutlet var tableView: NSTableView?
     
     @IBAction func didPushResetButton(sender: NSButton) {
-        KeyboardShortcuts.reset(names.compactMap({ KeyboardShortcuts.Name($0) }))
-        self.tableView?.reloadData()
+        
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("Key Bindings", comment: "")
+        alert.informativeText = NSLocalizedString("You will remove all key bindings settings. Are you sure to remove them?", comment:"")
+        alert.alertStyle = .critical
+        
+        alert.addButton(withTitle: NSLocalizedString("Remove all", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
+        
+        let ret = alert.runModal()
+        if ret == .alertFirstButtonReturn {
+            KeyboardShortcuts.reset(names.compactMap({ KeyboardShortcuts.Name($0) }))
+            self.tableView?.reloadData()
+        }
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
