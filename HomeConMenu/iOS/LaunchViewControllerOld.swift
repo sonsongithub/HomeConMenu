@@ -27,7 +27,7 @@
 
 import UIKit
 
-class LaunchViewController: UIViewController {
+class LaunchViewControllerOld: UIViewController {
     @IBOutlet var button: UISwitch?
     @IBOutlet var label: UILabel?
     
@@ -77,7 +77,7 @@ class LaunchViewController: UIViewController {
         let targetWindowScenes = candidateWindowScenes.filter({
             var flag = false
             $0.windows.forEach { window in
-                if window.rootViewController is LaunchViewController {
+                if window.rootViewController is LaunchViewControllerOld {
                     flag = true
                 }
             }

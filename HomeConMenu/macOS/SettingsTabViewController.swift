@@ -9,6 +9,10 @@ import AppKit
 
 final class SettingsTabViewController: NSTabViewController {
     
+    deinit {
+        print("SettingsTabViewController - deinit")
+    }
+    
     // MARK: Tab View Controller Methods
     
     override var selectedTabViewItemIndex: Int {
@@ -40,7 +44,7 @@ final class SettingsTabViewController: NSTabViewController {
         self.view.window!.title = self.tabViewItems[self.selectedTabViewItemIndex].label
     }
     
-    
+
     override func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?) {
         
         super.tabView(tabView, willSelect: tabViewItem)
@@ -49,8 +53,6 @@ final class SettingsTabViewController: NSTabViewController {
         
         self.switchPane(to: tabViewItem)
     }
-    
-    
     
     // MARK: Private Methods
     

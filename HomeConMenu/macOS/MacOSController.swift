@@ -343,7 +343,18 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func about(sender: NSButton) {
-        self.iosListener?.openAbout()
+        showLaunchView()
+    }
+    
+    func showLaunchView() {
+        
+        
+        let vc = LaunchViewController(nibName: NSNib.Name("LaunchView"), bundle: nil)
+        let window = NSWindow(contentViewController: vc)
+        let wc = NSWindowController(window: window)
+        window.title = NSLocalizedString("Welcome to HomeConMenu", comment: "")
+        window.styleMask.remove( [ .resizable ] )
+        wc.showWindow(self)
     }
     
     @IBAction func quit(sender: NSButton) {

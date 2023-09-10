@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
-        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewControllerOld {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             self.window?.rootViewController = vc

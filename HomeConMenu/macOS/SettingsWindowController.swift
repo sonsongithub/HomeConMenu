@@ -14,6 +14,7 @@ final class SettingsWindowController: NSWindowController {
     var settingsTabViewController: SettingsTabViewController?
     
     convenience init() {
+        print("SettingsWindowController - init")
         
         let viewController = SettingsTabViewController()
         viewController.tabStyle = .toolbar
@@ -23,6 +24,7 @@ final class SettingsWindowController: NSWindowController {
         let window = SettingsWindow(contentViewController: viewController)
         window.styleMask = [.closable, .titled]
         window.hidesOnDeactivate = false
+        window.isReleasedWhenClosed = true
         
         self.init(window: window)
         self.settingsTabViewController = viewController
@@ -40,6 +42,10 @@ final class SettingsWindowController: NSWindowController {
         (self.contentViewController as? NSTabViewController)?.selectedTabViewItemIndex = index
         
         self.showWindow(nil)
+    }
+    
+    deinit {
+        print("SettingsWindowController - deinit")
     }
 }
 
@@ -70,4 +76,5 @@ private extension SettingsPane {
             return InformationPaneController(nibName: NSNib.Name("InformationPane"), bundle: nil)
         }
     }
+
 }

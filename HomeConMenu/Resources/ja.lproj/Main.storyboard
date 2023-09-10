@@ -44,7 +44,7 @@
         <!--HomeConMenu-->
         <scene sceneID="azT-VZ-iMJ">
             <objects>
-                <viewController storyboardIdentifier="LaunchViewController" title="HomeConMenu" id="lcc-8Q-9QY" customClass="LaunchViewController" customModule="HomeConMenu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchViewController" title="HomeConMenu" id="lcc-8Q-9QY" customClass="LaunchViewControllerOld" customModule="HomeConMenu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6hz-Aj-iU2">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

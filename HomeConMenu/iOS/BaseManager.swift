@@ -105,9 +105,10 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         
         if UserDefaults.standard.bool(forKey: "showLaunchViewController") {
             // open launchview
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+            macOSController?.showLaunchView()
+//            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+//            userActivity.title = "default"
+//            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         }
         
         macOSController?.reloadAllMenuItems()
@@ -230,7 +231,7 @@ extension BaseManager {
     func openAbout() {
         closeDummyViewController()
         
-        let windowScenes = LaunchViewController.windowScenesIncludingThisClass()
+        let windowScenes = LaunchViewControllerOld.windowScenesIncludingThisClass()
         
         if windowScenes.count == 0 {
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")

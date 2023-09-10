@@ -26,7 +26,6 @@ enum SettingsPane: String, CaseIterable {
         }
     }
     
-    
     /// Symbol image name.
     var symbolName: String {
         

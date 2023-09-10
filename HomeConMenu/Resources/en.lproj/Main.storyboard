@@ -44,7 +44,7 @@
         <!--HomeConMenu-->
         <scene sceneID="4SC-FS-RdP">
             <objects>
-                <viewController storyboardIdentifier="LaunchViewController" title="HomeConMenu" id="Btt-p6-dSE" customClass="LaunchViewController" customModule="HomeConMenu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchViewController" title="HomeConMenu" id="Btt-p6-dSE" customClass="LaunchViewControllerOld" customModule="HomeConMenu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ye-4i-4NL">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="693"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
