@@ -136,6 +136,7 @@
 		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		1432F2792AAB54F800E1B9E9 /* GeneralPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPane.xib; sourceTree = "<group>"; };
 		1432F27A2AAB54F800E1B9E9 /* ShortcutsPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortcutsPane.xib; sourceTree = "<group>"; };
+		144C95CC2AAD88AB00935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		14A839EE280FDBD20083EE1D /* LaunchViewControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewControllerOld.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14ABD6CE2AAC54040023F71D /* InformationPane.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationPane.xib; sourceTree = "<group>"; };
 		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
@@ -362,7 +362,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -380,6 +380,7 @@
 			knownRegions = (
 				en,
 				ja,
+				Base,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
@@ -507,8 +508,8 @@
 		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14A839FD280FEE530083EE1D /* en */,
 				14A839FF280FEE5E0083EE1D /* ja */,
+				144C95CC2AAD88AB00935105 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -732,6 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -767,6 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

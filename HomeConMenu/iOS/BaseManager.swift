@@ -89,7 +89,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         home.delegate = self
         
 #if DEBUG
-        home.dump()
+//        home.dump()
 #endif
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})

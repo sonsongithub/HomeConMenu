@@ -22,9 +22,4 @@ final class SettingsWindow: NSPanel {
                 return super.validateMenuItem(menuItem)
         }
     }
-    
-    deinit {
-        print("SettingsWindow - deinit")
-    }
-    
 }

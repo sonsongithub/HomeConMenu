@@ -16,7 +16,6 @@ class LaunchViewController: NSViewController {
     }
     
     @IBAction func didChangeShowLaunchViewController(sender: NSButton) {
-        print(#function)
         UserDefaults.standard.set(sender.state == .on, forKey: "showLaunchViewController")
     }
     

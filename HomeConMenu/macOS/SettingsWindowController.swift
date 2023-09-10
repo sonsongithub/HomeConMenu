@@ -14,8 +14,6 @@ final class SettingsWindowController: NSWindowController {
     var settingsTabViewController: SettingsTabViewController?
     
     convenience init() {
-        print("SettingsWindowController - init")
-        
         let viewController = SettingsTabViewController()
         viewController.tabStyle = .toolbar
         viewController.canPropagateSelectedChildViewControllerTitle = false
@@ -42,10 +40,6 @@ final class SettingsWindowController: NSWindowController {
         (self.contentViewController as? NSTabViewController)?.selectedTabViewItemIndex = index
         
         self.showWindow(nil)
-    }
-    
-    deinit {
-        print("SettingsWindowController - deinit")
     }
 }
 

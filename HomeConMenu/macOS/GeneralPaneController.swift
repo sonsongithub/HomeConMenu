@@ -50,17 +50,14 @@ class GeneralPaneController: NSViewController {
     }
     
     @IBAction func didChangeShowLaunchViewController(sender: NSButton) {
-        print(#function)
         UserDefaults.standard.set(sender.state == .on, forKey: "showLaunchViewController")
     }
     
     @IBAction func didChangeAllowDuplicatingServices(sender: NSButton) {
-        print(#function)
         UserDefaults.standard.set(sender.state == .on, forKey: "allowDuplicatingServices")
     }
     
     @IBAction func didChangeUseScenes(sender: NSButton) {
-        print(#function)
         UserDefaults.standard.set(sender.state == .on, forKey: "useScenes")
     }
 }

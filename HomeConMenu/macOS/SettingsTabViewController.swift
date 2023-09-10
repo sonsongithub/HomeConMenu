@@ -9,17 +9,13 @@ import AppKit
 
 final class SettingsTabViewController: NSTabViewController {
     
-    deinit {
-        print("SettingsTabViewController - deinit")
-    }
-    
     // MARK: Tab View Controller Methods
     
     override var selectedTabViewItemIndex: Int {
         
         didSet {
             if self.isViewLoaded {  // avoid storing initial state
-//                UserDefaults.standard[.lastSettingsPaneIdentifier] = self.tabViewItems[selectedTabViewItemIndex].identifier as? String
+                UserDefaults.standard.set(self.tabViewItems[selectedTabViewItemIndex].identifier, forKey: "lastSettingsPaneIdentifier")
             }
         }
     }
@@ -29,11 +25,11 @@ final class SettingsTabViewController: NSTabViewController {
         super.viewDidLoad()
         
         // select last used pane
-//        if let identifier = UserDefaults.standard[.lastSettingsPaneIdentifier],
-//           let index = self.tabViewItems.firstIndex(where: { $0.identifier as? String == identifier })
-//        {
-//            self.selectedTabViewItemIndex = index
-//        }
+        if let identifier = UserDefaults.standard.string(forKey: "lastSettingsPaneIdentifier"), 
+           let index = self.tabViewItems.firstIndex(where: { $0.identifier as? String == identifier })
+        {
+            self.selectedTabViewItemIndex = index
+        }
     }
     
     

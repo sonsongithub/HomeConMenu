@@ -25,7 +25,6 @@ class WebViewController: UIViewController {
         self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         webView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
-        print(url)
         webView.loadFileURL(url, allowingReadAccessTo: url)
     }
 }

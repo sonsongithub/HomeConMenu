@@ -149,8 +149,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             names.append(contentsOf: actionSets.map({ $0.name }))
         }
         
-        print(names)
-        
         if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
             for room in rooms {
                 for info in accessories {
