@@ -301,8 +301,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
         reloadServiceGroupMenuItem()
         reloadOtherItems()
-        
-        preferences(sender: nil)
     }
     
     required override init() {
@@ -312,6 +310,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    @IBAction func didChangeUserDefaults(notification: Notification) {
+        reloadAllMenuItems()
     }
     
     @IBAction func preferences(sender: NSButton?) {

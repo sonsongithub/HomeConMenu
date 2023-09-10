@@ -34,7 +34,6 @@ class ShortcutCellView: NSTableCellView {
             textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
             recorder.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true
             recorder.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10).isActive = true
-//            textField.sizeToFit()
             recorder.heightAnchor.constraint(equalToConstant: 30).isActive = true
             recorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
             recorder.widthAnchor.constraint(equalToConstant: 100).isActive = true
