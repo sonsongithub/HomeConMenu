@@ -27,4 +27,20 @@ class WebViewController: UIViewController {
         let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
         webView.loadFileURL(url, allowingReadAccessTo: url)
     }
+    
+    static func windowScenesIncludingThisClass() -> [UIWindowScene] {
+        let candidateWindowScenes = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .filter({ $0.windows.count > 0 })
+        let targetWindowScenes = candidateWindowScenes.filter({
+            var flag = false
+            $0.windows.forEach { window in
+                if window.rootViewController is WebViewController {
+                    flag = true
+                }
+            }
+            return flag
+        })
+        return targetWindowScenes
+    }
 }
