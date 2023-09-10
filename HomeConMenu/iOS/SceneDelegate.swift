@@ -54,15 +54,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func openLaunchView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
-        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewControllerOld {
-            let window = UIWindow(windowScene: windowScene)
-            self.window = window
-            self.window?.rootViewController = vc
-            
-            windowScene.userActivity = connectionOptions.userActivities.first
-
-            self.window?.makeKeyAndVisible()
-        }
+//        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewControllerOld {
+//            let window = UIWindow(windowScene: windowScene)
+//            self.window = window
+//            self.window?.rootViewController = vc
+//            
+//            windowScene.userActivity = connectionOptions.userActivities.first
+//
+//            self.window?.makeKeyAndVisible()
+//        }
     }
     
     func openWebView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {

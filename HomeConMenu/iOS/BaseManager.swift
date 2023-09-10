@@ -231,15 +231,15 @@ extension BaseManager {
     func openAbout() {
         closeDummyViewController()
         
-        let windowScenes = LaunchViewControllerOld.windowScenesIncludingThisClass()
-        
-        if windowScenes.count == 0 {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
-        }
+//        let windowScenes = LaunchViewControllerOld.windowScenesIncludingThisClass()
+//        
+//        if windowScenes.count == 0 {
+//            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
+//            userActivity.title = "default"
+//            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+//        } else {
+//            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
+//        }
         self.macOSController?.bringToFront()
     }
 }

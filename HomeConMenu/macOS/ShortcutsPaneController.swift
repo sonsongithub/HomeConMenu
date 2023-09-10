@@ -56,7 +56,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 50
+        return 44
     }
     
     override func viewWillAppear() {

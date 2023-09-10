@@ -57,7 +57,6 @@
 		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
 		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
-		14A839EF280FDBD20083EE1D /* LaunchViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewControllerOld.swift */; };
 		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
@@ -140,7 +139,6 @@
 		144C95D32AAD89D800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationPane.xib; sourceTree = "<group>"; };
 		144C95D62AAD89E200935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPane.xib; sourceTree = "<group>"; };
 		144C95D92AAD89E800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPane.xib; sourceTree = "<group>"; };
-		144C95DB2AAD9D6800935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		144C95DD2AAD9D7900935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InformationPane.strings; sourceTree = "<group>"; };
 		144C95DF2AAD9D8100935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPane.strings; sourceTree = "<group>"; };
 		144C95E12AAD9DBB00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPane.strings; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
 		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
-		14A839EE280FDBD20083EE1D /* LaunchViewControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewControllerOld.swift; sourceTree = "<group>"; };
 		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
@@ -245,7 +242,6 @@
 				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
-				14A839EE280FDBD20083EE1D /* LaunchViewControllerOld.swift */,
 				14ABD6DB2AAC87A30023F71D /* WebViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
@@ -444,7 +440,6 @@
 				142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
-				14A839EF280FDBD20083EE1D /* LaunchViewControllerOld.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -559,7 +554,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95CC2AAD88AB00935105 /* Base */,
-				144C95DB2AAD9D6800935105 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

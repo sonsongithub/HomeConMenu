@@ -21,14 +21,6 @@
                     <rect key="frame" x="53" y="0.0" width="394" height="206"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
-                            <rect key="frame" x="86" y="170" width="53" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Version:" id="0xY-yl-ENL">
-                                <font key="font" usesAppearanceFont="YES"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
                             <rect key="frame" x="55" y="124" width="84" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Source code:" id="GRs-qi-tgr">
@@ -54,8 +46,8 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
-                            <rect key="frame" x="143" y="170" width="56" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="2.1.0(10)" id="1OJ-qY-yUk">
+                            <rect key="frame" x="143" y="170" width="59" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="3.0 (100)" id="1OJ-qY-yUk">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -94,27 +86,35 @@
                                 <action selector="openAcknowledgementWithSender:" target="-2" id="wsg-AV-USx"/>
                             </connections>
                         </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
+                            <rect key="frame" x="18" y="170" width="121" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Version:" id="0xY-yl-ENL">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Xu2-nT-FH1" firstAttribute="centerY" secondItem="mcq-jX-OyC" secondAttribute="centerY" id="0k8-DI-J3P"/>
                         <constraint firstItem="58S-j0-3mu" firstAttribute="trailing" secondItem="mcq-jX-OyC" secondAttribute="trailing" id="0oz-FD-rrB"/>
                         <constraint firstItem="mcq-jX-OyC" firstAttribute="top" secondItem="cPs-wE-ze0" secondAttribute="bottom" constant="30" id="1Xl-5E-oby"/>
-                        <constraint firstItem="naR-Mu-Ig3" firstAttribute="leading" secondItem="nxQ-YP-EPD" secondAttribute="trailing" constant="8" symbolic="YES" id="4Cn-cv-jJJ"/>
                         <constraint firstItem="Xu2-nT-FH1" firstAttribute="leading" secondItem="mcq-jX-OyC" secondAttribute="trailing" constant="8" symbolic="YES" id="5It-T1-APd"/>
                         <constraint firstItem="mcq-jX-OyC" firstAttribute="leading" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="20" symbolic="YES" id="HdF-um-DIM"/>
                         <constraint firstItem="ISY-IM-5bV" firstAttribute="leading" secondItem="58S-j0-3mu" secondAttribute="trailing" constant="8" symbolic="YES" id="INy-eR-0EH"/>
                         <constraint firstItem="58S-j0-3mu" firstAttribute="top" secondItem="mcq-jX-OyC" secondAttribute="bottom" constant="30" id="IdC-hE-mKx"/>
                         <constraint firstItem="cPs-wE-ze0" firstAttribute="trailing" secondItem="mcq-jX-OyC" secondAttribute="trailing" id="JOP-Lu-gmz"/>
                         <constraint firstItem="nxQ-YP-EPD" firstAttribute="top" secondItem="tfe-Xy-SuX" secondAttribute="top" constant="20" symbolic="YES" id="Jvb-ME-FAu"/>
+                        <constraint firstAttribute="trailing" secondItem="naR-Mu-Ig3" secondAttribute="trailing" constant="194" id="Mhy-wV-vXq"/>
+                        <constraint firstItem="nxQ-YP-EPD" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="20" symbolic="YES" id="MwS-aa-oZV"/>
                         <constraint firstItem="cPs-wE-ze0" firstAttribute="leading" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="57" id="RAG-Lv-Hoo"/>
                         <constraint firstItem="FIa-eD-JXT" firstAttribute="centerY" secondItem="cPs-wE-ze0" secondAttribute="centerY" id="RYX-cO-IBw"/>
                         <constraint firstItem="58S-j0-3mu" firstAttribute="leading" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="29" id="TJu-Hl-9ia"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="naR-Mu-Ig3" secondAttribute="trailing" constant="20" symbolic="YES" id="XFw-Gg-z4t"/>
                         <constraint firstAttribute="trailing" secondItem="FIa-eD-JXT" secondAttribute="trailing" constant="123" id="Xvd-tP-UJ8"/>
                         <constraint firstItem="cPs-wE-ze0" firstAttribute="top" secondItem="nxQ-YP-EPD" secondAttribute="bottom" constant="30" id="YfS-9e-Nev"/>
+                        <constraint firstItem="naR-Mu-Ig3" firstAttribute="leading" secondItem="nxQ-YP-EPD" secondAttribute="trailing" constant="8" symbolic="YES" id="e1h-TE-VAu"/>
                         <constraint firstItem="naR-Mu-Ig3" firstAttribute="centerY" secondItem="nxQ-YP-EPD" secondAttribute="centerY" id="gBr-Nj-pOM"/>
                         <constraint firstItem="FIa-eD-JXT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cPs-wE-ze0" secondAttribute="trailing" constant="8" symbolic="YES" id="iQa-7Z-qVM"/>
-                        <constraint firstItem="nxQ-YP-EPD" firstAttribute="leading" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="88" id="iwC-MD-Otb"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ISY-IM-5bV" secondAttribute="trailing" constant="20" symbolic="YES" id="kQk-9F-XyA"/>
                         <constraint firstItem="mcq-jX-OyC" firstAttribute="trailing" secondItem="nxQ-YP-EPD" secondAttribute="trailing" id="pat-2b-SKC"/>
                         <constraint firstItem="ISY-IM-5bV" firstAttribute="centerY" secondItem="58S-j0-3mu" secondAttribute="centerY" id="y85-Sm-voa"/>
