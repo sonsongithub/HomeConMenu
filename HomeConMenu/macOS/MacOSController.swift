@@ -347,10 +347,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func about(sender: NSButton) {
         launchWindowController.showWindow(sender)
+        self.bringToFront()
     }
 
     func showLaunchView() {
         launchWindowController.showWindow(self)
+        self.bringToFront()
     }
     
     @IBAction func quit(sender: NSButton) {
