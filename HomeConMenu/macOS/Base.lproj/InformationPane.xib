@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="InformationPaneController" customModule="macOSBridge">
             <connections>
-                <outlet property="version" destination="naR-Mu-Ig3" id="llN-6t-SKq"/>
+                <outlet property="versionField" destination="naR-Mu-Ig3" id="llN-6t-SKq"/>
                 <outlet property="view" destination="c22-O7-iKe" id="aW4-nR-SJt"/>
             </connections>
         </customObject>

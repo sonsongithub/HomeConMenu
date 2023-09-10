@@ -10,7 +10,10 @@ import WebKit
 
 class InformationPaneController: NSViewController {
     var mac2ios: mac2iOS?
-    @IBOutlet var version: NSTextField?
+    @IBOutlet var versionField: NSTextField?
+    
+    let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?.?.?"
+    let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
     
     @IBAction func openGithub(sender: Any?) {
         NSWorkspace.shared.open(URL(string: "https://github.com/sonsongithub/HomeConMenu")!)
@@ -25,5 +28,10 @@ class InformationPaneController: NSViewController {
             mac2ios.openWebView()
         }
         NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        versionField?.stringValue = "\(version) (\(build))"
     }
 }
