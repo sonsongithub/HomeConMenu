@@ -107,8 +107,8 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oxG-sY-eUA">
-                            <rect key="frame" x="216" y="42" width="263" height="18"/>
-                            <buttonCell key="cell" type="check" title="Show this welcome message on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fOR-D9-bVy">
+                            <rect key="frame" x="216" y="42" width="200" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show this welcome message" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fOR-D9-bVy">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
