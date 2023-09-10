@@ -10,6 +10,7 @@ import WebKit
 
 class InformationPaneController: NSViewController {
     var mac2ios: mac2iOS?
+    @IBOutlet var version: NSTextField?
     
     @IBAction func openGithub(sender: Any?) {
         NSWorkspace.shared.open(URL(string: "https://github.com/sonsongithub/HomeConMenu")!)

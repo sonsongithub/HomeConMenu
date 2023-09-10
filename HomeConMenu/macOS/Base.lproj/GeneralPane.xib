@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="gRy-QW-fFD">
-                    <rect key="frame" x="74" y="0.0" width="352" height="134"/>
+                    <rect key="frame" x="97" y="0.0" width="307" height="134"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2E-B5-fTf">
                             <rect key="frame" x="95" y="29" width="97" height="18"/>
@@ -41,8 +41,8 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xha-OB-N1o">
-                            <rect key="frame" x="95" y="97" width="237" height="18"/>
-                            <buttonCell key="cell" type="check" title="Show welcome message on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vt-E6-mDP">
+                            <rect key="frame" x="95" y="97" width="175" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show welcome message" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vt-E6-mDP">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -59,8 +59,8 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="54O-O0-p2M">
-                            <rect key="frame" x="95" y="51" width="184" height="18"/>
-                            <buttonCell key="cell" type="check" title="Display duplicate services" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="stD-Gu-pED">
+                            <rect key="frame" x="95" y="51" width="192" height="18"/>
+                            <buttonCell key="cell" type="check" title="Display duplicated services" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="stD-Gu-pED">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -70,14 +70,19 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Xha-OB-N1o" secondAttribute="trailing" constant="37" id="AYA-LV-oXJ"/>
+                        <constraint firstItem="nWV-yg-XDU" firstAttribute="leading" secondItem="gRy-QW-fFD" secondAttribute="leading" constant="33" id="CcB-wn-pJp"/>
                         <constraint firstItem="Xha-OB-N1o" firstAttribute="centerY" secondItem="y78-4e-KS2" secondAttribute="centerY" id="Fkx-Wf-8fb"/>
                         <constraint firstItem="54O-O0-p2M" firstAttribute="centerY" secondItem="nWV-yg-XDU" secondAttribute="centerY" id="GWW-IH-9Fq"/>
-                        <constraint firstAttribute="trailing" secondItem="Xha-OB-N1o" secondAttribute="trailing" constant="20" symbolic="YES" id="PUt-4W-BIe"/>
                         <constraint firstItem="M2E-B5-fTf" firstAttribute="top" secondItem="54O-O0-p2M" secondAttribute="bottom" constant="6" symbolic="YES" id="QCO-sa-l6w"/>
+                        <constraint firstItem="nWV-yg-XDU" firstAttribute="trailing" secondItem="y78-4e-KS2" secondAttribute="trailing" id="a5A-zs-uzV"/>
+                        <constraint firstItem="Xha-OB-N1o" firstAttribute="leading" secondItem="y78-4e-KS2" secondAttribute="trailing" constant="8" symbolic="YES" id="dTy-je-nAM"/>
                         <constraint firstItem="nWV-yg-XDU" firstAttribute="top" secondItem="y78-4e-KS2" secondAttribute="bottom" constant="30" id="dn3-ND-GmO"/>
-                        <constraint firstItem="nWV-yg-XDU" firstAttribute="trailing" secondItem="y78-4e-KS2" secondAttribute="trailing" id="dzN-fy-H5P"/>
+                        <constraint firstItem="nWV-yg-XDU" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y78-4e-KS2" secondAttribute="trailing" id="dzN-fy-H5P"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M2E-B5-fTf" secondAttribute="trailing" constant="20" symbolic="YES" id="e7p-Yu-Pwg"/>
                         <constraint firstItem="M2E-B5-fTf" firstAttribute="leading" secondItem="gRy-QW-fFD" secondAttribute="leading" constant="97" id="ep1-yK-GHx"/>
-                        <constraint firstItem="Xha-OB-N1o" firstAttribute="leading" secondItem="y78-4e-KS2" secondAttribute="trailing" constant="8" symbolic="YES" id="onb-P7-F9n"/>
+                        <constraint firstAttribute="trailing" secondItem="54O-O0-p2M" secondAttribute="trailing" constant="20" symbolic="YES" id="ko4-aF-Rz4"/>
+                        <constraint firstItem="Xha-OB-N1o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y78-4e-KS2" secondAttribute="trailing" constant="8" symbolic="YES" id="onb-P7-F9n"/>
                         <constraint firstItem="y78-4e-KS2" firstAttribute="leading" secondItem="gRy-QW-fFD" secondAttribute="leading" constant="20" symbolic="YES" id="rdz-Bv-prD"/>
                         <constraint firstItem="y78-4e-KS2" firstAttribute="top" secondItem="gRy-QW-fFD" secondAttribute="top" constant="20" symbolic="YES" id="wGV-It-uVP"/>
                         <constraint firstItem="54O-O0-p2M" firstAttribute="leading" secondItem="M2E-B5-fTf" secondAttribute="leading" id="yf3-BN-rQZ"/>

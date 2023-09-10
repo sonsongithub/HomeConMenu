@@ -1,0 +1,21 @@
+
+/* Class = "NSTextFieldCell"; title = "Version:"; ObjectID = "0xY-yl-ENL"; */
+"0xY-yl-ENL.title" = "バージョン:";
+
+/* Class = "NSTextFieldCell"; title = "2.1.0(10)"; ObjectID = "1OJ-qY-yUk"; */
+"1OJ-qY-yUk.title" = "2.1.0(10)";
+
+/* Class = "NSTextFieldCell"; title = "Source code:"; ObjectID = "GRs-qi-tgr"; */
+"GRs-qi-tgr.title" = "ソースコード:";
+
+/* Class = "NSTextFieldCell"; title = "Acknowlegement:"; ObjectID = "Pvk-zR-jJh"; */
+"Pvk-zR-jJh.title" = "謝辞:";
+
+/* Class = "NSButtonCell"; title = "Open github.com"; ObjectID = "XdS-KB-BdG"; */
+"XdS-KB-BdG.title" = "github.comを開く";
+
+/* Class = "NSButtonCell"; title = "詳細情報..."; ObjectID = "e0K-az-LXZ"; */
+"e0K-az-LXZ.title" = "詳細情報...";
+
+/* Class = "NSTextFieldCell"; title = "Become a sponsor:"; ObjectID = "sbA-Wg-xaJ"; */
+"sbA-Wg-xaJ.title" = "スポンサーになる:";
