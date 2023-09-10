@@ -206,13 +206,13 @@ extension BaseManager {
         self.macOSController?.bringToFront()
     }
     
-    func openWebView() {
+    func openAcknowledgement() {
         closeDummyViewController()
         
         let windowScenes = WebViewController.windowScenesIncludingThisClass()
         
         if windowScenes.count == 0 {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.WebView")
+            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.Acknowledgement")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         } else {

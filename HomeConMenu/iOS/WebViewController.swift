@@ -10,7 +10,20 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    private let fileURL: URL
     let webView = WKWebView()
+    
+    
+    // MARK: Lifecycle
+    
+    init(fileURL: URL) {
+        self.fileURL = fileURL
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +36,9 @@ class WebViewController: UIViewController {
         self.webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.webView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        webView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
-        webView.loadFileURL(url, allowingReadAccessTo: url)
+        webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL)
     }
+    
     
     static func windowScenesIncludingThisClass() -> [UIWindowScene] {
         let candidateWindowScenes = UIApplication.shared.connectedScenes

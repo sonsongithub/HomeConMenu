@@ -25,7 +25,7 @@ class InformationPaneController: NSViewController {
     
     @IBAction func openAcknowledgement(sender: Any?) {
         if let mac2ios = mac2ios {
-            mac2ios.openWebView()
+            mac2ios.openAcknowledgement()
         }
         NSApp.activate(ignoringOtherApps: true)
     }

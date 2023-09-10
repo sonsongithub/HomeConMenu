@@ -26,7 +26,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="transparentIcon" id="lH0-2L-Imt"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="aI0-ag-DpH">
-                    <rect key="frame" x="31" y="0.0" width="668" height="579"/>
+                    <rect key="frame" x="41" y="0.0" width="648" height="579"/>
                     <subviews>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="890-SP-5iR">
                             <rect key="frame" x="20" y="459" width="200" height="80"/>
@@ -53,18 +53,9 @@
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="homeappshot" id="ebX-Vn-5UP"/>
                         </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-na-IK6">
-                            <rect key="frame" x="226" y="123" width="424" height="32"/>
+                            <rect key="frame" x="226" y="123" width="404" height="32"/>
                             <textFieldCell key="cell" alignment="left" title="Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on." id="Htv-O8-lHD">
                                 <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUe-GH-VoL">
-                            <rect key="frame" x="226" y="339" width="424" height="80"/>
-                            <textFieldCell key="cell" alignment="left" id="ttZ-uC-Y7u">
-                                <font key="font" metaFont="system"/>
-                                <string key="title">You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices.</string>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
@@ -78,7 +69,7 @@
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="shots01" id="Sz0-Je-IOa"/>
                         </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gSB-dk-q36">
-                            <rect key="frame" x="226" y="235" width="424" height="48"/>
+                            <rect key="frame" x="226" y="227" width="404" height="64"/>
                             <textFieldCell key="cell" alignment="left" id="0MS-0l-x61">
                                 <font key="font" metaFont="system"/>
                                 <string key="title">You can not find any devices on the menu if you do not have any homes or add any home devices to your “Home” on your HomeKit. You can add a HomeKit device using Home app on iOS devices.</string>
@@ -116,10 +107,18 @@
                                 <action selector="didChangeShowLaunchViewControllerWithSender:" target="-2" id="7z4-wj-Oe9"/>
                             </connections>
                         </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUe-GH-VoL">
+                            <rect key="frame" x="226" y="339" width="404" height="80"/>
+                            <textFieldCell key="cell" alignment="left" id="ttZ-uC-Y7u">
+                                <font key="font" metaFont="system"/>
+                                <string key="title">You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices.</string>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                     <constraints>
                         <constraint firstItem="IUe-GH-VoL" firstAttribute="centerY" secondItem="pjh-Hg-YLa" secondAttribute="centerY" id="1fF-qt-hin"/>
-                        <constraint firstAttribute="trailing" secondItem="3GE-YN-LcN" secondAttribute="trailing" constant="40" id="3AS-iq-nbj"/>
                         <constraint firstItem="3GE-YN-LcN" firstAttribute="centerY" secondItem="890-SP-5iR" secondAttribute="centerY" id="4fz-kj-9nq"/>
                         <constraint firstItem="oxG-sY-eUA" firstAttribute="centerY" secondItem="4vu-Y1-g6N" secondAttribute="centerY" id="4pS-xs-9Hg"/>
                         <constraint firstItem="3QG-4Y-kDu" firstAttribute="trailing" secondItem="890-SP-5iR" secondAttribute="trailing" id="ARA-NX-SoT"/>
@@ -140,6 +139,7 @@
                         <constraint firstItem="gSB-dk-q36" firstAttribute="centerY" secondItem="KEc-3z-y3K" secondAttribute="centerY" id="br3-jp-E3g"/>
                         <constraint firstAttribute="trailing" secondItem="IUe-GH-VoL" secondAttribute="trailing" constant="20" symbolic="YES" id="ffN-H5-lFz"/>
                         <constraint firstItem="KEc-3z-y3K" firstAttribute="trailing" secondItem="890-SP-5iR" secondAttribute="trailing" id="g9I-4S-lYC"/>
+                        <constraint firstAttribute="trailing" secondItem="3GE-YN-LcN" secondAttribute="trailing" constant="20" symbolic="YES" id="gma-nV-gfm"/>
                         <constraint firstItem="pjh-Hg-YLa" firstAttribute="trailing" secondItem="890-SP-5iR" secondAttribute="trailing" id="hkF-Jb-Wlx"/>
                         <constraint firstItem="pjh-Hg-YLa" firstAttribute="top" secondItem="890-SP-5iR" secondAttribute="bottom" constant="40" id="l0k-w3-qNf"/>
                         <constraint firstItem="KEc-3z-y3K" firstAttribute="top" secondItem="pjh-Hg-YLa" secondAttribute="bottom" constant="40" id="sw8-OR-4b6"/>

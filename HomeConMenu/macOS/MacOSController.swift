@@ -36,6 +36,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     
+    lazy var settingsWindowController = SettingsWindowController()
+    lazy var launchWindowController = LaunchWindowController()
+    
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
             .compactMap({ $0 as? ErrorMenuItem})
@@ -312,8 +315,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func preferences(sender: NSButton?) {
-        let windowController = SettingsWindowController()
-        if let a = windowController.settingsTabViewController {
+        if let a = settingsWindowController.settingsTabViewController {
             if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
                 if let vc = item.viewController as? ShortcutsPaneController {
                     vc.names = actionItems()
@@ -325,7 +327,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 }
             }
         }
-        windowController.showWindow(nil)
+        settingsWindowController.showWindow(nil)
         self.bringToFront()
     }
     
@@ -341,18 +343,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func about(sender: NSButton) {
-        showLaunchView()
+        launchWindowController.showWindow(sender)
     }
-    
+
     func showLaunchView() {
-        
-        
-        let vc = LaunchViewController(nibName: NSNib.Name("LaunchView"), bundle: nil)
-        let window = NSWindow(contentViewController: vc)
-        let wc = NSWindowController(window: window)
-        window.title = NSLocalizedString("Welcome to HomeConMenu", comment: "")
-        window.styleMask.remove( [ .resizable ] )
-        wc.showWindow(self)
+        launchWindowController.showWindow(self)
     }
     
     @IBAction func quit(sender: NSButton) {

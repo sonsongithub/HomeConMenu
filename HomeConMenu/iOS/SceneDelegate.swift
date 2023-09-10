@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    func openCameraView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+    func showCameraWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     
         if let uniqueIdentifier = connectionOptions.userActivities.first?.userInfo?["uniqueIdentifier"] as? UUID {
@@ -53,8 +53,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func openWebView(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
-        let vc = WebViewController()
+    func showAcknowledgementWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
+
+        let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
+        let vc = WebViewController(fileURL: url)
+        
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         self.window?.rootViewController = vc
@@ -75,9 +78,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 320, height: 240)
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 320, height: 240)
             #endif
-            openCameraView(windowScene: windowScene, connectionOptions: connectionOptions)
-        case ("com.sonson.HomeMenu.WebView", "default"):
-            openWebView(windowScene: windowScene, connectionOptions: connectionOptions)
+            showCameraWindow(windowScene: windowScene, connectionOptions: connectionOptions)
+        case ("com.sonson.HomeMenu.Acknowledgement", "default"):
+            showAcknowledgementWindow(windowScene: windowScene, connectionOptions: connectionOptions)
             #if targetEnvironment(macCatalyst)
             windowScene.sizeRestrictions?.minimumSize = CGSize(width: 700, height: 720)
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 700, height: 720)
@@ -89,21 +92,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene.sizeRestrictions?.maximumSize = CGSize(width: 1, height: 1)
             #endif
         }
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
     }
 }
 
