@@ -59,7 +59,6 @@
 		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
 		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
-		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
 		14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6D02AAC54120023F71D /* InformationPaneController.swift */; };
@@ -155,7 +154,6 @@
 		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
 		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
-		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
 		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -304,7 +302,6 @@
 			children = (
 				144C95EA2AADD95300935105 /* Acknowledgments.css */,
 				144C95E42AADBD1500935105 /* Acknowledgments.html */,
-				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
 				14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */,
@@ -412,7 +409,6 @@
 				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
-				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
 				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
 				144C95D22AAD89D800935105 /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
@@ -709,7 +705,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 125;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -751,7 +747,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 125;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

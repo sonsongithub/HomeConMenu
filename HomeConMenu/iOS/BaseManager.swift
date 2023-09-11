@@ -28,7 +28,6 @@
 import Foundation
 import HomeKit
 import os
-import SwiftUI
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
 
