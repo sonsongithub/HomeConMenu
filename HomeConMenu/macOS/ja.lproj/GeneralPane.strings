@@ -1,12 +1,12 @@
 
+/* Class = "NSButtonCell"; title = "Display \"Open Home.app\" on menu"; ObjectID = "0bf-nM-uXN"; */
+"0bf-nM-uXN.title" = "\"ホームアプリを開く\"メニューを表示";
+
 /* Class = "NSButtonCell"; title = "Show welcome message on launch"; ObjectID = "3Vt-E6-mDP"; */
 "3Vt-E6-mDP.title" = "ウェルカムメッセージを表示する";
 
 /* Class = "NSTextFieldCell"; title = "On startup:"; ObjectID = "LVi-Yv-OrG"; */
 "LVi-Yv-OrG.title" = "起動したとき:";
-
-/* Class = "NSTextFieldCell"; title = "Menu:"; ObjectID = "qzf-db-N8L"; */
-"qzf-db-N8L.title" = "メニュー:";
 
 /* Class = "NSButtonCell"; title = "Display \"Reload\" on menu"; ObjectID = "tHP-Rs-wID"; */
 "tHP-Rs-wID.title" = "\"再読み込み\"メニューを表示";
@@ -22,4 +22,5 @@
 
 /* Class = "NSButtonCell"; title = "Use scenes"; ObjectID = "xwK-VA-rRD"; */
 "xwK-VA-rRD.title" = "シーンを利用";
+
 

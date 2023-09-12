@@ -80,7 +80,6 @@
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3GE-YN-LcN">
                             <rect key="frame" x="226" y="483" width="404" height="32"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="7fh-Lc-8NJ"/>
                                 <constraint firstAttribute="width" constant="400" id="IJp-fg-igi"/>
                             </constraints>
                             <textFieldCell key="cell" alignment="left" title="To use this application, go to Security &amp; Privacy settings in System Preferences and allow HomeConMenu to access HomeKit." id="wrg-Q9-ZTw">
