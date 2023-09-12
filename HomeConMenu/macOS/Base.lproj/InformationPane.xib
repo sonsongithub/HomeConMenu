@@ -67,7 +67,7 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FIa-eD-JXT">
-                            <rect key="frame" x="139" y="115" width="139" height="32"/>
+                            <rect key="frame" x="138" y="115" width="140" height="32"/>
                             <buttonCell key="cell" type="push" title="Open github.com" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XdS-KB-BdG">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -77,7 +77,7 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ISY-IM-5bV">
-                            <rect key="frame" x="138" y="23" width="103" height="32"/>
+                            <rect key="frame" x="138" y="23" width="104" height="32"/>
                             <buttonCell key="cell" type="push" title="Learn More" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e0K-az-LXZ">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
