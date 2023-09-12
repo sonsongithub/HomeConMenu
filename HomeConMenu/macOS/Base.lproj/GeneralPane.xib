@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="allowDuplicatingServices" destination="54O-O0-p2M" id="ip2-Vg-vaC"/>
                 <outlet property="showLaunchViewController" destination="Xha-OB-N1o" id="msC-9x-5RW"/>
+                <outlet property="showReloadMenuItemButton" destination="NU1-eW-0mB" id="p2K-Cy-9dh"/>
                 <outlet property="useScenes" destination="M2E-B5-fTf" id="Fwj-1q-B2b"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5jD-FH-HkF"/>
             </connections>
@@ -85,7 +86,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="didChangeShowLaunchViewControllerWithSender:" target="-2" id="P5K-B1-3Wl"/>
+                                <action selector="didChangeShowReloadMenuItemButtonWithSender:" target="-2" id="wDC-Xq-qI7"/>
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2E-B5-fTf">
