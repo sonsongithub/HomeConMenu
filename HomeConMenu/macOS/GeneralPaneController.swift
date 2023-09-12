@@ -31,6 +31,7 @@ import AppKit
 class GeneralPaneController: NSViewController {
     @IBOutlet var showLaunchViewController: NSButton?
     @IBOutlet var showReloadMenuItemButton: NSButton?
+    @IBOutlet var showHomeAppMenuItemButton: NSButton?
     @IBOutlet var allowDuplicatingServices: NSButton?
     @IBOutlet var useScenes: NSButton?
     
@@ -57,7 +58,7 @@ class GeneralPaneController: NSViewController {
             showLaunchViewController?.state = .on
         }
         
-        if let value = UserDefaults.standard.object(forKey: "showReloadMenuItemButton") as? Bool {
+        if let value = UserDefaults.standard.object(forKey: "showReloadMenuItem") as? Bool {
             showReloadMenuItemButton?.state = value ? .on : .off
         } else {
             showReloadMenuItemButton?.state = .off
@@ -76,12 +77,16 @@ class GeneralPaneController: NSViewController {
         }
     }
     
+    @IBAction func didChangeShowHomeAppMenuItemButton(sender: NSButton) {
+        UserDefaults.standard.set(sender.state == .on, forKey: "showHomeAppMenuItem")
+    }
+    
     @IBAction func didChangeShowLaunchViewController(sender: NSButton) {
         UserDefaults.standard.set(sender.state == .on, forKey: "showLaunchViewController")
     }
     
     @IBAction func didChangeShowReloadMenuItemButton(sender: NSButton) {
-        UserDefaults.standard.set(sender.state == .on, forKey: "showReloadMenuItemButton")
+        UserDefaults.standard.set(sender.state == .on, forKey: "showReloadMenuItem")
     }
     
     @IBAction func didChangeAllowDuplicatingServices(sender: NSButton) {

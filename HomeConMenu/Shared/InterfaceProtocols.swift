@@ -47,6 +47,7 @@ public protocol mac2iOS: NSObjectProtocol {
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAcknowledgement()
+    func reloadHomeKit()
     var accessories: [AccessoryInfoProtocol] { get set }
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }

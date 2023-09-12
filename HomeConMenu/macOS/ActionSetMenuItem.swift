@@ -59,7 +59,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             view.layer?.backgroundColor = CGColor.init(gray: 0.5, alpha: 1.0)
         }
         
-        view.layer?.cornerRadius = 2
+    
         
         let destinationSize = Double(14)
         

@@ -65,7 +65,7 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuIt
         view.wantsLayer = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer?.backgroundColor = NSColor.clear.cgColor
-        view.layer?.cornerRadius = 2
+//        view.layer?.cornerRadius = 2
         
         let destinationSize = Double(size)
         

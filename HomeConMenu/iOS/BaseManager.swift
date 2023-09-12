@@ -46,6 +46,12 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         homeManager?.delegate = self
     }
     
+    func reloadHome() {
+        homeManager?.delegate = nil
+        homeManager = HMHomeManager()
+        homeManager?.delegate = self
+    }
+    
     func loadPlugin() {
         let bundleFile = "macOSBridge.bundle"
 
@@ -88,7 +94,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         home.delegate = self
         
 #if DEBUG
-        home.dump()
+//        home.dump()
 #endif
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
@@ -205,7 +211,13 @@ extension BaseManager {
         self.macOSController?.bringToFront()
     }
     
+    func reloadHomeKit() {
+        Logger.app.info("reloadHomeKit")
+        reloadHome()
+    }
+    
     func openAcknowledgement() {
+        
         closeDummyViewController()
         
         let windowScenes = WebViewController.windowScenesIncludingThisClass()

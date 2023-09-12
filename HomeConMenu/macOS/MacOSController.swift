@@ -280,6 +280,16 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         openHomeItem.target = self
         mainMenu.addItem(openHomeItem)
         
+        if let value = UserDefaults.standard.object(forKey: "showReloadMenuItem") as? Bool {
+            if value {
+                let reloadItem = NSMenuItem()
+                reloadItem.title = NSLocalizedString("Reload", comment: "")
+                reloadItem.action = #selector(MacOSController.reload(sender:))
+                reloadItem.target = self
+                mainMenu.addItem(reloadItem)
+            }
+        }
+        
         mainMenu.addItem(NSMenuItem.separator())
         
         let menuItem = NSMenuItem()
@@ -305,12 +315,25 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     required override init() {
         super.init()
+        print("\(self).\(#function)")
         if let button = self.statusItem.button {
             button.image = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil)
         }
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
+        
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didSleep), name: NSWorkspace.willSleepNotification, object: nil)
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
+    }
+    
+    @IBAction func didSleep(notification: Notification) {
+        Logger.app.error("didSleep")
+    }
+    
+    @IBAction func didAwakeSleep(notification: Notification) {
+        Logger.app.error("didAwakeSleep")
+        iosListener?.reloadHomeKit()
     }
     
     @IBAction func didChangeUserDefaults(notification: Notification) {
@@ -348,6 +371,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     @IBAction func about(sender: NSButton) {
         launchWindowController.showWindow(sender)
         self.bringToFront()
+    }
+    
+    @IBAction func reload(sender: NSButton) {
+        iosListener?.reloadHomeKit()
     }
 
     func showLaunchView() {
