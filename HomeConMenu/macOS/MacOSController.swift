@@ -274,22 +274,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         prefItem.target = self
         mainMenu.addItem(prefItem)
         
-        let openHomeItem = NSMenuItem()
-        openHomeItem.title = NSLocalizedString("Open Home.app", comment: "")
-        openHomeItem.action = #selector(MacOSController.openHomeApp(sender:))
-        openHomeItem.target = self
-        mainMenu.addItem(openHomeItem)
-        
-        if let value = UserDefaults.standard.object(forKey: "showReloadMenuItem") as? Bool {
-            if value {
-                let reloadItem = NSMenuItem()
-                reloadItem.title = NSLocalizedString("Reload", comment: "")
-                reloadItem.action = #selector(MacOSController.reload(sender:))
-                reloadItem.target = self
-                mainMenu.addItem(reloadItem)
-            }
-        }
-        
         mainMenu.addItem(NSMenuItem.separator())
         
         let menuItem = NSMenuItem()
@@ -299,6 +283,38 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(menuItem)
     }
     
+    func reloadHomeKitMenuItems() {
+        
+        var items: [NSMenuItem] = []
+        
+        if let value = UserDefaults.standard.object(forKey: "showReloadMenuItem") as? Bool {
+            if value {
+                let reloadItem = NSMenuItem()
+                reloadItem.title = NSLocalizedString("Reload", comment: "")
+                reloadItem.action = #selector(MacOSController.reload(sender:))
+                reloadItem.target = self
+                reloadItem.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: nil)
+                items.append(reloadItem)
+            }
+        }
+        
+        if let value = UserDefaults.standard.object(forKey: "showHomeAppMenuItem") as? Bool {
+            if value {
+                let openHomeItem = NSMenuItem()
+                openHomeItem.title = NSLocalizedString("Open Home.app", comment: "")
+                openHomeItem.action = #selector(MacOSController.openHomeApp(sender:))
+                openHomeItem.target = self
+                openHomeItem.image = NSImage(systemSymbolName: "homekit", accessibilityDescription: nil)
+                items.append(openHomeItem)
+            }
+        }
+        
+        if items.count > 0 {
+            items.forEach({mainMenu.addItem($0)})
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+    }
+    
     func getExcludedServiceUUIDs() -> [UUID] {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
         return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
@@ -306,6 +322,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     func reloadAllMenuItems() {
         mainMenu.removeAllItems()
+        reloadHomeKitMenuItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
@@ -323,12 +340,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
         
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didSleep), name: NSWorkspace.willSleepNotification, object: nil)
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
-    }
-    
-    @IBAction func didSleep(notification: Notification) {
-        Logger.app.error("didSleep")
     }
     
     @IBAction func didAwakeSleep(notification: Notification) {
@@ -354,6 +366,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
         }
         settingsWindowController.showWindow(nil)
+        centeringWindows()
         self.bringToFront()
     }
     
@@ -370,6 +383,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func about(sender: NSButton) {
         launchWindowController.showWindow(sender)
+        centeringWindows()
         self.bringToFront()
     }
     
@@ -379,6 +393,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
 
     func showLaunchView() {
         launchWindowController.showWindow(self)
+        centeringWindows()
         self.bringToFront()
     }
     
