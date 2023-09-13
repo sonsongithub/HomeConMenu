@@ -121,7 +121,7 @@
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="54O-O0-p2M" secondAttribute="trailing" constant="20" symbolic="YES" id="hFq-F8-XK6"/>
                         <constraint firstItem="M2E-B5-fTf" firstAttribute="top" secondItem="54O-O0-p2M" secondAttribute="bottom" constant="6" symbolic="YES" id="hLV-Kk-Kuc"/>
                         <constraint firstItem="Xha-OB-N1o" firstAttribute="centerY" secondItem="y78-4e-KS2" secondAttribute="centerY" id="i8p-1u-ThK"/>
-                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="M2E-B5-fTf" secondAttribute="bottom" constant="30" id="iA7-xe-cLy"/>
+                        <constraint firstAttribute="bottom" secondItem="M2E-B5-fTf" secondAttribute="bottom" constant="30" id="iA7-xe-cLy"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NU1-eW-0mB" secondAttribute="trailing" constant="20" symbolic="YES" id="mBo-P6-aVb"/>
                         <constraint firstItem="Xha-OB-N1o" firstAttribute="leading" secondItem="y78-4e-KS2" secondAttribute="trailing" constant="8" symbolic="YES" id="msy-6V-ywe"/>
                         <constraint firstItem="y78-4e-KS2" firstAttribute="top" secondItem="gRy-QW-fFD" secondAttribute="top" constant="30" id="oRa-Tj-Oc8"/>
