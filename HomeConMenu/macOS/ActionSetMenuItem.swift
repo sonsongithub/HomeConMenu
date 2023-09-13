@@ -141,7 +141,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         self.action = #selector(self.execute(sender:))
         self.target = self
         self.image = self.createImage(check: false)
-        if let shortcutName = KeyboardShortcuts.Name(rawValue: actionSetInfo.name) {
+        if let shortcutName = KeyboardShortcuts.Name(rawValue: actionSetInfo.uniqueIdentifier.uuidString) {
             self.setShortcut(for: shortcutName)
             KeyboardShortcuts.onKeyDown(for: shortcutName, action: {
                 self.execute(sender: self)

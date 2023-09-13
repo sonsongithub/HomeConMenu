@@ -51,6 +51,7 @@
 		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
 		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
+		149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F7FC12AB131D100D1621D /* ShortcutInfo.swift */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
 		14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A462811664000BC41BD /* CameraMenuItem.swift */; };
@@ -147,6 +148,7 @@
 		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		149F7FC02AB051D600D1621D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPane.strings; sourceTree = "<group>"; };
+		149F7FC12AB131D100D1621D /* ShortcutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInfo.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
 				144C95DA2AAD89E800935105 /* GeneralPane.xib */,
 				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
+				149F7FC12AB131D100D1621D /* ShortcutInfo.swift */,
 				144C95D72AAD89E200935105 /* ShortcutsPane.xib */,
 				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
 				144C95D42AAD89D800935105 /* InformationPane.xib */,
@@ -479,6 +482,7 @@
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
 				1432F2722AAB544D00E1B9E9 /* SettingsWindow.swift in Sources */,
+				149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,

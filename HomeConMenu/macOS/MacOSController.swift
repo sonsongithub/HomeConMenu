@@ -140,16 +140,16 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func actionItems() -> [String] {
+    func actionItems() -> [ShortcutInfo] {
         
-        var names: [String] = []
+        var shortcutInfos: [ShortcutInfo] = []
         
 //        if let serviceGroups = self.iosListener?.serviceGroups {
 //            names.append(contentsOf: serviceGroups.map({ $0.name }))
 //        }
         
         if let actionSets = self.iosListener?.actionSets {
-            names.append(contentsOf: actionSets.map({ $0.name }))
+            shortcutInfos.append(contentsOf: actionSets.map({ ShortcutInfo(name: $0.name, uuid: $0.uniqueIdentifier) }))
         }
         
         if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
@@ -159,11 +159,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                         info.services.forEach { serviceInfo in
                             switch serviceInfo.type {
                             case .lightbulb:
-                                names.append(serviceInfo.name)
+                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
                             case .outlet:
-                                names.append(serviceInfo.name)
+                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
                             case .switch:
-                                names.append(serviceInfo.name)
+                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
                             default:
                                 do {}
                             }
@@ -172,7 +172,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 }
             }
         }
-        return names
+        return shortcutInfos
     }
     
     func reloadServiceGroupMenuItem() {
@@ -356,7 +356,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         if let a = settingsWindowController.settingsTabViewController {
             if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
                 if let vc = item.viewController as? ShortcutsPaneController {
-                    vc.names = actionItems()
+                    vc.shortcutInfos = actionItems()
                 }
             }
             if let item = a.tabViewItems.first(where: { $0.viewController is InformationPaneController }) {

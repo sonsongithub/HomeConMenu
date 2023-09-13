@@ -62,7 +62,7 @@ class LightbulbMenuItem: ToggleMenuItem {
         self.action = #selector(self.toggle(sender:))
         self.target = self
         
-        if let r = KeyboardShortcuts.Name(rawValue: serviceInfo.name) {
+        if let r = KeyboardShortcuts.Name(rawValue: serviceInfo.uniqueIdentifier.uuidString) {
             self.setShortcut(for: r)
             KeyboardShortcuts.onKeyDown(for: r, action: {
                 self.toggle(sender: self)

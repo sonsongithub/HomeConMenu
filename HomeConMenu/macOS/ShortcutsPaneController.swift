@@ -65,7 +65,7 @@ class ShortcutCellView: NSTableCellView {
 
 class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    var names: [String] = []
+    var shortcutInfos: [ShortcutInfo] = []
     
     @IBOutlet var tableView: NSTableView?
     
@@ -81,7 +81,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
         
         let ret = alert.runModal()
         if ret == .alertFirstButtonReturn {
-            KeyboardShortcuts.reset(names.compactMap({ KeyboardShortcuts.Name($0) }))
+            KeyboardShortcuts.reset(shortcutInfos.compactMap({ KeyboardShortcuts.Name($0.uuid.uuidString) }))
             self.tableView?.reloadData()
         }
     }
@@ -102,7 +102,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return names.count
+        return shortcutInfos.count
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
@@ -112,8 +112,8 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("ShortcutCellView"), owner: self)
         if let view = view as? ShortcutCellView {
-            view.textField?.stringValue = names[row]
-            if let r = KeyboardShortcuts.Name(rawValue: names[row]) {
+            view.textField?.stringValue = shortcutInfos[row].name
+            if let r = KeyboardShortcuts.Name(rawValue: shortcutInfos[row].uuid.uuidString) {
                 let recoder = KeyboardShortcuts.RecorderCocoa(for: r)
                 view.addRecorder(recorder: recoder)
             }
