@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeConMenu
+//  SettingsPane.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/21.
+//  Created by Yuichi Yoshida on 2023/09/08.
 //
 //  MIT License
 //
@@ -25,15 +25,37 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+enum SettingsPane: String, CaseIterable {
+    
+    case general
+    case shortcuts
+    case information
+    
+    /// Localized label.
+    var label: String {
+        
+        switch self {
+            case .general:
+                return String(localized: "General")
+            case .shortcuts:
+                return String(localized: "Key Bindings")
+            case .information:
+                return String(localized: "Information")
+        }
     }
-
-
+    
+    /// Symbol image name.
+    var symbolName: String {
+        
+        switch self {
+            case .general:
+                return "gearshape"
+            case .shortcuts:
+                return "keyboard"
+            case .information:
+                return "info.circle.fill"
+        }
+    }
 }
-

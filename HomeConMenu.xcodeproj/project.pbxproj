@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
-		142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06F27E8B80E006CBAFE /* ViewController.swift */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
 		142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142DE08127E8B89A006CBAFE /* HomeKit.framework */; };
 		142DE09727E8B931006CBAFE /* macOSBridge.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -37,7 +36,22 @@
 		142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
 		142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */; };
 		142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */; };
+		1432F2722AAB544D00E1B9E9 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */; };
+		1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */; };
+		1432F2752AAB544D00E1B9E9 /* GeneralPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */; };
+		1432F2762AAB544D00E1B9E9 /* ShortcutsPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */; };
+		1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */; };
+		1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */; };
+		144C95CD2AAD891800935105 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144C95CF2AAD891800935105 /* LaunchView.xib */; };
+		144C95D22AAD89D800935105 /* InformationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144C95D42AAD89D800935105 /* InformationPane.xib */; };
+		144C95D52AAD89E200935105 /* ShortcutsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144C95D72AAD89E200935105 /* ShortcutsPane.xib */; };
+		144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144C95DA2AAD89E800935105 /* GeneralPane.xib */; };
+		144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */ = {isa = PBXBuildFile; fileRef = 144C95E42AADBD1500935105 /* Acknowledgments.html */; };
+		144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C95E62AADC51200935105 /* LaunchWindowController.swift */; };
+		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
+		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
+		149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F7FC12AB131D100D1621D /* ShortcutInfo.swift */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
 		14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A462811664000BC41BD /* CameraMenuItem.swift */; };
@@ -46,10 +60,12 @@
 		14A06A572811665800BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A492811664000BC41BD /* MenuItemFromUUID.swift */; };
 		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
-		14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A839EE280FDBD20083EE1D /* LaunchViewController.swift */; };
-		14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F7280FEE3B0083EE1D /* Camera.storyboard */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
+		14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6D02AAC54120023F71D /* InformationPaneController.swift */; };
+		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
+		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
+		14ABD6E02AACB6920023F71D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */; };
 		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
@@ -58,8 +74,6 @@
 		14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */; };
 		14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */; };
-		14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AAC28256B940002ECB8 /* PreferenceView.swift */; };
-		14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB028260D730002ECB8 /* PreferenceModel.swift */; };
 		14FA4AB52827870F0002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 		14FA4AB6282787C00002ECB8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AB42827870F0002ECB8 /* Error.swift */; };
 /* End PBXBuildFile section */
@@ -92,7 +106,6 @@
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		142DE06F27E8B80E006CBAFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		142DE07427E8B80F006CBAFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142DE07927E8B80F006CBAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		142DE07F27E8B814006CBAFE /* HomeConMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeConMenu.entitlements; sourceTree = "<group>"; };
@@ -115,6 +128,27 @@
 		142DE0CD27E8BAE1006CBAFE /* InterfaceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceProtocols.swift; sourceTree = "<group>"; };
 		142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+HomeMenu.swift"; sourceTree = "<group>"; };
 		142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOSBridge-Info.plist"; sourceTree = "<group>"; };
+		1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPane.swift; sourceTree = "<group>"; };
+		1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPaneController.swift; sourceTree = "<group>"; };
+		1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsPaneController.swift; sourceTree = "<group>"; };
+		1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		144C95CC2AAD88AB00935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		144C95CE2AAD891800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchView.xib; sourceTree = "<group>"; };
+		144C95D12AAD891D00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchView.strings; sourceTree = "<group>"; };
+		144C95D32AAD89D800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationPane.xib; sourceTree = "<group>"; };
+		144C95D62AAD89E200935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPane.xib; sourceTree = "<group>"; };
+		144C95D92AAD89E800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPane.xib; sourceTree = "<group>"; };
+		144C95DD2AAD9D7900935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InformationPane.strings; sourceTree = "<group>"; };
+		144C95DF2AAD9D8100935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPane.strings; sourceTree = "<group>"; };
+		144C95E32AADBD1500935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Acknowledgments.html; sourceTree = "<group>"; };
+		144C95E52AADBD1800935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Acknowledgments.html; sourceTree = "<group>"; };
+		144C95E62AADC51200935105 /* LaunchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchWindowController.swift; sourceTree = "<group>"; };
+		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
+		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
+		149F7FC02AB051D600D1621D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPane.strings; sourceTree = "<group>"; };
+		149F7FC12AB131D100D1621D /* ShortcutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInfo.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
 		14A06A472811664000BC41BD /* LightColorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightColorMenuItem.swift; sourceTree = "<group>"; };
@@ -122,19 +156,17 @@
 		14A06A492811664000BC41BD /* MenuItemFromUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemFromUUID.swift; sourceTree = "<group>"; };
 		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
-		14A839EE280FDBD20083EE1D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		14A839F7280FEE3B0083EE1D /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14A839FD280FEE530083EE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		14A839FF280FEE5E0083EE1D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
+		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
-		14FA4AAC28256B940002ECB8 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
-		14FA4AB028260D730002ECB8 /* PreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
 		14FA4AB42827870F0002ECB8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */,
 				142DE08227E8B89A006CBAFE /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */,
+				145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +229,7 @@
 		142DE08027E8B89A006CBAFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14ABD6D72AAC79410023F71D /* WebKit.framework */,
 				142DE08127E8B89A006CBAFE /* HomeKit.framework */,
 			);
 			name = Frameworks;
@@ -203,17 +238,14 @@
 		146D209327F03F7800162EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				14FA4AAC28256B940002ECB8 /* PreferenceView.swift */,
-				14FA4AB028260D730002ECB8 /* PreferenceModel.swift */,
 				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
 				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
-				14A839EE280FDBD20083EE1D /* LaunchViewController.swift */,
+				14ABD6DB2AAC87A30023F71D /* WebViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
-				142DE06F27E8B80E006CBAFE /* ViewController.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -250,6 +282,20 @@
 				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
+				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
+				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
+				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
+				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
+				144C95DA2AAD89E800935105 /* GeneralPane.xib */,
+				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
+				149F7FC12AB131D100D1621D /* ShortcutInfo.swift */,
+				144C95D72AAD89E200935105 /* ShortcutsPane.xib */,
+				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
+				144C95D42AAD89D800935105 /* InformationPane.xib */,
+				14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */,
+				144C95CF2AAD891800935105 /* LaunchView.xib */,
+				144C95E62AADC51200935105 /* LaunchWindowController.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -257,7 +303,8 @@
 		146D209627F03FD000162EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				14A839F7280FEE3B0083EE1D /* Camera.storyboard */,
+				144C95EA2AADD95300935105 /* Acknowledgments.css */,
+				144C95E42AADBD1500935105 /* Acknowledgments.html */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
 				14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */,
@@ -304,6 +351,7 @@
 			name = macOSBridge;
 			packageProductDependencies = (
 				14746C4B2813C1BE00666682 /* ColorWheelPanelView */,
+				145E21F22AAA14B1005DF18F /* KeyboardShortcuts */,
 			);
 			productName = macOSBridge;
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
@@ -317,7 +365,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -335,10 +383,12 @@
 			knownRegions = (
 				en,
 				ja,
+				Base,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
 				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
+				145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
@@ -355,10 +405,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144C95E82AADD95300935105 /* Acknowledgments.css in Resources */,
+				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
+				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
+				144C95D52AAD89E200935105 /* ShortcutsPane.xib in Resources */,
 				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
-				14A839FA280FEE3B0083EE1D /* Camera.storyboard in Resources */,
+				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
+				144C95D22AAD89D800935105 /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,15 +434,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */,
 				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
-				14FA4AB128260D730002ECB8 /* PreferenceModel.swift in Sources */,
 				14FA4A9D282117980002ECB8 /* Log.swift in Sources */,
 				142DE0A127E8B9C3006CBAFE /* BaseManager.swift in Sources */,
 				142DE0C727E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				142DE0A227E8B9C3006CBAFE /* DummyViewController.swift in Sources */,
 				142DE0BF27E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
-				142DE07027E8B80E006CBAFE /* ViewController.swift in Sources */,
-				14A839EF280FDBD20083EE1D /* LaunchViewController.swift in Sources */,
 				142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */,
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
@@ -401,7 +454,6 @@
 				142DE0C127E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0BB27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				142DE0A027E8B9C3006CBAFE /* HomeKitExtension.swift in Sources */,
-				14FA4AAD28256B940002ECB8 /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,26 +462,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				14ABD6E02AACB6920023F71D /* LaunchViewController.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
 				14FA4A9E282117980002ECB8 /* Log.swift in Sources */,
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
+				14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
+				1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
+				1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
+				144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
+				1432F2722AAB544D00E1B9E9 /* SettingsWindow.swift in Sources */,
+				149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */,
 				142DE0C227E8BAC2006CBAFE /* CharacteristicTypeBridge.swift in Sources */,
 				142DE0C027E8BAC2006CBAFE /* HomeInfo.swift in Sources */,
 				142DE0BA27E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
+				1432F2752AAB544D00E1B9E9 /* GeneralPaneController.swift in Sources */,
+				1432F2762AAB544D00E1B9E9 /* ShortcutsPaneController.swift in Sources */,
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
 				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
+				1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */,
 				14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,11 +508,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		144C95CF2AAD891800935105 /* LaunchView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95CE2AAD891800935105 /* Base */,
+				144C95D12AAD891D00935105 /* ja */,
+			);
+			name = LaunchView.xib;
+			sourceTree = "<group>";
+		};
+		144C95D42AAD89D800935105 /* InformationPane.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95D32AAD89D800935105 /* Base */,
+				144C95DD2AAD9D7900935105 /* ja */,
+			);
+			name = InformationPane.xib;
+			sourceTree = "<group>";
+		};
+		144C95D72AAD89E200935105 /* ShortcutsPane.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95D62AAD89E200935105 /* Base */,
+				144C95DF2AAD9D8100935105 /* ja */,
+			);
+			name = ShortcutsPane.xib;
+			sourceTree = "<group>";
+		};
+		144C95DA2AAD89E800935105 /* GeneralPane.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95D92AAD89E800935105 /* Base */,
+				149F7FC02AB051D600D1621D /* ja */,
+			);
+			name = GeneralPane.xib;
+			sourceTree = "<group>";
+		};
+		144C95E42AADBD1500935105 /* Acknowledgments.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95E32AADBD1500935105 /* Base */,
+				144C95E52AADBD1800935105 /* ja */,
+			);
+			name = Acknowledgments.html;
+			sourceTree = "<group>";
+		};
+		144C95EA2AADD95300935105 /* Acknowledgments.css */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144C95E92AADD95300935105 /* Base */,
+				144C95EB2AADD96F00935105 /* ja */,
+			);
+			name = Acknowledgments.css;
+			sourceTree = "<group>";
+		};
 		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14A839FD280FEE530083EE1D /* en */,
-				14A839FF280FEE5E0083EE1D /* ja */,
+				144C95CC2AAD88AB00935105 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -594,7 +709,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 133;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -612,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -636,7 +751,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 133;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -654,7 +769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -674,6 +789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -709,6 +825,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -769,6 +886,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sonsongithub/ColorWheelPanelView";
@@ -780,6 +905,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		145E21F22AAA14B1005DF18F /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
 		14746C4B2813C1BE00666682 /* ColorWheelPanelView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;

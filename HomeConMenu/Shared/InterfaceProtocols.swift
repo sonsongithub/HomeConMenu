@@ -36,7 +36,7 @@ public protocol iOS2Mac: NSObjectProtocol {
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
-    var isOpenedPreference: Bool { get set }
+    func showLaunchView()
     var iosListener: mac2iOS? { get set }
 }
 
@@ -46,8 +46,8 @@ public protocol mac2iOS: NSObjectProtocol {
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any]
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
-    func openAbout()
-    func openPreferences()
+    func openAcknowledgement()
+    func reloadHomeKit()
     var accessories: [AccessoryInfoProtocol] { get set }
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }

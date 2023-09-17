@@ -18,3 +18,11 @@
 "Display duplicate services" = "グループに登録されているサービスも表示";
 "Use scenes" = "シーンを利用";
 "Preferences" = "環境設定";
+"Open Home.app" = "ホームアプリを開く";
+"General" = "一般";
+"Key Bindings" = "キーバインド";
+"Information" = "情報";
+"You will remove all key bindings settings. Are you sure to remove them?" = "すべてのキーバインドを削除しようとしています。本当にすべて削除しますか？";
+"Remove all" = "すべて削除";
+"Cancel" = "キャンセル";
+"Reload" = "再読み込み";

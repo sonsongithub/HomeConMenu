@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  SettingsWindow.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2023/09/08.
 //
 //  MIT License
 //
@@ -25,34 +25,21 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import AppKit
 
-class DummyViewController: UIViewController {
+final class SettingsWindow: NSPanel {
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        print("\(self) - \(#function)")
+    // MARK: Panel Methods
+    
+    /// disable "Hide Toolbar" menu item
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        
+        switch menuItem.action {
+            case #selector(toggleToolbarShown):
+                return false
+                
+            default:
+                return super.validateMenuItem(menuItem)
+        }
     }
-    
-    static func windowScenesIncludingThisClass() -> [UIWindowScene] {
-        let candidateWindowScenes = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .filter({ $0.windows.count > 0 })
-        let targetWindowScenes = candidateWindowScenes.filter({
-            var flag = false
-            $0.windows.forEach { window in
-                if window.rootViewController is DummyViewController {
-                    flag = true
-                }
-            }
-            return flag
-        })
-        return targetWindowScenes
-    }
-    
-    deinit {
-        print("\(self) - \(#function)")
-    }
-    
 }
-

@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  WebViewController.swift
+//  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2023/09/09.
 //
 //  MIT License
 //
@@ -25,14 +25,40 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
+import WebKit
 
-class DummyViewController: UIViewController {
+class WebViewController: UIViewController {
+    
+    private let fileURL: URL
+    let webView = WKWebView()
+    
+    
+    // MARK: Lifecycle
+    
+    init(fileURL: URL) {
+        self.fileURL = fileURL
+        super.init(nibName: nil, bundle: nil)
+    }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        print("\(self) - \(#function)")
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.addSubview(webView)
+        
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.webView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL)
+    }
+    
     
     static func windowScenesIncludingThisClass() -> [UIWindowScene] {
         let candidateWindowScenes = UIApplication.shared.connectedScenes
@@ -41,7 +67,7 @@ class DummyViewController: UIViewController {
         let targetWindowScenes = candidateWindowScenes.filter({
             var flag = false
             $0.windows.forEach { window in
-                if window.rootViewController is DummyViewController {
+                if window.rootViewController is WebViewController {
                     flag = true
                 }
             }
@@ -49,10 +75,4 @@ class DummyViewController: UIViewController {
         })
         return targetWindowScenes
     }
-    
-    deinit {
-        print("\(self) - \(#function)")
-    }
-    
 }
-

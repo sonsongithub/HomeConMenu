@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  LaunchWindowController.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2023/09/10.
 //
 //  MIT License
 //
@@ -25,34 +25,21 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import AppKit
 
-class DummyViewController: UIViewController {
+class LaunchWindowController: NSWindowController {
+    
+    init() {
+        let vc = LaunchViewController(nibName: NSNib.Name("LaunchView"), bundle: nil)
+        let window = NSWindow(contentViewController: vc)
+        window.title = NSLocalizedString("Welcome to HomeConMenu", comment: "")
+        window.styleMask.remove( [ .resizable ] )
+        
+        super.init(window: window)
+    }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        print("\(self) - \(#function)")
-    }
-    
-    static func windowScenesIncludingThisClass() -> [UIWindowScene] {
-        let candidateWindowScenes = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .filter({ $0.windows.count > 0 })
-        let targetWindowScenes = candidateWindowScenes.filter({
-            var flag = false
-            $0.windows.forEach { window in
-                if window.rootViewController is DummyViewController {
-                    flag = true
-                }
-            }
-            return flag
-        })
-        return targetWindowScenes
-    }
-    
-    deinit {
-        print("\(self) - \(#function)")
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
-

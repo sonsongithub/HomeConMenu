@@ -27,6 +27,7 @@
 
 import Cocoa
 import os
+import KeyboardShortcuts
 
 class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     let uniqueIdentifier: UUID
@@ -58,11 +59,12 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             view.layer?.backgroundColor = CGColor.init(gray: 0.5, alpha: 1.0)
         }
         
-        view.layer?.cornerRadius = 2
-        
         let destinationSize = Double(14)
         
-        guard let homeIcon = NSImage(named: "house") else { return nil}
+        guard let homeIcon = NSImage(named: "house") else {
+            Logger.app.error("can not load house image.")
+            return nil
+        }
         
         let image = NSImage(size: NSSize(width: destinationSize, height: destinationSize))
         
@@ -73,7 +75,10 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         let y = (destinationSize - height) / 2
         
         image.lockFocus()
-        guard let ctx = NSGraphicsContext.current?.cgContext else { return nil }
+        guard let ctx = NSGraphicsContext.current?.cgContext else {
+            Logger.app.error("can not get NSGraphicsContext.")
+            return nil
+        }
         
         view.layer?.render(in: ctx)
         let source = NSRect(origin: CGPoint.zero, size: homeIcon.size)
@@ -135,5 +140,12 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         super.init(title: actionSetInfo.name, action: nil, keyEquivalent: "")
         self.action = #selector(self.execute(sender:))
         self.target = self
+        self.image = self.createImage(check: false)
+        if let shortcutName = KeyboardShortcuts.Name(rawValue: actionSetInfo.uniqueIdentifier.uuidString) {
+            self.setShortcut(for: shortcutName)
+            KeyboardShortcuts.onKeyDown(for: shortcutName, action: {
+                self.execute(sender: self)
+            })
+        }
     }
 }

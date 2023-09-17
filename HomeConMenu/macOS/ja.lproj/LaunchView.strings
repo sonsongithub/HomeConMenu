@@ -1,0 +1,18 @@
+
+/* Class = "NSTextFieldCell"; title = "You can not find any devices on the menu if you do not have any homes or add any home devices to your “Home” on your HomeKit. You can add a HomeKit device using Home app on iOS devices."; ObjectID = "0MS-0l-x61"; */
+"0MS-0l-x61.title" = "あなたのHomeKit環境にHomeがなかったり、Homeにホームデバイスが追加されていない場合、HomeConMenuを開いても何も表示されません。iOSのホームアプリを使って、あなたのホームデバイスをHomeKitに追加してください。";
+
+/* Class = "NSTextFieldCell"; title = "Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on."; ObjectID = "Htv-O8-lHD"; */
+"Htv-O8-lHD.title" = "HomeConMenuをメニューバーから開き、ホームデバイスを制御できます。";
+
+/* Class = "NSButtonCell"; title = "Show this welcome message on launch"; ObjectID = "fOR-D9-bVy"; */
+"fOR-D9-bVy.title" = "このウィンドウを表示する";
+
+/* Class = "NSTextFieldCell"; title = "On startup:"; ObjectID = "qdr-TE-6dM"; */
+"qdr-TE-6dM.title" = "起動時:";
+
+/* Class = "NSTextFieldCell"; title = "You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices."; ObjectID = "ttZ-uC-Y7u"; */
+"ttZ-uC-Y7u.title" = "アプリケーションを起動するとメニューバーに家のアイコンが表示されます。このアイコンをクリックするとホームデバイスを制御できます。HomeConMenuは、電源、スイッチ、電球、室温、湿度デバイスの制御、情報表示に対応しています。";
+
+/* Class = "NSTextFieldCell"; title = "To use this application, go to Security & Privacy settings in System Preferences and allow HomeConMenu to access HomeKit."; ObjectID = "wrg-Q9-ZTw"; */
+"wrg-Q9-ZTw.title" = "HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム環境設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。";

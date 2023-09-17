@@ -26,6 +26,7 @@
 //
 
 import Cocoa
+import KeyboardShortcuts
 
 class LightbulbMenuItem: ToggleMenuItem {
     
@@ -60,6 +61,13 @@ class LightbulbMenuItem: ToggleMenuItem {
         self.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
         self.action = #selector(self.toggle(sender:))
         self.target = self
+        
+        if let r = KeyboardShortcuts.Name(rawValue: serviceInfo.uniqueIdentifier.uuidString) {
+            self.setShortcut(for: r)
+            KeyboardShortcuts.onKeyDown(for: r, action: {
+                self.toggle(sender: self)
+            })
+        }
         
         if let lightColorMenuItem = LightColorMenuItem.item(serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {
             subColorMenu.addItem(lightColorMenuItem)

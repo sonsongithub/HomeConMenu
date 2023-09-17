@@ -1,5 +1,5 @@
 //
-//  LightColorMenu.swift
+//  LightColorMenuItem.swift
 //  macOSBridge
 //
 //  Created by Yuichi Yoshida on 2022/03/20.
@@ -60,13 +60,13 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuIt
     }
     
     func createImage() -> NSImage? {
-        let view = NSView(frame: NSRect(x: 0, y: 0, width: 14, height: 14))
+        let size = CGFloat(16)
+        let view = NSView(frame: NSRect(x: 0, y: 0, width: size, height: size))
         view.wantsLayer = true
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer?.backgroundColor = color.cgColor
-        view.layer?.cornerRadius = 2
+        view.layer?.backgroundColor = NSColor.clear.cgColor
         
-        let destinationSize = Double(14)
+        let destinationSize = Double(size)
         
         let image = NSImage(size: NSSize(width: destinationSize, height: destinationSize))
         
@@ -75,7 +75,8 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuIt
         
         var width = Double(1)
         var height = Double(1)
-        if icon.size.width > icon.size.height {
+        
+        if icon.size.width < icon.size.height {
             width = destinationSize * (icon.size.width / icon.size.height)
             height = destinationSize
         } else {
@@ -94,10 +95,15 @@ class LightColorMenuItem: NSMenuItem, NSWindowDelegate, MenuItemFromUUID, MenuIt
         
         let destination = NSRect(x: x, y: y, width: width, height: height)
         
+        
+        ctx.setFillColor(NSColor.blue.cgColor)
+        let rect = CGRect(x: x+1, y: y, width: width-2, height: height)
+        rect.fill()
+        
         icon.draw(in: destination, from: source, operation: .destinationIn, fraction: 1)
         frameIcon.draw(in: destination, from: source, operation: .darken, fraction: 1)
         image.unlockFocus()
-
+        
         return image
     }
     
