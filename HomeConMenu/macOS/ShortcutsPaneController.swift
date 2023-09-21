@@ -30,6 +30,8 @@ import KeyboardShortcuts
 
 class ShortcutCellView: NSTableCellView {
     
+    @IBOutlet var line: NSView?
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -45,18 +47,34 @@ class ShortcutCellView: NSTableCellView {
     }
     
     func addRecorder(recorder: NSView) {
-        if let textField = textField {
+        if let textField = self.textField, let imageView = self.imageView, let line = self.line {
             self.addSubview(recorder)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             recorder.translatesAutoresizingMaskIntoConstraints = false
             self.translatesAutoresizingMaskIntoConstraints = false
+            line.translatesAutoresizingMaskIntoConstraints = false
             textField.translatesAutoresizingMaskIntoConstraints = false
+            
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+            
+            textField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10).isActive = true
+            
+            imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            
+            
             textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
             recorder.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true
             recorder.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10).isActive = true
             recorder.heightAnchor.constraint(equalToConstant: 30).isActive = true
             recorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
             recorder.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+            line.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
+            line.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+            line.isHidden = false
         }
         self.layoutSubtreeIfNeeded()
         self.layout()
@@ -65,7 +83,7 @@ class ShortcutCellView: NSTableCellView {
 
 class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    var shortcutInfos: [ShortcutInfo] = []
+    var shortcutLabels: [ShortcutInfo] = []
     
     @IBOutlet var tableView: NSTableView?
     
@@ -81,7 +99,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
         
         let ret = alert.runModal()
         if ret == .alertFirstButtonReturn {
-            KeyboardShortcuts.reset(shortcutInfos.compactMap({ KeyboardShortcuts.Name($0.uuid.uuidString) }))
+            KeyboardShortcuts.reset(shortcutLabels.compactMap({ KeyboardShortcuts.Name($0.uniqueIdentifier.uuidString) }))
             self.tableView?.reloadData()
         }
     }
@@ -98,11 +116,10 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView?.headerView = nil
-        self.tableView?.gridStyleMask = .solidHorizontalGridLineMask
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return shortcutInfos.count
+        return shortcutLabels.count
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
@@ -112,8 +129,9 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("ShortcutCellView"), owner: self)
         if let view = view as? ShortcutCellView {
-            view.textField?.stringValue = shortcutInfos[row].name
-            if let r = KeyboardShortcuts.Name(rawValue: shortcutInfos[row].uuid.uuidString) {
+            view.textField?.stringValue = shortcutLabels[row].name
+            view.imageView?.image = shortcutLabels[row].image
+            if let r = KeyboardShortcuts.Name(rawValue: shortcutLabels[row].uniqueIdentifier.uuidString) {
                 let recoder = KeyboardShortcuts.RecorderCocoa(for: r)
                 view.addRecorder(recorder: recoder)
             }

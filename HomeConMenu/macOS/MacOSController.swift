@@ -142,14 +142,16 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     func actionItems() -> [ShortcutInfo] {
         
-        var shortcutInfos: [ShortcutInfo] = []
+        var shortcutLabels: [ShortcutInfo] = []
         
 //        if let serviceGroups = self.iosListener?.serviceGroups {
 //            names.append(contentsOf: serviceGroups.map({ $0.name }))
 //        }
         
         if let actionSets = self.iosListener?.actionSets {
-            shortcutInfos.append(contentsOf: actionSets.map({ ShortcutInfo(name: $0.name, uuid: $0.uniqueIdentifier) }))
+            shortcutLabels.append(contentsOf:
+                                    actionSets.map({ ShortcutInfo.home(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
+                                  )
         }
         
         if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
@@ -157,22 +159,24 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 for info in accessories {
                     if info.room?.uniqueIdentifier == room.uniqueIdentifier {
                         info.services.forEach { serviceInfo in
+                            
                             switch serviceInfo.type {
                             case .lightbulb:
-                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
+                                shortcutLabels.append(ShortcutInfo.lightbulb(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
                             case .outlet:
-                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
+                                shortcutLabels.append(ShortcutInfo.outlet(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
                             case .switch:
-                                shortcutInfos.append(ShortcutInfo(name: serviceInfo.name, uuid: serviceInfo.uniqueIdentifier))
+                                shortcutLabels.append(ShortcutInfo.switch(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
                             default:
                                 do {}
                             }
+
                         }
                     }
                 }
             }
         }
-        return shortcutInfos
+        return shortcutLabels
     }
     
     func reloadServiceGroupMenuItem() {
@@ -356,7 +360,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         if let a = settingsWindowController.settingsTabViewController {
             if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
                 if let vc = item.viewController as? ShortcutsPaneController {
-                    vc.shortcutInfos = actionItems()
+                    vc.shortcutLabels = actionItems()
                 }
             }
             if let item = a.tabViewItems.first(where: { $0.viewController is InformationPaneController }) {
