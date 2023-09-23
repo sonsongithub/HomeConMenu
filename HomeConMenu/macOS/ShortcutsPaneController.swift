@@ -31,6 +31,7 @@ import KeyboardShortcuts
 class ShortcutCellView: NSTableCellView {
     
     @IBOutlet var line: NSView?
+    @IBOutlet var recoderBaseView: NSView?
     
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -68,7 +69,7 @@ class ShortcutCellView: NSTableCellView {
             textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             recorder.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true
             recorder.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10).isActive = true
-            recorder.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            recorder.heightAnchor.constraint(equalToConstant: 25).isActive = true
             recorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
             recorder.widthAnchor.constraint(equalToConstant: 100).isActive = true
             line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
@@ -105,7 +106,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 44
+        return 30
     }
     
     override func viewWillAppear() {
@@ -115,7 +116,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView?.headerView = nil
+//        self.tableView?.headerView = nil
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -127,15 +128,37 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("ShortcutCellView"), owner: self)
-        if let view = view as? ShortcutCellView {
-            view.textField?.stringValue = shortcutLabels[row].name
-            view.imageView?.image = shortcutLabels[row].image
-            if let r = KeyboardShortcuts.Name(rawValue: shortcutLabels[row].uniqueIdentifier.uuidString) {
-                let recoder = KeyboardShortcuts.RecorderCocoa(for: r)
-                view.addRecorder(recorder: recoder)
+        guard let tableColumn = tableColumn else { return nil }
+        
+        print(tableColumn.identifier)
+        
+        if tableColumn.identifier == NSUserInterfaceItemIdentifier(rawValue: "Device") {
+            let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("DeviceCell"), owner: self)
+            if let view = view as? NSTableCellView {
+                view.imageView?.image = shortcutLabels[row].image
+                view.textField?.stringValue = shortcutLabels[row].name
             }
+            return view
+        } else if tableColumn.identifier == NSUserInterfaceItemIdentifier(rawValue: "Key") {
+            let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("KeyCell"), owner: self)
+            if let view = view as? NSTableCellView {
+                view.subviews.forEach { view in
+                    view.removeFromSuperview()
+                }
+                if let r = KeyboardShortcuts.Name(rawValue: shortcutLabels[row].uniqueIdentifier.uuidString) {
+                    let recoder = KeyboardShortcuts.RecorderCocoa(for: r)
+                    view.addSubview(recoder)
+                    view.translatesAutoresizingMaskIntoConstraints = false
+                    recoder.translatesAutoresizingMaskIntoConstraints = false
+                    view.trailingAnchor.constraint(equalTo: recoder.trailingAnchor, constant: 0).isActive = true
+                    recoder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+                    recoder.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                    view.centerYAnchor.constraint(equalTo: recoder.centerYAnchor).isActive = true
+                    recoder.bezelStyle = .squareBezel
+                }
+            }
+            return view
         }
-        return view
+        return nil
     }
 }
