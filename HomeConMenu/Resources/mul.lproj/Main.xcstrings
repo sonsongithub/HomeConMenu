@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "KIJ-iC-27o.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"I'd like to hide this window, when this app has just launched. How do I do it?\"; ObjectID = \"KIJ-iC-27o\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I'd like to hide this window, when this app has just launched. How do I do it?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I'd like to hide this window, when this app has just launched. How do I do it?"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
