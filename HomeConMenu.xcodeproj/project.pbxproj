@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
+		1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
@@ -66,8 +68,6 @@
 		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
 		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
 		14ABD6E02AACB6920023F71D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */; };
-		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
-		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
@@ -103,6 +103,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1402D2992ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/LaunchView.xcstrings; sourceTree = "<group>"; };
+		1402D29A2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/InformationPane.xcstrings; sourceTree = "<group>"; };
+		1402D29B2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShortcutsPane.xcstrings; sourceTree = "<group>"; };
+		1402D29C2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
+		1402D29D2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/GeneralPane.xcstrings; sourceTree = "<group>"; };
+		1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,18 +142,14 @@
 		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		144C95CC2AAD88AB00935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		144C95CE2AAD891800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchView.xib; sourceTree = "<group>"; };
-		144C95D12AAD891D00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchView.strings; sourceTree = "<group>"; };
 		144C95D32AAD89D800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationPane.xib; sourceTree = "<group>"; };
 		144C95D62AAD89E200935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPane.xib; sourceTree = "<group>"; };
 		144C95D92AAD89E800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPane.xib; sourceTree = "<group>"; };
-		144C95DD2AAD9D7900935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InformationPane.strings; sourceTree = "<group>"; };
-		144C95DF2AAD9D8100935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPane.strings; sourceTree = "<group>"; };
 		144C95E32AADBD1500935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Acknowledgments.html; sourceTree = "<group>"; };
 		144C95E52AADBD1800935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Acknowledgments.html; sourceTree = "<group>"; };
 		144C95E62AADC51200935105 /* LaunchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchWindowController.swift; sourceTree = "<group>"; };
 		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
-		149F7FC02AB051D600D1621D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPane.strings; sourceTree = "<group>"; };
 		149F7FC12AB131D100D1621D /* ShortcutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInfo.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
@@ -161,8 +163,6 @@
 		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 				144C95E42AADBD1500935105 /* Acknowledgments.html */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
-				14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */,
+				1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
 				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
 				144C95D52AAD89E200935105 /* ShortcutsPane.xib in Resources */,
-				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
+				1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
@@ -422,7 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
+				1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +512,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95CE2AAD891800935105 /* Base */,
-				144C95D12AAD891D00935105 /* ja */,
+				1402D2992ABF3AC600B702E4 /* mul */,
 			);
 			name = LaunchView.xib;
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D32AAD89D800935105 /* Base */,
-				144C95DD2AAD9D7900935105 /* ja */,
+				1402D29A2ABF3AC600B702E4 /* mul */,
 			);
 			name = InformationPane.xib;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D62AAD89E200935105 /* Base */,
-				144C95DF2AAD9D8100935105 /* ja */,
+				1402D29B2ABF3AC600B702E4 /* mul */,
 			);
 			name = ShortcutsPane.xib;
 			sourceTree = "<group>";
@@ -539,7 +539,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D92AAD89E800935105 /* Base */,
-				149F7FC02AB051D600D1621D /* ja */,
+				1402D29D2ABF3AC600B702E4 /* mul */,
 			);
 			name = GeneralPane.xib;
 			sourceTree = "<group>";
@@ -566,17 +566,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95CC2AAD88AB00935105 /* Base */,
+				1402D29C2ABF3AC600B702E4 /* mul */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14C0EFF92816A50B00E6C2B2 /* en */,
-				14C0EFFB2816A50E00E6C2B2 /* ja */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -634,6 +626,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -689,6 +682,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -709,7 +703,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 133;
+				CURRENT_PROJECT_VERSION = 135;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -751,7 +745,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 133;
+				CURRENT_PROJECT_VERSION = 135;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

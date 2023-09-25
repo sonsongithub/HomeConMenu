@@ -1,0 +1,162 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0bf-nM-uXN.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Display \\\"Open Home.app\\\" on menu\"; ObjectID = \"0bf-nM-uXN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Display \"Open Home.app\" on menu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"ホームアプリを開く\"メニューを表示"
+          }
+        }
+      }
+    },
+    "3Vt-E6-mDP.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show welcome message\"; ObjectID = \"3Vt-E6-mDP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show welcome message"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ウェルカムメッセージを表示する"
+          }
+        }
+      }
+    },
+    "LVi-Yv-OrG.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "On startup:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "起動したとき:"
+          }
+        }
+      }
+    },
+    "qzf-db-N8L.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"HomeKit:\"; ObjectID = \"qzf-db-N8L\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HomeKit:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit:"
+          }
+        }
+      }
+    },
+    "rND-QH-1vd.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Feature that reloads all HomeKit status again manually. HomeKit sometimes losts device and its status after sleeping. If this happens, reloading using this item will resolve the problem.\"; ObjectID = \"rND-QH-1vd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Feature that reloads all HomeKit status again manually. HomeKit sometimes losts device and its status after sleeping. If this happens, reloading using this item will resolve the problem."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKitの状態を再読み込みする機能です。HomeKitは、スリープしたりすると状態が失われてしまうことがあります。それが起こったとき、この機能を使うと問題を解決できることがあります。"
+          }
+        }
+      }
+    },
+    "stD-Gu-pED.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Display duplicated services\"; ObjectID = \"stD-Gu-pED\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Display duplicated services"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "グループに登録されているサービスも表示"
+          }
+        }
+      }
+    },
+    "tHP-Rs-wID.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Display \\\"Reload\\\" on menu\"; ObjectID = \"tHP-Rs-wID\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Display \"Reload\" on menu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"再読み込み\"メニューを表示"
+          }
+        }
+      }
+    },
+    "u01-P0-DLH.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"HomeKit:\"; ObjectID = \"u01-P0-DLH\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit:"
+          }
+        }
+      }
+    },
+    "xwK-VA-rRD.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Use scenes\"; ObjectID = \"xwK-VA-rRD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use scenes"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シーンを利用"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

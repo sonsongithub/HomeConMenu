@@ -1,0 +1,114 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0MS-0l-x61.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"You can not find any devices on the menu if you do not have any homes or add any home devices to your “Home” on your HomeKit. You can add a HomeKit device using Home app on iOS devices.\"; ObjectID = \"0MS-0l-x61\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can not find any devices on the menu if you do not have any homes or add any home devices to your “Home” on your HomeKit. You can add a HomeKit device using Home app on iOS devices."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたのHomeKit環境にHomeがなかったり、Homeにホームデバイスが追加されていない場合、HomeConMenuを開いても何も表示されません。iOSのホームアプリを使って、あなたのホームデバイスをHomeKitに追加してください。"
+          }
+        }
+      }
+    },
+    "fOR-D9-bVy.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show this welcome message\"; ObjectID = \"fOR-D9-bVy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show this welcome message"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このウィンドウを表示する"
+          }
+        }
+      }
+    },
+    "Htv-O8-lHD.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on.\"; ObjectID = \"Htv-O8-lHD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeConMenuをメニューバーから開き、ホームデバイスを制御できます。"
+          }
+        }
+      }
+    },
+    "qdr-TE-6dM.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"qdr-TE-6dM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "On startup:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "起動時:"
+          }
+        }
+      }
+    },
+    "ttZ-uC-Y7u.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices.\"; ObjectID = \"ttZ-uC-Y7u\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリケーションを起動するとメニューバーに家のアイコンが表示されます。このアイコンをクリックするとホームデバイスを制御できます。HomeConMenuは、電源、スイッチ、電球、室温、湿度デバイスの制御、情報表示に対応しています。"
+          }
+        }
+      }
+    },
+    "wrg-Q9-ZTw.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"To use this application, go to Security & Privacy settings in System Preferences and allow HomeConMenu to access HomeKit.\"; ObjectID = \"wrg-Q9-ZTw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To use this application, go to Security & Privacy settings in System Preferences and allow HomeConMenu to access HomeKit."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム環境設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
