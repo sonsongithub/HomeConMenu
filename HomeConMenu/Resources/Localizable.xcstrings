@@ -53,6 +53,9 @@
         }
       }
     },
+    "Donation" : {
+
+    },
     "Failed to access HomeKit because of your privacy settings." : {
       "comment" : "Localizable.strings\n  HomeConMenu\n\n  Created by Yuichi Yoshida on 2022/04/25.",
       "localizations" : {

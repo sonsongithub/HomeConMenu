@@ -32,17 +32,20 @@ enum SettingsPane: String, CaseIterable {
     case general
     case shortcuts
     case information
+    case donation
     
     /// Localized label.
     var label: String {
         
         switch self {
-            case .general:
-                return String(localized: "General")
-            case .shortcuts:
-                return String(localized: "Key Bindings")
-            case .information:
-                return String(localized: "Information")
+        case .general:
+            return String(localized: "General")
+        case .shortcuts:
+            return String(localized: "Key Bindings")
+        case .information:
+            return String(localized: "Information")
+        case .donation:
+            return String(localized: "Donation")
         }
     }
     
@@ -50,12 +53,14 @@ enum SettingsPane: String, CaseIterable {
     var symbolName: String {
         
         switch self {
-            case .general:
-                return "gearshape"
-            case .shortcuts:
-                return "keyboard"
-            case .information:
-                return "info.circle.fill"
+        case .general:
+            return "gearshape"
+        case .shortcuts:
+            return "keyboard"
+        case .information:
+            return "info.circle.fill"
+        case .donation:
+            return "heart"
         }
     }
 }

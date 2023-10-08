@@ -96,8 +96,6 @@ final class SettingsTabViewController: NSTabViewController {
     }
 }
 
-
-
 private extension NSWindow {
     
     /// Update window frame for the given contentSize.

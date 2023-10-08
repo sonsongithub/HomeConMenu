@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +24,7 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="gRy-QW-fFD">
                     <rect key="frame" x="32" y="0.0" width="536" height="240"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knm-6J-dE0">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knm-6J-dE0">
                             <rect key="frame" x="31" y="148" width="70" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="HomeKit:" id="qzf-db-N8L">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -42,7 +42,7 @@
                                 <action selector="didChangeShowLaunchViewControllerWithSender:" target="-2" id="NMV-gp-0Ah"/>
                             </connections>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y78-4e-KS2">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y78-4e-KS2">
                             <rect key="frame" x="18" y="194" width="83" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="On startup:" id="LVi-Yv-OrG">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -60,7 +60,7 @@
                                 <action selector="didChangeAllowDuplicatingServicesWithSender:" target="-2" id="VjM-qm-Y6F"/>
                             </connections>
                         </button>
-                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWw-hH-XU3">
+                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWw-hH-XU3">
                             <rect key="frame" x="125" y="98" width="393" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="389" id="gDY-P9-jYG"/>

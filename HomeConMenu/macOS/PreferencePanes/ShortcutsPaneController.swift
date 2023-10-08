@@ -28,60 +28,6 @@
 import AppKit
 import KeyboardShortcuts
 
-class ShortcutCellView: NSTableCellView {
-    
-    @IBOutlet var line: NSView?
-    @IBOutlet var recoderBaseView: NSView?
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        self.subviews.forEach { aView in
-            if aView is KeyboardShortcuts.RecorderCocoa {
-                aView.removeFromSuperview()
-            }
-        }
-    }
-    
-    func addRecorder(recorder: NSView) {
-        if let textField = self.textField, let imageView = self.imageView, let line = self.line {
-            self.addSubview(recorder)
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            recorder.translatesAutoresizingMaskIntoConstraints = false
-            self.translatesAutoresizingMaskIntoConstraints = false
-            line.translatesAutoresizingMaskIntoConstraints = false
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-            
-            textField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10).isActive = true
-            
-            imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-            
-            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-            
-            
-            textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-            recorder.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true
-            recorder.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10).isActive = true
-            recorder.heightAnchor.constraint(equalToConstant: 25).isActive = true
-            recorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-            recorder.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-            line.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
-            line.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-            line.isHidden = false
-        }
-        self.layoutSubtreeIfNeeded()
-        self.layout()
-    }
-}
-
 class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     var shortcutLabels: [ShortcutInfo] = []
@@ -114,11 +60,6 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
         self.tableView?.reloadData()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        self.tableView?.headerView = nil
-    }
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return shortcutLabels.count
     }
@@ -129,8 +70,6 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let tableColumn = tableColumn else { return nil }
-        
-        print(tableColumn.identifier)
         
         if tableColumn.identifier == NSUserInterfaceItemIdentifier(rawValue: "Device") {
             let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("DeviceCell"), owner: self)
