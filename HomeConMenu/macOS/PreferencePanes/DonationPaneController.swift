@@ -16,9 +16,22 @@ class DonationPaneController: NSViewController {
     var products: [Product] = []
     
     func update() {
+        
+        // create
+        (0..<5).forEach { _ in
+            let v = DonationItemView()
+            v.wantsLayer = true
+            v.layer?.backgroundColor = NSColor.red.cgColor
+            v.translatesAutoresizingMaskIntoConstraints = false
+            v.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            v.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            stackView?.addArrangedSubview(v)
+        }
+        
+        // load from nib
+        // when following codes are commented out, this view will be rendered correctly.
         let nib = NSNib(nibNamed: "DonationPane", bundle: nil)
-        self.products.forEach { product in
-            
+        (0..<5).forEach { product in
             var topLevelArray: NSArray? = nil
             nib?.instantiate(withOwner: self, topLevelObjects: &topLevelArray)
             if let topLevelArray = topLevelArray {
@@ -26,14 +39,12 @@ class DonationPaneController: NSViewController {
                     return element as? DonationItemView
                 }
                 if let donationView = a.first {
-                    donationView.label?.stringValue = product.id
+                    donationView.label?.stringValue = "test"
                     
                     donationView.translatesAutoresizingMaskIntoConstraints = false
                     donationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
                     donationView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-                    
-                    self.view.addSubview(donationView)
-                    print(donationView)
+                    stackView?.addArrangedSubview(donationView)
                 }
             }
         }
@@ -41,37 +52,7 @@ class DonationPaneController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        indicator?.startAnimation(nil)
-        
-        Task {
-            do {
-//                try await Task.sleep(nanoseconds: 3_000_000_000)
-                let keys = ["com.sonson.HomeConMenu.macOS.test_item", "com.sonson.HomeConMenu.macOS.test_item2"]
-                let storeProducts = try await Product.products(for: keys)
-                for product in storeProducts {
-                    switch product.type {
-                    case .consumable:
-                        self.products.append(product)
-                    default:
-                        print("Unknown product")
-                    }
-                }
-                self.update()
-                self.indicator?.stopAnimation(nil)
-            } catch {
-                print("Failed product request from the App Store server: \(error)")
-            }
-        }
-//        (0..<10).forEach { _ in
-//            let v = DonationItemView()
-//            v.wantsLayer = true
-//            v.layer?.backgroundColor = NSColor.red.cgColor
-//            v.translatesAutoresizingMaskIntoConstraints = false
-//            v.widthAnchor.constraint(equalToConstant: 300).isActive = true
-//            v.heightAnchor.constraint(equalToConstant: 20).isActive = true
-//            stackView?.addArrangedSubview(v)
-//        }
+        self.update()
     }
     
 }
