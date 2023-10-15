@@ -8,5 +8,7 @@
 import AppKit
 
 class DonationItemView: NSView {
+    @IBOutlet var icon: NSTextField?
     @IBOutlet var label: NSTextField?
+    @IBOutlet var donate: NSButton?
 }

@@ -55,8 +55,8 @@
 		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
-		1491F4E72AD259C400602AD8 /* DonationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1491F4E62AD259C400602AD8 /* DonationPane.xib */; };
 		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
+		1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1491F4EE2AD4E11600602AD8 /* DonationPane.xib */; };
 		149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F7FC12AB131D100D1621D /* ShortcutInfo.swift */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -156,8 +156,9 @@
 		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
-		1491F4E62AD259C400602AD8 /* DonationPane.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonationPane.xib; sourceTree = "<group>"; };
 		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
+		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
+		1491F4EF2AD4E11600602AD8 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DonationPane.xcstrings; sourceTree = "<group>"; };
 		149F7FC12AB131D100D1621D /* ShortcutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInfo.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
@@ -342,7 +343,7 @@
 				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
 				144C95D42AAD89D800935105 /* InformationPane.xib */,
 				1491F4E42AD2599000602AD8 /* DonationPaneController.swift */,
-				1491F4E62AD259C400602AD8 /* DonationPane.xib */,
+				1491F4EE2AD4E11600602AD8 /* DonationPane.xib */,
 				1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */,
 			);
 			path = PreferencePanes;
@@ -450,7 +451,7 @@
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
-				1491F4E72AD259C400602AD8 /* DonationPane.xib in Resources */,
+				1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */,
 				144C95D22AAD89D800935105 /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
@@ -600,6 +601,15 @@
 				144C95EB2AADD96F00935105 /* ja */,
 			);
 			name = Acknowledgments.css;
+			sourceTree = "<group>";
+		};
+		1491F4EE2AD4E11600602AD8 /* DonationPane.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1491F4ED2AD4E11600602AD8 /* Base */,
+				1491F4EF2AD4E11600602AD8 /* mul */,
+			);
+			name = DonationPane.xib;
 			sourceTree = "<group>";
 		};
 		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
