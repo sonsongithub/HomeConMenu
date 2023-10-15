@@ -17,6 +17,15 @@ class DonationPaneController: NSViewController {
     
     var products: [Product] = []
     
+    static func loadProductIdToEmojiData() -> [String: String] {
+        guard let path = Bundle.main.path(forResource: "Products", ofType: "plist"),
+              let plist = FileManager.default.contents(atPath: path),
+              let data = try? PropertyListSerialization.propertyList(from: plist, format: nil) as? [String: String] else {
+            return [:]
+        }
+        return data
+    }
+    
     func update() {
         
         guard let stackView = self.stackView else { return }
