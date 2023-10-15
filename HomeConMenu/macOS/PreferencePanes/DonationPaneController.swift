@@ -56,6 +56,21 @@ class DonationPaneController: NSViewController {
                 }
             }
         }
+        
+        if self.products.count == 0 {
+            errorMessage?.stringValue = NSLocalizedString("No items", comment: "")
+            errorMessage?.isHidden = false
+        } else {
+            errorMessage?.isHidden = true
+        }
+    }
+    
+    func showThankyou() {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("Thank you!", comment: "")
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        let _ = alert.runModal()
     }
     
     @objc func didPushDonationButton(sender: NSButton) {
@@ -65,10 +80,11 @@ class DonationPaneController: NSViewController {
             do {
                 let result = try await product.purchase()
                 switch result {
-                case let .success(.verified(transaction)):
-                    await transaction.finish()
+                case .success(.verified(_)):
+                    self.showThankyou()
                 case let .success(.unverified(_, error)):
                     Logger.app.info("\(error.localizedDescription)")
+                    self.showThankyou()
                 case .pending:
                     let alert = NSAlert()
                     alert.messageText = NSLocalizedString("Error", comment: "")
@@ -123,10 +139,9 @@ class DonationPaneController: NSViewController {
                     return lhs.price < rhs.price
                 }
                 
-                self.update()
                 self.indicator?.stopAnimation(nil)
                 self.indicator?.isHidden = true
-                self.errorMessage?.isHidden = true
+                self.update()
             } catch {
                 Logger.app.error("Failed product request from the App Store server: \(error)")
                 let errorMessage = String(format: NSLocalizedString("App Store Error: %@", comment: ""), error.localizedDescription)
