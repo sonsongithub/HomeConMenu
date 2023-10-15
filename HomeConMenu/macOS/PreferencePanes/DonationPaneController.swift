@@ -97,8 +97,8 @@ class DonationPaneController: NSViewController {
         
         Task {
             do {
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-                let keys = ["com.sonson.HomeConMenu.macOS.test_item", "com.sonson.HomeConMenu.macOS.test_item2", "com.sonson.HomeConMenu.macOS.test_item3"]
+                let data = DonationPaneController.loadProductIdToEmojiData()
+                let keys = data.keys
                 let storeProducts = try await Product.products(for: keys)
                 for product in storeProducts {
                     switch product.type {

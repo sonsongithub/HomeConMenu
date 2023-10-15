@@ -20,8 +20,8 @@
           "locale" : "ja"
         }
       ],
-      "productID" : "com.sonson.HomeConMenu.macOS.test_item",
-      "referenceName" : "test_item",
+      "productID" : "com.sonson.HomeConMenu.coffee",
+      "referenceName" : "coffee",
       "type" : "Consumable"
     },
     {
@@ -40,8 +40,8 @@
           "locale" : "ja"
         }
       ],
-      "productID" : "com.sonson.HomeConMenu.macOS.test_item2",
-      "referenceName" : "test_item2",
+      "productID" : "com.sonson.HomeConMenu.beer",
+      "referenceName" : "beer",
       "type" : "Consumable"
     },
     {
@@ -60,8 +60,8 @@
           "locale" : "ja"
         }
       ],
-      "productID" : "com.sonson.HomeConMenu.macOS.test_item3",
-      "referenceName" : "test_item3",
+      "productID" : "com.sonson.HomeConMenu.newDevice",
+      "referenceName" : "New device",
       "type" : "Consumable"
     }
   ],
