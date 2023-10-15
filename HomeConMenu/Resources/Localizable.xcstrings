@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
     "About HomeConMenu" : {
       "localizations" : {
         "ja" : {
@@ -17,6 +27,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "システム環境設定を使ってHomeConMenuにHomeKitへのアクセス権を設定してください。"
+          }
+        }
+      }
+    },
+    "App Store Error: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store エラー: %@"
           }
         }
       }
@@ -49,6 +69,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "起動時にウェルカムメッセージを表示しない"
+          }
+        }
+      }
+    },
+    "Donation" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "寄付"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "Failed product request from the App Store server: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Storeで購入処理が失敗しました: %@"
           }
         }
       }
@@ -124,6 +174,19 @@
         }
       }
     },
+    "No items" : {
+
+    },
+    "Offer %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ を寄付する"
+          }
+        }
+      }
+    },
     "Open Home.app" : {
       "localizations" : {
         "ja" : {
@@ -161,6 +224,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "環境設定…"
+          }
+        }
+      }
+    },
+    "Purchase is pending and requires action in the App Store." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入は保留中で、App Storeでのアクションが必要です。"
           }
         }
       }
@@ -204,6 +277,9 @@
           }
         }
       }
+    },
+    "Thank you!" : {
+
     },
     "Use scenes" : {
       "extractionState" : "manual",

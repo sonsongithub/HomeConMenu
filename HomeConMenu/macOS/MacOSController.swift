@@ -399,6 +399,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         launchWindowController.showWindow(self)
         centeringWindows()
         self.bringToFront()
+        
+        preferences(sender: nil)
     }
     
     @IBAction func quit(sender: NSButton) {

@@ -67,6 +67,10 @@ final class SettingsTabViewController: NSTabViewController {
         
         guard let tabViewItem else { return assertionFailure() }
         
+        if let viewController = tabViewItem.viewController as? DonationPaneController {
+            viewController.didShowOnTabView()
+        }
+        
         self.switchPane(to: tabViewItem)
     }
     
@@ -95,8 +99,6 @@ final class SettingsTabViewController: NSTabViewController {
         }
     }
 }
-
-
 
 private extension NSWindow {
     
