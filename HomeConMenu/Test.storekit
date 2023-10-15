@@ -75,7 +75,7 @@
     "_storeKitErrors" : [
       {
         "current" : {
-          "index" : 2,
+          "index" : 0,
           "type" : "generic"
         },
         "enabled" : false,

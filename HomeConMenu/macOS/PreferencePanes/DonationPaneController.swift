@@ -124,6 +124,7 @@ class DonationPaneController: NSViewController {
             do {
                 let data = DonationPaneController.loadProductIdToEmojiData()
                 let keys = data.keys
+                print(keys)
                 let storeProducts = try await Product.products(for: keys)
                 for product in storeProducts {
                     switch product.type {

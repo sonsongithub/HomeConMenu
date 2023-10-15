@@ -175,7 +175,14 @@
       }
     },
     "No items" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "何もありません。"
+          }
+        }
+      }
     },
     "Offer %@" : {
       "localizations" : {
@@ -279,7 +286,14 @@
       }
     },
     "Thank you!" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ありがとうございます！"
+          }
+        }
+      }
     },
     "Use scenes" : {
       "extractionState" : "manual",

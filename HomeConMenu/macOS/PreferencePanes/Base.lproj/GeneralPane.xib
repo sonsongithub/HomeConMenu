@@ -64,7 +64,6 @@
                             <rect key="frame" x="125" y="98" width="393" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="389" id="gDY-P9-jYG"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="jSS-C0-ook"/>
                             </constraints>
                             <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="left" id="rND-QH-1vd">
                                 <font key="font" metaFont="smallSystem"/>
@@ -113,6 +112,7 @@
                         <constraint firstItem="54O-O0-p2M" firstAttribute="top" secondItem="E6F-8T-u6X" secondAttribute="bottom" constant="6" symbolic="YES" id="6Yf-MZ-guq"/>
                         <constraint firstAttribute="trailing" secondItem="BWw-hH-XU3" secondAttribute="trailing" constant="20" symbolic="YES" id="6cl-92-XzR"/>
                         <constraint firstItem="knm-6J-dE0" firstAttribute="trailing" secondItem="y78-4e-KS2" secondAttribute="trailing" id="GKb-mQ-xyh"/>
+                        <constraint firstItem="knm-6J-dE0" firstAttribute="top" secondItem="y78-4e-KS2" secondAttribute="bottom" constant="30" id="HsO-bi-OoA"/>
                         <constraint firstItem="NU1-eW-0mB" firstAttribute="leading" secondItem="Xha-OB-N1o" secondAttribute="leading" id="O74-t0-NOV"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E6F-8T-u6X" secondAttribute="trailing" constant="20" symbolic="YES" id="PJu-f1-GCA"/>
                         <constraint firstItem="y78-4e-KS2" firstAttribute="leading" secondItem="gRy-QW-fFD" secondAttribute="leading" constant="20" symbolic="YES" id="VWv-PA-sEj"/>
@@ -126,7 +126,6 @@
                         <constraint firstItem="Xha-OB-N1o" firstAttribute="leading" secondItem="y78-4e-KS2" secondAttribute="trailing" constant="8" symbolic="YES" id="msy-6V-ywe"/>
                         <constraint firstItem="y78-4e-KS2" firstAttribute="top" secondItem="gRy-QW-fFD" secondAttribute="top" constant="30" id="oRa-Tj-Oc8"/>
                         <constraint firstItem="BWw-hH-XU3" firstAttribute="leading" secondItem="NU1-eW-0mB" secondAttribute="leading" constant="20" id="qMS-7h-L7P"/>
-                        <constraint firstItem="knm-6J-dE0" firstAttribute="top" secondItem="y78-4e-KS2" secondAttribute="bottom" constant="30" id="uWp-I9-AJJ"/>
                         <constraint firstItem="M2E-B5-fTf" firstAttribute="leading" secondItem="54O-O0-p2M" secondAttribute="leading" id="wEu-mf-HhP"/>
                         <constraint firstItem="E6F-8T-u6X" firstAttribute="leading" secondItem="NU1-eW-0mB" secondAttribute="leading" id="znX-E7-5jo"/>
                     </constraints>

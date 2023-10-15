@@ -39,10 +39,6 @@ class InformationPaneController: NSViewController {
         NSWorkspace.shared.open(URL(string: "https://github.com/sonsongithub/HomeConMenu")!)
     }
     
-    @IBAction func becomeSponsor(sender: Any?) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/sponsors/sonsongithub")!)
-    }
-    
     @IBAction func openAcknowledgement(sender: Any?) {
         if let mac2ios = mac2ios {
             mac2ios.openAcknowledgement()

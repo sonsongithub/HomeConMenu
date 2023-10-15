@@ -44,9 +44,17 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         loadPlugin()
         homeManager = HMHomeManager()
         homeManager?.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didPathUpdate), name: MonitoringNetworkState.didPathUpdateNotification, object: nil)
+    }
+    
+    @objc func didPathUpdate(notification: Notification) {
+        Logger.app.error("MonitoringNetworkState.didPathUpdateNotification")
+        reloadHome()
     }
     
     func reloadHome() {
+        Logger.app.error("reloadHome")
         homeManager?.delegate = nil
         homeManager = HMHomeManager()
         homeManager?.delegate = self
