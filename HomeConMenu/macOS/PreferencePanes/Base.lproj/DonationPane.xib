@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cjR-K9-I1l">
-                                <rect key="frame" x="18" y="9" width="68" height="58"/>
+                                <rect key="frame" x="3" y="9" width="68" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="PVS-eG-caQ"/>
                                     <constraint firstAttribute="height" constant="58" id="Yqe-n5-W75"/>
@@ -73,7 +73,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sAw-tK-Ake">
-                                <rect key="frame" x="90" y="25" width="397" height="26"/>
+                                <rect key="frame" x="75" y="25" width="179" height="26"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Donate something" id="7PB-ST-t86">
                                     <font key="font" textStyle="title1" name=".SFNS-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -81,27 +81,27 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tzN-mr-yQW">
-                                <rect key="frame" x="486" y="21" width="114" height="32"/>
+                                <rect key="frame" x="491" y="21" width="114" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8U7-c7-khC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" textStyle="headline" name=".SFNS-Bold"/>
                                 </buttonCell>
                                 <color key="bezelColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="ozJ-iE-Zog"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="391-Q1-ye5"/>
                                 </constraints>
                             </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="tzN-mr-yQW" firstAttribute="centerY" secondItem="z4p-ON-435" secondAttribute="centerY" id="6vp-or-xn7"/>
-                            <constraint firstAttribute="trailing" secondItem="tzN-mr-yQW" secondAttribute="trailing" constant="20" symbolic="YES" id="CeF-nb-fXG"/>
+                            <constraint firstAttribute="trailing" secondItem="tzN-mr-yQW" secondAttribute="trailing" constant="15" id="CeF-nb-fXG"/>
                             <constraint firstItem="sAw-tK-Ake" firstAttribute="leading" secondItem="cjR-K9-I1l" secondAttribute="trailing" constant="8" symbolic="YES" id="EsZ-h4-dXR"/>
                             <constraint firstItem="sAw-tK-Ake" firstAttribute="centerY" secondItem="z4p-ON-435" secondAttribute="centerY" id="UDb-bJ-w6e"/>
                             <constraint firstItem="cjR-K9-I1l" firstAttribute="centerY" secondItem="z4p-ON-435" secondAttribute="centerY" id="bix-IQ-kb9"/>
-                            <constraint firstItem="tzN-mr-yQW" firstAttribute="leading" secondItem="sAw-tK-Ake" secondAttribute="trailing" constant="8" symbolic="YES" id="dT0-8E-pNF"/>
+                            <constraint firstItem="tzN-mr-yQW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sAw-tK-Ake" secondAttribute="trailing" constant="8" symbolic="YES" id="dT0-8E-pNF"/>
                             <constraint firstItem="cjR-K9-I1l" firstAttribute="centerY" secondItem="z4p-ON-435" secondAttribute="centerY" id="elK-fE-9BP"/>
                             <constraint firstItem="sAw-tK-Ake" firstAttribute="leading" secondItem="cjR-K9-I1l" secondAttribute="trailing" constant="8" symbolic="YES" id="pdV-h5-BO1"/>
-                            <constraint firstItem="cjR-K9-I1l" firstAttribute="leading" secondItem="z4p-ON-435" secondAttribute="leading" constant="20" symbolic="YES" id="whb-GN-LWn"/>
+                            <constraint firstItem="cjR-K9-I1l" firstAttribute="leading" secondItem="z4p-ON-435" secondAttribute="leading" constant="5" id="whb-GN-LWn"/>
                         </constraints>
                     </view>
                 </box>
@@ -117,7 +117,7 @@
                 <outlet property="icon" destination="cjR-K9-I1l" id="Itd-p2-SsX"/>
                 <outlet property="label" destination="sAw-tK-Ake" id="r9Q-Cp-oKI"/>
             </connections>
-            <point key="canvasLocation" x="-171.5" y="-198"/>
+            <point key="canvasLocation" x="-171.5" y="-198.5"/>
         </customView>
     </objects>
     <resources>

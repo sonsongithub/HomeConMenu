@@ -1,0 +1,130 @@
+{
+  "identifier" : "BBABBC4A",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "900",
+      "familyShareable" : false,
+      "internalID" : "6470705293",
+      "localizations" : [
+        {
+          "description" : "開発者にビールを寄付する",
+          "displayName" : "ビールをおごる",
+          "locale" : "ja"
+        },
+        {
+          "description" : "Donate beer to the developer",
+          "displayName" : "Offer Beer",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.sonson.HomeConMenu.beer",
+      "referenceName" : "beer",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "400",
+      "familyShareable" : false,
+      "internalID" : "6470705176",
+      "localizations" : [
+        {
+          "description" : "Donate coffee to the developer.",
+          "displayName" : "Offer Coffree",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "開発者にコーヒーを寄付します",
+          "displayName" : "コーヒーをおごる",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "com.sonson.HomeConMenu.coffee",
+      "referenceName" : "coffee",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2000",
+      "familyShareable" : false,
+      "internalID" : "6470705320",
+      "localizations" : [
+        {
+          "description" : "Donate new device to the developer",
+          "displayName" : "Offer new device",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "開発者に新しいデバイスを寄付します",
+          "displayName" : "新しいデバイスをおごる",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "com.sonson.HomeConMenu.newDevice",
+      "referenceName" : "New device",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1615397537",
+    "_developerTeamID" : "JP866VWWSD",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 720169899.17567897,
+    "_locale" : "ja",
+    "_storefront" : "JPN",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

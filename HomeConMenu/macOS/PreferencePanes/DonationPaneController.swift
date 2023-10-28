@@ -32,6 +32,8 @@ class DonationPaneController: NSViewController {
         
         stackView.alignment = .centerX
         
+        let data = DonationPaneController.loadProductIdToEmojiData()
+        
         // load from nib
         // when following codes are commented out, this view will be rendered correctly.
         let nib = NSNib(nibNamed: "DonationPane", bundle: nil)
@@ -43,11 +45,15 @@ class DonationPaneController: NSViewController {
                     return element as? DonationItemView
                 }
                 if let donationView = a.first {
-                    donationView.label?.stringValue = String(format: NSLocalizedString("Offer %@", comment: ""), product.displayName)
+                    donationView.label?.stringValue = product.description
                     donationView.translatesAutoresizingMaskIntoConstraints = false
                     donationView.widthAnchor.constraint(equalToConstant: 560).isActive = true
                     donationView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-                    donationView.icon?.stringValue = product.description
+                    if let str = data[product.id] {
+                        donationView.icon?.stringValue = str
+                    } else {
+                        donationView.icon?.stringValue = "プレゼント"
+                    }
                     donationView.donate?.title = product.displayPrice
                     donationView.donate?.identifier = NSUserInterfaceItemIdentifier(product.id)
                     donationView.donate?.action = #selector(DonationPaneController.didPushDonationButton(sender:))

@@ -58,7 +58,7 @@
          </EnvironmentVariable>
       </EnvironmentVariables>
       <StoreKitConfigurationFileReference
-         identifier = "../../HomeConMenu/Test.storekit">
+         identifier = "../../HomeConMenu/Japan.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

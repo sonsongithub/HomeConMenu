@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>com.sonson.HomeConMenu.coffee</key>
-	<string>coffee</string>
+	<string>☕️</string>
 	<key>com.sonson.HomeConMenu.beer</key>
-	<string>beer</string>
+	<string>🍺</string>
 	<key>com.sonson.HomeConMenu.newDevice</key>
-	<string>new device</string>
+	<string>🎁</string>
 </dict>
 </plist>

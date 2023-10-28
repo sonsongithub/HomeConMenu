@@ -185,6 +185,7 @@
       }
     },
     "Offer %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

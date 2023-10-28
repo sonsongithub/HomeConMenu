@@ -159,8 +159,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gRy-QW-fFD" secondAttribute="bottom" id="IfS-F9-Yzd"/>
                 <constraint firstItem="gRy-QW-fFD" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="eUO-5p-M52"/>
-                <constraint firstItem="gRy-QW-fFD" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="gMn-WL-lOO"/>
                 <constraint firstItem="gRy-QW-fFD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="32" id="lQd-yy-Sbp"/>
+                <constraint firstAttribute="trailing" secondItem="gRy-QW-fFD" secondAttribute="trailing" constant="32" id="xXp-GB-sJP"/>
             </constraints>
             <point key="canvasLocation" x="101" y="-496"/>
         </customView>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
-		1402D2AA2AC1880B00B702E4 /* Test.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 1402D2A92AC1880B00B702E4 /* Test.storekit */; };
+		1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 1402D2A92AC1880B00B702E4 /* Dummy.storekit */; };
 		14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14124FD22ADBA7FA00DF6CE4 /* Products.plist */; };
 		14124FD52ADBBFC000DF6CE4 /* MonitoringNetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */; };
 		142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 142440D72ADC1FC300317DA6 /* LaunchAtLogin */; };
@@ -116,7 +116,7 @@
 		1402D29C2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
 		1402D29D2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/GeneralPane.xcstrings; sourceTree = "<group>"; };
 		1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		1402D2A92AC1880B00B702E4 /* Test.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Test.storekit; sourceTree = "<group>"; };
+		1402D2A92AC1880B00B702E4 /* Dummy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dummy.storekit; sourceTree = "<group>"; };
 		14124FD22ADBA7FA00DF6CE4 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringNetworkState.swift; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +160,8 @@
 		144C95E62AADC51200935105 /* LaunchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchWindowController.swift; sourceTree = "<group>"; };
 		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
+		14822EF42AECE78A00DE4DBA /* Japan.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Japan.storekit; sourceTree = "<group>"; };
+		14822EF52AECEC2E00DE4DBA /* US.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = US.storekit; sourceTree = "<group>"; };
 		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
 		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
 		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
@@ -238,7 +240,9 @@
 				142DE0B027E8BAC2006CBAFE /* macOSBridge-Bridging-Header.h */,
 				142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */,
 				14124FD22ADBA7FA00DF6CE4 /* Products.plist */,
-				1402D2A92AC1880B00B702E4 /* Test.storekit */,
+				1402D2A92AC1880B00B702E4 /* Dummy.storekit */,
+				14822EF42AECE78A00DE4DBA /* Japan.storekit */,
+				14822EF52AECEC2E00DE4DBA /* US.storekit */,
 			);
 			path = HomeConMenu;
 			sourceTree = "<group>";
@@ -453,7 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				144C95E82AADD95300935105 /* Acknowledgments.css in Resources */,
-				1402D2AA2AC1880B00B702E4 /* Test.storekit in Resources */,
+				1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */,
 				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
 				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
 				14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */,
@@ -767,7 +771,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 147;
+				CURRENT_PROJECT_VERSION = 149;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -809,7 +813,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 147;
+				CURRENT_PROJECT_VERSION = 149;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
