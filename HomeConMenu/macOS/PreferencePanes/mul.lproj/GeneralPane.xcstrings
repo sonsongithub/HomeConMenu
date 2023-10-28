@@ -37,6 +37,24 @@
         }
       }
     },
+    "cCW-5N-XTR.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"On login:\"; ObjectID = \"cCW-5N-XTR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "On login:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログイン時:"
+          }
+        }
+      }
+    },
     "LVi-Yv-OrG.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
       "extractionState" : "extracted_with_value",
@@ -51,6 +69,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "起動したとき:"
+          }
+        }
+      }
+    },
+    "Pq4-7v-AnZ.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Launch automatically\"; ObjectID = \"Pq4-7v-AnZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Launch automatically"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動的に開く"
           }
         }
       }

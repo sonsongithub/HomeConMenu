@@ -27,8 +27,11 @@
 
 import Foundation
 import AppKit
+import LaunchAtLogin
 
 class GeneralPaneController: NSViewController {
+    @objc dynamic var launchAtLogin = LaunchAtLogin.kvo
+    
     @IBOutlet var showLaunchViewController: NSButton?
     @IBOutlet var showReloadMenuItemButton: NSButton?
     @IBOutlet var showHomeAppMenuItemButton: NSButton?
@@ -51,6 +54,7 @@ class GeneralPaneController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
+        
         if let value = UserDefaults.standard.object(forKey: "showLaunchViewController") as? Bool {
             showLaunchViewController?.state = value ? .on : .off
         } else {

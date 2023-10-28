@@ -75,7 +75,7 @@
     "_storeKitErrors" : [
       {
         "current" : {
-          "index" : 0,
+          "index" : 5,
           "type" : "generic"
         },
         "enabled" : false,
@@ -83,7 +83,7 @@
       },
       {
         "current" : {
-          "index" : 2,
+          "index" : 3,
           "type" : "generic"
         },
         "enabled" : false,
@@ -91,7 +91,7 @@
       },
       {
         "current" : {
-          "index" : 4,
+          "index" : 5,
           "type" : "verification"
         },
         "enabled" : false,
