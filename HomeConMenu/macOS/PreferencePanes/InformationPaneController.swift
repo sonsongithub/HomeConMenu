@@ -1,8 +1,8 @@
 //
-//  SettingsPane.swift
+//  InformationPaneController.swift
 //  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2023/09/08.
+//  Created by Yuichi Yoshida on 2023/09/09.
 //
 //  MIT License
 //
@@ -25,37 +25,29 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import AppKit
+import WebKit
 
-enum SettingsPane: String, CaseIterable {
+class InformationPaneController: NSViewController {
+    var mac2ios: mac2iOS?
+    @IBOutlet var versionField: NSTextField?
     
-    case general
-    case shortcuts
-    case information
+    let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?.?.?"
+    let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
     
-    /// Localized label.
-    var label: String {
-        
-        switch self {
-            case .general:
-                return String(localized: "General")
-            case .shortcuts:
-                return String(localized: "Key Bindings")
-            case .information:
-                return String(localized: "Information")
-        }
+    @IBAction func openGithub(sender: Any?) {
+        NSWorkspace.shared.open(URL(string: "https://github.com/sonsongithub/HomeConMenu")!)
     }
     
-    /// Symbol image name.
-    var symbolName: String {
-        
-        switch self {
-            case .general:
-                return "gearshape"
-            case .shortcuts:
-                return "keyboard"
-            case .information:
-                return "info.circle.fill"
+    @IBAction func openAcknowledgement(sender: Any?) {
+        if let mac2ios = mac2ios {
+            mac2ios.openAcknowledgement()
         }
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        versionField?.stringValue = "\(version) (\(build))"
     }
 }

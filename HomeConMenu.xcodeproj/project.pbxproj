@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
+		1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
+		1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 1402D2A92AC1880B00B702E4 /* Dummy.storekit */; };
+		14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14124FD22ADBA7FA00DF6CE4 /* Products.plist */; };
+		14124FD52ADBBFC000DF6CE4 /* MonitoringNetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */; };
+		142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 142440D72ADC1FC300317DA6 /* LaunchAtLogin */; };
 		142DE06C27E8B80E006CBAFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06B27E8B80E006CBAFE /* AppDelegate.swift */; };
 		142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */; };
 		142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142DE07427E8B80F006CBAFE /* Assets.xcassets */; };
@@ -51,6 +57,9 @@
 		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
 		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
+		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
+		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
+		1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1491F4EE2AD4E11600602AD8 /* DonationPane.xib */; };
 		149F7FC32AB1325D00D1621D /* ShortcutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F7FC12AB131D100D1621D /* ShortcutInfo.swift */; };
 		14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A482811664000BC41BD /* LightbulbMenuItem.swift */; };
 		14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A472811664000BC41BD /* LightColorMenuItem.swift */; };
@@ -66,8 +75,6 @@
 		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
 		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
 		14ABD6E02AACB6920023F71D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */; };
-		14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
-		14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */; };
 		14FA4A9D282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4A9E282117980002ECB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4A9C282117980002ECB8 /* Log.swift */; };
 		14FA4AA62825296D0002ECB8 /* BaseManager+HomeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */; };
@@ -103,6 +110,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1402D2992ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/LaunchView.xcstrings; sourceTree = "<group>"; };
+		1402D29A2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/InformationPane.xcstrings; sourceTree = "<group>"; };
+		1402D29B2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShortcutsPane.xcstrings; sourceTree = "<group>"; };
+		1402D29C2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
+		1402D29D2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/GeneralPane.xcstrings; sourceTree = "<group>"; };
+		1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1402D2A92AC1880B00B702E4 /* Dummy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dummy.storekit; sourceTree = "<group>"; };
+		14124FD22ADBA7FA00DF6CE4 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringNetworkState.swift; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142DE06B27E8B80E006CBAFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,18 +152,20 @@
 		1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		144C95CC2AAD88AB00935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		144C95CE2AAD891800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchView.xib; sourceTree = "<group>"; };
-		144C95D12AAD891D00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchView.strings; sourceTree = "<group>"; };
 		144C95D32AAD89D800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationPane.xib; sourceTree = "<group>"; };
 		144C95D62AAD89E200935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ShortcutsPane.xib; sourceTree = "<group>"; };
 		144C95D92AAD89E800935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPane.xib; sourceTree = "<group>"; };
-		144C95DD2AAD9D7900935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InformationPane.strings; sourceTree = "<group>"; };
-		144C95DF2AAD9D8100935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ShortcutsPane.strings; sourceTree = "<group>"; };
 		144C95E32AADBD1500935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Acknowledgments.html; sourceTree = "<group>"; };
 		144C95E52AADBD1800935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Acknowledgments.html; sourceTree = "<group>"; };
 		144C95E62AADC51200935105 /* LaunchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchWindowController.swift; sourceTree = "<group>"; };
 		144C95E92AADD95300935105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = Base; path = Base.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
-		149F7FC02AB051D600D1621D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/GeneralPane.strings; sourceTree = "<group>"; };
+		14822EF42AECE78A00DE4DBA /* Japan.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Japan.storekit; sourceTree = "<group>"; };
+		14822EF52AECEC2E00DE4DBA /* US.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = US.storekit; sourceTree = "<group>"; };
+		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
+		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
+		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
+		1491F4EF2AD4E11600602AD8 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DonationPane.xcstrings; sourceTree = "<group>"; };
 		149F7FC12AB131D100D1621D /* ShortcutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInfo.swift; sourceTree = "<group>"; };
 		14A06A452811664000BC41BD /* SensorMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMenuItem.swift; sourceTree = "<group>"; };
 		14A06A462811664000BC41BD /* CameraMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMenuItem.swift; sourceTree = "<group>"; };
@@ -161,8 +179,6 @@
 		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		14C0EFF92816A50B00E6C2B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		14C0EFFB2816A50E00E6C2B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14FA4A9C282117980002ECB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+HomeKit.swift"; sourceTree = "<group>"; };
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
@@ -184,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */,
 				14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */,
 				145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */,
 			);
@@ -222,6 +239,10 @@
 				142DE07427E8B80F006CBAFE /* Assets.xcassets */,
 				142DE0B027E8BAC2006CBAFE /* macOSBridge-Bridging-Header.h */,
 				142DE0DC27E8BB9C006CBAFE /* macOSBridge-Info.plist */,
+				14124FD22ADBA7FA00DF6CE4 /* Products.plist */,
+				1402D2A92AC1880B00B702E4 /* Dummy.storekit */,
+				14822EF42AECE78A00DE4DBA /* Japan.storekit */,
+				14822EF52AECEC2E00DE4DBA /* US.storekit */,
 			);
 			path = HomeConMenu;
 			sourceTree = "<group>";
@@ -246,6 +267,7 @@
 				14ABD6DB2AAC87A30023F71D /* WebViewController.swift */,
 				142DE09B27E8B9C3006CBAFE /* HomeKitExtension.swift */,
 				142DE06D27E8B80E006CBAFE /* SceneDelegate.swift */,
+				14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -273,26 +295,10 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				14A06A462811664000BC41BD /* CameraMenuItem.swift */,
-				14A06A482811664000BC41BD /* LightbulbMenuItem.swift */,
-				14A06A472811664000BC41BD /* LightColorMenuItem.swift */,
-				14A06A492811664000BC41BD /* MenuItemFromUUID.swift */,
-				14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */,
-				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
-				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
-				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
-				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
-				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
-				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
-				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
-				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
-				144C95DA2AAD89E800935105 /* GeneralPane.xib */,
-				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
-				149F7FC12AB131D100D1621D /* ShortcutInfo.swift */,
-				144C95D72AAD89E200935105 /* ShortcutsPane.xib */,
-				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
-				144C95D42AAD89D800935105 /* InformationPane.xib */,
+				1491F4E12AD258FD00602AD8 /* MenuItem */,
+				1491F4E22AD2591800602AD8 /* Preferences */,
+				1491F4E32AD2593800602AD8 /* PreferencePanes */,
 				14ABD6DF2AACB6920023F71D /* LaunchViewController.swift */,
 				144C95CF2AAD891800935105 /* LaunchView.xib */,
 				144C95E62AADC51200935105 /* LaunchWindowController.swift */,
@@ -307,9 +313,52 @@
 				144C95E42AADBD1500935105 /* Acknowledgments.html */,
 				14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */,
 				14A839FE280FEE530083EE1D /* Main.storyboard */,
-				14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */,
+				1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1491F4E12AD258FD00602AD8 /* MenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				14A06A462811664000BC41BD /* CameraMenuItem.swift */,
+				14A06A482811664000BC41BD /* LightbulbMenuItem.swift */,
+				14A06A472811664000BC41BD /* LightColorMenuItem.swift */,
+				14A06A492811664000BC41BD /* MenuItemFromUUID.swift */,
+				14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */,
+				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
+				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
+				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+			);
+			path = MenuItem;
+			sourceTree = "<group>";
+		};
+		1491F4E22AD2591800602AD8 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				1432F26D2AAB544D00E1B9E9 /* SettingsPane.swift */,
+				1432F2712AAB544D00E1B9E9 /* SettingsWindowController.swift */,
+				1432F26B2AAB544D00E1B9E9 /* SettingsWindow.swift */,
+				1432F2702AAB544D00E1B9E9 /* SettingsTabViewController.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		1491F4E32AD2593800602AD8 /* PreferencePanes */ = {
+			isa = PBXGroup;
+			children = (
+				1432F26E2AAB544D00E1B9E9 /* GeneralPaneController.swift */,
+				144C95DA2AAD89E800935105 /* GeneralPane.xib */,
+				1432F26F2AAB544D00E1B9E9 /* ShortcutsPaneController.swift */,
+				149F7FC12AB131D100D1621D /* ShortcutInfo.swift */,
+				144C95D72AAD89E200935105 /* ShortcutsPane.xib */,
+				14ABD6D02AAC54120023F71D /* InformationPaneController.swift */,
+				144C95D42AAD89D800935105 /* InformationPane.xib */,
+				1491F4E42AD2599000602AD8 /* DonationPaneController.swift */,
+				1491F4EE2AD4E11600602AD8 /* DonationPane.xib */,
+				1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */,
+			);
+			path = PreferencePanes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +401,7 @@
 			packageProductDependencies = (
 				14746C4B2813C1BE00666682 /* ColorWheelPanelView */,
 				145E21F22AAA14B1005DF18F /* KeyboardShortcuts */,
+				142440D72ADC1FC300317DA6 /* LaunchAtLogin */,
 			);
 			productName = macOSBridge;
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
@@ -365,7 +415,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -389,6 +439,7 @@
 			packageReferences = (
 				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
 				145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
@@ -406,13 +457,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				144C95E82AADD95300935105 /* Acknowledgments.css in Resources */,
+				1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */,
 				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
 				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
+				14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */,
 				144C95D52AAD89E200935105 /* ShortcutsPane.xib in Resources */,
-				14C0EFF72816A50B00E6C2B2 /* Localizable.strings in Resources */,
+				1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
+				1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */,
 				144C95D22AAD89D800935105 /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
@@ -422,7 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14C0EFF82816A50B00E6C2B2 /* Localizable.strings in Resources */,
+				1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +499,7 @@
 				142DE0A327E8B9C3006CBAFE /* CameraViewController.swift in Sources */,
 				142DE0DB27E8BAF0006CBAFE /* InterfaceProtocols.swift in Sources */,
 				142DE0BD27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
+				14124FD52ADBBFC000DF6CE4 /* MonitoringNetworkState.swift in Sources */,
 				142DE06E27E8B80E006CBAFE /* SceneDelegate.swift in Sources */,
 				14FA4AA82825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
 				14FA4AB52827870F0002ECB8 /* Error.swift in Sources */,
@@ -462,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C627E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */,
 				14ABD6E02AACB6920023F71D /* LaunchViewController.swift in Sources */,
 				142DE0D927E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift in Sources */,
 				14A06A522811664800BC41BD /* LightColorMenuItem.swift in Sources */,
@@ -475,6 +531,7 @@
 				1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
 				1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */,
+				1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
@@ -512,7 +569,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95CE2AAD891800935105 /* Base */,
-				144C95D12AAD891D00935105 /* ja */,
+				1402D2992ABF3AC600B702E4 /* mul */,
 			);
 			name = LaunchView.xib;
 			sourceTree = "<group>";
@@ -521,7 +578,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D32AAD89D800935105 /* Base */,
-				144C95DD2AAD9D7900935105 /* ja */,
+				1402D29A2ABF3AC600B702E4 /* mul */,
 			);
 			name = InformationPane.xib;
 			sourceTree = "<group>";
@@ -530,7 +587,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D62AAD89E200935105 /* Base */,
-				144C95DF2AAD9D8100935105 /* ja */,
+				1402D29B2ABF3AC600B702E4 /* mul */,
 			);
 			name = ShortcutsPane.xib;
 			sourceTree = "<group>";
@@ -539,7 +596,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				144C95D92AAD89E800935105 /* Base */,
-				149F7FC02AB051D600D1621D /* ja */,
+				1402D29D2ABF3AC600B702E4 /* mul */,
 			);
 			name = GeneralPane.xib;
 			sourceTree = "<group>";
@@ -562,21 +619,22 @@
 			name = Acknowledgments.css;
 			sourceTree = "<group>";
 		};
+		1491F4EE2AD4E11600602AD8 /* DonationPane.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1491F4ED2AD4E11600602AD8 /* Base */,
+				1491F4EF2AD4E11600602AD8 /* mul */,
+			);
+			name = DonationPane.xib;
+			sourceTree = "<group>";
+		};
 		14A839FE280FEE530083EE1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				144C95CC2AAD88AB00935105 /* Base */,
+				1402D29C2ABF3AC600B702E4 /* mul */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		14C0EFFA2816A50B00E6C2B2 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14C0EFF92816A50B00E6C2B2 /* en */,
-				14C0EFFB2816A50E00E6C2B2 /* ja */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -619,6 +677,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -634,6 +693,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -680,6 +740,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -689,6 +750,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -709,7 +771,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 133;
+				CURRENT_PROJECT_VERSION = 149;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -727,7 +789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -751,7 +813,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 133;
+				CURRENT_PROJECT_VERSION = 149;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -769,7 +831,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -804,7 +866,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -840,7 +902,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 2.0.4;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.macOSBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -886,6 +948,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
@@ -905,6 +975,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		142440D72ADC1FC300317DA6 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
 		145E21F22AAA14B1005DF18F /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;

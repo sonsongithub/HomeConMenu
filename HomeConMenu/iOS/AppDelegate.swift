@@ -30,6 +30,8 @@ import HomeKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let monitor = MonitoringNetworkState()
 
     var baseManager: BaseManager?
 

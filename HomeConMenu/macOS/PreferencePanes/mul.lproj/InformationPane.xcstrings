@@ -1,0 +1,126 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0xY-yl-ENL.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Version:\"; ObjectID = \"0xY-yl-ENL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン:"
+          }
+        }
+      }
+    },
+    "1OJ-qY-yUk.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"3.0 (100)\"; ObjectID = \"1OJ-qY-yUk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "3.0 (100)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2.1.0(10)"
+          }
+        }
+      }
+    },
+    "e0K-az-LXZ.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Learn More\"; ObjectID = \"e0K-az-LXZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Learn More"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "詳細情報..."
+          }
+        }
+      }
+    },
+    "GRs-qi-tgr.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Source code:\"; ObjectID = \"GRs-qi-tgr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Source code:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソースコード:"
+          }
+        }
+      }
+    },
+    "Pvk-zR-jJh.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Acknowlegement:\"; ObjectID = \"Pvk-zR-jJh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Acknowlegement:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "謝辞:"
+          }
+        }
+      }
+    },
+    "sbA-Wg-xaJ.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Become a sponsor:\"; ObjectID = \"sbA-Wg-xaJ\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スポンサーになる:"
+          }
+        }
+      }
+    },
+    "XdS-KB-BdG.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open github.com\"; ObjectID = \"XdS-KB-BdG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open github.com"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "github.comを開く"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,8 +1,8 @@
 //
-//  InformationPaneController.swift
+//  SettingsPane.swift
 //  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2023/09/09.
+//  Created by Yuichi Yoshida on 2023/09/08.
 //
 //  MIT License
 //
@@ -25,33 +25,42 @@
 //  SOFTWARE.
 //
 
-import AppKit
-import WebKit
+import Foundation
 
-class InformationPaneController: NSViewController {
-    var mac2ios: mac2iOS?
-    @IBOutlet var versionField: NSTextField?
+enum SettingsPane: String, CaseIterable {
     
-    let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?.?.?"
-    let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
+    case general
+    case shortcuts
+    case information
+    case donation
     
-    @IBAction func openGithub(sender: Any?) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/sonsongithub/HomeConMenu")!)
-    }
-    
-    @IBAction func becomeSponsor(sender: Any?) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/sponsors/sonsongithub")!)
-    }
-    
-    @IBAction func openAcknowledgement(sender: Any?) {
-        if let mac2ios = mac2ios {
-            mac2ios.openAcknowledgement()
+    /// Localized label.
+    var label: String {
+        
+        switch self {
+        case .general:
+            return String(localized: "General")
+        case .shortcuts:
+            return String(localized: "Key Bindings")
+        case .information:
+            return String(localized: "Information")
+        case .donation:
+            return String(localized: "Donation")
         }
-        NSApp.activate(ignoringOtherApps: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        versionField?.stringValue = "\(version) (\(build))"
+    /// Symbol image name.
+    var symbolName: String {
+        
+        switch self {
+        case .general:
+            return "gearshape"
+        case .shortcuts:
+            return "keyboard"
+        case .information:
+            return "info.circle.fill"
+        case .donation:
+            return "heart"
+        }
     }
 }
