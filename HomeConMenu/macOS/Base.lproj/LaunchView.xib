@@ -82,7 +82,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="400" id="IJp-fg-igi"/>
                             </constraints>
-                            <textFieldCell key="cell" alignment="left" title="To use this application, go to Security &amp; Privacy settings in System Preferences and allow HomeConMenu to access HomeKit." id="wrg-Q9-ZTw">
+                            <textFieldCell key="cell" alignment="left" title="To use this application, go to Security &amp; Privacy settings in System Settings and allow HomeConMenu to access HomeKit." id="wrg-Q9-ZTw">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
