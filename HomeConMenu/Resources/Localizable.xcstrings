@@ -179,7 +179,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "何もありません。"
+            "value" : "何もありません"
           }
         }
       }
@@ -245,7 +245,7 @@
         }
       }
     },
-    "Remove all" : {
+    "Remove All" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {

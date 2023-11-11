@@ -41,7 +41,7 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
         alert.informativeText = NSLocalizedString("You will remove all key bindings settings. Are you sure to remove them?", comment:"")
         alert.alertStyle = .critical
         
-        alert.addButton(withTitle: NSLocalizedString("Remove all", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Remove All", comment: ""))
         alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
         
         let ret = alert.runModal()

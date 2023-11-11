@@ -58,8 +58,8 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="54O-O0-p2M">
-                            <rect key="frame" x="95" y="51" width="192" height="18"/>
-                            <buttonCell key="cell" type="check" title="Display duplicated services" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="stD-Gu-pED">
+                            <rect key="frame" x="95" y="51" width="181" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show duplicated services" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="stD-Gu-pED">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -80,8 +80,8 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NU1-eW-0mB">
-                            <rect key="frame" x="95" y="147" width="184" height="18"/>
-                            <buttonCell key="cell" type="check" title="Display &quot;Reload&quot; on menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tHP-Rs-wID">
+                            <rect key="frame" x="95" y="147" width="172" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show “Reload” on menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tHP-Rs-wID">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -100,8 +100,8 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E6F-8T-u6X">
-                            <rect key="frame" x="95" y="73" width="241" height="18"/>
-                            <buttonCell key="cell" type="check" title="Display &quot;Open Home.app&quot; on menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0bf-nM-uXN">
+                            <rect key="frame" x="95" y="73" width="229" height="18"/>
+                            <buttonCell key="cell" type="check" title="Show “Open Home.app” on menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0bf-nM-uXN">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
