@@ -85,15 +85,15 @@ class ShortcutsPaneController: NSViewController, NSTableViewDataSource, NSTableV
                     view.removeFromSuperview()
                 }
                 if let r = KeyboardShortcuts.Name(rawValue: shortcutLabels[row].uniqueIdentifier.uuidString) {
-                    let recoder = KeyboardShortcuts.RecorderCocoa(for: r)
-                    view.addSubview(recoder)
+                    let recorder = KeyboardShortcuts.RecorderCocoa(for: r)
+                    view.addSubview(recorder)
                     view.translatesAutoresizingMaskIntoConstraints = false
-                    recoder.translatesAutoresizingMaskIntoConstraints = false
-                    view.trailingAnchor.constraint(equalTo: recoder.trailingAnchor, constant: 0).isActive = true
-                    recoder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-                    recoder.heightAnchor.constraint(equalToConstant: 20).isActive = true
-                    view.centerYAnchor.constraint(equalTo: recoder.centerYAnchor).isActive = true
-                    recoder.bezelStyle = .squareBezel
+                    recorder.translatesAutoresizingMaskIntoConstraints = false
+                    view.trailingAnchor.constraint(equalTo: recorder.trailingAnchor, constant: 0).isActive = true
+                    recorder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+                    recorder.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                    view.centerYAnchor.constraint(equalTo: recorder.centerYAnchor).isActive = true
+                    recorder.bezelStyle = .squareBezel
                 }
             }
             return view
