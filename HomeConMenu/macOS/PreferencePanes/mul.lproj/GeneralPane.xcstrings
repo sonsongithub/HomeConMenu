@@ -2,19 +2,19 @@
   "sourceLanguage" : "en",
   "strings" : {
     "0bf-nM-uXN.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Display \\\"Open Home.app\\\" on menu\"; ObjectID = \"0bf-nM-uXN\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show “Open Home.app” on menu\"; ObjectID = \"0bf-nM-uXN\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Display \"Open Home.app\" on menu"
+            "value" : "Show “Open Home.app” on menu"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"ホームアプリを開く\"メニューを表示"
+            "value" : "“ホームアプリを開く”メニューを表示"
           }
         }
       }
@@ -128,13 +128,13 @@
       }
     },
     "stD-Gu-pED.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Display duplicated services\"; ObjectID = \"stD-Gu-pED\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show duplicated services\"; ObjectID = \"stD-Gu-pED\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Display duplicated services"
+            "value" : "Show duplicated services"
           }
         },
         "ja" : {
@@ -146,13 +146,13 @@
       }
     },
     "tHP-Rs-wID.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Display \\\"Reload\\\" on menu\"; ObjectID = \"tHP-Rs-wID\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show “Reload” on menu\"; ObjectID = \"tHP-Rs-wID\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Display \"Reload\" on menu"
+            "value" : "Show “Reload” on menu"
           }
         },
         "ja" : {
