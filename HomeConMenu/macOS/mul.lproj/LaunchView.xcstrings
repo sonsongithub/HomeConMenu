@@ -92,19 +92,19 @@
       }
     },
     "wrg-Q9-ZTw.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"To use this application, go to Security & Privacy settings in System Preferences and allow HomeConMenu to access HomeKit.\"; ObjectID = \"wrg-Q9-ZTw\";",
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"To use this application, go to Security & Privacy settings in System Settings and allow HomeConMenu to access HomeKit.\"; ObjectID = \"wrg-Q9-ZTw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "To use this application, go to Security & Privacy settings in System Preferences and allow HomeConMenu to access HomeKit."
+            "value" : "To use this application, go to Security & Privacy settings in System Settings and allow HomeConMenu to access HomeKit."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム環境設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。"
+            "value" : "HomeConMenuでホームデバイスを制御するにはHomeKitへのアクセス権が必要です。システム設定の「セキュリティとプライバシー」からHomeConMenuにアクセス権を設定してください。"
           }
         }
       }

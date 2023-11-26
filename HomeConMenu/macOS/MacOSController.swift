@@ -64,11 +64,11 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     func openHomeKitAuthenticationError() -> Bool {
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
-        alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Preferences.", comment:"")
+        alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Settings.", comment:"")
         alert.alertStyle = .informational
 
         alert.addButton(withTitle: "OK")
-        alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Open System Settings", comment: ""))
         
         let ret = alert.runModal()
         switch ret {
@@ -273,7 +273,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(abouItem)
         
         let prefItem = NSMenuItem()
-        prefItem.title = NSLocalizedString("Preferences…", comment: "")
+        prefItem.title = NSLocalizedString("Settings…", comment: "")
         prefItem.action = #selector(MacOSController.preferences(sender:))
         prefItem.target = self
         mainMenu.addItem(prefItem)

@@ -14,11 +14,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="360"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box boxType="custom" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="JXN-L3-Ptt">
-                    <rect key="frame" x="20" y="20" width="560" height="320"/>
+                    <rect key="frame" x="20" y="30" width="560" height="320"/>
                     <view key="contentView" id="qmr-R8-yVo">
                         <rect key="frame" x="1" y="1" width="558" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,13 +40,13 @@
                                 </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg1-cf-gWD">
-                                <rect key="frame" x="0.0" y="24" width="558" height="266"/>
+                                <rect key="frame" x="0.0" y="24" width="558" height="126"/>
                                 <clipView key="contentView" id="S22-kk-7Fa">
-                                    <rect key="frame" x="1" y="1" width="556" height="264"/>
+                                    <rect key="frame" x="1" y="1" width="556" height="124"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="6Dt-0r-HGC" viewBased="YES" id="XvQ-8k-dq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="556" height="236"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="96"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -127,7 +127,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8sF-Tj-qAj">
-                                    <rect key="frame" x="1" y="107" width="556" height="16"/>
+                                    <rect key="frame" x="1" y="165" width="556" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Jhu-mc-1KY">
@@ -158,11 +158,12 @@
                     </constraints>
                     <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                     <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    <font key="titleFont" metaFont="smallSystem"/>
                 </box>
             </subviews>
             <constraints>
                 <constraint firstItem="JXN-L3-Ptt" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="Hsb-T8-dSy"/>
-                <constraint firstAttribute="bottom" secondItem="JXN-L3-Ptt" secondAttribute="bottom" constant="20" symbolic="YES" id="pNg-e9-KM0"/>
+                <constraint firstAttribute="bottom" secondItem="JXN-L3-Ptt" secondAttribute="bottom" constant="30" id="pNg-e9-KM0"/>
                 <constraint firstAttribute="trailing" secondItem="JXN-L3-Ptt" secondAttribute="trailing" constant="20" symbolic="YES" id="u48-KT-oIk"/>
                 <constraint firstItem="JXN-L3-Ptt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="yNc-qG-UFH"/>
             </constraints>

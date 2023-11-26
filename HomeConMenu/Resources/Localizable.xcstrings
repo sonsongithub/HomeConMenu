@@ -21,12 +21,12 @@
         }
       }
     },
-    "Allow HomeConMenu to access HomeKit in System Preferences." : {
+    "Allow HomeConMenu to access HomeKit in System Settings." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "システム環境設定を使ってHomeConMenuにHomeKitへのアクセス権を設定してください。"
+            "value" : "システム設定を使ってHomeConMenuにHomeKitへのアクセス権を設定してください。"
           }
         }
       }
@@ -179,7 +179,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "何もありません。"
+            "value" : "何もありません"
           }
         }
       }
@@ -205,33 +205,12 @@
         }
       }
     },
-    "Open System Preferences" : {
+    "Open System Settings" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "システム環境設定を開く"
-          }
-        }
-      }
-    },
-    "Preferences" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "環境設定"
-          }
-        }
-      }
-    },
-    "Preferences…" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "環境設定…"
+            "value" : "システム設定を開く"
           }
         }
       }
@@ -266,7 +245,7 @@
         }
       }
     },
-    "Remove all" : {
+    "Remove All" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -282,6 +261,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "シーン"
+          }
+        }
+      }
+    },
+    "Settings…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定…"
           }
         }
       }
