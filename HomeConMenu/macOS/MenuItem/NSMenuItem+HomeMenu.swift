@@ -65,6 +65,11 @@ extension NSMenuItem {
         }
         return []
     }
+    
+    func cancelKeyboardShortcut() {
+        self.setShortcut(nil)
+        self.setShortcut(for: nil)
+    }
 }
 
 extension NSMenu {

@@ -55,8 +55,8 @@
 		144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */ = {isa = PBXBuildFile; fileRef = 144C95E42AADBD1500935105 /* Acknowledgments.html */; };
 		144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C95E62AADC51200935105 /* LaunchWindowController.swift */; };
 		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
-		145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 145E21F22AAA14B1005DF18F /* KeyboardShortcuts */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
+		1487AC502B12289400167E13 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 1487AC4F2B12289400167E13 /* KeyboardShortcuts */; };
 		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
 		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
 		1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1491F4EE2AD4E11600602AD8 /* DonationPane.xib */; };
@@ -202,7 +202,7 @@
 			files = (
 				142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */,
 				14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */,
-				145E21F32AAA14B1005DF18F /* KeyboardShortcuts in Frameworks */,
+				1487AC502B12289400167E13 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +400,8 @@
 			name = macOSBridge;
 			packageProductDependencies = (
 				14746C4B2813C1BE00666682 /* ColorWheelPanelView */,
-				145E21F22AAA14B1005DF18F /* KeyboardShortcuts */,
 				142440D72ADC1FC300317DA6 /* LaunchAtLogin */,
+				1487AC4F2B12289400167E13 /* KeyboardShortcuts */,
 			);
 			productName = macOSBridge;
 			productReference = 142DE09327E8B928006CBAFE /* macOSBridge.bundle */;
@@ -438,8 +438,8 @@
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
 				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
-				145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
@@ -956,19 +956,19 @@
 				kind = branch;
 			};
 		};
-		145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sonsongithub/ColorWheelPanelView";
 			requirement = {
 				branch = main;
+				kind = branch;
+			};
+		};
+		1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sonsongithub/KeyboardShortcuts.git";
+			requirement = {
+				branch = "fix-menuitem-leak";
 				kind = branch;
 			};
 		};
@@ -980,15 +980,15 @@
 			package = 142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
-		145E21F22AAA14B1005DF18F /* KeyboardShortcuts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 145E21F12AAA14B1005DF18F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
-			productName = KeyboardShortcuts;
-		};
 		14746C4B2813C1BE00666682 /* ColorWheelPanelView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */;
 			productName = ColorWheelPanelView;
+		};
+		1487AC4F2B12289400167E13 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -325,6 +325,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     func reloadAllMenuItems() {
+        KeyboardShortcuts.removeAllHandlers()
+        NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
+
         mainMenu.removeAllItems()
         reloadHomeKitMenuItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()
