@@ -60,6 +60,7 @@ final class SettingsWindowController: NSWindowController {
         (self.contentViewController as? NSTabViewController)?.selectedTabViewItemIndex = index
         
         self.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
 
