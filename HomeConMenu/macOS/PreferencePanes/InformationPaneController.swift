@@ -48,6 +48,10 @@ class InformationPaneController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+#if DEBUG
+        versionField?.stringValue = "\(version) (\(build)) Debug"
+#else
         versionField?.stringValue = "\(version) (\(build))"
+#endif
     }
 }

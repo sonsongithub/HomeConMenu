@@ -31,7 +31,7 @@ class DummyViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        print("\(self) - \(#function)")
+//        print("\(self) - \(#function)")
     }
     
     static func windowScenesIncludingThisClass() -> [UIWindowScene] {

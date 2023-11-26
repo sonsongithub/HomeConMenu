@@ -339,8 +339,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     required override init() {
         super.init()
-        Logger.app.error("reloadHome")
-        print("\(self).\(#function)")
+        
         if let button = self.statusItem.button {
             button.image = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil)
         }
