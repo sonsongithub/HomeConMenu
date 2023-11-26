@@ -12,10 +12,10 @@
     {
       "identity" : "keyboardshortcuts",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/KeyboardShortcuts",
+      "location" : "https://github.com/sonsongithub/KeyboardShortcuts.git",
       "state" : {
-        "revision" : "b878f8132be59576fc87e39405b1914eff9f55d3",
-        "version" : "1.14.1"
+        "branch" : "fix-menuitem-leak",
+        "revision" : "90228341f19f0a4590d7856a2d588a8f8e3d00ff"
       }
     },
     {
