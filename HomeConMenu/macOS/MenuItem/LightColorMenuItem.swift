@@ -172,6 +172,7 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
                 guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double else { throw HomeConMenuError.characteristicTypeError }
                 self.color = NSColor(hue: 1.0, saturation: 0.0, brightness: brightness/100.0, alpha: 1.0)
             } catch {
+                Logger.app.error("Can not get brightness from characteristic.")
                 Logger.app.error("\(error.localizedDescription)")
             }
         }
@@ -262,6 +263,7 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
                 view.saturation = saturation / 100.0
                 view.brightness = brightness / 100.0
             } catch {
+                Logger.app.error("Can not get brightness, hue, staturation from characteristic.")
                 Logger.app.error("\(error.localizedDescription)")
             }
         }

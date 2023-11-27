@@ -89,7 +89,7 @@ class DonationPaneController: NSViewController {
                 case .success(.verified(_)):
                     self.showThankyou()
                 case let .success(.unverified(_, error)):
-                    Logger.app.info("\(error.localizedDescription)")
+                    Logger.app.error("\(error.localizedDescription)")
                     self.showThankyou()
                 case .pending:
                     let alert = NSAlert()
@@ -150,6 +150,7 @@ class DonationPaneController: NSViewController {
                 self.indicator?.isHidden = true
                 self.update()
             } catch {
+                Logger.app.error("App Store Kit error.")
                 Logger.app.error("Failed product request from the App Store server: \(error)")
                 let errorMessage = String(format: NSLocalizedString("App Store Error: %@", comment: ""), error.localizedDescription)
                 self.errorMessage?.stringValue = errorMessage

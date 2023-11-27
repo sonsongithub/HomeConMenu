@@ -168,6 +168,7 @@ extension HMAccessory {
                             try await chara.enableNotification(true)
                         }
                     } catch {
+                        Logger.homeKit.error("Can not enable notification")
                         Logger.homeKit.error("\(error.localizedDescription)")
                     }
                 }
@@ -182,6 +183,7 @@ extension HMAccessory {
                         }
                     } catch {
                         DispatchQueue.main.async {
+                            Logger.homeKit.error("Can not read value")
                             Logger.homeKit.error("\(error.localizedDescription)")
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                                 delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)

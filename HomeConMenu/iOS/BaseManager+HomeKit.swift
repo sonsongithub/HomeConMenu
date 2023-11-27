@@ -31,87 +31,105 @@ import os
 
 extension BaseManager {
     
-    // service
-    func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService) {
-        Logger.homeKit.info(#function)
-        reloadAllItems()
-    }
+    // MARK: HMHomeDelegate - add
     
-    func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
+    func home(_ home: HMHome, didAdd accessory: HMAccessory) {
+        Logger.homeKit.info("home:didAdd:accessory")
         reloadAllItems()
     }
     
     func home(_ home: HMHome, didAdd actionSet: HMActionSet) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didRemove room: HMRoom) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didRemove group: HMServiceGroup) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didRemove service: HMService, from group: HMServiceGroup) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didUpdateNameFor group: HMServiceGroup) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("home:didAdd:actionSet")
         reloadAllItems()
     }
     
     func home(_ home: HMHome, didAdd room: HMRoom) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("home:didAdd:room")
         reloadAllItems()
     }
     
+    // MARK: HMHomeDelegate - remove
+    
+    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
+        Logger.homeKit.info("home:didRemove:accessory")
+        reloadAllItems()
+    }
+    
+    func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
+        Logger.homeKit.info("home:didRemove:actionSet")
+        reloadAllItems()
+    }
+    
+    func home(_ home: HMHome, didRemove room: HMRoom) {
+        Logger.homeKit.info("home:didRemove:room")
+        reloadAllItems()
+    }
+    
+    func home(_ home: HMHome, didRemove group: HMServiceGroup) {
+        Logger.homeKit.info("home:didRemove:group")
+        reloadAllItems()
+    }
+    
+    func home(_ home: HMHome, didRemove service: HMService, from group: HMServiceGroup) {
+        Logger.homeKit.info("home:didRemove:from:")
+        reloadAllItems()
+    }
+    
+    // MARK: HMHomeDelegate - update
+    
+    func home(_ home: HMHome, didUpdateNameFor group: HMServiceGroup) {
+        Logger.homeKit.info("home:didUpdateNameFor:group")
+        reloadAllItems()
+    }
+    
+    func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
+        Logger.homeKit.info("home:didUpdateNameFor:room")
+        reloadAllItems()
+    }
+    
+    // MARK: HMAccessoryDelegate
+    
     func accessoryDidUpdateServices(_ accessory: HMAccessory) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("accessoryDidUpdateServices:")
+        reloadAllItems()
+    }
+    
+    func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService) {
+        Logger.homeKit.info("accessory:didUpdateNameFor:")
         reloadAllItems()
     }
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("accessory:service:didUpdateValueFor:")
         guard let _ = self.accessories.first(where: { info in
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
         macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
     }
     
+    // MARK: HMHomeManagerDelegate
+    
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
+        Logger.homeKit.info("homeManager:didUpdate:")
         if status.contains(.restricted) {
-            Logger.app.error("HomeConMenu is not authorized to access HomeKit.")
+            Logger.homeKit.error("HomeConMenu is not authorized to access HomeKit.")
             _ = macOSController?.openHomeKitAuthenticationError()
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         } else {
-            Logger.app.info("HomeConMenu is authorized to access HomeKit.")
+            Logger.homeKit.info("HomeConMenu is authorized to access HomeKit.")
         }
         macOSController?.reloadAllMenuItems()
     }
     
-    func home(_ home: HMHome, didAdd accessory: HMAccessory) {
-        reloadAllItems()
-    }
-    
-    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
-        reloadAllItems()
-    }
-    
     func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("homeManagerDidUpdatePrimaryHome")
         reloadAllItems()
     }
     
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
-        Logger.homeKit.info(#function)
+        Logger.homeKit.info("homeManagerDidUpdateHomes")
         reloadAllItems()
     }
 }

@@ -62,6 +62,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     func openHomeKitAuthenticationError() -> Bool {
+        Logger.app.info("openHomeKitAuthenticationError")
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
         alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Settings.", comment:"")
@@ -225,6 +226,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             var buffer: [NSMenuItem] = []
             let roomNameItem = NSMenuItem()
             roomNameItem.title = room.name
+            
             roomNameItem.image = NSImage(systemSymbolName: "square.split.bottomrightquarter", accessibilityDescription: nil)
             
             for info in accessories {
@@ -391,7 +393,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func didAwakeSleep(notification: Notification) {
-        Logger.app.error("didAwakeSleep")
+        Logger.app.info("didAwakeSleep")
         iosListener?.reloadHomeKit()
     }
     

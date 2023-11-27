@@ -76,7 +76,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         
         image.lockFocus()
         guard let ctx = NSGraphicsContext.current?.cgContext else {
-            Logger.app.error("can not get NSGraphicsContext.")
+            Logger.app.error("Can not get NSGraphicsContext for createing icon.")
             return nil
         }
         
@@ -113,6 +113,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             self.image = createImage(check: check)
             self.target = check ? nil : self
         } catch {
+            Logger.app.error("Can not get action item status from characteristic.")
             Logger.app.error("\(error.localizedDescription)")
         }
     }

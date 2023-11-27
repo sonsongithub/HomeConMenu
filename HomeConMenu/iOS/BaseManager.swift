@@ -49,12 +49,12 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     @objc func didPathUpdate(notification: Notification) {
-        Logger.app.error("MonitoringNetworkState.didPathUpdateNotification")
+        Logger.app.info("MonitoringNetworkState.didPathUpdateNotification")
         reloadHome()
     }
     
     func reloadHome() {
-        Logger.app.error("reloadHome")
+        Logger.app.info("reloadHome")
         homeManager?.delegate = nil
         homeManager = HMHomeManager()
         homeManager?.delegate = self
@@ -91,7 +91,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func reloadAllItems() {
         guard let home = self.homeManager?.primaryHome else {
-            Logger.app.info("Primary home has not been found.")
+            Logger.app.error("Primary home has not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
@@ -107,6 +107,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
+        
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
         
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
@@ -139,6 +140,7 @@ extension BaseManager {
                     }
                 }
             } catch {
+                Logger.homeKit.error("Can not execute actionset")
                 Logger.homeKit.error("\(error.localizedDescription)")
             }
         }
@@ -153,6 +155,7 @@ extension BaseManager {
                    self.macOSController?.updateItems(of: uniqueIdentifier, value: characteristic.value as Any)
                }
            } catch {
+               Logger.homeKit.error("Can not read value")
                Logger.homeKit.error("\(error.localizedDescription)")
                DispatchQueue.main.async {
                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
@@ -170,6 +173,7 @@ extension BaseManager {
                     self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
                 }
             } catch {
+                Logger.homeKit.error("Can not write value")
                 Logger.homeKit.error("\(error.localizedDescription)")
                 DispatchQueue.main.async {
                     self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
