@@ -35,7 +35,7 @@
           "locale" : "en_US"
         },
         {
-          "description" : "開発者にコーヒーを寄付します",
+          "description" : "開発者にコーヒーを寄付する",
           "displayName" : "コーヒーをおごる",
           "locale" : "ja"
         }
@@ -55,7 +55,7 @@
           "locale" : "en_US"
         },
         {
-          "description" : "開発者に新しいデバイスを寄付します",
+          "description" : "開発者に新しいデバイスを寄付する",
           "displayName" : "新しいデバイスをおごる",
           "locale" : "ja"
         }
@@ -69,7 +69,7 @@
     "_applicationInternalID" : "1615397537",
     "_developerTeamID" : "JP866VWWSD",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 720169899.17567897,
+    "_lastSynchronizedDate" : 722652858.64629698,
     "_locale" : "ja",
     "_storefront" : "JPN",
     "_storeKitErrors" : [

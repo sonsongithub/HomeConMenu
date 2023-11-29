@@ -62,6 +62,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     func openHomeKitAuthenticationError() -> Bool {
+        Logger.app.info("openHomeKitAuthenticationError")
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
         alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Settings.", comment:"")
@@ -225,6 +226,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             var buffer: [NSMenuItem] = []
             let roomNameItem = NSMenuItem()
             roomNameItem.title = room.name
+            
             roomNameItem.image = NSImage(systemSymbolName: "square.split.bottomrightquarter", accessibilityDescription: nil)
             
             for info in accessories {
@@ -248,7 +250,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                     buffer.append(contentsOf: candidates)
                 }
             }
-            if buffer.count > 1 {
+            if buffer.count > 0 {
                 buffer = buffer.compactMap({ $0 as? MenuItemOrder })
                     .sorted(by: { lhs, rhs in
                         lhs.orderPriority > rhs.orderPriority
@@ -262,6 +264,45 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                 }
                 mainMenu.addItem(NSMenuItem.separator())
             }
+        }
+    }
+    
+    func reloadNoRoomAccessories(excludedServiceUUIDs: [UUID]) {
+        guard let accessories = self.iosListener?.accessories else { return }
+        guard let rooms = self.iosListener?.rooms else { return }
+        
+        let allowDuplicatingServices = UserDefaults.standard.bool(forKey: "allowDuplicatingServices")
+        
+        var noRoomAccessories: [NSMenuItem] = []
+        
+        let roomIdentifiers = rooms.compactMap({ $0.uniqueIdentifier })
+        for info in accessories {
+            
+            if let theRoom = info.room {
+                if roomIdentifiers.firstIndex(of: theRoom.uniqueIdentifier) == nil {
+                    var items: [NSMenuItem?] = []
+                    if allowDuplicatingServices {
+                        items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
+                        items.append(contentsOf: info.services.map { serviceInfo in
+                            NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
+                        }.flatMap({$0}))
+                    } else {
+                        items.append(CameraMenuItem(accessoryInfo: info, mac2ios: iosListener))
+                        items.append(contentsOf: info.services.filter({ !excludedServiceUUIDs.contains($0.uniqueIdentifier) })
+                            .map { serviceInfo in
+                            NSMenuItem.HomeMenus(serviceInfo: serviceInfo, mac2ios: iosListener)
+                        }.flatMap({$0}))
+                    }
+                    let candidates = items.compactMap({$0})
+                    noRoomAccessories.append(contentsOf: candidates)
+                }
+            }
+        }
+        if noRoomAccessories.count > 0 {
+            for menuItem in noRoomAccessories {
+                mainMenu.addItem(menuItem)
+            }
+            mainMenu.addItem(NSMenuItem.separator())
         }
     }
     
@@ -325,19 +366,22 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     func reloadAllMenuItems() {
+        KeyboardShortcuts.removeAllHandlers()
+        NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
+
         mainMenu.removeAllItems()
         reloadHomeKitMenuItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
+        reloadNoRoomAccessories(excludedServiceUUIDs: excludedServiceUUIDs)
         reloadServiceGroupMenuItem()
         reloadOtherItems()
     }
     
     required override init() {
         super.init()
-        Logger.app.error("reloadHome")
-        print("\(self).\(#function)")
+        
         if let button = self.statusItem.button {
             button.image = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil)
         }
@@ -349,7 +393,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func didAwakeSleep(notification: Notification) {
-        Logger.app.error("didAwakeSleep")
+        Logger.app.info("didAwakeSleep")
         iosListener?.reloadHomeKit()
     }
     
