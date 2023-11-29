@@ -27,7 +27,7 @@
                                 <rect key="frame" x="4" y="22" width="550" height="5"/>
                             </box>
                             <button toolTip="Add empty syntax" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psS-Io-EUn">
-                                <rect key="frame" x="12" y="-2" width="15.5" height="31"/>
+                                <rect key="frame" x="12" y="-2" width="14.5" height="31"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="trash" catalog="system" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Bfx-qG-Ybc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -40,13 +40,13 @@
                                 </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg1-cf-gWD">
-                                <rect key="frame" x="0.0" y="24" width="558" height="126"/>
+                                <rect key="frame" x="0.0" y="24" width="558" height="210"/>
                                 <clipView key="contentView" id="S22-kk-7Fa">
-                                    <rect key="frame" x="1" y="1" width="556" height="124"/>
+                                    <rect key="frame" x="1" y="1" width="556" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="6Dt-0r-HGC" viewBased="YES" id="XvQ-8k-dq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="556" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="180"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -127,7 +127,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8sF-Tj-qAj">
-                                    <rect key="frame" x="1" y="165" width="556" height="16"/>
+                                    <rect key="frame" x="1" y="249" width="556" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Jhu-mc-1KY">
@@ -158,7 +158,6 @@
                     </constraints>
                     <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                     <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    <font key="titleFont" metaFont="smallSystem"/>
                 </box>
             </subviews>
             <constraints>
@@ -171,7 +170,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="NSHomeTemplate" width="24" height="21"/>
+        <image name="NSHomeTemplate" width="24" height="20"/>
         <image name="trash" catalog="system" width="15" height="17"/>
     </resources>
 </document>
