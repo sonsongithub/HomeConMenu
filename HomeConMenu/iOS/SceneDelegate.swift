@@ -36,9 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     
         if let uniqueIdentifier = connectionOptions.userActivities.first?.userInfo?["uniqueIdentifier"] as? UUID {
-            guard let accesory = appDelegate.baseManager?.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
             
-            guard let cameraProfile = accesory.cameraProfiles?.first else { return }
+            guard let accessory = appDelegate.baseManager?.homeManager?.getAccessory(from: appDelegate.baseManager?.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
+            
+            guard let cameraProfile = accessory.cameraProfiles?.first else { return }
             
             let window = UIWindow(windowScene: windowScene)
             self.window = window
@@ -46,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = vc
             vc.cameraProfile = cameraProfile
             
-            windowScene.title = accesory.name
+            windowScene.title = accessory.name
             windowScene.userActivity = connectionOptions.userActivities.first
             
             self.window?.makeKeyAndVisible()

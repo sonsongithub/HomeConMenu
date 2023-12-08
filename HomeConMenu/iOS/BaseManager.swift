@@ -38,9 +38,23 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     var serviceGroups: [ServiceGroupInfoProtocol] = []
     var rooms: [RoomInfoProtocol] = []
     var actionSets: [ActionSetInfoProtocol] = []
+    var homes: [HomeInfoProtocol] = []
+    
+    var homeUniqueIdentifier: UUID? {
+        didSet {
+            UserDefaults.standard.set(homeUniqueIdentifier?.uuidString, forKey: "LastHomeUUID")
+        }
+    }
     
     override init() {
         super.init()
+        
+        if let lastHomeUUIDString = UserDefaults.standard.string(forKey: "LastHomeUUID") {
+            if let uuid = UUID(uuidString: lastHomeUUIDString) {
+                self.homeUniqueIdentifier = uuid
+            }
+        }
+        
         loadPlugin()
         homeManager = HMHomeManager()
         homeManager?.delegate = self
@@ -50,14 +64,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     @objc func didPathUpdate(notification: Notification) {
         Logger.app.info("MonitoringNetworkState.didPathUpdateNotification")
-        reloadHome()
-    }
-    
-    func reloadHome() {
-        Logger.app.info("reloadHome")
-        homeManager?.delegate = nil
-        homeManager = HMHomeManager()
-        homeManager?.delegate = self
+        rebootHomeManager()
     }
     
     func loadPlugin() {
@@ -89,21 +96,35 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         return writeActions.map({$0.targetValue as Any})
     }
     
-    func reloadAllItems() {
-        guard let home = self.homeManager?.primaryHome else {
-            Logger.app.error("Primary home has not been found.")
+    /// Reload all menu items
+    /// This method is called when the home manager has been updated.
+    /// Extract device and room information from HomeKit.
+    func fetchFromHomeKitAndReloadMenuExtra() {
+        
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else {
+            Logger.app.error("Any home have not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
             macOSController?.openNoHomeError()
-            macOSController?.reloadAllMenuItems()
+            macOSController?.reloadMenuExtra()
             return
         }
         home.delegate = self
         
+        if let tmpHome = homeManager?.usedHome(with: self.homeUniqueIdentifier) {
+            self.homeUniqueIdentifier = tmpHome.uniqueIdentifier
+        } else {
+            if let t = homeManager?.homes.first {
+                self.homeUniqueIdentifier = t.uniqueIdentifier
+            }
+        }
+        
 #if DEBUG
 //        home.dump()
 #endif
+        
+        homes = homeManager?.homes.map({ HomeInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }) ?? []
 
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
@@ -120,14 +141,14 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             // open launchview
             macOSController?.showLaunchView()
         }
-        macOSController?.reloadAllMenuItems()
+        macOSController?.reloadMenuExtra()
     }
 }
 
 extension BaseManager {
     
     func executeActionSet(uniqueIdentifier: UUID) {
-        guard let home = homeManager?.primaryHome else { return }
+        guard let home = homeManager?.usedHome(with: self.homeUniqueIdentifier) else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
         guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing.");return }
         
@@ -147,7 +168,7 @@ extension BaseManager {
     }
     
     func readCharacteristic(of uniqueIdentifier: UUID) {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
+        guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task {
            do {
                try await characteristic.readValue()
@@ -165,7 +186,7 @@ extension BaseManager {
     }
     
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
+        guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task.detached {
             do {
                 try await characteristic.writeValue(object)
@@ -183,7 +204,7 @@ extension BaseManager {
     }
     
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier)
+        guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier)
         else { throw HomeConMenuError.characteristicNotFound }
         guard characteristic.value != nil else { throw HomeConMenuError.characteristicValueNil }
         return characteristic.value as Any
@@ -211,8 +232,8 @@ extension BaseManager {
             }
         }
         
-        guard let accesory = self.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
-        guard let cameraProfile = accesory.cameraProfiles?.first else { return }
+        guard let accessory = self.homeManager?.getAccessory(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
+        guard let cameraProfile = accessory.cameraProfiles?.first else { return }
         guard cameraProfile.streamControl?.delegate == nil else { return }
         
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.openCamera")
@@ -223,9 +244,11 @@ extension BaseManager {
         self.macOSController?.bringToFront()
     }
     
-    func reloadHomeKit() {
-        Logger.app.info("reloadHomeKit")
-        reloadHome()
+    func rebootHomeManager() {
+        Logger.app.info("rebootHomeManager")
+        homeManager?.delegate = nil
+        homeManager = HMHomeManager()
+        homeManager?.delegate = self
     }
     
     func openAcknowledgement() {

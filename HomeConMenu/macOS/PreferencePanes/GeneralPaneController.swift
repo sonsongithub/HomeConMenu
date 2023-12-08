@@ -37,6 +37,7 @@ class GeneralPaneController: NSViewController {
     @IBOutlet var showHomeAppMenuItemButton: NSButton?
     @IBOutlet var allowDuplicatingServices: NSButton?
     @IBOutlet var useScenes: NSButton?
+    @IBOutlet var alwaysShowHomeItemOnMenu: NSButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,12 @@ class GeneralPaneController: NSViewController {
         } else {
             useScenes?.state = .off
         }
+        
+        if let value = UserDefaults.standard.object(forKey: "alwaysShowHomeItemOnMenu") as? Bool {
+            alwaysShowHomeItemOnMenu?.state = value ? .on : .off
+        } else {
+            alwaysShowHomeItemOnMenu?.state = .off
+        }
     }
     
     @IBAction func didChangeShowHomeAppMenuItemButton(sender: NSButton) {
@@ -100,4 +107,9 @@ class GeneralPaneController: NSViewController {
     @IBAction func didChangeUseScenes(sender: NSButton) {
         UserDefaults.standard.set(sender.state == .on, forKey: "useScenes")
     }
+    
+    @IBAction func didChangeAlwaysShowHomeItemOnMenu(sender: NSButton) {
+        UserDefaults.standard.set(sender.state == .on, forKey: "alwaysShowHomeItemOnMenu")
+    }
+    
 }

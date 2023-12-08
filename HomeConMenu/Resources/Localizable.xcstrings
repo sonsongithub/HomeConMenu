@@ -134,6 +134,9 @@
         }
       }
     },
+    "Home" : {
+      "comment" : "Selected home"
+    },
     "HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app." : {
       "localizations" : {
         "ja" : {

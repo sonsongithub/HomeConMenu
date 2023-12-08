@@ -55,6 +55,18 @@
         }
       }
     },
+    "GN6-XY-6R4.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Always Show \\\"Home\\\" item on menu\"; ObjectID = \"GN6-XY-6R4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Always Show \"Home\" item on menu"
+          }
+        }
+      }
+    },
     "LVi-Yv-OrG.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
       "extractionState" : "extracted_with_value",
