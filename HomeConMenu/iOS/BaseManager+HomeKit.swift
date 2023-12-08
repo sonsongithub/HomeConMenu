@@ -109,9 +109,9 @@ extension BaseManager {
     
     // MARK: HMHomeManagerDelegate
     
-    /// 初めて起動したとき，HomeKitへのAccessibilityが許可されておらず，確認ダイアログが出て，そのダイアログを操作した
-    /// あと，このメソッドが呼ばれる．そのダイアログでアクセスを許可しても，しなくてもこれが呼ばれる．
-    /// その後に，許可された場合，HMHomeManagerが動き，homeManagerDidUpdateHomesが呼ばれるようだ．
+    /// When invoked for the first time, this method is called after a confirmation dialog appears and the user interacts with the dialog because Accessibility to HomeKit is not allowed. 
+    /// This method is called whether or not the user grants access in the dialog.
+    /// If the user then grants access, HMHomeManager moves and homeManagerDidUpdateHomes is called.
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
         Logger.homeKit.info("homeManager:didUpdate:")
         if status.contains(.restricted) {

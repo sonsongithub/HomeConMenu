@@ -88,7 +88,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     }
     
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
-        guard let home = self.homeManager?.primaryHome else { throw HomeConMenuError.primaryHomeNotFound }
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else { throw HomeConMenuError.primaryHomeNotFound }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
         else { throw HomeConMenuError.actionSetNotFound }
         let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
