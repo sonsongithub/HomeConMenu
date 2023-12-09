@@ -56,4 +56,5 @@ public protocol mac2iOS: NSObjectProtocol {
     var actionSets: [ActionSetInfoProtocol] { get set }
     func openCamera(uniqueIdentifier: UUID)
     func executeActionSet(uniqueIdentifier: UUID)
+    func close(windows: [Any])
 }

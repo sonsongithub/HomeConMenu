@@ -376,17 +376,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     func reloadHomeMenuItems() {
         guard let homes = iosListener?.homes else { return }
         guard let homeUniqueIdentifier = iosListener?.homeUniqueIdentifier else { return }
-        
-        if homes.count > 1 {
-            // always
-        } else if homes.count == 1 {
-            // according to userdefaults
-            if !UserDefaults.standard.bool(forKey: "alwaysShowHomeItemOnMenu") {
-                return
-            }
-        } else {
-            return
-        }
+        guard homes.count > 1 || UserDefaults.standard.bool(forKey: "alwaysShowHomeItemOnMenu") else { return }
         
         var items: [NSMenuItem] = []
         
@@ -459,8 +449,20 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
-        
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
+    }
+    
+    @IBAction func windowWillClose(notification: Notification) {
+        if let window = notification.object as? NSWindow {
+            let name = "\(type(of :window))"
+            if name == "UINSWindow" {
+                let uiWindows = window.value(forKeyPath: "uiWindows") as? [Any] ?? []
+                Logger.app.info("will close UIWindow")
+                Logger.app.info("\(uiWindows)")
+                iosListener?.close(windows: uiWindows)
+            }
+        }
     }
     
     @IBAction func didAwakeSleep(notification: Notification) {

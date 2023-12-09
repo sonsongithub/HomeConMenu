@@ -26,12 +26,13 @@
 //
 
 import UIKit
+import os
 
 class DummyViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        print("\(self) - \(#function)")
+        Logger.app.info("DummyViewController - init")
     }
     
     static func windowScenesIncludingThisClass() -> [UIWindowScene] {
@@ -51,7 +52,7 @@ class DummyViewController: UIViewController {
     }
     
     deinit {
-        print("\(self) - \(#function)")
+        Logger.app.info("DummyViewController - deinit")
     }
     
 }

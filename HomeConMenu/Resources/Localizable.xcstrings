@@ -94,6 +94,7 @@
       }
     },
     "Failed product request from the App Store server: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

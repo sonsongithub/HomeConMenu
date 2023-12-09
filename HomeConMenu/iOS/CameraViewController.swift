@@ -28,11 +28,16 @@
 import Foundation
 import UIKit
 import HomeKit
+import os
 
 class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     
     var cameraView: HMCameraView?
     var cameraProfile: HMCameraProfile?
+    
+    deinit {
+        Logger.app.info("CameraViewController - deinit")
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         if let streamControl = cameraProfile?.streamControl {

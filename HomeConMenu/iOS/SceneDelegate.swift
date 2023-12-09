@@ -27,6 +27,7 @@
 
 import UIKit
 import SwiftUI
+import os
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -66,6 +67,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         windowScene.userActivity = connectionOptions.userActivities.first
 
         self.window?.makeKeyAndVisible()
+    }
+    
+    func forceCloseDummyViewController() {
+        let windowScenes = DummyViewController.windowScenesIncludingThisClass()
+        windowScenes.forEach { windowScene in
+            Logger.app.info("force close DummyViewController")
+            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+            windowScene.windows.forEach { window in
+                window.rootViewController = nil
+            }
+        }
+    }
+    
+    func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+        forceCloseDummyViewController()
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

@@ -30,7 +30,23 @@ import HomeKit
 import os
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
-
+    
+    func close(windows: [Any]) {
+        let uiWindows = windows.compactMap({ $0 as? UIWindow })
+        let candidateWindowScenes = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .filter({ $0.windows.count > 0 })
+        candidateWindowScenes.forEach { windowScene in
+            windowScene.windows.forEach { window in
+                if uiWindows.contains(where: { $0 == window }) {
+                    UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+                    window.rootViewController = nil
+                    Logger.app.info("close UIWindow(\(window)")
+                }
+            }
+        }
+    }
+    
     var homeManager: HMHomeManager?
     var macOSController: iOS2Mac?
     
@@ -48,25 +64,26 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     override init() {
         super.init()
-        
         if let lastHomeUUIDString = UserDefaults.standard.string(forKey: "LastHomeUUID") {
             if let uuid = UUID(uuidString: lastHomeUUIDString) {
                 self.homeUniqueIdentifier = uuid
             }
         }
-        
         loadPlugin()
         homeManager = HMHomeManager()
         homeManager?.delegate = self
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.didPathUpdate), name: MonitoringNetworkState.didPathUpdateNotification, object: nil)
     }
     
+    /// This method is called when network status is changed.
+    /// - Parameter notification: Notification
     @objc func didPathUpdate(notification: Notification) {
         Logger.app.info("MonitoringNetworkState.didPathUpdateNotification")
         rebootHomeManager()
     }
     
+    /// Load plugin
+    /// Load bundle file and attached to a property.
     func loadPlugin() {
         let bundleFile = "macOSBridge.bundle"
 
@@ -87,6 +104,9 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
+    /// Get value from service whose characteristic is to write value.
+    /// - Parameter uniqueIdentifier: UUID of the service.
+    /// - Returns: Array of values.
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
         guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else { throw HomeConMenuError.primaryHomeNotFound }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
@@ -96,9 +116,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         return writeActions.map({$0.targetValue as Any})
     }
     
-    /// Reload all menu items
+    /// Fetch informations of homes, rooms, accessories and services from HomeKit and send a request to macOS module.
     /// This method is called when the home manager has been updated.
-    /// Extract device and room information from HomeKit.
     func fetchFromHomeKitAndReloadMenuExtra() {
         
         guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else {
@@ -112,6 +131,7 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         }
         home.delegate = self
         
+        // update uniqueidentifier of home.
         if let tmpHome = homeManager?.usedHome(with: self.homeUniqueIdentifier) {
             self.homeUniqueIdentifier = tmpHome.uniqueIdentifier
         } else {
@@ -119,18 +139,13 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
                 self.homeUniqueIdentifier = t.uniqueIdentifier
             }
         }
-        
 #if DEBUG
 //        home.dump()
 #endif
-        
         homes = homeManager?.homes.map({ HomeInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }) ?? []
-
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
-        
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
         
         if accessories.count == 0 {
@@ -147,6 +162,8 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
 
 extension BaseManager {
     
+    /// Execute action set whose unique identifier is specified by `uniqueIdentifier`.
+    /// - Parameter uniqueIdentifier: UUID of the action set.
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.usedHome(with: self.homeUniqueIdentifier) else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
@@ -161,12 +178,14 @@ extension BaseManager {
                     }
                 }
             } catch {
-                Logger.homeKit.error("Can not execute actionset")
-                Logger.homeKit.error("\(error.localizedDescription)")
+                Logger.homeKit.error("Can not execute actionset - \(error.localizedDescription)")
             }
         }
     }
     
+    /// Request to read value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
+    /// Reading value is not execute synchronously.
+    /// - Parameter uniqueIdentifier: UUID of the characteristic.
     func readCharacteristic(of uniqueIdentifier: UUID) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task {
@@ -176,8 +195,7 @@ extension BaseManager {
                    self.macOSController?.updateItems(of: uniqueIdentifier, value: characteristic.value as Any)
                }
            } catch {
-               Logger.homeKit.error("Can not read value")
-               Logger.homeKit.error("\(error.localizedDescription)")
+               Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                DispatchQueue.main.async {
                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
                }
@@ -185,6 +203,9 @@ extension BaseManager {
         }
     }
     
+    /// Request to write value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
+    /// - Parameters: uniqueIdentifier: UUID of the characteristic.
+    /// - Parameters: object: Value to write.
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task.detached {
@@ -194,8 +215,7 @@ extension BaseManager {
                     self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
                 }
             } catch {
-                Logger.homeKit.error("Can not write value")
-                Logger.homeKit.error("\(error.localizedDescription)")
+                Logger.homeKit.error("Can not write value - \(error.localizedDescription)")
                 DispatchQueue.main.async {
                     self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
                 }
@@ -203,6 +223,9 @@ extension BaseManager {
         }
     }
     
+    /// Return value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
+    /// - Parameter uniqueIdentifier: UUID of the characteristic.
+    /// - Returns: Value of the characteristic.
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier)
         else { throw HomeConMenuError.characteristicNotFound }
@@ -210,28 +233,7 @@ extension BaseManager {
         return characteristic.value as Any
     }
     
-    func closeDummyViewController() {
-        let windowScenes = DummyViewController.windowScenesIncludingThisClass()
-        windowScenes.forEach { windowScene in
-            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
-            windowScene.windows.forEach { window in
-                window.rootViewController = nil
-            }
-        }
-    }
-    
     func openCamera(uniqueIdentifier: UUID) {
-        closeDummyViewController()
-        
-        let windowScenes = CameraViewController.windowScenesIncludingThisClass()
-        
-        windowScenes.forEach { windowScene in
-            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
-            windowScene.windows.forEach { window in
-                window.rootViewController = nil
-            }
-        }
-        
         guard let accessory = self.homeManager?.getAccessory(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         guard let cameraProfile = accessory.cameraProfiles?.first else { return }
         guard cameraProfile.streamControl?.delegate == nil else { return }
@@ -252,8 +254,6 @@ extension BaseManager {
     }
     
     func openAcknowledgement() {
-        
-        closeDummyViewController()
         
         let windowScenes = WebViewController.windowScenesIncludingThisClass()
         
