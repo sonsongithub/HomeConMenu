@@ -33,12 +33,12 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
     func close(windows: [Any]) {
         let uiWindows = windows.compactMap({ $0 as? UIWindow })
-        let candidateWindowScenes = UIApplication.shared.connectedScenes
+        UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .filter({ $0.windows.count > 0 })
-        candidateWindowScenes.forEach { windowScene in
-            windowScene.windows.forEach { window in
-                if uiWindows.contains(where: { $0 == window }) {
+            .forEach { windowScene in
+                windowScene.windows.forEach { window in
+                    if uiWindows.contains(where: { $0 == window }) {
                     UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
                     window.rootViewController = nil
                     Logger.app.info("close UIWindow(\(window)")
@@ -254,16 +254,9 @@ extension BaseManager {
     }
     
     func openAcknowledgement() {
-        
-        let windowScenes = WebViewController.windowScenesIncludingThisClass()
-        
-        if windowScenes.count == 0 {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.Acknowledgement")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
-        }
+        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.Acknowledgement")
+        userActivity.title = "default"
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
         self.macOSController?.bringToFront()
     }
 }

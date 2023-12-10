@@ -35,6 +35,15 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     var cameraView: HMCameraView?
     var cameraProfile: HMCameraProfile?
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        Logger.app.info("CameraViewController - init")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     deinit {
         Logger.app.info("CameraViewController - deinit")
     }

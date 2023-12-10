@@ -39,6 +39,7 @@ class WebViewController: UIViewController {
     }
     
     init(fileURL: URL) {
+        Logger.app.info("WebViewController - init")
         self.fileURL = fileURL
         super.init(nibName: nil, bundle: nil)
     }
