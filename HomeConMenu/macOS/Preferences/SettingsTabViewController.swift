@@ -34,7 +34,7 @@ final class SettingsTabViewController: NSTabViewController {
     override var selectedTabViewItemIndex: Int {
         
         didSet {
-            if self.isViewLoaded {  // avoid storing initial state
+            if self.isViewLoaded {
                 UserDefaults.standard.set(self.tabViewItems[selectedTabViewItemIndex].identifier, forKey: "lastSettingsPaneIdentifier")
             }
         }
@@ -46,21 +46,16 @@ final class SettingsTabViewController: NSTabViewController {
         
         // select last used pane
         if let identifier = UserDefaults.standard.string(forKey: "lastSettingsPaneIdentifier"), 
-           let index = self.tabViewItems.firstIndex(where: { $0.identifier as? String == identifier })
-        {
+           let index = self.tabViewItems.firstIndex(where: { $0.identifier as? String == identifier }) {
             self.selectedTabViewItemIndex = index
         }
     }
     
-    
     override func viewWillAppear() {
-        
         super.viewWillAppear()
-        
         self.view.window!.title = self.tabViewItems[self.selectedTabViewItemIndex].label
     }
     
-
     override func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?) {
         
         super.tabView(tabView, willSelect: tabViewItem)

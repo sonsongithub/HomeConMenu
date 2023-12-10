@@ -1,8 +1,8 @@
 //
-//  SettingsWindow.swift
+//  HomeSelectMenuItem.swift
 //  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2023/09/08.
+//  Created by Yuichi Yoshida on 2023/12/10.
 //
 //  MIT License
 //
@@ -25,19 +25,18 @@
 //  SOFTWARE.
 //
 
+import Foundation
 import AppKit
 
-final class SettingsWindow: NSPanel {
+class HomeSelectMenuItem: NSMenuItem {
+    let uniqueIdentifier: UUID
     
-    // MARK: Panel Methods
+    init(uniqueIdentifier: UUID) {
+        self.uniqueIdentifier = uniqueIdentifier
+        super.init(title: "", action: nil, keyEquivalent: "")
+    }
     
-    /// disable "Hide Toolbar" menu item
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        switch menuItem.action {
-            case #selector(toggleToolbarShown):
-                return false
-            default:
-                return super.validateMenuItem(menuItem)
-        }
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

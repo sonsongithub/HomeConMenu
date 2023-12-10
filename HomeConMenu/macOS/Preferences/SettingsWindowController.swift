@@ -29,7 +29,6 @@ import Foundation
 import AppKit
 
 final class SettingsWindowController: NSWindowController {
-    // MARK: Lifecycle
     
     var settingsTabViewController: SettingsTabViewController?
     
@@ -63,7 +62,6 @@ final class SettingsWindowController: NSWindowController {
         NSApp.activate(ignoringOtherApps: true)
     }
 }
-
 
 // MARK: -
 

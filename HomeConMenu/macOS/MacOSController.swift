@@ -30,19 +30,6 @@ import AppKit
 import os
 import KeyboardShortcuts
 
-class HomeSelectMenu: NSMenuItem {
-    let uniqueIdentifier: UUID
-    
-    init(uniqueIdentifier: UUID) {
-        self.uniqueIdentifier = uniqueIdentifier
-        super.init(title: "", action: nil, keyEquivalent: "")
-    }
-    
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     let mainMenu = NSMenu()
@@ -51,6 +38,21 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     lazy var settingsWindowController = SettingsWindowController()
     lazy var launchWindowController = LaunchWindowController()
+    
+    required override init() {
+        super.init()
+        
+        if let button = self.statusItem.button {
+            button.image = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil)
+        }
+        self.statusItem.menu = mainMenu
+        mainMenu.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
+    }
+    
+    // MARK: NSMenuDelegate
     
     func menuWillOpen(_ menu: NSMenu) {
         let items = NSMenu.getSubItems(menu: menu)
@@ -64,133 +66,39 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             iosListener?.readCharacteristic(of: uniqueIdentifider)
         }
     }
-    
-    func openNoHomeError() {
-        let alert = NSAlert()
-        alert.messageText = NSLocalizedString("HomeKit error", comment: "")
-        alert.informativeText = NSLocalizedString("HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app.", comment:"")
-        alert.alertStyle = .informational
-        alert.addButton(withTitle: "OK")
-        _ = alert.runModal()
-    }
-    
-    func openHomeKitAuthenticationError() -> Bool {
-        Logger.app.info("openHomeKitAuthenticationError")
-        let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Failed to access HomeKit because of your privacy settings.", comment: "")
-        alert.informativeText = NSLocalizedString("Allow HomeConMenu to access HomeKit in System Settings.", comment:"")
-        alert.alertStyle = .informational
 
-        alert.addButton(withTitle: "OK")
-        alert.addButton(withTitle: NSLocalizedString("Open System Settings", comment: ""))
+    /// Collect and returns a collection of ShortcutInfo that is fetched from HomeKit.
+    /// The returning ShortcutInfo array is passed to SettingsViewController.
+    /// - Returns: ShortcutInfo array
+    func shortcuts() -> [ShortcutInfo] {
         
-        let ret = alert.runModal()
-        switch ret {
-        case .alertSecondButtonReturn:
-            Logger.app.info("Open System Preferences.app")
-            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_HomeKit") {
-                NSWorkspace.shared.open(url)
-            }
-            return true
-        default:
-            Logger.app.info("Does not open System Preferences.app")
-            return false
-        }
-    }
-    
-    func bringToFront() {
-        NSApp.activate(ignoringOtherApps: true)
-    }
-    
-    func centeringWindows() {
-        for window in NSApp.windows {
-            window.center()
-        }
-    }
-    
-    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool) {
-        let items = NSMenu.getSubItems(menu: mainMenu)
-        
-        let candidates = items.compactMap({ item in
-            item as? MenuItemFromUUID
-        }).filter ({ item in
-            item.bind(with: uniqueIdentifier)
-        })
-        
-        for item in candidates {
-            switch (item) {
-            case let item as ToggleMenuItem:
-                item.reachable = isReachable
-            case let item as SensorMenuItem:
-                item.reachable = isReachable
-            default:
-                do {}
-            }
-        }
-    }
-    
-    func updateItems(of uniqueIdentifier: UUID, value: Any) {
-        let items = NSMenu.getSubItems(menu: mainMenu)
-        
-        let candidates = items.compactMap({ item in
-            item as? MenuItemFromUUID
-        }).filter ({ item in
-            item.bind(with: uniqueIdentifier)
-        })
-        
-        for item in candidates {
-            switch (item, value) {
-            case (let item as ToggleMenuItem, let boolValue as Bool):
-                item.update(value: boolValue)
-            case (let item as LightColorMenuItem, let doubleValue as Double):
-                item.update(of: uniqueIdentifier, value: doubleValue)
-            case (let item as SensorMenuItem, let doubleValue as Double):
-                item.update(value: doubleValue)
-            case (let item as ActionSetMenuItem, _):
-                item.update()
-            default:
-                do {}
-            }
-        }
-    }
-    
-    func actionItems() -> [ShortcutInfo] {
-        
-        var shortcutLabels: [ShortcutInfo] = []
+        var infoArray: [ShortcutInfo] = []
         
 //        if let serviceGroups = self.iosListener?.serviceGroups {
 //            names.append(contentsOf: serviceGroups.map({ $0.name }))
 //        }
         
         if let actionSets = self.iosListener?.actionSets {
-            shortcutLabels.append(contentsOf:
-                                    actionSets.map({ ShortcutInfo.home(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-                                  )
+            infoArray.append(contentsOf: actionSets.map({ ShortcutInfo.home(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }))
         }
         
-        if let accessories = self.iosListener?.accessories, let rooms = self.iosListener?.rooms {
-            for room in rooms {
-                for info in accessories {
-                    if info.room?.uniqueIdentifier == room.uniqueIdentifier {
-                        info.services.forEach { serviceInfo in
-                            
-                            switch serviceInfo.type {
-                            case .lightbulb:
-                                shortcutLabels.append(ShortcutInfo.lightbulb(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
-                            case .outlet:
-                                shortcutLabels.append(ShortcutInfo.outlet(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
-                            case .switch:
-                                shortcutLabels.append(ShortcutInfo.switch(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
-                            default:
-                                do {}
-                            }
-
-                        }
+        if let accessories = self.iosListener?.accessories {
+            for info in accessories {
+                info.services.forEach { serviceInfo in
+                    switch serviceInfo.type {
+                    case .lightbulb:
+                        infoArray.append(ShortcutInfo.lightbulb(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
+                    case .outlet:
+                        infoArray.append(ShortcutInfo.outlet(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
+                    case .switch:
+                        infoArray.append(ShortcutInfo.switch(name: serviceInfo.name, uniqueIdentifier: serviceInfo.uniqueIdentifier))
+                    default:
+                        do {}
                     }
                 }
             }
         }
-        return shortcutLabels
+        return infoArray
     }
     
     func reloadServiceGroupMenuItem() {
@@ -401,7 +309,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         homes.forEach { homeInfo in
             if let name = homeInfo.name, let uniqueIdentifier = homeInfo.uniqueIdentifier {
-                let item = HomeSelectMenu(uniqueIdentifier: uniqueIdentifier)
+                let item = HomeSelectMenuItem(uniqueIdentifier: uniqueIdentifier)
                 item.title = name
                 menu.items.append(item)
                 item.action = #selector(MacOSController.selectHome(sender:))
@@ -415,42 +323,14 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    @IBAction func selectHome(sender: HomeSelectMenu) {
-        iosListener?.homeUniqueIdentifier = sender.uniqueIdentifier
-        iosListener?.rebootHomeManager()
-    }
-    
     func getExcludedServiceUUIDs() -> [UUID] {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
         return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
     }
     
-    func reloadMenuExtra() {
-        KeyboardShortcuts.removeAllHandlers()
-        NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
-
-        mainMenu.removeAllItems()
-        reloadHomeKitMenuItems()
-        reloadHomeMenuItems()
-        let excludedServiceUUIDs = getExcludedServiceUUIDs()
-        reloadSceneMenuItems()
-        reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
-        reloadNoRoomAccessories(excludedServiceUUIDs: excludedServiceUUIDs)
-        reloadServiceGroupMenuItem()
-        reloadOtherItems()
-    }
-    
-    required override init() {
-        super.init()
-        
-        if let button = self.statusItem.button {
-            button.image = NSImage.init(systemSymbolName: "house", accessibilityDescription: nil)
-        }
-        self.statusItem.menu = mainMenu
-        mainMenu.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
+    @IBAction func selectHome(sender: HomeSelectMenuItem) {
+        iosListener?.homeUniqueIdentifier = sender.uniqueIdentifier
+        iosListener?.rebootHomeManager()
     }
     
     @IBAction func windowWillClose(notification: Notification) {
@@ -478,7 +358,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         if let a = settingsWindowController.settingsTabViewController {
             if let item = a.tabViewItems.first(where: { $0.viewController is ShortcutsPaneController }) {
                 if let vc = item.viewController as? ShortcutsPaneController {
-                    vc.shortcutLabels = actionItems()
+                    vc.shortcutLabels = shortcuts()
                 }
             }
             if let item = a.tabViewItems.first(where: { $0.viewController is InformationPaneController }) {
@@ -511,14 +391,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func reload(sender: NSButton) {
         iosListener?.rebootHomeManager()
-    }
-
-    func showLaunchView() {
-        launchWindowController.showWindow(self)
-        centeringWindows()
-        self.bringToFront()
-        
-        preferences(sender: nil)
     }
     
     @IBAction func quit(sender: NSButton) {

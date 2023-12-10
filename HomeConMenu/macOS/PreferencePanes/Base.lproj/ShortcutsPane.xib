@@ -40,13 +40,13 @@
                                 </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg1-cf-gWD">
-                                <rect key="frame" x="0.0" y="24" width="558" height="70"/>
+                                <rect key="frame" x="0.0" y="24" width="558" height="294"/>
                                 <clipView key="contentView" id="S22-kk-7Fa">
-                                    <rect key="frame" x="1" y="1" width="556" height="68"/>
+                                    <rect key="frame" x="1" y="1" width="556" height="292"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="6Dt-0r-HGC" viewBased="YES" id="XvQ-8k-dq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="556" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="264"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -68,7 +68,7 @@
                                                             <rect key="frame" x="8" y="0.0" width="304" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField identifier="LeftCell" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-Fz-nbv">
+                                                                <textField identifier="LeftCell" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-Fz-nbv">
                                                                     <rect key="frame" x="28" y="4" width="96" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="eeo-Rv-Xoe">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -127,7 +127,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8sF-Tj-qAj">
-                                    <rect key="frame" x="1" y="109" width="556" height="16"/>
+                                    <rect key="frame" x="1" y="53" width="556" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Jhu-mc-1KY">

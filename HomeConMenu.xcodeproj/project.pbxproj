@@ -72,6 +72,8 @@
 		14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A06A562811665800BC41BD /* ServiceGroupInfo.swift */; };
 		14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */; };
 		14A839FC280FEE530083EE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A839FE280FEE530083EE1D /* Main.storyboard */; };
+		14A9D5592B25B20900B67806 /* MacOSController+iOS2Mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9D5582B25B20900B67806 /* MacOSController+iOS2Mac.swift */; };
+		14A9D55D2B25B2C000B67806 /* HomeSelectMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9D55C2B25B2C000B67806 /* HomeSelectMenuItem.swift */; };
 		14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6D02AAC54120023F71D /* InformationPaneController.swift */; };
 		14ABD6D82AAC79420023F71D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ABD6D72AAC79410023F71D /* WebKit.framework */; };
 		14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD6DB2AAC87A30023F71D /* WebViewController.swift */; };
@@ -177,6 +179,8 @@
 		14A06A4A2811664000BC41BD /* ToggleMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenuItem.swift; sourceTree = "<group>"; };
 		14A06A562811665800BC41BD /* ServiceGroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupInfo.swift; sourceTree = "<group>"; };
 		14A839F8280FEE3B0083EE1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14A9D5582B25B20900B67806 /* MacOSController+iOS2Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacOSController+iOS2Mac.swift"; sourceTree = "<group>"; };
+		14A9D55C2B25B2C000B67806 /* HomeSelectMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectMenuItem.swift; sourceTree = "<group>"; };
 		14ABD6D02AAC54120023F71D /* InformationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPaneController.swift; sourceTree = "<group>"; };
 		14ABD6D72AAC79410023F71D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/PrivateFrameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		14ABD6DB2AAC87A30023F71D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
+				14A9D5582B25B20900B67806 /* MacOSController+iOS2Mac.swift */,
 				1491F4E12AD258FD00602AD8 /* MenuItem */,
 				1491F4E22AD2591800602AD8 /* Preferences */,
 				1491F4E32AD2593800602AD8 /* PreferencePanes */,
@@ -332,6 +337,7 @@
 				14A06A452811664000BC41BD /* SensorMenuItem.swift */,
 				14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */,
 				142DE0D027E8BAE1006CBAFE /* NSMenuItem+HomeMenu.swift */,
+				14A9D55C2B25B2C000B67806 /* HomeSelectMenuItem.swift */,
 			);
 			path = MenuItem;
 			sourceTree = "<group>";
@@ -531,10 +537,12 @@
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
+				14A9D5592B25B20900B67806 /* MacOSController+iOS2Mac.swift in Sources */,
 				142DE0D427E8BAE1006CBAFE /* MacOSController.swift in Sources */,
 				1432F2742AAB544D00E1B9E9 /* SettingsPane.swift in Sources */,
 				14FA4AAB282558240002ECB8 /* ActionSetMenuItem.swift in Sources */,
 				1432F2772AAB544D00E1B9E9 /* SettingsTabViewController.swift in Sources */,
+				14A9D55D2B25B2C000B67806 /* HomeSelectMenuItem.swift in Sources */,
 				1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */,
 				14A06A582811666800BC41BD /* MenuItemFromUUID.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
