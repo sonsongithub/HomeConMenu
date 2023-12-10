@@ -137,8 +137,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
                 else { throw HomeConMenuError.characteristicTypeError }
                 update(value: value)
             } catch {
-                Logger.app.error("Can not get temperature, humidity from characteristic.")
-                Logger.app.error("\(error.localizedDescription)")
+                Logger.app.error("Can not get temperature, humidity from characteristic. - \(error.localizedDescription)")
             }
         }
     }

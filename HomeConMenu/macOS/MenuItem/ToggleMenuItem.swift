@@ -71,8 +71,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
                 }
             }
         } catch {
-            Logger.app.error("Can not get toggle status from characteristic.")
-            Logger.app.error("\(error.localizedDescription)")
+            Logger.app.error("Can not get toggle status from characteristic. - \(error.localizedDescription)")
         }
     }
     

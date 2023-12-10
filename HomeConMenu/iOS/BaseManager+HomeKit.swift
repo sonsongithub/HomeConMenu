@@ -35,68 +35,68 @@ extension BaseManager {
     
     func home(_ home: HMHome, didAdd accessory: HMAccessory) {
         Logger.homeKit.info("home:didAdd:accessory")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didAdd actionSet: HMActionSet) {
         Logger.homeKit.info("home:didAdd:actionSet")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didAdd room: HMRoom) {
         Logger.homeKit.info("home:didAdd:room")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     // MARK: HMHomeDelegate - remove
     
     func home(_ home: HMHome, didRemove accessory: HMAccessory) {
         Logger.homeKit.info("home:didRemove:accessory")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didRemove actionSet: HMActionSet) {
         Logger.homeKit.info("home:didRemove:actionSet")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didRemove room: HMRoom) {
         Logger.homeKit.info("home:didRemove:room")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didRemove group: HMServiceGroup) {
         Logger.homeKit.info("home:didRemove:group")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didRemove service: HMService, from group: HMServiceGroup) {
         Logger.homeKit.info("home:didRemove:from:")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     // MARK: HMHomeDelegate - update
     
     func home(_ home: HMHome, didUpdateNameFor group: HMServiceGroup) {
         Logger.homeKit.info("home:didUpdateNameFor:group")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
         Logger.homeKit.info("home:didUpdateNameFor:room")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     // MARK: HMAccessoryDelegate
     
     func accessoryDidUpdateServices(_ accessory: HMAccessory) {
         Logger.homeKit.info("accessoryDidUpdateServices:")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService) {
         Logger.homeKit.info("accessory:didUpdateNameFor:")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
@@ -109,6 +109,9 @@ extension BaseManager {
     
     // MARK: HMHomeManagerDelegate
     
+    /// When invoked for the first time, this method is called after a confirmation dialog appears and the user interacts with the dialog because Accessibility to HomeKit is not allowed. 
+    /// This method is called whether or not the user grants access in the dialog.
+    /// If the user then grants access, HMHomeManager moves and homeManagerDidUpdateHomes is called.
     func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
         Logger.homeKit.info("homeManager:didUpdate:")
         if status.contains(.restricted) {
@@ -120,16 +123,26 @@ extension BaseManager {
         } else {
             Logger.homeKit.info("HomeConMenu is authorized to access HomeKit.")
         }
-        macOSController?.reloadAllMenuItems()
+        macOSController?.reloadMenuExtra()
     }
     
     func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
         Logger.homeKit.info("homeManagerDidUpdatePrimaryHome")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
     }
     
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
         Logger.homeKit.info("homeManagerDidUpdateHomes")
-        reloadAllItems()
+        fetchFromHomeKitAndReloadMenuExtra()
+    }
+    
+    func homeManager(_ manager: HMHomeManager, didAdd home: HMHome) {
+        Logger.homeKit.info("homeManager:didAdd:home")
+        fetchFromHomeKitAndReloadMenuExtra()
+    }
+    
+    func homeManager(_ manager: HMHomeManager, didRemove home: HMHome) {
+        Logger.homeKit.info("homeManager:didRemove:home")
+        fetchFromHomeKitAndReloadMenuExtra()
     }
 }

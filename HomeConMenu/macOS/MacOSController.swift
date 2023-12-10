@@ -30,6 +30,19 @@ import AppKit
 import os
 import KeyboardShortcuts
 
+class HomeSelectMenu: NSMenuItem {
+    let uniqueIdentifier: UUID
+    
+    init(uniqueIdentifier: UUID) {
+        self.uniqueIdentifier = uniqueIdentifier
+        super.init(title: "", action: nil, keyEquivalent: "")
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     let mainMenu = NSMenu()
@@ -360,17 +373,65 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    func reloadHomeMenuItems() {
+        guard let homes = iosListener?.homes else { return }
+        guard let homeUniqueIdentifier = iosListener?.homeUniqueIdentifier else { return }
+        guard homes.count > 1 || UserDefaults.standard.bool(forKey: "alwaysShowHomeItemOnMenu") else { return }
+        
+        var items: [NSMenuItem] = []
+        
+        let item = NSMenuItem()
+        item.title = NSLocalizedString("Home", comment: "Selected home")
+        items.append(item)
+    
+        let selected = NSMenuItem()
+        selected.title = "Unknown"
+        
+        if let obj = homes.first(where: { homeInfo in
+            return homeInfo.uniqueIdentifier == homeUniqueIdentifier
+        }) {
+            if let name = obj.name {
+                selected.title = name
+            }
+        }
+        
+        let menu = NSMenu()
+        selected.submenu = menu
+        items.append(selected)
+        
+        homes.forEach { homeInfo in
+            if let name = homeInfo.name, let uniqueIdentifier = homeInfo.uniqueIdentifier {
+                let item = HomeSelectMenu(uniqueIdentifier: uniqueIdentifier)
+                item.title = name
+                menu.items.append(item)
+                item.action = #selector(MacOSController.selectHome(sender:))
+                item.target = self
+            }
+        }
+        
+        if items.count > 0 {
+            items.forEach({mainMenu.addItem($0)})
+            mainMenu.addItem(NSMenuItem.separator())
+        }
+    }
+    
+    @IBAction func selectHome(sender: HomeSelectMenu) {
+        iosListener?.homeUniqueIdentifier = sender.uniqueIdentifier
+        iosListener?.rebootHomeManager()
+    }
+    
     func getExcludedServiceUUIDs() -> [UUID] {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
         return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
     }
     
-    func reloadAllMenuItems() {
+    func reloadMenuExtra() {
         KeyboardShortcuts.removeAllHandlers()
         NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
 
         mainMenu.removeAllItems()
         reloadHomeKitMenuItems()
+        reloadHomeMenuItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()
         reloadEachRooms(excludedServiceUUIDs: excludedServiceUUIDs)
@@ -388,17 +449,29 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
-        
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
+    }
+    
+    @IBAction func windowWillClose(notification: Notification) {
+        if let window = notification.object as? NSWindow {
+            let name = "\(type(of :window))"
+            if name == "UINSWindow" {
+                let uiWindows = window.value(forKeyPath: "uiWindows") as? [Any] ?? []
+                Logger.app.info("will close UIWindow")
+                Logger.app.info("\(uiWindows)")
+                iosListener?.close(windows: uiWindows)
+            }
+        }
     }
     
     @IBAction func didAwakeSleep(notification: Notification) {
         Logger.app.info("didAwakeSleep")
-        iosListener?.reloadHomeKit()
+        iosListener?.rebootHomeManager()
     }
     
     @IBAction func didChangeUserDefaults(notification: Notification) {
-        reloadAllMenuItems()
+        reloadMenuExtra()
     }
     
     @IBAction func preferences(sender: NSButton?) {
@@ -437,7 +510,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     }
     
     @IBAction func reload(sender: NSButton) {
-        iosListener?.reloadHomeKit()
+        iosListener?.rebootHomeManager()
     }
 
     func showLaunchView() {

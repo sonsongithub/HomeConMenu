@@ -27,16 +27,19 @@
 
 import Foundation
 import WebKit
+import os
 
 class WebViewController: UIViewController {
     
     private let fileURL: URL
     let webView = WKWebView()
     
-    
-    // MARK: Lifecycle
+    deinit {
+        Logger.app.info("WebViewController - deinit")
+    }
     
     init(fileURL: URL) {
+        Logger.app.info("WebViewController - init")
         self.fileURL = fileURL
         super.init(nibName: nil, bundle: nil)
     }

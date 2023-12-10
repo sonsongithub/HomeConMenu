@@ -27,6 +27,7 @@
 
 import UIKit
 import SwiftUI
+import os
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -36,9 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     
         if let uniqueIdentifier = connectionOptions.userActivities.first?.userInfo?["uniqueIdentifier"] as? UUID {
-            guard let accesory = appDelegate.baseManager?.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
             
-            guard let cameraProfile = accesory.cameraProfiles?.first else { return }
+            guard let accessory = appDelegate.baseManager?.homeManager?.getAccessory(from: appDelegate.baseManager?.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
+            
+            guard let cameraProfile = accessory.cameraProfiles?.first else { return }
             
             let window = UIWindow(windowScene: windowScene)
             self.window = window
@@ -46,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = vc
             vc.cameraProfile = cameraProfile
             
-            windowScene.title = accesory.name
+            windowScene.title = accessory.name
             windowScene.userActivity = connectionOptions.userActivities.first
             
             self.window?.makeKeyAndVisible()
@@ -65,6 +67,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         windowScene.userActivity = connectionOptions.userActivities.first
 
         self.window?.makeKeyAndVisible()
+    }
+    
+    func forceCloseDummyViewController() {
+        let windowScenes = DummyViewController.windowScenesIncludingThisClass()
+        windowScenes.forEach { windowScene in
+            Logger.app.info("force close DummyViewController")
+            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+            windowScene.windows.forEach { window in
+                window.rootViewController = nil
+            }
+        }
+    }
+    
+    func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+        forceCloseDummyViewController()
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
