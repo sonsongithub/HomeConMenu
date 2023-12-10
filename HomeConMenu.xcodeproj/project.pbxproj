@@ -56,6 +56,7 @@
 		144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C95E62AADC51200935105 /* LaunchWindowController.swift */; };
 		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
+		1487430C2B255EB90055EE8A /* BaseManager+mac2iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */; };
 		1487AC502B12289400167E13 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 1487AC4F2B12289400167E13 /* KeyboardShortcuts */; };
 		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
 		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
@@ -162,6 +163,7 @@
 		144C95EB2AADD96F00935105 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = ja; path = ja.lproj/Acknowledgments.css; sourceTree = "<group>"; };
 		14822EF42AECE78A00DE4DBA /* Japan.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Japan.storekit; sourceTree = "<group>"; };
 		14822EF52AECEC2E00DE4DBA /* US.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = US.storekit; sourceTree = "<group>"; };
+		1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+mac2iOS.swift"; sourceTree = "<group>"; };
 		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
 		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
 		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				142DE06B27E8B80E006CBAFE /* AppDelegate.swift */,
 				142DE09C27E8B9C3006CBAFE /* BaseManager.swift */,
+				1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */,
 				14FA4AA52825296D0002ECB8 /* BaseManager+HomeKit.swift */,
 				142DE09E27E8B9C3006CBAFE /* CameraViewController.swift */,
 				142DE09D27E8B9C3006CBAFE /* DummyViewController.swift */,
@@ -488,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142DE0C527E8BAC2006CBAFE /* AccessoryInfo.swift in Sources */,
+				1487430C2B255EB90055EE8A /* BaseManager+mac2iOS.swift in Sources */,
 				14ABD6DC2AAC87A30023F71D /* WebViewController.swift in Sources */,
 				142DE0B927E8BAC2006CBAFE /* CharacteristicInfo.swift in Sources */,
 				14FA4A9D282117980002ECB8 /* Log.swift in Sources */,
@@ -773,7 +777,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 169;
+				CURRENT_PROJECT_VERSION = 176;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -791,7 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -815,7 +819,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 169;
+				CURRENT_PROJECT_VERSION = 176;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -833,7 +837,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

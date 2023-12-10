@@ -57,7 +57,7 @@
     },
     "Et8-nV-7rv.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Issue tracker\"; ObjectID = \"Et8-nV-7rv\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -75,7 +75,7 @@
     },
     "GlZ-fs-d4a.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Feedback:\"; ObjectID = \"GlZ-fs-d4a\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
