@@ -29,6 +29,12 @@ import Foundation
 import HomeKit
 import os
 
+extension Array where Element: Equatable {
+    func satisfy(array: [Element]) -> Bool {
+        return self.allSatisfy(array.contains)
+    }
+}
+
 // MARK: Extension for mac2iOS
 
 extension BaseManager {
@@ -51,15 +57,11 @@ extension BaseManager {
         UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .filter({ $0.windows.count > 0 })
+            .filter({ $0.windows.satisfy(array: uiWindows)})
             .forEach { windowScene in
-                windowScene.windows.forEach { window in
-                    if uiWindows.contains(where: { $0 == window }) {
-                    UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
-                    window.rootViewController = nil
-                    Logger.app.info("close UIWindow(\(window)")
-                }
+                UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+                windowScene.delegate = nil
             }
-        }
     }
     
     /// Get value from service whose characteristic is to write value.
@@ -86,7 +88,7 @@ extension BaseManager {
                 try await home.executeActionSet(actionSet)
                 DispatchQueue.main.async {
                     for writeAction in actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }) {
-                        self.macOSController?.updateItems(of: writeAction.uniqueIdentifier, value: writeAction.targetValue)
+                        self.macOSController?.updateMenuItemsRelated(to: writeAction.uniqueIdentifier, using: writeAction.targetValue)
                     }
                 }
             } catch {
@@ -104,12 +106,12 @@ extension BaseManager {
            do {
                try await characteristic.readValue()
                DispatchQueue.main.async {
-                   self.macOSController?.updateItems(of: uniqueIdentifier, value: characteristic.value as Any)
+                   self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: characteristic.value as Any)
                }
            } catch {
                Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                DispatchQueue.main.async {
-                   self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
+                   self.macOSController?.setReachablityOfMenuItemRelated(to: uniqueIdentifier, using: false)
                }
            }
         }
@@ -124,12 +126,12 @@ extension BaseManager {
             do {
                 try await characteristic.writeValue(object)
                 DispatchQueue.main.async {
-                    self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
+                    self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: object)
                 }
             } catch {
                 Logger.homeKit.error("Can not write value - \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
+                    self.macOSController?.setReachablityOfMenuItemRelated(to: uniqueIdentifier, using: false)
                 }
             }
         }

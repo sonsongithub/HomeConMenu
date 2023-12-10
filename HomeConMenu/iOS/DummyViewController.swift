@@ -32,27 +32,11 @@ class DummyViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Logger.app.info("DummyViewController - init")
+        Logger.app.info("\(self) init")
     }
-    
-    static func windowScenesIncludingThisClass() -> [UIWindowScene] {
-        let candidateWindowScenes = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .filter({ $0.windows.count > 0 })
-        let targetWindowScenes = candidateWindowScenes.filter({
-            var flag = false
-            $0.windows.forEach { window in
-                if window.rootViewController is DummyViewController {
-                    flag = true
-                }
-            }
-            return flag
-        })
-        return targetWindowScenes
-    }
-    
+        
     deinit {
-        Logger.app.info("DummyViewController - deinit")
+        Logger.app.info("\(self) deinit")
     }
     
 }

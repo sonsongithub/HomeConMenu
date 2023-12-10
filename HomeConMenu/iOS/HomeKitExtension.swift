@@ -226,14 +226,14 @@ extension HMAccessory {
                         try await chara.readValue()
                         DispatchQueue.main.async {
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
+                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: chara.uniqueIdentifier, using: chara.value as Any)
                             }
                         }
                     } catch {
                         DispatchQueue.main.async {
                             Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)
+                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: chara.uniqueIdentifier, using: false)
                             }
                         }
                     }

@@ -35,13 +35,13 @@ class WebViewController: UIViewController {
     let webView = WKWebView()
     
     deinit {
-        Logger.app.info("WebViewController - deinit")
+        Logger.app.info("\(self) deinit")
     }
     
     init(fileURL: URL) {
-        Logger.app.info("WebViewController - init")
         self.fileURL = fileURL
         super.init(nibName: nil, bundle: nil)
+        Logger.app.info("\(self) init")
     }
     
     required init?(coder: NSCoder) {

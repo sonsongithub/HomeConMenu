@@ -42,7 +42,7 @@ extension MacOSController {
         }
     }
     
-    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool) {
+    func setReachablityOfMenuItemRelated(to uniqueIdentifier: UUID, using isReachable: Bool) {
         let items = NSMenu.getSubItems(menu: mainMenu)
         
         let candidates = items.compactMap({ item in
@@ -63,7 +63,7 @@ extension MacOSController {
         }
     }
     
-    func updateItems(of uniqueIdentifier: UUID, value: Any) {
+    func updateMenuItemsRelated(to uniqueIdentifier: UUID, using value: Any) {
         let items = NSMenu.getSubItems(menu: mainMenu)
         
         let candidates = items.compactMap({ item in

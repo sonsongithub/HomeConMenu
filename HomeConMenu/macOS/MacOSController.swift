@@ -290,6 +290,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         
         let item = NSMenuItem()
         item.title = NSLocalizedString("Home", comment: "Selected home")
+        item.image = NSImage(systemSymbolName: "house", accessibilityDescription: nil)
         items.append(item)
     
         let selected = NSMenuItem()

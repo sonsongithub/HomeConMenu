@@ -29,8 +29,8 @@ import Foundation
 @objc(iOS2Mac)
 public protocol iOS2Mac: NSObjectProtocol {
     init()
-    func updateItems(of uniqueIdentifier: UUID, value: Any)
-    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool)
+    func updateMenuItemsRelated(to uniqueIdentifier: UUID, using value: Any)
+    func setReachablityOfMenuItemRelated(to uniqueIdentifier: UUID, using isReachable: Bool)
     func bringToFront()
     func reloadMenuExtra()
     func centeringWindows()

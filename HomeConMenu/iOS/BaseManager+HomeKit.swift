@@ -104,7 +104,7 @@ extension BaseManager {
         guard let _ = self.accessories.first(where: { info in
             return info.uniqueIdentifier == accessory.uniqueIdentifier
         }) else { return }
-        macOSController?.updateItems(of: characteristic.uniqueIdentifier, value: characteristic.value as Any)
+        macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
     }
     
     // MARK: HMHomeManagerDelegate

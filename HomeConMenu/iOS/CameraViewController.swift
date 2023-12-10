@@ -37,7 +37,7 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        Logger.app.info("CameraViewController - init")
+        Logger.app.info("\(self) init")
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +45,7 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     }
     
     deinit {
-        Logger.app.info("CameraViewController - deinit")
+        Logger.app.info("\(self) deinit")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
