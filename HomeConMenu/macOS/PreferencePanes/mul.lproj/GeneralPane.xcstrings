@@ -64,6 +64,12 @@
             "state" : "new",
             "value" : "Always Show \"Home\" item on menu"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホームの選択メニューを常に表示"
+          }
         }
       }
     },
