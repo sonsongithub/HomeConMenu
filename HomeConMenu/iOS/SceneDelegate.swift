@@ -27,18 +27,33 @@
 
 import UIKit
 import SwiftUI
+import os
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    deinit {
+        Logger.app.info("\(self) deinit")
+    }
+    
+    override init() {
+        super.init()
+        Logger.app.info("\(self) init")
+    }
+    
     var window: UIWindow?
     
+    /// Create CameraViewController and show it.
+    /// This function creates UIWindow and CameraViewController. UIWindow is attached to windowScene and the view controller is attached to the window.
+    /// - Parameter: windowScene: UIWindowScene to which UIWindow is attached.
+    /// - Parameter: connectionOptions: UIScene.ConnectionOptions which contains userActivity.
     func showCameraWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     
         if let uniqueIdentifier = connectionOptions.userActivities.first?.userInfo?["uniqueIdentifier"] as? UUID {
-            guard let accesory = appDelegate.baseManager?.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
             
-            guard let cameraProfile = accesory.cameraProfiles?.first else { return }
+            guard let accessory = appDelegate.baseManager?.homeManager?.getAccessory(from: appDelegate.baseManager?.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
+            
+            guard let cameraProfile = accessory.cameraProfiles?.first else { return }
             
             let window = UIWindow(windowScene: windowScene)
             self.window = window
@@ -46,13 +61,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = vc
             vc.cameraProfile = cameraProfile
             
-            windowScene.title = accesory.name
+            windowScene.title = accessory.name
             windowScene.userActivity = connectionOptions.userActivities.first
             
             self.window?.makeKeyAndVisible()
+            
+            Logger.app.info("willConnectTo... - \(vc) - \(windowScene) - \(self)")
         }
     }
     
+    /// Create WebViewController and show it.
+    /// This function creates UIWindow and WebViewController. UIWindow is attached to windowScene and the view controller is attached to the window.
+    /// - Parameter: windowScene: UIWindowScene to which UIWindow is attached.
+    /// - Parameter: connectionOptions: UIScene.ConnectionOptions which contains userActivity.
     func showAcknowledgementWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
 
         let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
@@ -65,10 +86,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         windowScene.userActivity = connectionOptions.userActivities.first
 
         self.window?.makeKeyAndVisible()
+        
+        Logger.app.info("willConnectTo... - \(vc) - \(windowScene) - \(self)")
     }
     
+    func forceDisposeWindowSceneWhichContainsDummyViewController() {
+        UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .filter({ $0.windows.count > 0 })
+            .filter({ $0.windows.first(where: { $0.rootViewController is DummyViewController }) != nil })
+            .forEach { windowScene in
+                UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
+                windowScene.delegate = nil
+            }
+    }
+    
+    // MARK: - UIWindowSceneDelegate
+    
+    func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+        /// force close window and window scend that contains DummyViewController.
+        /// MacCatalyst runtime always creates and shows a default view controller anytime.
+        forceDisposeWindowSceneWhichContainsDummyViewController()
+    }
+    
+    // MARK: - UISceneDelegate
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let activity = connectionOptions.userActivities.first
 

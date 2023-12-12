@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
-//  HomeMenu
+//  HomeSelectMenuItem.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/02.
+//  Created by Yuichi Yoshida on 2023/12/10.
 //
 //  MIT License
 //
@@ -25,19 +25,18 @@
 //  SOFTWARE.
 //
 
-import UIKit
-import os
+import Foundation
+import AppKit
 
-class DummyViewController: UIViewController {
+class HomeSelectMenuItem: NSMenuItem {
+    let uniqueIdentifier: UUID
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        Logger.app.info("\(self) init")
-    }
-        
-    deinit {
-        Logger.app.info("\(self) deinit")
+    init(uniqueIdentifier: UUID) {
+        self.uniqueIdentifier = uniqueIdentifier
+        super.init(title: "", action: nil, keyEquivalent: "")
     }
     
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
-

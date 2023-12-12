@@ -150,8 +150,7 @@ class DonationPaneController: NSViewController {
                 self.indicator?.isHidden = true
                 self.update()
             } catch {
-                Logger.app.error("App Store Kit error.")
-                Logger.app.error("Failed product request from the App Store server: \(error)")
+                Logger.app.error("App Store Kit error. Failed product request from the App Store server: \(error)")
                 let errorMessage = String(format: NSLocalizedString("App Store Error: %@", comment: ""), error.localizedDescription)
                 self.errorMessage?.stringValue = errorMessage
                 self.errorMessage?.isHidden = false

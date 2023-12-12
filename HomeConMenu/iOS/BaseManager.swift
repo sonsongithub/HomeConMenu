@@ -30,36 +30,47 @@ import HomeKit
 import os
 
 class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS, HMHomeDelegate {
-
+    
+    /// HomeKit
     var homeManager: HMHomeManager?
     var macOSController: iOS2Mac?
+    var homeUniqueIdentifier: UUID? {
+        didSet {
+            UserDefaults.standard.set(homeUniqueIdentifier?.uuidString, forKey: "LastHomeUUID")
+        }
+    }
     
+    /// Information to bridge iOS and macOS
+    /// mac2iOS
     var accessories: [AccessoryInfoProtocol] = []
     var serviceGroups: [ServiceGroupInfoProtocol] = []
     var rooms: [RoomInfoProtocol] = []
     var actionSets: [ActionSetInfoProtocol] = []
+    var homes: [HomeInfoProtocol] = []
     
+    /// init
     override init() {
         super.init()
+        if let lastHomeUUIDString = UserDefaults.standard.string(forKey: "LastHomeUUID") {
+            if let uuid = UUID(uuidString: lastHomeUUIDString) {
+                self.homeUniqueIdentifier = uuid
+            }
+        }
         loadPlugin()
         homeManager = HMHomeManager()
         homeManager?.delegate = self
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.didPathUpdate), name: MonitoringNetworkState.didPathUpdateNotification, object: nil)
     }
     
+    /// This method is called when network status is changed.
+    /// - Parameter notification: Notification
     @objc func didPathUpdate(notification: Notification) {
         Logger.app.info("MonitoringNetworkState.didPathUpdateNotification")
-        reloadHome()
+        rebootHomeManager()
     }
     
-    func reloadHome() {
-        Logger.app.info("reloadHome")
-        homeManager?.delegate = nil
-        homeManager = HMHomeManager()
-        homeManager?.delegate = self
-    }
-    
+    /// Load plugin
+    /// Load bundle file and attached to a property.
     func loadPlugin() {
         let bundleFile = "macOSBridge.bundle"
 
@@ -80,36 +91,36 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
         Logger.app.info("iOS2Mac has been loaded.")
     }
     
-    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
-        guard let home = self.homeManager?.primaryHome else { throw HomeConMenuError.primaryHomeNotFound }
-        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
-        else { throw HomeConMenuError.actionSetNotFound }
-        let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
+    /// Fetch informations of homes, rooms, accessories and services from HomeKit and send a request to macOS module.
+    /// This method is called when the home manager has been updated.
+    func fetchFromHomeKitAndReloadMenuExtra() {
         
-        return writeActions.map({$0.targetValue as Any})
-    }
-    
-    func reloadAllItems() {
-        guard let home = self.homeManager?.primaryHome else {
-            Logger.app.error("Primary home has not been found.")
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else {
+            Logger.app.error("Any home have not been found.")
             let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.LaunchView")
             userActivity.title = "default"
             UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
             macOSController?.openNoHomeError()
-            macOSController?.reloadAllMenuItems()
+            macOSController?.reloadMenuExtra()
             return
         }
         home.delegate = self
         
+        // update uniqueidentifier of home.
+        if let tmpHome = homeManager?.usedHome(with: self.homeUniqueIdentifier) {
+            self.homeUniqueIdentifier = tmpHome.uniqueIdentifier
+        } else {
+            if let t = homeManager?.homes.first {
+                self.homeUniqueIdentifier = t.uniqueIdentifier
+            }
+        }
 #if DEBUG
 //        home.dump()
 #endif
-
+        homes = homeManager?.homes.map({ HomeInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }) ?? []
         accessories = home.accessories.map({$0.convert2info(delegate: self)})
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
-        
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
-        
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
         
         if accessories.count == 0 {
@@ -120,127 +131,6 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             // open launchview
             macOSController?.showLaunchView()
         }
-        macOSController?.reloadAllMenuItems()
-    }
-}
-
-extension BaseManager {
-    
-    func executeActionSet(uniqueIdentifier: UUID) {
-        guard let home = homeManager?.primaryHome else { return }
-        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
-        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing.");return }
-        
-        Task.detached {
-            do {
-                try await home.executeActionSet(actionSet)
-                DispatchQueue.main.async {
-                    for writeAction in actionSet.actions.compactMap({ $0 as? HMCharacteristicWriteAction<NSCopying> }) {
-                        self.macOSController?.updateItems(of: writeAction.uniqueIdentifier, value: writeAction.targetValue)
-                    }
-                }
-            } catch {
-                Logger.homeKit.error("Can not execute actionset")
-                Logger.homeKit.error("\(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func readCharacteristic(of uniqueIdentifier: UUID) {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
-        Task {
-           do {
-               try await characteristic.readValue()
-               DispatchQueue.main.async {
-                   self.macOSController?.updateItems(of: uniqueIdentifier, value: characteristic.value as Any)
-               }
-           } catch {
-               Logger.homeKit.error("Can not read value")
-               Logger.homeKit.error("\(error.localizedDescription)")
-               DispatchQueue.main.async {
-                   self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
-               }
-           }
-        }
-    }
-    
-    func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier) else { return }
-        Task.detached {
-            do {
-                try await characteristic.writeValue(object)
-                DispatchQueue.main.async {
-                    self.macOSController?.updateItems(of: uniqueIdentifier, value: object)
-                }
-            } catch {
-                Logger.homeKit.error("Can not write value")
-                Logger.homeKit.error("\(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self.macOSController?.updateItems(of: uniqueIdentifier, isReachable: false)
-                }
-            }
-        }
-    }
-    
-    func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
-        guard let characteristic = homeManager?.getCharacteristic(with: uniqueIdentifier)
-        else { throw HomeConMenuError.characteristicNotFound }
-        guard characteristic.value != nil else { throw HomeConMenuError.characteristicValueNil }
-        return characteristic.value as Any
-    }
-    
-    func closeDummyViewController() {
-        let windowScenes = DummyViewController.windowScenesIncludingThisClass()
-        windowScenes.forEach { windowScene in
-            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
-            windowScene.windows.forEach { window in
-                window.rootViewController = nil
-            }
-        }
-    }
-    
-    func openCamera(uniqueIdentifier: UUID) {
-        closeDummyViewController()
-        
-        let windowScenes = CameraViewController.windowScenesIncludingThisClass()
-        
-        windowScenes.forEach { windowScene in
-            UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
-            windowScene.windows.forEach { window in
-                window.rootViewController = nil
-            }
-        }
-        
-        guard let accesory = self.homeManager?.getAccessory(with: uniqueIdentifier) else { return }
-        guard let cameraProfile = accesory.cameraProfiles?.first else { return }
-        guard cameraProfile.streamControl?.delegate == nil else { return }
-        
-        let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.openCamera")
-        userActivity.title = "default"
-        userActivity.addUserInfoEntries(from: ["uniqueIdentifier": uniqueIdentifier])
-        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        
-        self.macOSController?.bringToFront()
-    }
-    
-    func reloadHomeKit() {
-        Logger.app.info("reloadHomeKit")
-        reloadHome()
-    }
-    
-    func openAcknowledgement() {
-        
-        closeDummyViewController()
-        
-        let windowScenes = WebViewController.windowScenesIncludingThisClass()
-        
-        if windowScenes.count == 0 {
-            let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.Acknowledgement")
-            userActivity.title = "default"
-            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
-        } else {
-            UIApplication.shared.requestSceneSessionActivation(windowScenes[0].session, userActivity: nil, options: nil)
-        }
-        self.macOSController?.bringToFront()
+        macOSController?.reloadMenuExtra()
     }
 }

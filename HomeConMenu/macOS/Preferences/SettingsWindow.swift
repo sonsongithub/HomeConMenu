@@ -33,11 +33,9 @@ final class SettingsWindow: NSPanel {
     
     /// disable "Hide Toolbar" menu item
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        
         switch menuItem.action {
             case #selector(toggleToolbarShown):
                 return false
-                
             default:
                 return super.validateMenuItem(menuItem)
         }

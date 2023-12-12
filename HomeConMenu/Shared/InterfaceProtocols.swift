@@ -29,10 +29,10 @@ import Foundation
 @objc(iOS2Mac)
 public protocol iOS2Mac: NSObjectProtocol {
     init()
-    func updateItems(of uniqueIdentifier: UUID, value: Any)
-    func updateItems(of uniqueIdentifier: UUID, isReachable: Bool)
-    func reloadAllMenuItems()
+    func updateMenuItemsRelated(to uniqueIdentifier: UUID, using value: Any)
+    func setReachablityOfMenuItemRelated(to uniqueIdentifier: UUID, using isReachable: Bool)
     func bringToFront()
+    func reloadMenuExtra()
     func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
@@ -47,11 +47,14 @@ public protocol mac2iOS: NSObjectProtocol {
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAcknowledgement()
-    func reloadHomeKit()
+    func rebootHomeManager()
+    var homes: [HomeInfoProtocol] { get set }
+    var homeUniqueIdentifier: UUID? { get set }
     var accessories: [AccessoryInfoProtocol] { get set }
     var serviceGroups: [ServiceGroupInfoProtocol] { get set }
     var rooms: [RoomInfoProtocol] { get set }
     var actionSets: [ActionSetInfoProtocol] { get set }
     func openCamera(uniqueIdentifier: UUID)
     func executeActionSet(uniqueIdentifier: UUID)
+    func close(windows: [Any])
 }

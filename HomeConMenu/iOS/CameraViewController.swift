@@ -28,11 +28,25 @@
 import Foundation
 import UIKit
 import HomeKit
+import os
 
 class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     
     var cameraView: HMCameraView?
     var cameraProfile: HMCameraProfile?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        Logger.app.info("\(self) init")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        Logger.app.info("\(self) deinit")
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         if let streamControl = cameraProfile?.streamControl {
@@ -77,22 +91,6 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl) {
         guard let cameraView = cameraView else { return }
         cameraView.cameraSource = cameraStreamControl.cameraStream
-    }
-    
-    static func windowScenesIncludingThisClass() -> [UIWindowScene] {
-        let candidateWindowScenes = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .filter({ $0.windows.count > 0 })
-        let targetWindowScenes = candidateWindowScenes.filter({
-            var flag = false
-            $0.windows.forEach { window in
-                if window.rootViewController is CameraViewController {
-                    flag = true
-                }
-            }
-            return flag
-        })
-        return targetWindowScenes
     }
 }
 

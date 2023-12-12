@@ -113,8 +113,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             self.image = createImage(check: check)
             self.target = check ? nil : self
         } catch {
-            Logger.app.error("Can not get action item status from characteristic.")
-            Logger.app.error("\(error.localizedDescription)")
+            Logger.app.error("Can not get action item status from characteristic. - \(error.localizedDescription)")
         }
     }
 

@@ -36,6 +36,31 @@ extension HMCharacteristic {
 }
 
 extension HMHomeManager {
+    
+    func usedHome(with uniqueIdentifier: UUID?) -> HMHome? {
+        for home in self.homes {
+            if home.uniqueIdentifier == uniqueIdentifier {
+                return home
+            }
+        }
+        return self.homes.first
+    }
+    
+    func getCharacteristic(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMCharacteristic? {
+        guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
+        for accessory in home.accessories {
+            for service in accessory.services {
+                for characteristic in service.characteristics {
+                    if characteristic.uniqueIdentifier == uniqueIdentifier {
+                        return characteristic
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
+    @available(*, deprecated, message: "Use getCharacteristic(from:with:) instead.")
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let primaryHome = self.primaryHome else { return nil }
         for accessory in primaryHome.accessories {
@@ -50,6 +75,19 @@ extension HMHomeManager {
         return nil
     }
     
+    func getService(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMService? {
+        guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
+        for accessory in home.accessories {
+            for service in accessory.services {
+                if service.uniqueIdentifier == uniqueIdentifier {
+                    return service
+                }
+            }
+        }
+        return nil
+    }
+    
+    @available(*, deprecated, message: "Use getService(from:with:) instead.")
     func getService(with uniqueIdentifier: UUID) -> HMService? {
         guard let primaryHome = self.primaryHome else { return nil }
         for accessory in primaryHome.accessories {
@@ -62,6 +100,17 @@ extension HMHomeManager {
         return nil
     }
     
+    func getAccessory(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMAccessory? {
+        guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
+        for accessory in home.accessories {
+            if accessory.uniqueIdentifier == uniqueIdentifier {
+                return accessory
+            }
+        }
+        return nil
+    }
+    
+    @available(*, deprecated, message: "Use getAccessory(from:with:) instead.")
     func getAccessory(with uniqueIdentifier: UUID) -> HMAccessory? {
         guard let primaryHome = self.primaryHome else { return nil }
         for accessory in primaryHome.accessories {
@@ -168,8 +217,7 @@ extension HMAccessory {
                             try await chara.enableNotification(true)
                         }
                     } catch {
-                        Logger.homeKit.error("Can not enable notification")
-                        Logger.homeKit.error("\(error.localizedDescription)")
+                        Logger.homeKit.error("Can not enable notification - \(error.localizedDescription)")
                     }
                 }
                 
@@ -178,15 +226,14 @@ extension HMAccessory {
                         try await chara.readValue()
                         DispatchQueue.main.async {
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, value: chara.value as Any)
+                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: chara.uniqueIdentifier, using: chara.value as Any)
                             }
                         }
                     } catch {
                         DispatchQueue.main.async {
-                            Logger.homeKit.error("Can not read value")
-                            Logger.homeKit.error("\(error.localizedDescription)")
+                            Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateItems(of: chara.uniqueIdentifier, isReachable: false)
+                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: chara.uniqueIdentifier, using: false)
                             }
                         }
                     }
