@@ -42,6 +42,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    /// Create CameraViewController and show it.
+    /// This function creates UIWindow and CameraViewController. UIWindow is attached to windowScene and the view controller is attached to the window.
+    /// - Parameter: windowScene: UIWindowScene to which UIWindow is attached.
+    /// - Parameter: connectionOptions: UIScene.ConnectionOptions which contains userActivity.
     func showCameraWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     
@@ -66,6 +70,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
+    /// Create WebViewController and show it.
+    /// This function creates UIWindow and WebViewController. UIWindow is attached to windowScene and the view controller is attached to the window.
+    /// - Parameter: windowScene: UIWindowScene to which UIWindow is attached.
+    /// - Parameter: connectionOptions: UIScene.ConnectionOptions which contains userActivity.
     func showAcknowledgementWindow(windowScene: UIWindowScene, connectionOptions: UIScene.ConnectionOptions) {
 
         let url = Bundle.main.url(forResource: "Acknowledgments", withExtension: "html")!
@@ -86,18 +94,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .filter({ $0.windows.count > 0 })
-            .filter({ $0.windows.reduce(false) { partialResult, window in
-                return partialResult || window.rootViewController is DummyViewController
-            }})
+            .filter({ $0.windows.first(where: { $0.rootViewController is DummyViewController }) != nil })
             .forEach { windowScene in
                 UIApplication.shared.requestSceneSessionDestruction(windowScene.session, options: nil)
                 windowScene.delegate = nil
             }
     }
     
+    // MARK: - UIWindowSceneDelegate
+    
     func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+        /// force close window and window scend that contains DummyViewController.
+        /// MacCatalyst runtime always creates and shows a default view controller anytime.
         forceDisposeWindowSceneWhichContainsDummyViewController()
     }
+    
+    // MARK: - UISceneDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }

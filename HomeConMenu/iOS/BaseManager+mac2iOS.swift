@@ -29,6 +29,7 @@ import Foundation
 import HomeKit
 import os
 
+/// Checking if two arrays have the same elements
 extension Array where Element: Equatable {
     func satisfy(array: [Element]) -> Bool {
         return self.allSatisfy(array.contains)
@@ -37,6 +38,8 @@ extension Array where Element: Equatable {
 
 // MARK: Extension for mac2iOS
 
+/// This extension is for mac2iOS protocol.
+/// This protocol is for calling HomeKit API and MacCatalyst API from a macOS Bundle module.
 extension BaseManager {
     
     /// Restart HKHomeManager included in BaseManager.
@@ -163,6 +166,7 @@ extension BaseManager {
     }
     
     /// Open web view controller to show acknowledgement.
+    /// Acknowledgement view uses MacCatalyst API because any WebViews can not work on the macOS Bundle module.
     func openAcknowledgement() {
         let userActivity = NSUserActivity(activityType: "com.sonson.HomeMenu.Acknowledgement")
         userActivity.title = "default"
