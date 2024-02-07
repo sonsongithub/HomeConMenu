@@ -21,7 +21,7 @@
                     <rect key="frame" x="150" y="0.0" width="300" height="146"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField focusRingType="none" verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
+                        <textField verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
                             <rect key="frame" x="46" y="82" width="84" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Source code:" id="GRs-qi-tgr">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -29,7 +29,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField focusRingType="none" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
+                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
                             <rect key="frame" x="18" y="54" width="112" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Acknowlegement:" id="Pvk-zR-jJh">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -37,7 +37,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
                             <rect key="frame" x="134" y="110" width="59" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="3.0 (100)" id="1OJ-qY-yUk">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -65,7 +65,7 @@
                                 <action selector="openAcknowledgementWithSender:" target="-2" id="wsg-AV-USx"/>
                             </connections>
                         </button>
-                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
+                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
                             <rect key="frame" x="81" y="26" width="49" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Report:" id="Asg-ui-Ub7">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -73,7 +73,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField focusRingType="none" verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
+                        <textField verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
                             <rect key="frame" x="77" y="110" width="53" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Version:" id="0xY-yl-ENL">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -82,7 +82,7 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wSc-y2-QZV">
-                            <rect key="frame" x="129" y="13" width="158" height="35"/>
+                            <rect key="frame" x="129" y="18" width="158" height="30"/>
                             <buttonCell key="cell" type="push" title="Send via github.com" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fnv-Vf-ZIe">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -94,7 +94,6 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ISY-IM-5bV" secondAttribute="trailing" constant="20" symbolic="YES" id="0l5-Pd-AXv"/>
-                        <constraint firstAttribute="bottom" secondItem="wSc-y2-QZV" secondAttribute="bottom" constant="20" symbolic="YES" id="1sJ-Pc-6r2"/>
                         <constraint firstItem="nxQ-YP-EPD" firstAttribute="top" secondItem="tfe-Xy-SuX" secondAttribute="top" constant="20" symbolic="YES" id="4yx-QT-IAy"/>
                         <constraint firstItem="58S-j0-3mu" firstAttribute="top" secondItem="cPs-wE-ze0" secondAttribute="bottom" constant="12" id="76O-eZ-XF6"/>
                         <constraint firstItem="cPs-wE-ze0" firstAttribute="trailing" secondItem="nxQ-YP-EPD" secondAttribute="trailing" id="7cu-NP-9r3"/>
@@ -108,6 +107,7 @@
                         <constraint firstItem="mvw-ls-qcn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tfe-Xy-SuX" secondAttribute="leading" constant="20" symbolic="YES" id="YsQ-iu-jON"/>
                         <constraint firstItem="wSc-y2-QZV" firstAttribute="firstBaseline" secondItem="mvw-ls-qcn" secondAttribute="firstBaseline" id="ZsZ-lD-WUY"/>
                         <constraint firstItem="naR-Mu-Ig3" firstAttribute="firstBaseline" secondItem="nxQ-YP-EPD" secondAttribute="firstBaseline" id="dzQ-pw-hlD"/>
+                        <constraint firstItem="wSc-y2-QZV" firstAttribute="centerY" secondItem="mvw-ls-qcn" secondAttribute="centerY" id="j5f-UC-j6z"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FIa-eD-JXT" secondAttribute="trailing" constant="20" symbolic="YES" id="kcW-BK-bvd"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wSc-y2-QZV" secondAttribute="trailing" constant="20" symbolic="YES" id="lLH-OP-iXi"/>
                         <constraint firstItem="mvw-ls-qcn" firstAttribute="trailing" secondItem="58S-j0-3mu" secondAttribute="trailing" id="m5O-WA-jHb"/>
