@@ -101,9 +101,18 @@ extension BaseManager {
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         Logger.homeKit.info("accessory:service:didUpdateValueFor:")
-        guard let _ = self.accessories.first(where: { info in
-            return info.uniqueIdentifier == accessory.uniqueIdentifier
-        }) else { return }
+        
+        // check whether a associated service has been updated.
+        let incommingServiceInfo = ServiceInfo(service: service)
+        if let existingServiceInfo = self
+            .accessories
+            .map({ $0.services })
+            .flatMap({ $0 }).first(where: { $0.uniqueIdentifier == incommingServiceInfo.uniqueIdentifier }) {
+            if existingServiceInfo.associatedServiceType != incommingServiceInfo.associatedServiceType {
+                fetchFromHomeKitAndReloadMenuExtra()
+                return
+            }
+        }
         macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
     }
     

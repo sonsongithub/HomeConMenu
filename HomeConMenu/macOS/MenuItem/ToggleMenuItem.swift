@@ -29,12 +29,18 @@ import Cocoa
 import os
 import KeyboardShortcuts
 
+enum DisplayItemType {
+    case light
+    case `switch`
+    case outlet
+    case fan
+}
+
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
     var orderPriority: Int {
         100
     }
-    
     
     var reachable: Bool {
         didSet {
@@ -140,14 +146,65 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
     }
 }
 
-class SwitchMenuItem: ToggleMenuItem {
-    override var icon: NSImage? {
-        return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+class OnOffMenuItem: ToggleMenuItem {
+    
+    var displayItem: DisplayItemType = .switch
+    
+    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
+        
+        // decide icon type
+        switch serviceInfo.associatedServiceType {
+        case .lightbulb:
+            self.displayItem = .light
+        case .outlet:
+            self.displayItem = .outlet
+        case .switch:
+            self.displayItem = .switch
+        case .fan:
+            self.displayItem = .fan
+        default:
+            do {}
+        }
+        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
+    }
+    
+    override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
+        super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
-class OutletMenuItem: ToggleMenuItem {
+class SwitchMenuItem: OnOffMenuItem {
+    
     override var icon: NSImage? {
-        return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+        switch displayItem {
+        case .light:
+            return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
+        case .fan:
+            return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
+        case .outlet:
+            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+        case .switch:
+            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+        }
+    }
+}
+
+class OutletMenuItem: OnOffMenuItem {
+    
+    override var icon: NSImage? {
+        switch displayItem {
+        case .light:
+            return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
+        case .fan:
+            return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
+        case .outlet:
+            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+        case .switch:
+            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+        }
     }
 }
