@@ -34,6 +34,7 @@ enum DisplayItemType {
     case `switch`
     case outlet
     case fan
+    case none
 }
 
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
@@ -163,7 +164,7 @@ class OnOffMenuItem: ToggleMenuItem {
         case .fan:
             self.displayItem = .fan
         default:
-            do {}
+            self.displayItem = .none
         }
         super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
     }
@@ -189,6 +190,8 @@ class SwitchMenuItem: OnOffMenuItem {
             return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
         case .switch:
             return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+        case .none:
+            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
         }
     }
 }
@@ -205,6 +208,8 @@ class OutletMenuItem: OnOffMenuItem {
             return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
         case .switch:
             return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+        case .none:
+            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
         }
     }
 }
