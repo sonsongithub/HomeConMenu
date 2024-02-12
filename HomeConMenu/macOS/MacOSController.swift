@@ -48,7 +48,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         self.statusItem.menu = mainMenu
         mainMenu.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
+        // NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
     }
     
@@ -346,12 +346,12 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    @IBAction func didAwakeSleep(notification: Notification) {
-        Logger.app.info("didAwakeSleep")
-        DispatchQueue.main.sync {
-            iosListener?.rebootHomeManager()
-        }
-    }
+//    @IBAction func didAwakeSleep(notification: Notification) {
+//        Logger.app.info("didAwakeSleep")
+//        DispatchQueue.main.sync {
+//            iosListener?.rebootHomeManager()
+//        }
+//    }
     
     @IBAction func didChangeUserDefaults(notification: Notification) {
         reloadMenuExtra()
