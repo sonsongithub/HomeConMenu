@@ -111,6 +111,8 @@ extension MacOSController {
         preferences(sender: nil)
     }
     
+    /// Open dialog to open System Preferences.app.
+    /// This method is called from MacCatalyst when HomeKit authentication is not allowed.
     func openNoHomeError() {
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("HomeKit error", comment: "")
@@ -119,6 +121,7 @@ extension MacOSController {
         alert.addButton(withTitle: "OK")
         _ = alert.runModal()
     }
+    
     
     func openHomeKitAuthenticationError() -> Bool {
         Logger.app.info("openHomeKitAuthenticationError")

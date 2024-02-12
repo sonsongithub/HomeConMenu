@@ -31,12 +31,17 @@ import Foundation
 import HomeKit
 #endif
 
+/// Protocol to describe service group information.
 @objc(ServiceGroupInfoProtocol)
 public protocol ServiceGroupInfoProtocol: NSObjectProtocol {
     init()
+    /// Name of service group.
     var name: String { get set }
+    /// Unique identifier of service group.
     var uniqueIdentifier: UUID { get set }
+    /// Services in service group.
     var services: [ServiceInfoProtocol] { get set }
+    /// Common characteristic types in service group.
     var commonCharacteristicTypes: [CharacteristicInfo] { get set }
 }
 

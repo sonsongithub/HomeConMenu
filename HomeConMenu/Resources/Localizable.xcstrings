@@ -93,17 +93,6 @@
         }
       }
     },
-    "Failed product request from the App Store server: %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App Storeで購入処理が失敗しました: %@"
-          }
-        }
-      }
-    },
     "Failed to access HomeKit because of your privacy settings." : {
       "comment" : "Localizable.strings\n  HomeConMenu\n\n  Created by Yuichi Yoshida on 2022/04/25.",
       "localizations" : {
@@ -136,7 +125,15 @@
       }
     },
     "Home" : {
-      "comment" : "Selected home"
+      "comment" : "Selected home",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
     "HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app." : {
       "localizations" : {
@@ -184,17 +181,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "何もありません"
-          }
-        }
-      }
-    },
-    "Offer %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ を寄付する"
           }
         }
       }

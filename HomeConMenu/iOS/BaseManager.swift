@@ -66,7 +66,9 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     /// - Parameter notification: Notification
     @objc func didPathUpdate(notification: Notification) {
         Logger.app.info("MonitoringNetworkState.didPathUpdateNotification")
-        rebootHomeManager()
+        DispatchQueue.main.sync {
+            self.rebootHomeManager()
+        }
     }
     
     /// Load plugin

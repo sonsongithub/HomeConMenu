@@ -37,6 +37,24 @@
         }
       }
     },
+    "Asg-ui-Ub7.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Report:\"; ObjectID = \"Asg-ui-Ub7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Report:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レポート:"
+          }
+        }
+      }
+    },
     "e0K-az-LXZ.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Learn More\"; ObjectID = \"e0K-az-LXZ\";",
       "extractionState" : "extracted_with_value",
@@ -51,6 +69,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "詳細情報..."
+          }
+        }
+      }
+    },
+    "Fnv-Vf-ZIe.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Send via github.com\"; ObjectID = \"Fnv-Vf-ZIe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Send via github.com"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "github.comで送る"
           }
         }
       }

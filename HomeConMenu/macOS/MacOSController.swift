@@ -348,7 +348,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func didAwakeSleep(notification: Notification) {
         Logger.app.info("didAwakeSleep")
-        iosListener?.rebootHomeManager()
+        DispatchQueue.main.sync {
+            iosListener?.rebootHomeManager()
+        }
     }
     
     @IBAction func didChangeUserDefaults(notification: Notification) {
