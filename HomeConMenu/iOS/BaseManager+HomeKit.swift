@@ -102,6 +102,8 @@ extension BaseManager {
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         Logger.homeKit.info("accessory:service:didUpdateValueFor:")
         
+        Logger.homeKit.info("Update: \(accessory.name), \(ServiceType(key: service.serviceType).description), \(CharacteristicType(key: characteristic.descriptionType).description)")
+        
         // check whether a associated service has been updated.
         let incommingServiceInfo = ServiceInfo(service: service)
         if let existingServiceInfo = self
