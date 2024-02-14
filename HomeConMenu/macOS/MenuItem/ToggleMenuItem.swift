@@ -187,11 +187,11 @@ class SwitchMenuItem: OnOffMenuItem {
         case .fan:
             return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
         case .outlet:
-            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
         case .switch:
-            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
         case .none:
-            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
         }
     }
 }
@@ -205,11 +205,11 @@ class OutletMenuItem: OnOffMenuItem {
         case .fan:
             return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
         case .outlet:
-            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
         case .switch:
-            return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
         case .none:
-            return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
         }
     }
 }
