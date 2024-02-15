@@ -29,9 +29,16 @@ import HomeKit
 import os
 
 extension HMCharacteristic {
-    public var descriptionType: String {
+    public var detail: String {
         let info = CharacteristicInfo(characteristic: self)
         return info.type.description
+    }
+}
+
+extension HMService {
+    public var detail: String {
+        let tmp = ServiceType(key: self.serviceType)
+        return tmp.description
     }
 }
 
@@ -129,7 +136,7 @@ extension HMHome {
             for service in accessory.services {
                 print("    Service: \(service.name) \(service.uniqueIdentifier.uuidString)")
                 for chara in service.characteristics {
-                    print("        Characteristics: \(chara.descriptionType)")
+                    print("        Characteristics: \(chara.detail)")
                     switch chara.value {
                     case let value as String:
                         print("        Value: \(value)")
@@ -147,7 +154,7 @@ extension HMHome {
             for service in serviceGroup.services {
                 print("    Service: \(service.name)")
                 for chara in service.characteristics {
-                    print("        Characteristics: \(chara.descriptionType)")
+                    print("        Characteristics: \(chara.detail)")
                     switch chara.value {
                     case let value as String:
                         print("        Value: \(value)")
@@ -170,7 +177,7 @@ extension HMHome {
             }
             for action in actionSet.actions {
                 if let action = action as? HMCharacteristicWriteAction<NSCopying> {
-                    print("        \(action.characteristic.descriptionType)")
+                    print("        \(action.characteristic.detail)")
                     print("        Target value=\(action.targetValue)")
                     print("        Current value=\(action.characteristic.value as Any)")
                 }

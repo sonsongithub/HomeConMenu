@@ -31,35 +31,35 @@ import HomeKit
 
 @objc(AccessoryTypeBridge)
 public enum AccessoryType: Int, CustomStringConvertible {
-    case lightbulb    // A lightbulb accessory.
-    case outlet    // An outlet accessory.
-    case programmableSwitch    // A programmable switch accessory.
-    case `switch`    // A switch accessory.
-    case fan    // A fan accessory.
-    case airPurifier    // An air purifier accessory.
-    case thermostat    // A thermostat accessory.
-    case airConditioner    // An air conditioner accessory.
-    case airDehumidifier    // A dehumidifier accessory.
-    case airHeater    // An air heater accessory.
-    case airHumidifier    // A humidifier accessory.
-    case window    // A window accessory.
-    case windowCovering    // A window covering accessory.
-    case door    // A door accessory.
-    case doorLock    // A door lock accessory.
-    case garageDoorOpener    // A garage door opener accessory.
-    case videoDoorbell    // A video doorbell accessory.
-    case sensor    // A sensor accessory.
-    case securitySystem    // A security system accessory.
-    case iPCamera    // A networked camera accessory.
-    case sprinkler    // A sprinkler system accessory.
-    case faucet    // A faucet accessory.
-    case showerHead    // A shower head accessory.
-    case bridge    // A bridge accessory.
-    case rangeExtender    // A range extender accessory.
-    case other    // An uncategorized accessory.
+    case lightbulb                  // A lightbulb accessory.
+    case outlet                     // An outlet accessory.
+    case programmableSwitch         // A programmable switch accessory.
+    case `switch`                   // A switch accessory.
+    case fan                        // A fan accessory.
+    case airPurifier                // An air purifier accessory.
+    case thermostat                 // A thermostat accessory.
+    case airConditioner             // An air conditioner accessory.
+    case airDehumidifier            // A dehumidifier accessory.
+    case airHeater                  // An air heater accessory.
+    case airHumidifier              // A humidifier accessory.
+    case window                     // A window accessory.
+    case windowCovering             // A window covering accessory.
+    case door                       // A door accessory.
+    case doorLock                   // A door lock accessory.
+    case garageDoorOpener           // A garage door opener accessory.
+    case videoDoorbell              // A video doorbell accessory.
+    case sensor                     // A sensor accessory.
+    case securitySystem             // A security system accessory.
+    case iPCamera                   // A networked camera accessory.
+    case sprinkler                  // A sprinkler system accessory.
+    case faucet                     // A faucet accessory.
+    case showerHead                 // A shower head accessory.
+    case bridge                     // A bridge accessory.
+    case rangeExtender              // A range extender accessory.
+    case other                      // An uncategorized accessory.
     case unknown
 
-    public var description: String {
+    public var detail: String {
         switch self {
         case .lightbulb:
             return "A lightbulb accessory."
@@ -117,7 +117,65 @@ public enum AccessoryType: Int, CustomStringConvertible {
             return "Unknown"
         }
     }
-
+    
+    public var description: String {
+        switch self {
+        case .lightbulb:
+            return "HMAccessoryCategoryTypeLightbulb"
+        case .outlet:
+            return "HMAccessoryCategoryTypeOutlet"
+        case .programmableSwitch:
+            return "HMAccessoryCategoryTypeProgrammableSwitch"
+        case .switch:
+            return "HMAccessoryCategoryTypeSwitch"
+        case .fan:
+            return "HMAccessoryCategoryTypeFan"
+        case .airPurifier:
+            return "HMAccessoryCategoryTypeAirPurifier"
+        case .thermostat:
+            return "HMAccessoryCategoryTypeThermostat"
+        case .airConditioner:
+            return "HMAccessoryCategoryTypeAirConditioner"
+        case .airDehumidifier:
+            return "HMAccessoryCategoryTypeAirDehumidifier"
+        case .airHeater:
+            return "HMAccessoryCategoryTypeAirHeater"
+        case .airHumidifier:
+            return "HMAccessoryCategoryTypeAirHumidifier"
+        case .window:
+            return "HMAccessoryCategoryTypeWindow"
+        case .windowCovering:
+            return "HMAccessoryCategoryTypeWindowCovering"
+        case .door:
+            return "HMAccessoryCategoryTypeDoor"
+        case .doorLock:
+            return "HMAccessoryCategoryTypeDoorLock"
+        case .garageDoorOpener:
+            return "HMAccessoryCategoryTypeGarageDoorOpener"
+        case .videoDoorbell:
+            return "HMAccessoryCategoryTypeVideoDoorbell"
+        case .sensor:
+            return "HMAccessoryCategoryTypeSensor"
+        case .securitySystem:
+            return "HMAccessoryCategoryTypeSecuritySystem"
+        case .iPCamera:
+            return "HMAccessoryCategoryTypeIPCamera"
+        case .sprinkler:
+            return "HMAccessoryCategoryTypeSprinkler"
+        case .faucet:
+            return "HMAccessoryCategoryTypeFaucet"
+        case .showerHead:
+            return "HMAccessoryCategoryTypeShowerHead"
+        case .bridge:
+            return "HMAccessoryCategoryTypeBridge"
+        case .rangeExtender:
+            return "HMAccessoryCategoryTypeRangeExtender"
+        case .other:
+            return "HMAccessoryCategoryTypeOther"
+        default:
+            return "Unknown"
+        }
+    }
 
 #if !os(macOS)
     init(key: String) {

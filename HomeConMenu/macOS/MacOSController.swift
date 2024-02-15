@@ -52,21 +52,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
     }
     
-    // MARK: NSMenuDelegate
-    
-    func menuWillOpen(_ menu: NSMenu) {
-        let items = NSMenu.getSubItems(menu: menu)
-            .compactMap({ $0 as? ErrorMenuItem})
-            .filter({ !$0.reachable })
-            .compactMap({ $0 as? MenuItemFromUUID })
-            .compactMap({ $0.UUIDs() })
-            .flatMap({ $0 })
-        
-        for uniqueIdentifider in items {
-            iosListener?.readCharacteristic(of: uniqueIdentifider)
-        }
-    }
-
     /// Collect and returns a collection of ShortcutInfo that is fetched from HomeKit.
     /// The returning ShortcutInfo array is passed to SettingsViewController.
     /// - Returns: ShortcutInfo array
@@ -100,6 +85,28 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
         return infoArray
     }
+    
+    func getExcludedServiceUUIDs() -> [UUID] {
+        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
+        return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
+    }
+    
+    // MARK: - NSMenuDelegate
+    
+    func menuWillOpen(_ menu: NSMenu) {
+        let items = NSMenu.getSubItems(menu: menu)
+            .compactMap({ $0 as? ErrorMenuItem})
+            .filter({ !$0.reachable })
+            .compactMap({ $0 as? MenuItemFromUUID })
+            .compactMap({ $0.UUIDs() })
+            .flatMap({ $0 })
+        
+        for uniqueIdentifider in items {
+            iosListener?.readCharacteristic(of: uniqueIdentifider)
+        }
+    }
+    
+    // MARK: - Reload menu items
     
     func reloadServiceGroupMenuItem() {
         guard let serviceGroups = self.iosListener?.serviceGroups else { return }
@@ -324,15 +331,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
-    func getExcludedServiceUUIDs() -> [UUID] {
-        guard let serviceGroups = self.iosListener?.serviceGroups else { return [] }
-        return serviceGroups.compactMap({ $0.services }).flatMap({$0}).map({$0.uniqueIdentifier})
-    }
-    
-    @IBAction func selectHome(sender: HomeSelectMenuItem) {
-        iosListener?.homeUniqueIdentifier = sender.uniqueIdentifier
-        iosListener?.rebootHomeManager()
-    }
+    // MARK: - Notifications
     
     @IBAction func windowWillClose(notification: Notification) {
         if let window = notification.object as? NSWindow {
@@ -355,6 +354,13 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func didChangeUserDefaults(notification: Notification) {
         reloadMenuExtra()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func selectHome(sender: HomeSelectMenuItem) {
+        iosListener?.homeUniqueIdentifier = sender.uniqueIdentifier
+        iosListener?.rebootHomeManager()
     }
     
     @IBAction func preferences(sender: NSButton?) {

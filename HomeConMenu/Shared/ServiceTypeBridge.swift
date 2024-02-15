@@ -74,8 +74,99 @@ public enum ServiceType: Int, CustomStringConvertible {
     case label    // A label namespace service used when an accessory supports multiple services of the same type.
     case accessoryInformation    // An accessory information service.
     case unknown
-
+    
     public var description: String {
+        switch self {
+        case .lightbulb:
+            return "HMServiceTypeLightbulb"
+        case .lightSensor:
+            return "HMServiceTypeLightSensor"
+        case .switch:
+            return "HMServiceTypeSwitch"
+        case .battery:
+            return "HMServiceTypeBattery"
+        case .outlet:
+            return "HMServiceTypeOutlet"
+        case .statefulProgrammableSwitch:
+            return "HMServiceTypeStatefulProgrammableSwitch"
+        case .statelessProgrammableSwitch:
+            return "HMServiceTypeStatelessProgrammableSwitch"
+        case .airPurifier:
+            return "HMServiceTypeAirPurifier"
+        case .airQualitySensor:
+            return "HMServiceTypeAirQualitySensor"
+        case .carbonDioxideSensor:
+            return "HMServiceTypeCarbonDioxideSensor"
+        case .carbonMonoxideSensor:
+            return "HMServiceTypeCarbonMonoxideSensor"
+        case .smokeSensor:
+            return "HMServiceTypeSmokeSensor"
+        case .heaterCooler:
+            return "HMServiceTypeHeaterCooler"
+        case .temperatureSensor:
+            return "HMServiceTypeTemperatureSensor"
+        case .thermostat:
+            return "HMServiceTypeThermostat"
+        case .fan:
+            return "HMServiceTypeFan"
+        case .filterMaintenance:
+            return "HMServiceTypeFilterMaintenance"
+        case .humidifierDehumidifier:
+            return "HMServiceTypeHumidifierDehumidifier"
+        case .humiditySensor:
+            return "HMServiceTypeHumiditySensor"
+        case .ventilationFan:
+            return "HMServiceTypeVentilationFan"
+        case .window:
+            return "HMServiceTypeWindow"
+        case .windowCovering:
+            return "HMServiceTypeWindowCovering"
+        case .slats:
+            return "HMServiceTypeSlats"
+        case .faucet:
+            return "HMServiceTypeFaucet"
+        case .valve:
+            return "HMServiceTypeValve"
+        case .irrigationSystem:
+            return "HMServiceTypeIrrigationSystem"
+        case .leakSensor:
+            return "HMServiceTypeLeakSensor"
+        case .door:
+            return "HMServiceTypeDoor"
+        case .doorbell:
+            return "HMServiceTypeDoorbell"
+        case .garageDoorOpener:
+            return "HMServiceTypeGarageDoorOpener"
+        case .lockManagement:
+            return "HMServiceTypeLockManagement"
+        case .lockMechanism:
+            return "HMServiceTypeLockMechanism"
+        case .motionSensor:
+            return "HMServiceTypeMotionSensor"
+        case .occupancySensor:
+            return "HMServiceTypeOccupancySensor"
+        case .securitySystem:
+            return "HMServiceTypeSecuritySystem"
+        case .contactSensor:
+            return "HMServiceTypeContactSensor"
+        case .cameraControl:
+            return "HMServiceTypeCameraControl"
+        case .cameraRTPStreamManagement:
+            return "HMServiceTypeCameraRTPStreamManagement"
+        case .microphone:
+            return "HMServiceTypeMicrophone"
+        case .speaker:
+            return "HMServiceTypeSpeaker"
+        case .label:
+            return "HMServiceTypeLabel"
+        case .accessoryInformation:
+            return "HMServiceTypeAccessoryInformation"
+        default:
+            return "Unknown"
+        }
+    }
+
+    public var detail: String {
         switch self {
         case .lightbulb:
             return "A light bulb service."
@@ -165,6 +256,8 @@ public enum ServiceType: Int, CustomStringConvertible {
             return "Unknown"
         }
     }
+    
+    
 
 
 #if !os(macOS)
