@@ -29,64 +29,14 @@ import Cocoa
 import os
 import KeyboardShortcuts
 
-enum DisplayItemType {
-    case light
-    case `switch`
-    case outlet
-    case fan
-    case none
-}
-
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
-    var orderPriority: Int {
-        100
-    }
-    
-    var reachable: Bool {
-        didSet {
-            if reachable {
-                self.image = icon
-            } else {
-                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
-            }
-        }
-    }
-    
-    func UUIDs() -> [UUID] {
-        return characteristicIdentifiers
-    }
-    
+    let characteristicIdentifiers: [UUID]
+    var mac2ios: mac2iOS?
     var icon: NSImage? {
         return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
     }
     
-    func bind(with uniqueIdentifier: UUID) -> Bool {
-        return characteristicIdentifiers.contains(where: { $0 == uniqueIdentifier })
-    }
-    
-    let characteristicIdentifiers: [UUID]
-    var mac2ios: mac2iOS?
-    
-    @IBAction func toggle(sender: NSMenuItem) {
-        guard let uuid = characteristicIdentifiers.first else { return }
-        do {
-            let value = try self.mac2ios?.getCharacteristic(of: uuid)
-            if let boolValue = value as? Bool {
-                for uuid in characteristicIdentifiers {
-                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
-                }
-            }
-        } catch {
-            Logger.app.error("Can not get toggle status from characteristic. - \(error.localizedDescription)")
-        }
-    }
-    
-    func update(value: Bool) {
-        reachable = true
-        self.state = value ? .on : .off
-    }
-        
     init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
 
         let characteristicInfos = serviceGroupInfo.services.map({ $0.characteristics }).flatMap({ $0 })
@@ -145,71 +95,49 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-class OnOffMenuItem: ToggleMenuItem {
     
-    var displayItem: DisplayItemType = .switch
-    
-    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
-        
-        // decide icon type
-        switch serviceInfo.associatedServiceType {
-        case .lightbulb:
-            self.displayItem = .light
-        case .outlet:
-            self.displayItem = .outlet
-        case .switch:
-            self.displayItem = .switch
-        case .fan:
-            self.displayItem = .fan
-        default:
-            self.displayItem = .none
-        }
-        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
+    func update(value: Bool) {
+        reachable = true
+        self.state = value ? .on : .off
     }
     
-    override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
-        super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
+    // MARK: - MenuItemProtocol
+    
+    func bind(with uniqueIdentifier: UUID) -> Bool {
+        return characteristicIdentifiers.contains(where: { $0 == uniqueIdentifier })
     }
     
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    var orderPriority: Int {
+        100
     }
-}
-
-class SwitchMenuItem: OnOffMenuItem {
     
-    override var icon: NSImage? {
-        switch displayItem {
-        case .light:
-            return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
-        case .fan:
-            return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
-        case .outlet:
-            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
-        case .switch:
-            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
-        case .none:
-            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
+    var reachable: Bool {
+        didSet {
+            if reachable {
+                self.image = icon
+            } else {
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+            }
         }
     }
-}
-
-class OutletMenuItem: OnOffMenuItem {
     
-    override var icon: NSImage? {
-        switch displayItem {
-        case .light:
-            return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
-        case .fan:
-            return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
-        case .outlet:
-            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
-        case .switch:
-            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
-        case .none:
-            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
+    func UUIDs() -> [UUID] {
+        return characteristicIdentifiers
+    }
+    
+    // MARK: - Aciton
+    
+    @IBAction func toggle(sender: NSMenuItem) {
+        guard let uuid = characteristicIdentifiers.first else { return }
+        do {
+            let value = try self.mac2ios?.getCharacteristic(of: uuid)
+            if let boolValue = value as? Bool {
+                for uuid in characteristicIdentifiers {
+                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
+                }
+            }
+        } catch {
+            Logger.app.error("Can not get toggle status from characteristic. - \(error.localizedDescription)")
         }
     }
 }
