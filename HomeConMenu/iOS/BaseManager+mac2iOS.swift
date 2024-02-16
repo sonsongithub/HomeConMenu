@@ -43,6 +43,7 @@ extension Array where Element: Equatable {
 extension BaseManager {
     
     /// Restart HKHomeManager included in BaseManager.
+    /// This function releases the existing HMHomeManager instance and re-creates it.
     func rebootHomeManager() {
         Logger.app.info("rebootHomeManager")
         homeManager?.delegate = nil
@@ -68,7 +69,8 @@ extension BaseManager {
     }
     
     /// Get value from service whose characteristic is to write value.
-    /// - Parameter uniqueIdentifier: UUID of the service.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the service.
     /// - Returns: Array of values.
     func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
         guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else { throw HomeConMenuError.primaryHomeNotFound }
@@ -80,7 +82,8 @@ extension BaseManager {
     }
     
     /// Execute action set whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the action set.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the action set.
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.usedHome(with: self.homeUniqueIdentifier) else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
@@ -102,7 +105,8 @@ extension BaseManager {
     
     /// Request to read value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
     /// Reading value is not execute synchronously.
-    /// - Parameter uniqueIdentifier: UUID of the characteristic.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
     func readCharacteristic(of uniqueIdentifier: UUID) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task {
@@ -121,8 +125,9 @@ extension BaseManager {
     }
     
     /// Request to write value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameters: uniqueIdentifier: UUID of the characteristic.
-    /// - Parameters: object: Value to write.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
+    ///     - object: Value to write.
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task.detached {
@@ -141,8 +146,10 @@ extension BaseManager {
     }
     
     /// Return value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the characteristic.
-    /// - Returns: Value of the characteristic.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
+    /// - Returns:
+    /// Value of the characteristic.
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier)
         else { throw HomeConMenuError.characteristicNotFound }
@@ -151,7 +158,8 @@ extension BaseManager {
     }
     
     /// Open camera whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the camera.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the camera.
     func openCamera(uniqueIdentifier: UUID) {
         guard let accessory = self.homeManager?.getAccessory(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         guard let cameraProfile = accessory.cameraProfiles?.first else { return }
