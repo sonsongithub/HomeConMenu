@@ -29,24 +29,42 @@ import HomeKit
 import os
 
 extension HMCharacteristic {
+    /// Get the detail of the characteristic.
+    /// For example, "The current light level."
     public var detail: String {
         let info = CharacteristicInfo(characteristic: self)
         return info.type.detail
     }
+    
+    /// Get the characteristic type string of the characteristic as Accessory Characteristic Types.
+    /// For example, HMCharacteristicTypeCurrentTemperature.
+    public var typeAsString: String {
+        let info = CharacteristicInfo(characteristic: self)
+        return info.type.description
+    }
 }
 
 extension HMService {
+    /// Get the service detail of the service.
+    /// For example, "A temperature sensor service."
     public var detail: String {
         let tmp = ServiceType(key: self.serviceType)
         return tmp.detail
     }
+    
+    /// Get the service type string of the service as Accessory Service Types.
+    /// For example, HMServiceTypeLightbulb.
+    public var typeAsString: String {
+        let tmp = ServiceType(key: self.serviceType)
+        return tmp.description
+    }
 }
 
 extension HMHomeManager {
-    
     /// Get the home with the unique identifier.
     /// - Parameters:
     ///      - uniqueIdentifier: Unique identifier of the home.
+    /// - Returns: The home with the unique identifier.
     func usedHome(with uniqueIdentifier: UUID?) -> HMHome? {
         for home in self.homes {
             if home.uniqueIdentifier == uniqueIdentifier {
@@ -60,6 +78,7 @@ extension HMHomeManager {
     /// - Parameters:
     ///     - homeUniqueIdentifier: Unique identifier of the home.
     ///     - uniqueIdentifier: Unique identifier of the characteristic.
+    /// - Returns: The characteristic with the unique identifier.
     func getCharacteristic(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -77,6 +96,7 @@ extension HMHomeManager {
     /// Get the characteristic whose unique is specified as `uniqueIdentifier` in the primary home.
     /// - Parameters:
     ///    - uniqueIdentifier: Unique identifier of the characteristic.
+    /// - Returns: The characteristic with the unique identifier.
     @available(*, deprecated, message: "Use getCharacteristic(from:with:) instead.")
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -96,6 +116,7 @@ extension HMHomeManager {
     /// - Parameters:
     ///     - homeUniqueIdentifier: Unique identifier of the home.
     ///     - uniqueIdentifier: Unique identifier of the service.
+    /// - Returns: The service with the unique identifier.
     func getService(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMService? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -111,6 +132,7 @@ extension HMHomeManager {
     /// Get the service whose unique identifier is specified as `uniqueIdentifier` in the primary home.
     /// - Parameters:
     ///   - uniqueIdentifier: Unique identifier of the service.
+    /// - Returns: The service with the unique identifier.
     @available(*, deprecated, message: "Use getService(from:with:) instead.")
     func getService(with uniqueIdentifier: UUID) -> HMService? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -128,6 +150,7 @@ extension HMHomeManager {
     /// - Parameters:
     ///    - homeUniqueIdentifier: Unique identifier of the home.
     ///    - uniqueIdentifier: Unique identifier of the accessory.
+    /// - Returns: The accessory with the unique identifier.
     func getAccessory(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMAccessory? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -141,6 +164,7 @@ extension HMHomeManager {
     /// Get the accessory whose unique identifier is specified as `uniqueIdentifier` in the primary home.
     /// - Parameters:
     ///     - uniqueIdentifier: Unique identifier of the accessory.
+    /// - Returns: The accessory with the unique identifier.
     @available(*, deprecated, message: "Use getAccessory(from:with:) instead.")
     func getAccessory(with uniqueIdentifier: UUID) -> HMAccessory? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -211,7 +235,6 @@ extension HMHome {
 }
 
 extension HMActionSet {
-    
     /// Whether the action set is a HomeKit scene or not.
     /// HomeConMenu find the HomeKit scene instances from ActionSet array that is returned from HomeKit API includes sets produced by Shortcuts.app.
     var isHomeKitScene: Bool {
@@ -222,6 +245,10 @@ extension HMActionSet {
 }
 
 extension HMAccessory {
+    /// Get the accessory information as `AccessoryInfo` array.
+    /// - Parameters:
+    ///     - delegate: The delegate of the accessory, HMAccessoryDelegate.
+    /// - Returns: The accessory information as `AccessoryInfo` array.
     func convert2info(delegate: HMAccessoryDelegate) -> AccessoryInfo {
         
         self.delegate = delegate
