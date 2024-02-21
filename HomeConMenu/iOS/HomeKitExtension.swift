@@ -263,55 +263,56 @@ extension HMAccessory {
         
         self.delegate = delegate
     
-        let info = AccessoryInfo(accessory: self)
+        let accessoryInfo = AccessoryInfo(accessory: self)
         
         if let room = self.room {
-            info.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
+            accessoryInfo.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
         }
         
         if let cameraProfiles = self.cameraProfiles {
-            info.hasCamera = (cameraProfiles.count > 0)
+            accessoryInfo.hasCamera = (cameraProfiles.count > 0)
         }
         
-        for service in self.services {
-            let serviceInfo = ServiceInfo(service: service)
-            for chara in service.characteristics {
-                let charaInfo = CharacteristicInfo(characteristic: chara)
-                charaInfo.type = CharacteristicType(key: chara.characteristicType)
-                charaInfo.uniqueIdentifier = chara.uniqueIdentifier
-                
-                let typesNotificationUnsupporting: Set<CharacteristicType> = Set([.unknown, .hardwareVersion, .name, .identify])
-                
+        let services = self
+            .services
+            .filter({ $0.isSupported })
+            .map({ ServiceInfo(service: $0) })
+            .compactMap({$0})
+        accessoryInfo.services = services
+        
+        for service in self.services.filter({ $0.isSupported }) {
+            for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
                     do {
-                        if !typesNotificationUnsupporting.contains(charaInfo.type) {
-                            try await chara.enableNotification(true)
-                        }
+                        try await characteristic.enableNotification(true)
                     } catch {
                         Logger.homeKit.error("Can not enable notification - \(error.localizedDescription)")
                     }
                 }
-                
+            }
+        }
+        
+        for service in self.services.filter({ $0.isSupported }) {
+            for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
                     do {
-                        try await chara.readValue()
+                        try await characteristic.readValue()
                         DispatchQueue.main.async {
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: chara.uniqueIdentifier, using: chara.value as Any)
+                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
                             }
                         }
                     } catch {
                         DispatchQueue.main.async {
                             Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: chara.uniqueIdentifier, using: false)
+                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: characteristic.uniqueIdentifier, using: false)
                             }
                         }
                     }
                 }
             }
-            info.services.append(serviceInfo)
         }
-        return info
+        return accessoryInfo
     }
 }
