@@ -52,13 +52,18 @@ public class ServiceInfo: NSObject, ServiceInfoProtocol {
     required public override init() {
         fatalError()
     }
+    
+    public var isSupported: Bool {
+        return self.type.isSupported
+    }
+    
 #if !os(macOS)
     init(service: HMService) {
         name = service.name
         uniqueIdentifier = service.uniqueIdentifier
         isUserInteractive = service.isUserInteractive
         type = ServiceType(key: service.serviceType)
-        characteristics = service.characteristics.map({ CharacteristicInfo(characteristic: $0) })
+        characteristics = service.characteristics.map({ CharacteristicInfo(characteristic: $0) }).filter({ $0.isSupported })
         if let tmp = service.associatedServiceType {
             associatedServiceType = ServiceType(key: tmp)
         }

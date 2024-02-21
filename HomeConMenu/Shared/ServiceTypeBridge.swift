@@ -257,8 +257,14 @@ public enum ServiceType: Int, CustomStringConvertible {
         }
     }
     
-    
-
+    public var isSupported: Bool {
+        switch self {
+        case .humiditySensor, .temperatureSensor, .lightbulb, .switch, .outlet:
+            return true
+        default:
+            return false
+        }
+    }
 
 #if !os(macOS)
     init(key: String) {

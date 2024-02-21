@@ -646,7 +646,20 @@ public enum CharacteristicType: Int, CustomStringConvertible {
             return "Unknown"
         }
     }
-
+    
+    public var isSupported: Bool {
+        switch self {
+        case .hue, .saturation, .brightness, .colorTemperature:
+            return true
+        case .powerState:
+            return true
+        case .currentRelativeHumidity, .currentTemperature:
+            return true
+        default:
+            return false
+        }
+    }
+    
 #if !os(macOS)
     init(key: String) {
         switch key {

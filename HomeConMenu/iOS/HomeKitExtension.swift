@@ -42,6 +42,11 @@ extension HMCharacteristic {
         let info = CharacteristicInfo(characteristic: self)
         return info.type.description
     }
+    
+    /// Indicates whether the current HomeConMenu supports this characteristic.
+    public var isSupported: Bool {
+        return CharacteristicType(key: self.characteristicType).isSupported
+    }
 }
 
 extension HMService {
@@ -57,6 +62,11 @@ extension HMService {
     public var typeAsString: String {
         let tmp = ServiceType(key: self.serviceType)
         return tmp.description
+    }
+    
+    /// Indicates whether the current HomeConMenu supports this service.
+    public var isSupported: Bool {
+        return ServiceType(key: self.serviceType).isSupported
     }
 }
 

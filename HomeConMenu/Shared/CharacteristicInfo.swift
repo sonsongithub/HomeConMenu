@@ -47,6 +47,11 @@ public class CharacteristicInfo: NSObject, CharacteristicInfoProtocol {
     required public override init() {
         fatalError()
     }
+    
+    public var isSupported: Bool {
+        return type.isSupported
+    }
+    
 #if !os(macOS)
     init(characteristic: HMCharacteristic) {
         super.init()
