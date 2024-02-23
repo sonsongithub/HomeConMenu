@@ -255,43 +255,25 @@ extension HMActionSet {
 }
 
 extension HMAccessory {
-    /// Get the accessory information as `AccessoryInfo` array.
-    /// - Parameters:
-    ///     - delegate: The delegate of the accessory, HMAccessoryDelegate.
-    /// - Returns: The accessory information as `AccessoryInfo` array.
-    func convert2info(delegate: HMAccessoryDelegate) -> AccessoryInfo {
-        
-        self.delegate = delegate
-    
-        let accessoryInfo = AccessoryInfo(accessory: self)
-        
-        if let room = self.room {
-            accessoryInfo.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
-        }
-        
-        if let cameraProfiles = self.cameraProfiles {
-            accessoryInfo.hasCamera = (cameraProfiles.count > 0)
-        }
-        
-        let services = self
-            .services
-            .filter({ $0.isSupported })
-            .map({ ServiceInfo(service: $0) })
-            .compactMap({$0})
-        accessoryInfo.services = services
-        
+    /// Enable notifications of characteristics that are supported on HomeConMenu.
+    func enableNotifications() {
         for service in self.services.filter({ $0.isSupported }) {
             for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
                     do {
                         try await characteristic.enableNotification(true)
+                    } catch let error as HomeConMenuError {
+                        Logger.app.error("\(error.localizedDescription)")
                     } catch {
-                        Logger.homeKit.error("Can not enable notification - \(error.localizedDescription)")
+                        Logger.homeKit.error("Can not enable notification, - \(error.localizedDescription)")
                     }
                 }
             }
         }
-        
+    }
+    
+    /// Read values from each characteristic.
+    func readValues() {
         for service in self.services.filter({ $0.isSupported }) {
             for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
@@ -304,7 +286,12 @@ extension HMAccessory {
                         }
                     } catch {
                         DispatchQueue.main.async {
-                            Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
+                            switch error {
+                            case (_ as HomeConMenuError):
+                                Logger.homeKit.error("\(error.localizedDescription)")
+                            default:
+                                Logger.homeKit.error("Can not read value, - \(error.localizedDescription)")
+                            }
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                                 delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: characteristic.uniqueIdentifier, using: false)
                             }
@@ -313,6 +300,5 @@ extension HMAccessory {
                 }
             }
         }
-        return accessoryInfo
     }
 }

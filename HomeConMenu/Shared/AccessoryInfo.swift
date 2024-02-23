@@ -64,6 +64,21 @@ public class AccessoryInfo: NSObject, AccessoryInfoProtocol {
     init(accessory: HMAccessory) {
         uniqueIdentifier = accessory.uniqueIdentifier
         name = accessory.name
+    
+        if let tmp = accessory.room {
+            room = RoomInfo(name: tmp.name, uniqueIdentifier: tmp.uniqueIdentifier)
+        }
+        
+        if let cameraProfiles = accessory.cameraProfiles {
+            hasCamera = (cameraProfiles.count > 0)
+        }
+        
+        services = accessory
+            .services
+            .filter({ $0.isSupported })
+            .map({ ServiceInfo(service: $0) })
+            .compactMap({$0})
+        
         super.init()
     }
 #endif

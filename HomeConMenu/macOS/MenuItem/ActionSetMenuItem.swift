@@ -94,11 +94,12 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
     func update() {
         guard let mac2ios = mac2ios else { return }
         do {
-            let targetValues = try mac2ios.getTargetValues(of: uniqueIdentifier)
+            let actionSetInfo = try mac2ios.getActionSet(with: uniqueIdentifier)
+            let targetValues = try mac2ios.getTargetValuesInActionSet(with: uniqueIdentifier)
             let currentValues = try actionUniqueIdentifiers.map { uuid in
                 return try mac2ios.getCharacteristic(of: uuid)
             }
-            guard targetValues.count == currentValues.count else { throw HomeConMenuError.actionSetCharacteristicsCountError }
+            guard targetValues.count == currentValues.count else { throw HomeConMenuError.actionSetCharacteristicsCountError(actionSetInfo.name, uniqueIdentifier, targetValues.count, currentValues.count) }
             
             let check = zip(targetValues, currentValues).reduce(true) { partialResult, tuple in
                 switch tuple {
@@ -112,8 +113,10 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
             }
             self.image = createImage(check: check)
             self.target = check ? nil : self
+        } catch let error as HomeConMenuError {
+            Logger.app.error("\(error.localizedDescription)")
         } catch {
-            Logger.app.error("Can not get action item status from characteristic. - \(error.localizedDescription)")
+            Logger.app.error("Can not get action item status from characteristic - \(error.localizedDescription)")
         }
     }
 

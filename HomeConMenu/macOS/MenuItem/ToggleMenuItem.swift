@@ -136,8 +136,10 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
                     self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
                 }
             }
+        } catch let error as HomeConMenuError {
+            Logger.app.error("\(error.localizedDescription)")
         } catch {
-            Logger.app.error("Can not get toggle status from characteristic. - \(error.localizedDescription)")
+            Logger.app.error("Can not get toggle status, unexpected error - \(error.localizedDescription)")
         }
     }
 }

@@ -68,14 +68,23 @@ extension BaseManager {
             }
     }
     
+    func getActionSet(with uniqueIdentifier: UUID) throws -> ActionSetInfo {
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier)
+        else { throw HomeConMenuError.primaryHomeNotFound }
+        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
+        else { throw HomeConMenuError.actionSetNotFound(uniqueIdentifier) }
+        return ActionSetInfo(actionSet: actionSet)
+    }
+    
     /// Get value from service whose characteristic is to write value.
     /// - Parameters:
     ///     - uniqueIdentifier: UUID of the service.
     /// - Returns: Array of values.
-    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
-        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else { throw HomeConMenuError.primaryHomeNotFound }
+    func getTargetValuesInActionSet(with uniqueIdentifier: UUID) throws -> [Any] {
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier)
+        else { throw HomeConMenuError.primaryHomeNotFound }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
-        else { throw HomeConMenuError.actionSetNotFound }
+        else { throw HomeConMenuError.actionSetNotFound(uniqueIdentifier) }
         let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
         
         return writeActions.map({$0.targetValue as Any})
@@ -87,7 +96,7 @@ extension BaseManager {
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.usedHome(with: self.homeUniqueIdentifier) else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
-        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing.");return }
+        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing."); return }
         
         Task.detached {
             do {
@@ -97,6 +106,8 @@ extension BaseManager {
                         self.macOSController?.updateMenuItemsRelated(to: writeAction.uniqueIdentifier, using: writeAction.targetValue)
                     }
                 }
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.homeKit.error("Can not execute actionset - \(error.localizedDescription)")
             }
@@ -115,6 +126,8 @@ extension BaseManager {
                DispatchQueue.main.async {
                    self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: characteristic.value as Any)
                }
+           } catch let error as HomeConMenuError {
+               Logger.app.error("\(error.localizedDescription)")
            } catch {
                Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                DispatchQueue.main.async {
@@ -136,6 +149,8 @@ extension BaseManager {
                 DispatchQueue.main.async {
                     self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: object)
                 }
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.homeKit.error("Can not write value - \(error.localizedDescription)")
                 DispatchQueue.main.async {
@@ -152,8 +167,9 @@ extension BaseManager {
     /// Value of the characteristic.
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier)
-        else { throw HomeConMenuError.characteristicNotFound }
-        guard characteristic.value != nil else { throw HomeConMenuError.characteristicValueNil }
+        else { throw HomeConMenuError.characteristicNotFound(uniqueIdentifier) }
+        guard characteristic.value != nil
+        else { throw HomeConMenuError.characteristicValueNil(uniqueIdentifier) }
         return characteristic.value as Any
     }
     

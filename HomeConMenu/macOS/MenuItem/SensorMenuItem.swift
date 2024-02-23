@@ -134,8 +134,10 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         if let mac2ios = mac2ios {
             do {
                 guard let value = try mac2ios.getCharacteristic(of: uniqueIdentifier) as? Double
-                else { throw HomeConMenuError.characteristicTypeError }
+                else { throw HomeConMenuError.characteristicTypeError(serviceInfo.name, serviceInfo.uniqueIdentifier, characteristicInfo.description, characteristicInfo.uniqueIdentifier) }
                 update(value: value)
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.app.error("Can not get temperature, humidity from characteristic. - \(error.localizedDescription)")
             }

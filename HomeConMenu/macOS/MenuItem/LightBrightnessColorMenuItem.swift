@@ -56,8 +56,11 @@ class LightBrightnessColorMenuItem: LightColorMenuItem, GraySliderPanelViewDeleg
         
         if let mac2ios = mac2ios {
             do {
-                guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double else { throw HomeConMenuError.characteristicTypeError }
+                guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double
+                else { throw HomeConMenuError.characteristicTypeError(serviceInfo.name, serviceInfo.uniqueIdentifier, brightness.description, brightnessChara.uniqueIdentifier) }
                 self.color = NSColor(hue: 1.0, saturation: 0.0, brightness: brightness/100.0, alpha: 1.0)
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.app.error("Can not get brightness from characteristic. - \(error.localizedDescription)")
             }

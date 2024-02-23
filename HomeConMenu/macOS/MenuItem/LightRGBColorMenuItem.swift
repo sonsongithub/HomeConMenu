@@ -79,16 +79,18 @@ class LightRGBColorMenuItem: LightColorMenuItem, ColorWheelPanelViewDelegate {
         if let mac2ios = mac2ios {
             do {
                 guard let hue = try mac2ios.getCharacteristic(of: hueCharcteristicIdentifier) as? Double
-                else { throw HomeConMenuError.characteristicTypeError }
+                else { throw HomeConMenuError.characteristicTypeError(serviceInfo.name, serviceInfo.uniqueIdentifier, hueChara.type.description, hueChara.uniqueIdentifier) }
                 guard let saturation = try mac2ios.getCharacteristic(of: saturationCharcteristicIdentifier) as? Double
-                else { throw HomeConMenuError.characteristicTypeError }
+                else { throw HomeConMenuError.characteristicTypeError(serviceInfo.name, serviceInfo.uniqueIdentifier, saturationChara.description, saturationChara.uniqueIdentifier) }
                 guard let brightness = try mac2ios.getCharacteristic(of: brightnessCharcteristicIdentifier) as? Double
-                else { throw HomeConMenuError.characteristicTypeError }
+                else { throw HomeConMenuError.characteristicTypeError(serviceInfo.name, serviceInfo.uniqueIdentifier, brightnessChara.description, brightnessChara.uniqueIdentifier) }
                 self.color = NSColor(hue: hue/360.0, saturation: saturation/100.0, brightness: brightness/100.0, alpha: 1.0)
                 
                 view.hue = hue / 360.0
                 view.saturation = saturation / 100.0
                 view.brightness = brightness / 100.0
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.app.error("Can not get brightness, hue, staturation from characteristic. - \(error.localizedDescription)")
             }

@@ -120,7 +120,15 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
 //        home.dump()
 #endif
         homes = homeManager?.homes.map({ HomeInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }) ?? []
-        accessories = home.accessories.map({$0.convert2info(delegate: self)})
+
+        accessories = home.accessories.map({ AccessoryInfo(accessory: $0)})
+    
+        home.accessories.forEach { accessory in
+            accessory.delegate = self
+            accessory.enableNotifications()
+            accessory.readValues()
+        }
+        
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})
         rooms = home.rooms.map({ RoomInfo(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) })
         actionSets = home.actionSets.filter({ $0.isHomeKitScene }).map({ ActionSetInfo(actionSet: $0)})
