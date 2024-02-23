@@ -1,8 +1,8 @@
 //
-//  Characteristics.swift
-//  HomeMenu
+//  OutletMenuItem.swift
+//  macOSBridge
 //
-//  Created by Yuichi Yoshida on 2022/03/08.
+//  Created by Yuichi Yoshida on 2024/02/15.
 //
 //  MIT License
 //
@@ -25,40 +25,22 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import Cocoa
 
-#if !os(macOS)
-import HomeKit
-#endif
-
-@objc(CharacteristicInfoProtocol)
-public protocol CharacteristicInfoProtocol: NSObjectProtocol {
-    init()
-    var uniqueIdentifier: UUID { get set }
-    var value: Any? { get set }
-    var type: CharacteristicType { get set }
+class OutletMenuItem: OnOffMenuItem {
+    
+    override var icon: NSImage? {
+        switch displayItem {
+        case .light:
+            return NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil)
+        case .fan:
+            return NSImage(systemSymbolName: "fan", accessibilityDescription: nil)
+        case .outlet:
+            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
+        case .switch:
+            return NSImage(systemSymbolName: "lightswitch.on", accessibilityDescription: nil)
+        case .none:
+            return NSImage(systemSymbolName: "poweroutlet.type.b", accessibilityDescription: nil)
+        }
+    }
 }
-
-public class CharacteristicInfo: NSObject, CharacteristicInfoProtocol {
-    public var uniqueIdentifier: UUID = UUID()
-    public var value: Any?
-    public var type: CharacteristicType = .unknown
-    
-    required public override init() {
-        fatalError()
-    }
-    
-    public var isSupported: Bool {
-        return type.isSupported
-    }
-    
-#if !os(macOS)
-    init(characteristic: HMCharacteristic) {
-        super.init()
-        uniqueIdentifier = characteristic.uniqueIdentifier
-        value = characteristic.value
-        type = CharacteristicType(key: characteristic.characteristicType)
-    }
-#endif
-}
-

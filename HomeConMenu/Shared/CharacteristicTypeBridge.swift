@@ -152,8 +152,255 @@ public enum CharacteristicType: Int, CustomStringConvertible {
     case firmwareVersion    // The firmware version of the accessory.
     case serialNumber    // The serial number of the accessory.
     case unknown
-
+    
     public var description: String {
+        switch self {
+        case .currentLightLevel:
+            return "HMCharacteristicTypeCurrentLightLevel"
+        case .hue:
+            return "HMCharacteristicTypeHue"
+        case .brightness:
+            return "HMCharacteristicTypeBrightness"
+        case .saturation:
+            return "HMCharacteristicTypeSaturation"
+        case .colorTemperature:
+            return "HMCharacteristicTypeColorTemperature"
+        case .batteryLevel:
+            return "HMCharacteristicTypeBatteryLevel"
+        case .chargingState:
+            return "HMCharacteristicTypeChargingState"
+        case .contactState:
+            return "HMCharacteristicTypeContactState"
+        case .outletInUse:
+            return "HMCharacteristicTypeOutletInUse"
+        case .powerState:
+            return "HMCharacteristicTypePowerState"
+        case .statusLowBattery:
+            return "HMCharacteristicTypeStatusLowBattery"
+        case .outputState:
+            return "HMCharacteristicTypeOutputState"
+        case .inputEvent:
+            return "HMCharacteristicTypeInputEvent"
+        case .currentTemperature:
+            return "HMCharacteristicTypeCurrentTemperature"
+        case .targetTemperature:
+            return "HMCharacteristicTypeTargetTemperature"
+        case .temperatureUnits:
+            return "HMCharacteristicTypeTemperatureUnits"
+        case .targetHeatingCooling:
+            return "HMCharacteristicTypeTargetHeatingCooling"
+        case .currentHeatingCooling:
+            return "HMCharacteristicTypeCurrentHeatingCooling"
+        case .targetHeaterCoolerState:
+            return "HMCharacteristicTypeTargetHeaterCoolerState"
+        case .currentHeaterCoolerState:
+            return "HMCharacteristicTypeCurrentHeaterCoolerState"
+        case .coolingThreshold:
+            return "HMCharacteristicTypeCoolingThreshold"
+        case .heatingThreshold:
+            return "HMCharacteristicTypeHeatingThreshold"
+        case .currentRelativeHumidity:
+            return "HMCharacteristicTypeCurrentRelativeHumidity"
+        case .targetRelativeHumidity:
+            return "HMCharacteristicTypeTargetRelativeHumidity"
+        case .currentHumidifierDehumidifierState:
+            return "HMCharacteristicTypeCurrentHumidifierDehumidifierState"
+        case .targetHumidifierDehumidifierState:
+            return "HMCharacteristicTypeTargetHumidifierDehumidifierState"
+        case .humidifierThreshold:
+            return "HMCharacteristicTypeHumidifierThreshold"
+        case .dehumidifierThreshold:
+            return "HMCharacteristicTypeDehumidifierThreshold"
+        case .airQuality:
+            return "HMCharacteristicTypeAirQuality"
+        case .airParticulateDensity:
+            return "HMCharacteristicTypeAirParticulateDensity"
+        case .airParticulateSize:
+            return "HMCharacteristicTypeAirParticulateSize"
+        case .smokeDetected:
+            return "HMCharacteristicTypeSmokeDetected"
+        case .carbonDioxideDetected:
+            return "HMCharacteristicTypeCarbonDioxideDetected"
+        case .carbonDioxideLevel:
+            return "HMCharacteristicTypeCarbonDioxideLevel"
+        case .carbonDioxidePeakLevel:
+            return "HMCharacteristicTypeCarbonDioxidePeakLevel"
+        case .carbonMonoxideDetected:
+            return "HMCharacteristicTypeCarbonMonoxideDetected"
+        case .carbonMonoxideLevel:
+            return "HMCharacteristicTypeCarbonMonoxideLevel"
+        case .carbonMonoxidePeakLevel:
+            return "HMCharacteristicTypeCarbonMonoxidePeakLevel"
+        case .nitrogenDioxideDensity:
+            return "HMCharacteristicTypeNitrogenDioxideDensity"
+        case .ozoneDensity:
+            return "HMCharacteristicTypeOzoneDensity"
+        case .pM10Density:
+            return "HMCharacteristicTypePM10Density"
+        case .pM2_5Density:
+            return "HMCharacteristicTypePM2_5Density"
+        case .sulphurDioxideDensity:
+            return "HMCharacteristicTypeSulphurDioxideDensity"
+        case .volatileOrganicCompoundDensity:
+            return "HMCharacteristicTypeVolatileOrganicCompoundDensity"
+        case .currentFanState:
+            return "HMCharacteristicTypeCurrentFanState"
+        case .targetFanState:
+            return "HMCharacteristicTypeTargetFanState"
+        case .rotationDirection:
+            return "HMCharacteristicTypeRotationDirection"
+        case .rotationSpeed:
+            return "HMCharacteristicTypeRotationSpeed"
+        case .swingMode:
+            return "HMCharacteristicTypeSwingMode"
+        case .currentAirPurifierState:
+            return "HMCharacteristicTypeCurrentAirPurifierState"
+        case .targetAirPurifierState:
+            return "HMCharacteristicTypeTargetAirPurifierState"
+        case .filterLifeLevel:
+            return "HMCharacteristicTypeFilterLifeLevel"
+        case .filterChangeIndication:
+            return "HMCharacteristicTypeFilterChangeIndication"
+        case .filterResetChangeIndication:
+            return "HMCharacteristicTypeFilterResetChangeIndication"
+        case .waterLevel:
+            return "HMCharacteristicTypeWaterLevel"
+        case .valveType:
+            return "HMCharacteristicTypeValveType"
+        case .leakDetected:
+            return "HMCharacteristicTypeLeakDetected"
+        case .currentDoorState:
+            return "HMCharacteristicTypeCurrentDoorState"
+        case .targetDoorState:
+            return "HMCharacteristicTypeTargetDoorState"
+        case .currentPosition:
+            return "HMCharacteristicTypeCurrentPosition"
+        case .targetPosition:
+            return "HMCharacteristicTypeTargetPosition"
+        case .positionState:
+            return "HMCharacteristicTypePositionState"
+        case .statusJammed:
+            return "HMCharacteristicTypeStatusJammed"
+        case .holdPosition:
+            return "HMCharacteristicTypeHoldPosition"
+        case .slatType:
+            return "HMCharacteristicTypeSlatType"
+        case .currentSlatState:
+            return "HMCharacteristicTypeCurrentSlatState"
+        case .currentHorizontalTilt:
+            return "HMCharacteristicTypeCurrentHorizontalTilt"
+        case .targetHorizontalTilt:
+            return "HMCharacteristicTypeTargetHorizontalTilt"
+        case .currentVerticalTilt:
+            return "HMCharacteristicTypeCurrentVerticalTilt"
+        case .targetVerticalTilt:
+            return "HMCharacteristicTypeTargetVerticalTilt"
+        case .currentTilt:
+            return "HMCharacteristicTypeCurrentTilt"
+        case .targetTilt:
+            return "HMCharacteristicTypeTargetTilt"
+        case .lockManagementAutoSecureTimeout:
+            return "HMCharacteristicTypeLockManagementAutoSecureTimeout"
+        case .lockManagementControlPoint:
+            return "HMCharacteristicTypeLockManagementControlPoint"
+        case .lockMechanismLastKnownAction:
+            return "HMCharacteristicTypeLockMechanismLastKnownAction"
+        case .lockPhysicalControls:
+            return "HMCharacteristicTypeLockPhysicalControls"
+        case .motionDetected:
+            return "HMCharacteristicTypeMotionDetected"
+        case .currentLockMechanismState:
+            return "HMCharacteristicTypeCurrentLockMechanismState"
+        case .targetLockMechanismState:
+            return "HMCharacteristicTypeTargetLockMechanismState"
+        case .currentSecuritySystemState:
+            return "HMCharacteristicTypeCurrentSecuritySystemState"
+        case .targetSecuritySystemState:
+            return "HMCharacteristicTypeTargetSecuritySystemState"
+        case .obstructionDetected:
+            return "HMCharacteristicTypeObstructionDetected"
+        case .occupancyDetected:
+            return "HMCharacteristicTypeOccupancyDetected"
+        case .securitySystemAlarmType:
+            return "HMCharacteristicTypeSecuritySystemAlarmType"
+        case .supportedRTPConfiguration:
+            return "HMCharacteristicTypeSupportedRTPConfiguration"
+        case .digitalZoom:
+            return "HMCharacteristicTypeDigitalZoom"
+        case .opticalZoom:
+            return "HMCharacteristicTypeOpticalZoom"
+        case .imageMirroring:
+            return "HMCharacteristicTypeImageMirroring"
+        case .imageRotation:
+            return "HMCharacteristicTypeImageRotation"
+        case .nightVision:
+            return "HMCharacteristicTypeNightVision"
+        case .streamingStatus:
+            return "HMCharacteristicTypeStreamingStatus"
+        case .supportedVideoStreamConfiguration:
+            return "HMCharacteristicTypeSupportedVideoStreamConfiguration"
+        case .supportedAudioStreamConfiguration:
+            return "HMCharacteristicTypeSupportedAudioStreamConfiguration"
+        case .selectedStreamConfiguration:
+            return "HMCharacteristicTypeSelectedStreamConfiguration"
+        case .setupStreamEndpoint:
+            return "HMCharacteristicTypeSetupStreamEndpoint"
+        case .audioFeedback:
+            return "HMCharacteristicTypeAudioFeedback"
+        case .volume:
+            return "HMCharacteristicTypeVolume"
+        case .mute:
+            return "HMCharacteristicTypeMute"
+        case .active:
+            return "HMCharacteristicTypeActive"
+        case .statusTampered:
+            return "HMCharacteristicTypeStatusTampered"
+        case .statusFault:
+            return "HMCharacteristicTypeStatusFault"
+        case .statusActive:
+            return "HMCharacteristicTypeStatusActive"
+        case .inUse:
+            return "HMCharacteristicTypeInUse"
+        case .isConfigured:
+            return "HMCharacteristicTypeIsConfigured"
+        case .remainingDuration:
+            return "HMCharacteristicTypeRemainingDuration"
+        case .setDuration:
+            return "HMCharacteristicTypeSetDuration"
+        case .programMode:
+            return "HMCharacteristicTypeProgramMode"
+        case .name:
+            return "HMCharacteristicTypeName"
+        case .identify:
+            return "HMCharacteristicTypeIdentify"
+        case .version:
+            return "HMCharacteristicTypeVersion"
+        case .logs:
+            return "HMCharacteristicTypeLogs"
+        case .adminOnlyAccess:
+            return "HMCharacteristicTypeAdminOnlyAccess"
+        case .hardwareVersion:
+            return "HMCharacteristicTypeHardwareVersion"
+        case .softwareVersion:
+            return "HMCharacteristicTypeSoftwareVersion"
+        case .labelIndex:
+            return "HMCharacteristicTypeLabelIndex"
+        case .labelNamespace:
+            return "HMCharacteristicTypeLabelNamespace"
+        case .manufacturer:
+            return "HMCharacteristicTypeManufacturer"
+        case .model:
+            return "HMCharacteristicTypeModel"
+        case .firmwareVersion:
+            return "HMCharacteristicTypeFirmwareVersion"
+        case .serialNumber:
+            return "HMCharacteristicTypeSerialNumber"
+        default:
+            return "Unknown"
+        }
+    }
+
+    public var detail: String {
         switch self {
         case .currentLightLevel:
             return "The current light level."
@@ -399,8 +646,20 @@ public enum CharacteristicType: Int, CustomStringConvertible {
             return "Unknown"
         }
     }
-
-
+    
+    public var isSupported: Bool {
+        switch self {
+        case .hue, .saturation, .brightness, .colorTemperature:
+            return true
+        case .powerState:
+            return true
+        case .currentRelativeHumidity, .currentTemperature:
+            return true
+        default:
+            return false
+        }
+    }
+    
 #if !os(macOS)
     init(key: String) {
         switch key {

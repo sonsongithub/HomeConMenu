@@ -38,6 +38,7 @@ public protocol ServiceInfoProtocol: NSObjectProtocol {
     var isUserInteractive: Bool { get set }
     var characteristics: [CharacteristicInfoProtocol] { get set }
     var type: ServiceType { get set }
+    var associatedServiceType: ServiceType { get set }
 }
 
 public class ServiceInfo: NSObject, ServiceInfoProtocol {
@@ -46,17 +47,26 @@ public class ServiceInfo: NSObject, ServiceInfoProtocol {
     public var isUserInteractive: Bool = false
     public var characteristics: [CharacteristicInfoProtocol] = []
     public var type: ServiceType = .unknown
+    public var associatedServiceType: ServiceType = .unknown
     
     required public override init() {
         fatalError()
     }
+    
+    public var isSupported: Bool {
+        return self.type.isSupported
+    }
+    
 #if !os(macOS)
     init(service: HMService) {
         name = service.name
         uniqueIdentifier = service.uniqueIdentifier
         isUserInteractive = service.isUserInteractive
         type = ServiceType(key: service.serviceType)
-        characteristics = service.characteristics.map({ CharacteristicInfo(characteristic: $0) })
+        characteristics = service.characteristics.map({ CharacteristicInfo(characteristic: $0) }).filter({ $0.isSupported })
+        if let tmp = service.associatedServiceType {
+            associatedServiceType = ServiceType(key: tmp)
+        }
         super.init()
     }
 #endif

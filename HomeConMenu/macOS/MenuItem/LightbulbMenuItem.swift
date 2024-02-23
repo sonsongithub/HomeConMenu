@@ -62,10 +62,10 @@ class LightbulbMenuItem: ToggleMenuItem {
         self.action = #selector(self.toggle(sender:))
         self.target = self
         
-        if let lightColorMenuItem = LightColorMenuItem.item(serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {
-            subColorMenu.addItem(lightColorMenuItem)
+        if let subMenuForLightbulbMenu = LightColorMenuItem.createSubMenu(serviceInfo: serviceInfo, mac2ios: mac2ios) as? LightColorMenuItem {
+            subColorMenu.addItem(subMenuForLightbulbMenu)
             self.submenu = subColorMenu
-            self.image = lightColorMenuItem.createImage()
+            self.image = subMenuForLightbulbMenu.createImage()
         }
     }
     

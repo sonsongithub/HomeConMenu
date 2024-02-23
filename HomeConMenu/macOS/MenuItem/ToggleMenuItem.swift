@@ -31,55 +31,12 @@ import KeyboardShortcuts
 
 class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder {
     
-    var orderPriority: Int {
-        100
-    }
-    
-    
-    var reachable: Bool {
-        didSet {
-            if reachable {
-                self.image = icon
-            } else {
-                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
-            }
-        }
-    }
-    
-    func UUIDs() -> [UUID] {
-        return characteristicIdentifiers
-    }
-    
+    let characteristicIdentifiers: [UUID]
+    var mac2ios: mac2iOS?
     var icon: NSImage? {
         return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
     }
     
-    func bind(with uniqueIdentifier: UUID) -> Bool {
-        return characteristicIdentifiers.contains(where: { $0 == uniqueIdentifier })
-    }
-    
-    let characteristicIdentifiers: [UUID]
-    var mac2ios: mac2iOS?
-    
-    @IBAction func toggle(sender: NSMenuItem) {
-        guard let uuid = characteristicIdentifiers.first else { return }
-        do {
-            let value = try self.mac2ios?.getCharacteristic(of: uuid)
-            if let boolValue = value as? Bool {
-                for uuid in characteristicIdentifiers {
-                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
-                }
-            }
-        } catch {
-            Logger.app.error("Can not get toggle status from characteristic. - \(error.localizedDescription)")
-        }
-    }
-    
-    func update(value: Bool) {
-        reachable = true
-        self.state = value ? .on : .off
-    }
-        
     init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
 
         let characteristicInfos = serviceGroupInfo.services.map({ $0.characteristics }).flatMap({ $0 })
@@ -138,16 +95,51 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-class SwitchMenuItem: ToggleMenuItem {
-    override var icon: NSImage? {
-        return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)
+    
+    func update(value: Bool) {
+        reachable = true
+        self.state = value ? .on : .off
     }
-}
-
-class OutletMenuItem: ToggleMenuItem {
-    override var icon: NSImage? {
-        return NSImage(systemSymbolName: "powerplug", accessibilityDescription: nil)
+    
+    // MARK: - MenuItemProtocol
+    
+    func bind(with uniqueIdentifier: UUID) -> Bool {
+        return characteristicIdentifiers.contains(where: { $0 == uniqueIdentifier })
+    }
+    
+    var orderPriority: Int {
+        100
+    }
+    
+    var reachable: Bool {
+        didSet {
+            if reachable {
+                self.image = icon
+            } else {
+                self.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
+            }
+        }
+    }
+    
+    func UUIDs() -> [UUID] {
+        return characteristicIdentifiers
+    }
+    
+    // MARK: - Aciton
+    
+    @IBAction func toggle(sender: NSMenuItem) {
+        guard let uuid = characteristicIdentifiers.first else { return }
+        do {
+            let value = try self.mac2ios?.getCharacteristic(of: uuid)
+            if let boolValue = value as? Bool {
+                for uuid in characteristicIdentifiers {
+                    self.mac2ios?.setCharacteristic(of: uuid, object: !boolValue)
+                }
+            }
+        } catch let error as HomeConMenuError {
+            Logger.app.error("\(error.localizedDescription)")
+        } catch {
+            Logger.app.error("Can not get toggle status, unexpected error - \(error.localizedDescription)")
+        }
     }
 }

@@ -29,14 +29,52 @@ import HomeKit
 import os
 
 extension HMCharacteristic {
-    public var descriptionType: String {
+    /// Get the detail of the characteristic.
+    /// For example, "The current light level."
+    public var detail: String {
+        let info = CharacteristicInfo(characteristic: self)
+        return info.type.detail
+    }
+    
+    /// Get the characteristic type string of the characteristic as Accessory Characteristic Types.
+    /// For example, HMCharacteristicTypeCurrentTemperature.
+    public var typeAsString: String {
         let info = CharacteristicInfo(characteristic: self)
         return info.type.description
+    }
+    
+    /// Indicates whether the current HomeConMenu supports this characteristic.
+    public var isSupported: Bool {
+        return CharacteristicType(key: self.characteristicType).isSupported
+    }
+}
+
+extension HMService {
+    /// Get the service detail of the service.
+    /// For example, "A temperature sensor service."
+    public var detail: String {
+        let tmp = ServiceType(key: self.serviceType)
+        return tmp.detail
+    }
+    
+    /// Get the service type string of the service as Accessory Service Types.
+    /// For example, HMServiceTypeLightbulb.
+    public var typeAsString: String {
+        let tmp = ServiceType(key: self.serviceType)
+        return tmp.description
+    }
+    
+    /// Indicates whether the current HomeConMenu supports this service.
+    public var isSupported: Bool {
+        return ServiceType(key: self.serviceType).isSupported
     }
 }
 
 extension HMHomeManager {
-    
+    /// Get the home with the unique identifier.
+    /// - Parameters:
+    ///      - uniqueIdentifier: Unique identifier of the home.
+    /// - Returns: The home with the unique identifier.
     func usedHome(with uniqueIdentifier: UUID?) -> HMHome? {
         for home in self.homes {
             if home.uniqueIdentifier == uniqueIdentifier {
@@ -46,6 +84,11 @@ extension HMHomeManager {
         return self.homes.first
     }
     
+    /// Get the characteristic  whose unique is specified as `uniqueIdentifier` in the home whose unique is specified as `homeUniqueIdentifier`.
+    /// - Parameters:
+    ///     - homeUniqueIdentifier: Unique identifier of the home.
+    ///     - uniqueIdentifier: Unique identifier of the characteristic.
+    /// - Returns: The characteristic with the unique identifier.
     func getCharacteristic(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -60,6 +103,10 @@ extension HMHomeManager {
         return nil
     }
     
+    /// Get the characteristic whose unique is specified as `uniqueIdentifier` in the primary home.
+    /// - Parameters:
+    ///    - uniqueIdentifier: Unique identifier of the characteristic.
+    /// - Returns: The characteristic with the unique identifier.
     @available(*, deprecated, message: "Use getCharacteristic(from:with:) instead.")
     func getCharacteristic(with uniqueIdentifier: UUID) -> HMCharacteristic? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -75,6 +122,11 @@ extension HMHomeManager {
         return nil
     }
     
+    /// Get the service whose unique identifier is specified as `uniqueIdentifier` in the home whose unique is specified as `homeUniqueIdentifier`.
+    /// - Parameters:
+    ///     - homeUniqueIdentifier: Unique identifier of the home.
+    ///     - uniqueIdentifier: Unique identifier of the service.
+    /// - Returns: The service with the unique identifier.
     func getService(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMService? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -87,6 +139,10 @@ extension HMHomeManager {
         return nil
     }
     
+    /// Get the service whose unique identifier is specified as `uniqueIdentifier` in the primary home.
+    /// - Parameters:
+    ///   - uniqueIdentifier: Unique identifier of the service.
+    /// - Returns: The service with the unique identifier.
     @available(*, deprecated, message: "Use getService(from:with:) instead.")
     func getService(with uniqueIdentifier: UUID) -> HMService? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -100,6 +156,11 @@ extension HMHomeManager {
         return nil
     }
     
+    /// Get the accessory whose unique identifier is specified as `uniqueIdentifier` in the home whose unique is specified as `homeUniqueIdentifier`.
+    /// - Parameters:
+    ///    - homeUniqueIdentifier: Unique identifier of the home.
+    ///    - uniqueIdentifier: Unique identifier of the accessory.
+    /// - Returns: The accessory with the unique identifier.
     func getAccessory(from homeUniqueIdentifier: UUID?, with uniqueIdentifier: UUID) -> HMAccessory? {
         guard let home = self.usedHome(with: homeUniqueIdentifier) else { return nil }
         for accessory in home.accessories {
@@ -110,6 +171,10 @@ extension HMHomeManager {
         return nil
     }
     
+    /// Get the accessory whose unique identifier is specified as `uniqueIdentifier` in the primary home.
+    /// - Parameters:
+    ///     - uniqueIdentifier: Unique identifier of the accessory.
+    /// - Returns: The accessory with the unique identifier.
     @available(*, deprecated, message: "Use getAccessory(from:with:) instead.")
     func getAccessory(with uniqueIdentifier: UUID) -> HMAccessory? {
         guard let primaryHome = self.primaryHome else { return nil }
@@ -129,7 +194,7 @@ extension HMHome {
             for service in accessory.services {
                 print("    Service: \(service.name) \(service.uniqueIdentifier.uuidString)")
                 for chara in service.characteristics {
-                    print("        Characteristics: \(chara.descriptionType)")
+                    print("        Characteristics: \(chara.detail)")
                     switch chara.value {
                     case let value as String:
                         print("        Value: \(value)")
@@ -147,7 +212,7 @@ extension HMHome {
             for service in serviceGroup.services {
                 print("    Service: \(service.name)")
                 for chara in service.characteristics {
-                    print("        Characteristics: \(chara.descriptionType)")
+                    print("        Characteristics: \(chara.detail)")
                     switch chara.value {
                     case let value as String:
                         print("        Value: \(value)")
@@ -170,7 +235,7 @@ extension HMHome {
             }
             for action in actionSet.actions {
                 if let action = action as? HMCharacteristicWriteAction<NSCopying> {
-                    print("        \(action.characteristic.descriptionType)")
+                    print("        \(action.characteristic.detail)")
                     print("        Target value=\(action.targetValue)")
                     print("        Current value=\(action.characteristic.value as Any)")
                 }
@@ -180,6 +245,8 @@ extension HMHome {
 }
 
 extension HMActionSet {
+    /// Whether the action set is a HomeKit scene or not.
+    /// HomeConMenu find the HomeKit scene instances from ActionSet array that is returned from HomeKit API includes sets produced by Shortcuts.app.
     var isHomeKitScene: Bool {
         return actions.reduce(actions.count > 0) { partialResult, action in
             return partialResult && (action is HMCharacteristicWriteAction<NSCopying>)
@@ -188,59 +255,50 @@ extension HMActionSet {
 }
 
 extension HMAccessory {
-    func convert2info(delegate: HMAccessoryDelegate) -> AccessoryInfo {
-        
-        self.delegate = delegate
-    
-        let info = AccessoryInfo(accessory: self)
-        
-        if let room = self.room {
-            info.room = RoomInfo(name: room.name, uniqueIdentifier: room.uniqueIdentifier)
-        }
-        
-        if let cameraProfiles = self.cameraProfiles {
-            info.hasCamera = (cameraProfiles.count > 0)
-        }
-        
-        for service in self.services {
-            let serviceInfo = ServiceInfo(service: service)
-            for chara in service.characteristics {
-                let charaInfo = CharacteristicInfo(characteristic: chara)
-                charaInfo.type = CharacteristicType(key: chara.characteristicType)
-                charaInfo.uniqueIdentifier = chara.uniqueIdentifier
-                
-                let typesNotificationUnsupporting: Set<CharacteristicType> = Set([.unknown, .hardwareVersion, .name, .identify])
-                
+    /// Enable notifications of characteristics that are supported on HomeConMenu.
+    func enableNotifications() {
+        for service in self.services.filter({ $0.isSupported }) {
+            for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
                     do {
-                        if !typesNotificationUnsupporting.contains(charaInfo.type) {
-                            try await chara.enableNotification(true)
-                        }
+                        try await characteristic.enableNotification(true)
+                    } catch let error as HomeConMenuError {
+                        Logger.app.error("\(error.localizedDescription)")
                     } catch {
-                        Logger.homeKit.error("Can not enable notification - \(error.localizedDescription)")
+                        Logger.homeKit.error("Can not enable notification, - \(error.localizedDescription)")
                     }
                 }
-                
+            }
+        }
+    }
+    
+    /// Read values from each characteristic.
+    func readValues() {
+        for service in self.services.filter({ $0.isSupported }) {
+            for characteristic in service.characteristics.filter({ $0.isSupported }) {
                 Task.detached {
                     do {
-                        try await chara.readValue()
+                        try await characteristic.readValue()
                         DispatchQueue.main.async {
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: chara.uniqueIdentifier, using: chara.value as Any)
+                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
                             }
                         }
                     } catch {
                         DispatchQueue.main.async {
-                            Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
+                            switch error {
+                            case (_ as HomeConMenuError):
+                                Logger.homeKit.error("\(error.localizedDescription)")
+                            default:
+                                Logger.homeKit.error("Can not read value, - \(error.localizedDescription)")
+                            }
                             if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: chara.uniqueIdentifier, using: false)
+                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: characteristic.uniqueIdentifier, using: false)
                             }
                         }
                     }
                 }
             }
-            info.services.append(serviceInfo)
         }
-        return info
     }
 }

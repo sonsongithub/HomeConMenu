@@ -43,7 +43,8 @@ public protocol iOS2Mac: NSObjectProtocol {
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
     func readCharacteristic(of uniqueIdentifier: UUID)
-    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any]
+    func getActionSet(with uniqueIdentifier: UUID) throws -> ActionSetInfo
+    func getTargetValuesInActionSet(with uniqueIdentifier: UUID) throws -> [Any]
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any)
     func openAcknowledgement()

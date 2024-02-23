@@ -88,6 +88,8 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
         self.view.setNeedsLayout()
     }
     
+    // MARK: - HMCameraStreamControlDelegate
+    
     func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl) {
         guard let cameraView = cameraView else { return }
         cameraView.cameraSource = cameraStreamControl.cameraStream

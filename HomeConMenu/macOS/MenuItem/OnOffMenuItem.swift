@@ -1,8 +1,8 @@
 //
-//  Characteristics.swift
-//  HomeMenu
+//  OnOffMenuItem.swift
+//  HomeConMenu
 //
-//  Created by Yuichi Yoshida on 2022/03/08.
+//  Created by Yuichi Yoshida on 2024/02/15.
 //
 //  MIT License
 //
@@ -27,38 +27,41 @@
 
 import Foundation
 
-#if !os(macOS)
-import HomeKit
-#endif
-
-@objc(CharacteristicInfoProtocol)
-public protocol CharacteristicInfoProtocol: NSObjectProtocol {
-    init()
-    var uniqueIdentifier: UUID { get set }
-    var value: Any? { get set }
-    var type: CharacteristicType { get set }
+enum DisplayItemType {
+    case light
+    case `switch`
+    case outlet
+    case fan
+    case none
 }
 
-public class CharacteristicInfo: NSObject, CharacteristicInfoProtocol {
-    public var uniqueIdentifier: UUID = UUID()
-    public var value: Any?
-    public var type: CharacteristicType = .unknown
+class OnOffMenuItem: ToggleMenuItem {
     
-    required public override init() {
-        fatalError()
+    var displayItem: DisplayItemType = .switch
+    
+    override init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
+        
+        // decide icon type
+        switch serviceInfo.associatedServiceType {
+        case .lightbulb:
+            self.displayItem = .light
+        case .outlet:
+            self.displayItem = .outlet
+        case .switch:
+            self.displayItem = .switch
+        case .fan:
+            self.displayItem = .fan
+        default:
+            self.displayItem = .none
+        }
+        super.init(serviceInfo: serviceInfo, mac2ios: mac2ios)
     }
     
-    public var isSupported: Bool {
-        return type.isSupported
+    override init?(serviceGroupInfo: ServiceGroupInfoProtocol, mac2ios: mac2iOS?) {
+        super.init(serviceGroupInfo: serviceGroupInfo, mac2ios: mac2ios)
     }
     
-#if !os(macOS)
-    init(characteristic: HMCharacteristic) {
-        super.init()
-        uniqueIdentifier = characteristic.uniqueIdentifier
-        value = characteristic.value
-        type = CharacteristicType(key: characteristic.characteristicType)
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-#endif
 }
-

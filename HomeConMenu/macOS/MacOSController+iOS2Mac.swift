@@ -122,7 +122,6 @@ extension MacOSController {
         _ = alert.runModal()
     }
     
-    
     func openHomeKitAuthenticationError() -> Bool {
         Logger.app.info("openHomeKitAuthenticationError")
         let alert = NSAlert()

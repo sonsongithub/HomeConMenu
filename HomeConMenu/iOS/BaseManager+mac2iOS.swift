@@ -43,6 +43,7 @@ extension Array where Element: Equatable {
 extension BaseManager {
     
     /// Restart HKHomeManager included in BaseManager.
+    /// This function releases the existing HMHomeManager instance and re-creates it.
     func rebootHomeManager() {
         Logger.app.info("rebootHomeManager")
         homeManager?.delegate = nil
@@ -67,24 +68,35 @@ extension BaseManager {
             }
     }
     
-    /// Get value from service whose characteristic is to write value.
-    /// - Parameter uniqueIdentifier: UUID of the service.
-    /// - Returns: Array of values.
-    func getTargetValues(of uniqueIdentifier: UUID) throws -> [Any] {
-        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier) else { throw HomeConMenuError.primaryHomeNotFound }
+    func getActionSet(with uniqueIdentifier: UUID) throws -> ActionSetInfo {
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier)
+        else { throw HomeConMenuError.primaryHomeNotFound }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
-        else { throw HomeConMenuError.actionSetNotFound }
+        else { throw HomeConMenuError.actionSetNotFound(uniqueIdentifier) }
+        return ActionSetInfo(actionSet: actionSet)
+    }
+    
+    /// Get value from service whose characteristic is to write value.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the service.
+    /// - Returns: Array of values.
+    func getTargetValuesInActionSet(with uniqueIdentifier: UUID) throws -> [Any] {
+        guard let home = self.homeManager?.usedHome(with: self.homeUniqueIdentifier)
+        else { throw HomeConMenuError.primaryHomeNotFound }
+        guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier })
+        else { throw HomeConMenuError.actionSetNotFound(uniqueIdentifier) }
         let writeActions = actionSet.actions.compactMap( { $0 as? HMCharacteristicWriteAction<NSCopying> })
         
         return writeActions.map({$0.targetValue as Any})
     }
     
     /// Execute action set whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the action set.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the action set.
     func executeActionSet(uniqueIdentifier: UUID) {
         guard let home = homeManager?.usedHome(with: self.homeUniqueIdentifier) else { return }
         guard let actionSet = home.actionSets.first(where: { $0.uniqueIdentifier == uniqueIdentifier }) else { return }
-        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing.");return }
+        guard !actionSet.isExecuting else { Logger.app.error("This action set has beeen already executing."); return }
         
         Task.detached {
             do {
@@ -94,6 +106,8 @@ extension BaseManager {
                         self.macOSController?.updateMenuItemsRelated(to: writeAction.uniqueIdentifier, using: writeAction.targetValue)
                     }
                 }
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.homeKit.error("Can not execute actionset - \(error.localizedDescription)")
             }
@@ -102,7 +116,8 @@ extension BaseManager {
     
     /// Request to read value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
     /// Reading value is not execute synchronously.
-    /// - Parameter uniqueIdentifier: UUID of the characteristic.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
     func readCharacteristic(of uniqueIdentifier: UUID) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task {
@@ -111,6 +126,8 @@ extension BaseManager {
                DispatchQueue.main.async {
                    self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: characteristic.value as Any)
                }
+           } catch let error as HomeConMenuError {
+               Logger.app.error("\(error.localizedDescription)")
            } catch {
                Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                DispatchQueue.main.async {
@@ -121,8 +138,9 @@ extension BaseManager {
     }
     
     /// Request to write value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameters: uniqueIdentifier: UUID of the characteristic.
-    /// - Parameters: object: Value to write.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
+    ///     - object: Value to write.
     func setCharacteristic(of uniqueIdentifier: UUID, object: Any) {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         Task.detached {
@@ -131,6 +149,8 @@ extension BaseManager {
                 DispatchQueue.main.async {
                     self.macOSController?.updateMenuItemsRelated(to: uniqueIdentifier, using: object)
                 }
+            } catch let error as HomeConMenuError {
+                Logger.app.error("\(error.localizedDescription)")
             } catch {
                 Logger.homeKit.error("Can not write value - \(error.localizedDescription)")
                 DispatchQueue.main.async {
@@ -141,17 +161,21 @@ extension BaseManager {
     }
     
     /// Return value of characteristic whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the characteristic.
-    /// - Returns: Value of the characteristic.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the characteristic.
+    /// - Returns:
+    /// Value of the characteristic.
     func getCharacteristic(of uniqueIdentifier: UUID) throws -> Any {
         guard let characteristic = homeManager?.getCharacteristic(from: self.homeUniqueIdentifier, with: uniqueIdentifier)
-        else { throw HomeConMenuError.characteristicNotFound }
-        guard characteristic.value != nil else { throw HomeConMenuError.characteristicValueNil }
+        else { throw HomeConMenuError.characteristicNotFound(uniqueIdentifier) }
+        guard characteristic.value != nil
+        else { throw HomeConMenuError.characteristicValueNil(uniqueIdentifier) }
         return characteristic.value as Any
     }
     
     /// Open camera whose unique identifier is specified by `uniqueIdentifier`.
-    /// - Parameter uniqueIdentifier: UUID of the camera.
+    /// - Parameters:
+    ///     - uniqueIdentifier: UUID of the camera.
     func openCamera(uniqueIdentifier: UUID) {
         guard let accessory = self.homeManager?.getAccessory(from: self.homeUniqueIdentifier, with: uniqueIdentifier) else { return }
         guard let cameraProfile = accessory.cameraProfiles?.first else { return }
