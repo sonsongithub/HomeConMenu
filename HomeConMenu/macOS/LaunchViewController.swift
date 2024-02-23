@@ -29,10 +29,19 @@ import AppKit
 
 class LaunchViewController: NSViewController {
     @IBOutlet var button: NSButton?
+    @IBOutlet var versionField: NSTextField?
+    
+    let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?.?.?"
+    let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
+#if DEBUG
+        versionField?.stringValue = "\(version) (\(build)) Debug"
+#else
+        versionField?.stringValue = "\(version) (\(build))"
+#endif
     }
     
     @IBAction func didChangeShowLaunchViewController(sender: NSButton) {

@@ -19,6 +19,18 @@
         }
       }
     },
+    "9Vd-Xq-yHG.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Label\"; ObjectID = \"9Vd-Xq-yHG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "fOR-D9-bVy.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Show this welcome message\"; ObjectID = \"fOR-D9-bVy\";",
       "extractionState" : "extracted_with_value",
