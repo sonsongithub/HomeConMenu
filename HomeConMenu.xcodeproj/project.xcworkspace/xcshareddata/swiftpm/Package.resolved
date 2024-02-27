@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sonsongithub/KeyboardShortcuts.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "5fbc33f3e0ad78c7f487b479acc86c47c6d966b9"
+        "branch" : "without-swiftui",
+        "revision" : "fcfcad73bb7c4a533aba662bed10f42ee7ad463a"
       }
     },
     {

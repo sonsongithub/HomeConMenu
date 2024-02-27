@@ -1002,7 +1002,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sonsongithub/KeyboardShortcuts.git";
 			requirement = {
-				branch = main;
+				branch = "without-swiftui";
 				kind = branch;
 			};
 		};
