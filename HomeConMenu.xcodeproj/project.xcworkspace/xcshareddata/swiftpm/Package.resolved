@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sonsongithub/KeyboardShortcuts.git",
       "state" : {
-        "branch" : "fix-menuitem-leak",
-        "revision" : "90228341f19f0a4590d7856a2d588a8f8e3d00ff"
+        "branch" : "main",
+        "revision" : "5fbc33f3e0ad78c7f487b479acc86c47c6d966b9"
       }
     },
     {
