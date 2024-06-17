@@ -50,6 +50,19 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
         // NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.didAwakeSleep), name: NSWorkspace.didWakeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(notification:)), name: NSWindow.willCloseNotification, object: nil)
+		
+		// Create invisible window that's always on-screen
+		// Allows using keyboard shortcuts even when menubar is hidden
+		let alwaysPresentWindow = NSWindow()
+		alwaysPresentWindow.styleMask = [.borderless]
+		alwaysPresentWindow.collectionBehavior = [
+			.canJoinAllSpaces,
+			.fullScreenAuxiliary,
+			.ignoresCycle,
+			.transient
+		]
+		alwaysPresentWindow.setFrame(.zero, display: true)
+		alwaysPresentWindow.orderFront(self)
     }
     
     /// Collect and returns a collection of ShortcutInfo that is fetched from HomeKit.
