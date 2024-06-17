@@ -81,7 +81,7 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         case (.temperature, let value):
             self.title = "\(value)℃"
         case (.humidity, let value):
-            self.title = "\(value)%"
+            self.title = "\(value.formatted(.number.precision(.fractionLength(0...1))))%"
         default:
             self.title = "unsupported"
         }
