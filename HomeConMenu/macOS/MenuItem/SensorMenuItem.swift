@@ -79,7 +79,8 @@ class SensorMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         reachable = true
         switch (self.type, value) {
         case (.temperature, let value):
-            self.title = "\(value)℃"
+			let temperatureMeasurement = Measurement(value: value, unit: UnitTemperature.celsius)
+			self.title = "\(MeasurementFormatter().string(from: temperatureMeasurement))"
         case (.humidity, let value):
             self.title = "\(value.formatted(.number.precision(.fractionLength(0...1))))%"
         default:
