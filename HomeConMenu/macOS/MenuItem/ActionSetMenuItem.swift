@@ -136,6 +136,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         }
     }
     
+    @MainActor
     init(actionSetInfo: ActionSetInfoProtocol, mac2ios: mac2iOS?) {
         self.uniqueIdentifier = actionSetInfo.uniqueIdentifier
         self.mac2ios = mac2ios

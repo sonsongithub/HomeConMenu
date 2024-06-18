@@ -63,6 +63,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         self.target = self
     }
         
+    @MainActor
     init?(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) {
         guard let powerStateChara = serviceInfo.characteristics.first(where: { obj in
             obj.type == .powerState
@@ -79,7 +80,7 @@ class ToggleMenuItem: NSMenuItem, MenuItemFromUUID, ErrorMenuItem, MenuItemOrder
         self.action = #selector(self.toggle(sender:))
         self.target = self
         if let r = KeyboardShortcuts.Name(rawValue: serviceInfo.uniqueIdentifier.uuidString) {
-            self.setShortcut(for: r)
+            setShortcut(for: r)
             KeyboardShortcuts.onKeyDown(for: r, action: {
                 self.toggle(sender: self)
             })

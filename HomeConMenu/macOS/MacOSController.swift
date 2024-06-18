@@ -32,6 +32,8 @@ import KeyboardShortcuts
 
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
+    
+    
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
@@ -125,6 +127,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    @MainActor
     func reloadSceneMenuItems() {
         guard UserDefaults.standard.bool(forKey: "useScenes") else { return }
         guard let actionSets = self.iosListener?.actionSets else { return }
@@ -143,6 +146,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    @MainActor
     func reloadEachRooms(excludedServiceUUIDs: [UUID]) {
         guard let accessories = self.iosListener?.accessories else { return }
         guard let rooms = self.iosListener?.rooms else { return }
@@ -195,6 +199,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         }
     }
     
+    @MainActor
     func reloadNoRoomAccessories(excludedServiceUUIDs: [UUID]) {
         guard let accessories = self.iosListener?.accessories else { return }
         guard let rooms = self.iosListener?.rooms else { return }

@@ -88,10 +88,10 @@ extension MacOSController {
         }
     }
     
+    @MainActor
     func reloadMenuExtra() {
         KeyboardShortcuts.removeAllHandlers()
         NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
-
         mainMenu.removeAllItems()
         reloadHomeKitMenuItems()
         reloadHomeMenuItems()

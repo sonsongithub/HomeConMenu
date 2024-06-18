@@ -29,6 +29,7 @@ import Foundation
 import AppKit
 
 extension NSMenuItem {
+    @MainActor
     class func HomeMenus(serviceInfo: ServiceInfoProtocol, mac2ios: mac2iOS?) -> [NSMenuItem?] {
         switch serviceInfo.type {
         case .humiditySensor, .temperatureSensor:
@@ -66,7 +67,7 @@ extension NSMenuItem {
         return []
     }
     
-    func cancelKeyboardShortcut() {
+    @MainActor func cancelKeyboardShortcut() {
         self.setShortcut(nil)
         self.setShortcut(for: nil)
     }

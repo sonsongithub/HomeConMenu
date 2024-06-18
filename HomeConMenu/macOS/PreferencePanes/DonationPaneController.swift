@@ -79,6 +79,7 @@ class DonationPaneController: NSViewController {
         let _ = alert.runModal()
     }
     
+    @MainActor
     @objc func didPushDonationButton(sender: NSButton) {
         guard let product = self.products.first(where: { $0.id == sender.identifier?.rawValue}) else { return }
         
