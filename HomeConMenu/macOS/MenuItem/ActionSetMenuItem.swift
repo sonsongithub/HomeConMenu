@@ -148,6 +148,7 @@ class ActionSetMenuItem: NSMenuItem, MenuItemFromUUID {
         if let shortcutName = KeyboardShortcuts.Name(rawValue: actionSetInfo.uniqueIdentifier.uuidString) {
             self.setShortcut(for: shortcutName)
             KeyboardShortcuts.onKeyDown(for: shortcutName, action: {
+                Logger.app.info("KeyboardShortcuts.onKeyDown")
                 self.execute(sender: self)
             })
         }
