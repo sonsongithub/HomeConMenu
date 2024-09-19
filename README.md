@@ -1,7 +1,7 @@
 ## HomeConMenu
 
 <img src="https://user-images.githubusercontent.com/33768/174439852-7ea10054-e9d7-49af-a51e-dd186da575e4.png" width="164px"/>
-App to control HomeKit Devices from macOS system
+Menu Bar Extra to control HomeKit Devices
 
 ## Movie
 
