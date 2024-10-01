@@ -35,7 +35,8 @@
             "value" : "Label"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "fOR-D9-bVy.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Show this welcome message\"; ObjectID = \"fOR-D9-bVy\";",

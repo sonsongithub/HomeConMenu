@@ -74,7 +74,7 @@
       }
     },
     "GN6-XY-6R4.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Always Show \\\"Home\\\" item on menu\"; ObjectID = \"GN6-XY-6R4\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Always Show “Home” item on menu\"; ObjectID = \"GN6-XY-6R4\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
@@ -86,7 +86,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Always Show \"Home\" item on menu"
+            "value" : "Always Show “Home” item on menu"
           }
         },
         "ja" : {

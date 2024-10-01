@@ -29,25 +29,14 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"3.0 (100)\"; ObjectID = \"1OJ-qY-yUk\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2.1.0(10)"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "3.0 (100)"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2.1.0(10)"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Asg-ui-Ub7.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Report:\"; ObjectID = \"Asg-ui-Ub7\";",
@@ -146,7 +135,7 @@
       }
     },
     "Pvk-zR-jJh.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"Acknowlegement:\"; ObjectID = \"Pvk-zR-jJh\";",
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Acknowledgments:\"; ObjectID = \"Pvk-zR-jJh\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
@@ -158,7 +147,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Acknowlegement:"
+            "value" : "Acknowledgments:"
           }
         },
         "ja" : {

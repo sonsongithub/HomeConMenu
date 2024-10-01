@@ -5,97 +5,53 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Donate something\"; ObjectID = \"7PB-ST-t86\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Etwas Spenden"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Donate something"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "何か寄付する"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "8U7-c7-khC.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Button\"; ObjectID = \"8U7-c7-khC\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taste"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Button"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ボタン"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "l1C-Ps-PNQ.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"🍺\"; ObjectID = \"l1C-Ps-PNQ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "🍺"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "🍺"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "🍺"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "yxH-8z-2kf.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Label\"; ObjectID = \"yxH-8z-2kf\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Etikette"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ラベル"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
