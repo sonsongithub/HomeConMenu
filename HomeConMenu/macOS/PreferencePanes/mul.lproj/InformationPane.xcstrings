@@ -69,7 +69,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Weiter Informationen..."
+            "value" : "Weitere Infos …"
           }
         },
         "en" : {
@@ -141,7 +141,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dankesagung:"
+            "value" : "Anmerkungen:"
           }
         },
         "en" : {

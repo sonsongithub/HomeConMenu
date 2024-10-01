@@ -8,7 +8,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Menüpunkt \"Home.app öffnen\" einblenden"
+            "value" : "„Home.app öffnen“ im Menü einblenden"
           }
         },
         "en" : {
@@ -224,7 +224,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Den Menüpunkt „Neu laden“ einblenden."
+            "value" : "„Neu laden“ im Menü einblenden"
           }
         },
         "en" : {

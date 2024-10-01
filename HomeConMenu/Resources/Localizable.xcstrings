@@ -38,7 +38,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "HomeConMenu Zugriff auf auf HomeKit gewähren. (Systemeinstellungen)"
+            "value" : "HomeConMenu Zugriff auf HomeKit in den Systemeinstellungen gewähren."
           }
         },
         "ja" : {
@@ -104,7 +104,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Willkommens-Nachricht bei Programmstart nicht anzeigen"
+            "value" : "Willkommensnachricht bei Programmstart nicht anzeigen"
           }
         },
         "ja" : {
@@ -265,7 +265,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tastenkürzel"
+            "value" : "Kurzbefehle"
           }
         },
         "ja" : {
@@ -329,7 +329,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Kauf wird verifiziert. Im AppStore bestätigen."
+            "value" : "Der Kauf wird verifiziert. Im App Store bestätigen."
           }
         },
         "ja" : {
@@ -409,7 +409,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einstellungen…"
+            "value" : "Einstellungen …"
           }
         },
         "ja" : {
@@ -425,7 +425,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vielen Dank"
+            "value" : "Vielen Dank!"
           }
         },
         "ja" : {
