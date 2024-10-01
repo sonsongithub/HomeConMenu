@@ -44,7 +44,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウェルカムメッセージを表示する"
+            "value" : "ウェルカムメッセージを表示"
           }
         }
       }
@@ -236,7 +236,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"再読み込み\"メニューを表示"
+            "value" : "“再読み込み”メニューを表示"
           }
         }
       }
