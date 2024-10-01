@@ -200,6 +200,7 @@
 		14FA4AA72825550F0002ECB8 /* ActionSetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetInfo.swift; sourceTree = "<group>"; };
 		14FA4AAA282558240002ECB8 /* ActionSetMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetMenuItem.swift; sourceTree = "<group>"; };
 		14FA4AB42827870F0002ECB8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		2AC3C49B2CAC40D40018C1D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/Acknowledgments.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +459,7 @@
 				en,
 				ja,
 				Base,
+				de,
 			);
 			mainGroup = 142DE05F27E8B80E006CBAFE;
 			packageReferences = (
@@ -638,6 +640,7 @@
 			children = (
 				144C95E32AADBD1500935105 /* Base */,
 				144C95E52AADBD1800935105 /* ja */,
+				2AC3C49B2CAC40D40018C1D7 /* de */,
 			);
 			name = Acknowledgments.html;
 			sourceTree = "<group>";

@@ -5,6 +5,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show “Open Home.app” on menu\"; ObjectID = \"0bf-nM-uXN\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüpunkt \"Home.app öffnen\" einblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -23,6 +29,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show welcome message\"; ObjectID = \"3Vt-E6-mDP\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommensnachricht einblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -41,6 +53,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On login:\"; ObjectID = \"cCW-5N-XTR\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmstart:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -59,6 +77,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Always Show \\\"Home\\\" item on menu\"; ObjectID = \"GN6-XY-6R4\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menü zum Wechsel des Zuhauses immer einblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -77,6 +101,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bei Anmeldung:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -95,6 +125,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Launch automatically\"; ObjectID = \"Pq4-7v-AnZ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch öffnen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -113,6 +149,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"HomeKit:\"; ObjectID = \"qzf-db-N8L\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -131,6 +173,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Feature that reloads all HomeKit status again manually. HomeKit sometimes losts device and its status after sleeping. If this happens, reloading using this item will resolve the problem.\"; ObjectID = \"rND-QH-1vd\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Funktion lädt den HomeKit-Status neu. HomeKit verliert manchmal seinen Status, wenn es in den Ruhezustand geht oder auf andere Weise. Wenn das passiert, kann diese Funktion das Problem manchmal lösen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -149,6 +197,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show duplicated services\"; ObjectID = \"stD-Gu-pED\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doppelte Einträge anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -167,6 +221,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show “Reload” on menu\"; ObjectID = \"tHP-Rs-wID\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den Menüpunkt „Neu laden“ einblenden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -185,6 +245,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"HomeKit:\"; ObjectID = \"u01-P0-DLH\";",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit:"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -197,6 +263,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Use scenes\"; ObjectID = \"xwK-VA-rRD\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szenen-Menü einbelden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

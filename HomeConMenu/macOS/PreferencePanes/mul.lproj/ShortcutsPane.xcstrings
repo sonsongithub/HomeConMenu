@@ -3,7 +3,7 @@
   "strings" : {
     "eeo-Rv-Xoe.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Table View Cell\"; ObjectID = \"eeo-Rv-Xoe\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -21,7 +21,7 @@
     },
     "Fde-J5-ZGr.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Text Cell\"; ObjectID = \"Fde-J5-ZGr\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -39,7 +39,7 @@
     },
     "HWp-zk-Ee1.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Text Cell\"; ObjectID = \"HWp-zk-Ee1\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -59,6 +59,12 @@
       "comment" : "Class = \"NSTableColumn\"; headerCell.title = \"Device\"; ObjectID = \"Jg4-tM-fSd\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -75,8 +81,14 @@
     },
     "JXN-L3-Ptt.title" : {
       "comment" : "Class = \"NSBox\"; title = \"Box\"; ObjectID = \"JXN-L3-Ptt\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Box"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -107,6 +119,12 @@
       "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"Add empty syntax\"; ObjectID = \"psS-Io-EUn\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen (leer)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -125,6 +143,12 @@
       "comment" : "Class = \"NSTableColumn\"; headerCell.title = \"Key\"; ObjectID = \"qQU-rG-fch\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tastenkürzel"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -143,6 +167,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Table View Cell\"; ObjectID = \"Ujh-yP-JT7\";",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Table View Cell"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",

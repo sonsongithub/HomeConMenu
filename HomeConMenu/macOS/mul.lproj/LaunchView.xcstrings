@@ -5,6 +5,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"You can not find any devices on the menu if you do not have any homes or add any home devices to your “Home” on your HomeKit. You can add a HomeKit device using Home app on iOS devices.\"; ObjectID = \"0MS-0l-x61\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn es kein Zuhause in Ihrer HomeKit-Umgebung gibt oder dieses keine Geräte enthält, wird beim Öffnen von HomeConMenu nichts angezeigt. Verwenden Sie die Home-App auf Ihrem iPhone, um Ihre Geräte zu HomeKit hinzuzufügen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -35,6 +41,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Show this welcome message\"; ObjectID = \"fOR-D9-bVy\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Fester anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -53,6 +65,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Open HomeConMenu from the Menu bar and then you can turn on/off switches, change the color of lightbulbs, and so on.\"; ObjectID = \"Htv-O8-lHD\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um die Geräte ihrer Zuhauses zu steuern öffnen Sie HomeConMenu über die Menüleiste."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -71,6 +89,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"qdr-TE-6dM\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Starten:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -89,6 +113,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"You can find a home icon on the menu bar after launching HomeConMenu. Click this icon and open the menu to control your HomeKit devices. HomeConMenu supports control and information display for power, switches, light bulbs, room temperature, and humidity devices.\"; ObjectID = \"ttZ-uC-Y7u\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Starten der Anwendung, erscheint ein Home-Symbol in der Menüleiste. HomeConMenu unterstützt die Steuerung und Anzeige von Geräte-Informationen über Strom, Schalter, Lampen, Raumtemperatur und Luftfeuchtigkeit."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -107,6 +137,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"To use this application, go to Security & Privacy settings in System Settings and allow HomeConMenu to access HomeKit.\"; ObjectID = \"wrg-Q9-ZTw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit-Zugriffsrechte sind erforderlich, um Geräte mit HomeConMenu zu steuern. Legen Sie die Zugriffsrechte für HomeConMenu in den Systemeinstellungen unter „Sicherheit und Datenschutz“ fest."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
