@@ -10,14 +10,9 @@
             "state" : "new",
             "value" : "Donate something"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "何か寄付する"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "8U7-c7-khC.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Button\"; ObjectID = \"8U7-c7-khC\";",
@@ -28,14 +23,9 @@
             "state" : "new",
             "value" : "Button"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ボタン"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "l1C-Ps-PNQ.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"🍺\"; ObjectID = \"l1C-Ps-PNQ\";",
@@ -46,14 +36,9 @@
             "state" : "new",
             "value" : "🍺"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "🍺"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "yxH-8z-2kf.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Label\"; ObjectID = \"yxH-8z-2kf\";",
@@ -64,14 +49,9 @@
             "state" : "new",
             "value" : "Label"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ラベル"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
