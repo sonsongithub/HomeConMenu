@@ -276,6 +276,9 @@
         }
       }
     },
+    "Music" : {
+      "comment" : "Music app"
+    },
     "No items" : {
       "localizations" : {
         "de" : {

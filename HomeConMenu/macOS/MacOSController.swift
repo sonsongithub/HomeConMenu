@@ -34,7 +34,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-
+    
+    let airPlayMenu = NSMenu()
+    var airPlayUpdateTimer: Timer?
+    
     
     lazy var settingsWindowController = SettingsWindowController()
     lazy var launchWindowController = LaunchWindowController()
@@ -109,14 +112,40 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     // MARK: - NSMenuDelegate
     
     func menuWillOpen(_ menu: NSMenu) {
-        let items = NSMenu.getSubItems(menu: menu)
-            .compactMap({ $0 as? ErrorMenuItem})
-            .compactMap({ $0 as? MenuItemFromUUID })
-            .compactMap({ $0.UUIDs() })
-            .flatMap({ $0 })
-        
-        for uniqueIdentifider in items {
-            iosListener?.readCharacteristic(of: uniqueIdentifider)
+        if menu == mainMenu {
+            let items = NSMenu.getSubItems(menu: menu)
+                .compactMap({ $0 as? ErrorMenuItem})
+                .compactMap({ $0 as? MenuItemFromUUID })
+                .compactMap({ $0.UUIDs() })
+                .flatMap({ $0 })
+            
+            for uniqueIdentifider in items {
+                iosListener?.readCharacteristic(of: uniqueIdentifider)
+            }
+            
+            // update airplay devices
+            Task {
+                let devices = SBApplication.getCurrentAirPlayDevices()
+                
+                let currentDevices = airPlayMenu.items.compactMap({ item in
+                    return item.title
+                })
+                
+                if Set(devices.map({ $0.name })) == Set(currentDevices) {
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.airPlayMenu.removeAllItems()
+                    devices.forEach { device in
+                        let item = NSMenuItem()
+                        item.title = device.name
+                        self.airPlayMenu.addItem(item)
+                    }
+                }
+            }
+        }
+        if menu == airPlayMenu {
         }
     }
     
@@ -271,6 +300,19 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         menuItem.action = #selector(MacOSController.quit(sender:))
         menuItem.target = self
         mainMenu.addItem(menuItem)
+    }
+    
+    func reloadMusicAppMenuItems() {
+        
+        let musicItem = NSMenuItem()
+        musicItem.title = NSLocalizedString("Music", comment: "Music app")
+        musicItem.image = NSImage(systemSymbolName: "music.note", accessibilityDescription: nil)
+        mainMenu.addItem(musicItem)
+        
+        let item = NSMenuItem(title: "AirPlay", action: nil, keyEquivalent: "")
+        item.submenu = airPlayMenu
+        mainMenu.addItem(item)
+        mainMenu.addItem(NSMenuItem.separator())
     }
     
     func reloadHomeKitMenuItems() {

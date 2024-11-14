@@ -10,6 +10,9 @@
 		1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 1402D2A92AC1880B00B702E4 /* Dummy.storekit */; };
+		140F34AE2CE393A40006D595 /* Music+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34AC2CE393A40006D595 /* Music+extension.swift */; };
+		140F34AF2CE393A40006D595 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34AB2CE393A40006D595 /* Music.swift */; };
+		140F34B12CE393DC0006D595 /* AppleScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34B02CE393DC0006D595 /* AppleScriptManager.swift */; };
 		14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14124FD22ADBA7FA00DF6CE4 /* Products.plist */; };
 		14124FD52ADBBFC000DF6CE4 /* MonitoringNetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */; };
 		142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 142440D72ADC1FC300317DA6 /* LaunchAtLogin */; };
@@ -125,6 +128,10 @@
 		1402D29D2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/GeneralPane.xcstrings; sourceTree = "<group>"; };
 		1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1402D2A92AC1880B00B702E4 /* Dummy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dummy.storekit; sourceTree = "<group>"; };
+		140F34AA2CE393A40006D595 /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		140F34AB2CE393A40006D595 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		140F34AC2CE393A40006D595 /* Music+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Music+extension.swift"; sourceTree = "<group>"; };
+		140F34B02CE393DC0006D595 /* AppleScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptManager.swift; sourceTree = "<group>"; };
 		14124FD22ADBA7FA00DF6CE4 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringNetworkState.swift; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +232,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140F34AD2CE393A40006D595 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				140F34AA2CE393A40006D595 /* Music.h */,
+				140F34AB2CE393A40006D595 /* Music.swift */,
+				140F34AC2CE393A40006D595 /* Music+extension.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		142DE05F27E8B80E006CBAFE = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +329,8 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				140F34B02CE393DC0006D595 /* AppleScriptManager.swift */,
+				140F34AD2CE393A40006D595 /* Music */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				14A9D5582B25B20900B67806 /* MacOSController+iOS2Mac.swift */,
 				1491F4E12AD258FD00602AD8 /* MenuItem */,
@@ -566,6 +585,8 @@
 				14ABE1332B7DF0A10011EE11 /* LightBrightnessColorMenuItem.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
+				140F34AE2CE393A40006D595 /* Music+extension.swift in Sources */,
+				140F34AF2CE393A40006D595 /* Music.swift in Sources */,
 				144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
@@ -581,6 +602,7 @@
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
 				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
+				140F34B12CE393DC0006D595 /* AppleScriptManager.swift in Sources */,
 				1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */,
 				14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */,
 			);
@@ -814,6 +836,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomeConMenu uses AppleEvents to communicate with Music.app.";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -856,6 +880,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomeConMenu uses AppleEvents to communicate with Music.app.";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
