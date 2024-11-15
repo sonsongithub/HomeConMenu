@@ -135,13 +135,23 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
                     return
                 }
                 
+                let isMusicAppRunning = NSWorkspace.shared.runningApplications.contains(where: { $0.bundleIdentifier == "com.apple.Music" })
+                
                 DispatchQueue.main.async {
                     self.airPlayMenu.removeAllItems()
-                    devices.forEach { device in
-                        let item = NSMenuItem()
-                        item.title = device.name
-                        self.airPlayMenu.addItem(item)
+                    if isMusicAppRunning {
+                        devices.forEach { device in
+                            let item = NSMenuItem()
+                            item.title = device.name
+                            let v = AirPlayDeviceView.create(frame: NSRect(x: 0, y: 0, width: 300, height: 50), name: device.name)
+                            item.view = v
+                            v?.icon?.image = device.kind.icon
+                            v?.deviceNameLabel?.stringValue = device.name
+                            
+                            self.airPlayMenu.addItem(item)
+                        }
                     }
+                    self.musicPlayerViewController?.showUI(isMusicAppRunning: isMusicAppRunning)
                 }
             }
         }
@@ -302,12 +312,22 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(menuItem)
     }
     
+    var musicPlayerViewController: MusicPlayerViewController?
+    
     func reloadMusicAppMenuItems() {
         
         let musicItem = NSMenuItem()
         musicItem.title = NSLocalizedString("Music", comment: "Music app")
         musicItem.image = NSImage(systemSymbolName: "music.note", accessibilityDescription: nil)
         mainMenu.addItem(musicItem)
+        
+        let playerItem = NSMenuItem()
+        self.musicPlayerViewController = MusicPlayerViewController(nibName: "MusicPlayerViewController", bundle: nil)
+        playerItem.view = musicPlayerViewController?.view
+        let isMusicAppRunning = NSWorkspace.shared.runningApplications.contains(where: { $0.bundleIdentifier == "com.apple.Music" })
+        self.musicPlayerViewController?.showUI(isMusicAppRunning: isMusicAppRunning)
+        
+        mainMenu.addItem(playerItem)
         
         let item = NSMenuItem(title: "AirPlay", action: nil, keyEquivalent: "")
         item.submenu = airPlayMenu

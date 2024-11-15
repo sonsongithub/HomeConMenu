@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -176,7 +176,7 @@
                 <constraint firstItem="gRy-QW-fFD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="lQd-yy-Sbp"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gRy-QW-fFD" secondAttribute="trailing" id="xXp-GB-sJP"/>
             </constraints>
-            <point key="canvasLocation" x="100.5" y="-490.5"/>
+            <point key="canvasLocation" x="-105" y="-472"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="ueJ-c5-McK"/>
     </objects>
