@@ -36,8 +36,6 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     
     let airPlayMenu = NSMenu()
-    var airPlayUpdateTimer: Timer?
-    
     
     lazy var settingsWindowController = SettingsWindowController()
     lazy var launchWindowController = LaunchWindowController()
@@ -162,6 +160,9 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
         }
         if menu == airPlayMenu {
+            menu.items.compactMap({ $0.view as? AirPlayDeviceView }).forEach { view in
+                view.update()
+            }
         }
     }
     

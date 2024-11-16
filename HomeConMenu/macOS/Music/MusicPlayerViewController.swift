@@ -85,7 +85,7 @@ class MusicPlayerViewController: NSViewController {
         center.addObserver(self, selector: #selector(receiveNotification(_:)), name: NSNotification.Name("com.apple.Music.playerInfo"), object: nil)
         
         [ShortcutInfo.musicPlay, ShortcutInfo.musicForward, ShortcutInfo.musicBackward].forEach { info in
-            if let r = KeyboardShortcuts.Name(rawValue: ShortcutInfo.musicPlay.uniqueIdentifier.uuidString) {
+            if let r = KeyboardShortcuts.Name(rawValue: info.uniqueIdentifier.uuidString) {
                 let dummy = NSMenuItem()
                 dummy.setShortcut(for: r)
                 self.dummyItem.append(dummy)
