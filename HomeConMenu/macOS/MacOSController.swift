@@ -81,6 +81,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
 //            names.append(contentsOf: serviceGroups.map({ $0.name }))
 //        }
         
+        infoArray.append(.musicPlay)
+        infoArray.append(.musicForward)
+        infoArray.append(.musicBackward)
+        
         if let actionSets = self.iosListener?.actionSets {
             infoArray.append(contentsOf: actionSets.map({ ShortcutInfo.home(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }))
         }

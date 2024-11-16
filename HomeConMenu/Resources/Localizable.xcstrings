@@ -279,6 +279,9 @@
     "Music" : {
       "comment" : "Music app"
     },
+    "Next" : {
+
+    },
     "No items" : {
       "localizations" : {
         "de" : {
@@ -326,6 +329,12 @@
           }
         }
       }
+    },
+    "Play/Pause" : {
+
+    },
+    "Previous" : {
+
     },
     "Purchase is pending and requires action in the App Store." : {
       "localizations" : {

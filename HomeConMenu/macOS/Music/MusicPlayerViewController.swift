@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import KeyboardShortcuts
 
 extension NSImageView {
     func updateSoundVolume(with slider: NSSlider) {
@@ -76,10 +77,42 @@ class MusicPlayerViewController: NSViewController {
         }
     }
     
+    var dummyItem: [NSMenuItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let center = DistributedNotificationCenter.default()
         center.addObserver(self, selector: #selector(receiveNotification(_:)), name: NSNotification.Name("com.apple.Music.playerInfo"), object: nil)
+        
+        [ShortcutInfo.musicPlay, ShortcutInfo.musicForward, ShortcutInfo.musicBackward].forEach { info in
+            if let r = KeyboardShortcuts.Name(rawValue: ShortcutInfo.musicPlay.uniqueIdentifier.uuidString) {
+                let dummy = NSMenuItem()
+                dummy.setShortcut(for: r)
+                self.dummyItem.append(dummy)
+                KeyboardShortcuts.onKeyDown(for: r, action: {
+                    self.shortcut(info: info)
+                })
+            }
+        }
+    }
+    
+    func shortcut(info: ShortcutInfo) {
+        switch info {
+        case .musicPlay:
+            if let musicApp = SBApplication.musicApp {
+                musicApp.playpause?()
+            }
+        case .musicForward:
+            if let musicApp = SBApplication.musicApp {
+                musicApp.nextTrack?()
+            }
+        case .musicBackward:
+            if let musicApp = SBApplication.musicApp {
+                musicApp.previousTrack?()
+            }
+        default:
+            break
+        }
     }
     
     @IBAction func didPushPlayButton(sender: NSButton) {
