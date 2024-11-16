@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-HP-bFV">
-                    <rect key="frame" x="89" y="43.5" width="61" height="49"/>
+                    <rect key="frame" x="89" y="45.5" width="61" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="play.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="use-pG-gHJ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -44,7 +44,7 @@
                     </textFieldCell>
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-7V-WaM">
-                    <rect key="frame" x="158" y="43.5" width="61" height="49"/>
+                    <rect key="frame" x="158" y="45.5" width="61" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="forward.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="0Kb-bd-qlq">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -55,7 +55,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JJb-0A-5wQ">
-                    <rect key="frame" x="20" y="43.5" width="61" height="49"/>
+                    <rect key="frame" x="20" y="45.5" width="61" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="backward.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="icY-ga-9Lh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

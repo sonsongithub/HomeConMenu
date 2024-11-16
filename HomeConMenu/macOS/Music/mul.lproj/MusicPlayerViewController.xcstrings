@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "na8-AU-eGZ.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Music.app is not running.\"; ObjectID = \"na8-AU-eGZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Music.app is not running."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musicアプリが起動していません"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

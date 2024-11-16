@@ -61,11 +61,11 @@
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		1487430C2B255EB90055EE8A /* BaseManager+mac2iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */; };
 		14878BBD2CE7486900FD3231 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14878BBC2CE7486900FD3231 /* MusicPlayerViewController.swift */; };
-		14878BC42CE7856600FD3231 /* MusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC32CE7856600FD3231 /* MusicPlayerViewController.xib */; };
-		14878BC52CE7856600FD3231 /* MusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC32CE7856600FD3231 /* MusicPlayerViewController.xib */; };
 		14878BC82CE78C8F00FD3231 /* AirPlayDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */; };
 		14878BC92CE78C8F00FD3231 /* AirPlayDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */; };
 		14878BCA2CE78CA300FD3231 /* AirPlayDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */; };
+		14878BCD2CE79E3500FD3231 /* MusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BCC2CE79E3500FD3231 /* MusicPlayerViewController.xib */; };
+		14878BCE2CE79E3500FD3231 /* MusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BCC2CE79E3500FD3231 /* MusicPlayerViewController.xib */; };
 		1487AC502B12289400167E13 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 1487AC4F2B12289400167E13 /* KeyboardShortcuts */; };
 		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
 		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
@@ -184,9 +184,10 @@
 		14822EF52AECEC2E00DE4DBA /* US.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = US.storekit; sourceTree = "<group>"; };
 		1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+mac2iOS.swift"; sourceTree = "<group>"; };
 		14878BBC2CE7486900FD3231 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
-		14878BC32CE7856600FD3231 /* MusicPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicPlayerViewController.xib; sourceTree = "<group>"; };
 		14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayDeviceView.swift; sourceTree = "<group>"; };
 		14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPlayDeviceView.xib; sourceTree = "<group>"; };
+		14878BCB2CE79E3500FD3231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MusicPlayerViewController.xib; sourceTree = "<group>"; };
+		14878BCF2CE79E3500FD3231 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/MusicPlayerViewController.xcstrings; sourceTree = "<group>"; };
 		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
 		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
 		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
@@ -249,7 +250,7 @@
 				140F34AB2CE393A40006D595 /* Music.swift */,
 				140F34AC2CE393A40006D595 /* Music+extension.swift */,
 				14878BBC2CE7486900FD3231 /* MusicPlayerViewController.swift */,
-				14878BC32CE7856600FD3231 /* MusicPlayerViewController.xib */,
+				14878BCC2CE79E3500FD3231 /* MusicPlayerViewController.xib */,
 				14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */,
 				14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */,
 			);
@@ -472,7 +473,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -515,7 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				144C95E82AADD95300935105 /* Acknowledgments.css in Resources */,
-				14878BC52CE7856600FD3231 /* MusicPlayerViewController.xib in Resources */,
+				14878BCD2CE79E3500FD3231 /* MusicPlayerViewController.xib in Resources */,
 				1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */,
 				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
 				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
@@ -537,7 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
-				14878BC42CE7856600FD3231 /* MusicPlayerViewController.xib in Resources */,
+				14878BCE2CE79E3500FD3231 /* MusicPlayerViewController.xib in Resources */,
 				14878BC82CE78C8F00FD3231 /* AirPlayDeviceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,6 +695,15 @@
 			name = Acknowledgments.css;
 			sourceTree = "<group>";
 		};
+		14878BCC2CE79E3500FD3231 /* MusicPlayerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14878BCB2CE79E3500FD3231 /* Base */,
+				14878BCF2CE79E3500FD3231 /* mul */,
+			);
+			name = MusicPlayerViewController.xib;
+			sourceTree = "<group>";
+		};
 		1491F4EE2AD4E11600602AD8 /* DonationPane.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -840,7 +850,6 @@
 		142DE07D27E8B80F006CBAFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -884,7 +893,6 @@
 		142DE07E27E8B80F006CBAFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
