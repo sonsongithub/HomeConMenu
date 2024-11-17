@@ -100,6 +100,7 @@ class AirPlayDeviceView : NSView {
         guard let musicApp = SBApplication.musicApp else { return }
         guard let device = musicApp.AirPlayDevices?().first(where: { String($0.name ?? "") == self.name }) else { return }
         device.setSelected?((sender.state == .on))
+        self.update()
     }
     
     @IBAction func volumeSliderChanged(_ sender: NSSlider) {

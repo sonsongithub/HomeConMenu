@@ -11,7 +11,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="4Ow-Qw-acw" customClass="AirPlayDeviceView" customModule="macOSBridge">
-            <rect key="frame" x="0.0" y="0.0" width="398" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="402" height="72"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tFk-at-k26">
@@ -20,19 +20,19 @@
                         <imageReference key="image" image="homepod.fill" catalog="system" symbolScale="large"/>
                     </imageCell>
                 </imageView>
-                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-1S-yjS">
-                    <rect key="frame" x="44" y="28" width="174" height="16"/>
+                <textField focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-1S-yjS">
+                    <rect key="frame" x="44" y="28" width="178" height="16"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="krK-1E-7ME"/>
+                        <constraint firstAttribute="width" constant="174" id="krK-1E-7ME"/>
                     </constraints>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="aC5-1m-mzi">
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" title="Label" usesSingleLineMode="YES" id="aC5-1m-mzi">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tws-LF-uPC">
-                    <rect key="frame" x="244" y="20" width="114" height="28"/>
+                    <rect key="frame" x="248" y="20" width="114" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="6Vn-wK-Y7e"/>
                     </constraints>
@@ -44,7 +44,7 @@
                     </connections>
                 </slider>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4GY-F4-Ms0">
-                    <rect key="frame" x="362" y="27" width="18" height="18"/>
+                    <rect key="frame" x="366" y="27" width="18" height="18"/>
                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="9ah-ej-5mn">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -57,7 +57,7 @@
                     </connections>
                 </button>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QFI-vZ-yDL">
-                    <rect key="frame" x="224" y="12" width="31.5" height="49"/>
+                    <rect key="frame" x="228" y="12" width="31.5" height="49"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="31" id="53q-k2-Yya"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="Dx0-oT-SJ0"/>
@@ -89,7 +89,7 @@
                 <outlet property="icon" destination="tFk-at-k26" id="alA-5G-JUi"/>
                 <outlet property="volumeImage" destination="QFI-vZ-yDL" id="ghv-YV-VDS"/>
             </connections>
-            <point key="canvasLocation" x="-127" y="-39"/>
+            <point key="canvasLocation" x="-168" y="-16"/>
         </customView>
     </objects>
     <resources>

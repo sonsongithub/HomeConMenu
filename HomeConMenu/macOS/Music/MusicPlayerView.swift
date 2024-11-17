@@ -8,6 +8,20 @@
 import AppKit
 import KeyboardShortcuts
 
+extension NSImageView {
+    func updateSoundVolume(with slider: NSSlider) {
+        if slider.integerValue == 0 {
+            self.image = NSImage.init(systemSymbolName: "speaker", accessibilityDescription: nil)
+        } else if slider.integerValue < 33 {
+            self.image = NSImage.init(systemSymbolName: "speaker.wave.1", accessibilityDescription: nil)
+        } else if slider.integerValue < 66 {
+            self.image = NSImage.init(systemSymbolName: "speaker.wave.2", accessibilityDescription: nil)
+        } else {
+            self.image = NSImage.init(systemSymbolName: "speaker.wave.3", accessibilityDescription: nil)
+        }
+    }
+}
+
 class MusicPlayerView : NSView {
     
     @IBOutlet var playButton: NSButton?
@@ -16,6 +30,8 @@ class MusicPlayerView : NSView {
     @IBOutlet var volumeSlider: NSSlider?
     @IBOutlet var speakerIcon: NSImageView?
     @IBOutlet var messageLabel: NSTextField?
+    @IBOutlet var groupView: NSView?
+    @IBOutlet var disclosureImage: NSImageView?
     
     static func create(frame frameRect: NSRect) -> MusicPlayerView? {
         var topLevelObjects: NSArray? = nil
@@ -46,11 +62,8 @@ class MusicPlayerView : NSView {
     }
     
     func showUI(isMusicAppRunning: Bool) {
-        self.playButton?.isHidden = !isMusicAppRunning
-        self.nextButton?.isHidden = !isMusicAppRunning
-        self.prevButton?.isHidden = !isMusicAppRunning
-        self.volumeSlider?.isHidden = !isMusicAppRunning
-        self.speakerIcon?.isHidden = !isMusicAppRunning
+        self.groupView?.isHidden = !isMusicAppRunning
+        self.disclosureImage?.isHidden = !isMusicAppRunning
         self.messageLabel?.isHidden = isMusicAppRunning
     }
     
