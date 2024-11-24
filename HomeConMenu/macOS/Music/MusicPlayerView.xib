@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="T1s-gw-nGe" customClass="MusicPlayerView" customModule="macOSBridge">
+            <rect key="frame" x="0.0" y="0.0" width="253" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-xM-VFU">
+                    <rect key="frame" x="0.0" y="0.0" width="253" height="87"/>
+                    <subviews>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="dq5-uK-buK">
+                            <rect key="frame" x="25" y="35.5" width="47" height="45"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="backward.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="pY2-5P-HIs">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="40"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="didPushPrevButtonWithSender:" target="T1s-gw-nGe" id="jsy-KG-0qx"/>
+                            </connections>
+                        </button>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-3p-ibO">
+                            <rect key="frame" x="181" y="35.5" width="47" height="45"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="forward.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="EV5-4k-jSi">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="40"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="didPushForwardButtonWithSender:" target="T1s-gw-nGe" id="xv3-ky-gKZ"/>
+                            </connections>
+                        </button>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pv8-Aw-4ku">
+                            <rect key="frame" x="15" y="-3" width="31.5" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="2FV-dD-NoS"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="55y-fW-fuH"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="V15-MI-hme"/>
+                                <constraint firstAttribute="width" constant="31" id="Xh6-nC-dgw"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" id="FuP-Sy-v6H">
+                                <imageReference key="image" image="speaker.wave.1" catalog="system" symbolScale="large"/>
+                            </imageCell>
+                        </imageView>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="D8V-0E-MZR">
+                            <rect key="frame" x="103" y="35.5" width="47" height="45"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="play.circle" catalog="system" imagePosition="only" alignment="center" controlSize="large" imageScaling="proportionallyDown" inset="2" id="2Be-US-7eI">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="40"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="didPushPlayButtonWithSender:" target="T1s-gw-nGe" id="RJC-68-8i5"/>
+                            </connections>
+                        </button>
+                        <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rDq-QQ-w7Y">
+                            <rect key="frame" x="41" y="2" width="194" height="28"/>
+                            <sliderCell key="cell" controlSize="large" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="VcO-Ra-dr1">
+                                <font key="font" size="12" name="Helvetica"/>
+                            </sliderCell>
+                            <connections>
+                                <action selector="didChangeVolumeWithSender:" target="T1s-gw-nGe" id="jFf-od-UCW"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Bwl-3p-ibO" secondAttribute="trailing" constant="25" id="4UQ-1V-I1g"/>
+                        <constraint firstItem="dq5-uK-buK" firstAttribute="leading" secondItem="Sgb-xM-VFU" secondAttribute="leading" constant="25" id="9kn-kc-24e"/>
+                        <constraint firstAttribute="trailing" secondItem="rDq-QQ-w7Y" secondAttribute="trailing" constant="20" symbolic="YES" id="C9z-8r-nij"/>
+                        <constraint firstItem="D8V-0E-MZR" firstAttribute="centerX" secondItem="Sgb-xM-VFU" secondAttribute="centerX" id="G0e-WK-VyP"/>
+                        <constraint firstItem="D8V-0E-MZR" firstAttribute="centerY" secondItem="dq5-uK-buK" secondAttribute="centerY" id="Gdj-Wb-pEC"/>
+                        <constraint firstItem="D8V-0E-MZR" firstAttribute="top" secondItem="Sgb-xM-VFU" secondAttribute="top" constant="15" id="Rtc-c3-fH5"/>
+                        <constraint firstItem="rDq-QQ-w7Y" firstAttribute="leading" secondItem="pv8-Aw-4ku" secondAttribute="trailing" constant="-3" id="fJa-Ua-Ted"/>
+                        <constraint firstItem="Bwl-3p-ibO" firstAttribute="centerY" secondItem="dq5-uK-buK" secondAttribute="centerY" id="gZE-X6-4GC"/>
+                        <constraint firstItem="rDq-QQ-w7Y" firstAttribute="centerY" secondItem="pv8-Aw-4ku" secondAttribute="centerY" id="osF-Sn-7sa"/>
+                        <constraint firstItem="pv8-Aw-4ku" firstAttribute="leading" secondItem="Sgb-xM-VFU" secondAttribute="leading" constant="15" id="tnP-S7-9yO"/>
+                        <constraint firstItem="D8V-0E-MZR" firstAttribute="centerX" secondItem="Sgb-xM-VFU" secondAttribute="centerX" id="uZd-QU-aja"/>
+                        <constraint firstAttribute="bottom" secondItem="rDq-QQ-w7Y" secondAttribute="bottom" constant="8" id="vWo-LY-Qay"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-lC-9ZM">
+                    <rect key="frame" x="48" y="36" width="157" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Music.app is not running." id="aVf-Pe-cyO">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Sgb-xM-VFU" secondAttribute="trailing" id="1G2-4V-lD6"/>
+                <constraint firstItem="Sgb-xM-VFU" firstAttribute="top" secondItem="T1s-gw-nGe" secondAttribute="top" id="1vu-hd-vTl"/>
+                <constraint firstItem="H4M-lC-9ZM" firstAttribute="centerX" secondItem="T1s-gw-nGe" secondAttribute="centerX" id="8ec-FB-yp4"/>
+                <constraint firstItem="Sgb-xM-VFU" firstAttribute="leading" secondItem="T1s-gw-nGe" secondAttribute="leading" id="I53-ik-oJB"/>
+                <constraint firstItem="Sgb-xM-VFU" firstAttribute="leading" secondItem="T1s-gw-nGe" secondAttribute="leading" id="I64-K5-sNl"/>
+                <constraint firstItem="Sgb-xM-VFU" firstAttribute="top" secondItem="T1s-gw-nGe" secondAttribute="top" id="bh7-uB-zCe"/>
+                <constraint firstAttribute="bottom" secondItem="Sgb-xM-VFU" secondAttribute="bottom" id="e23-op-q90"/>
+                <constraint firstAttribute="bottom" secondItem="Sgb-xM-VFU" secondAttribute="bottom" id="ftn-LB-1yR"/>
+                <constraint firstItem="H4M-lC-9ZM" firstAttribute="centerY" secondItem="T1s-gw-nGe" secondAttribute="centerY" id="r7I-vw-3Wh"/>
+            </constraints>
+            <connections>
+                <outlet property="groupView" destination="Sgb-xM-VFU" id="eDp-mN-kCX"/>
+                <outlet property="messageLabel" destination="H4M-lC-9ZM" id="jWA-3g-Y3h"/>
+                <outlet property="nextButton" destination="Bwl-3p-ibO" id="D4d-vZ-a2H"/>
+                <outlet property="playButton" destination="D8V-0E-MZR" id="NEp-N5-DLc"/>
+                <outlet property="prevButton" destination="dq5-uK-buK" id="NI9-ZW-ZBq"/>
+                <outlet property="speakerIcon" destination="pv8-Aw-4ku" id="o3g-7m-OfB"/>
+                <outlet property="volumeSlider" destination="rDq-QQ-w7Y" id="5QX-UD-Z26"/>
+            </connections>
+            <point key="canvasLocation" x="37.5" y="-159.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="backward.circle" catalog="system" width="15" height="15"/>
+        <image name="forward.circle" catalog="system" width="15" height="15"/>
+        <image name="play.circle" catalog="system" width="15" height="15"/>
+        <image name="speaker.wave.1" catalog="system" width="20" height="18"/>
+    </resources>
+</document>

@@ -33,6 +33,9 @@ enum ShortcutInfo {
     case outlet(name: String, uniqueIdentifier: UUID)
     case `switch`(name: String, uniqueIdentifier: UUID)
     case home(name: String, uniqueIdentifier: UUID)
+    case musicPlay
+    case musicForward
+    case musicBackward
     
     var name: String {
         switch self {
@@ -44,6 +47,12 @@ enum ShortcutInfo {
             return name
         case .home(let name, _):
             return name
+        case .musicPlay:
+            return NSLocalizedString("Play/Pause", comment: "")
+        case .musicForward:
+            return NSLocalizedString("Next", comment: "")
+        case .musicBackward:
+            return NSLocalizedString("Previous", comment: "")
         }
     }
     
@@ -57,6 +66,12 @@ enum ShortcutInfo {
             return uniqueIdentifier
         case .home(_, let uniqueIdentifier):
             return uniqueIdentifier
+        case .musicPlay:
+            return UUID(uuidString: "98119D00-5FB7-46B8-AEF8-BA95D6E98860")!
+        case .musicForward:
+            return UUID(uuidString: "DA6E43E7-C9F3-4C32-B339-4AA01B4955FB")!
+        case .musicBackward:
+            return UUID(uuidString: "7AB9D57D-0E22-496A-A9F1-C2BC20747213")!
         }
     }
     
@@ -70,6 +85,12 @@ enum ShortcutInfo {
             return NSImage(systemSymbolName: "switch.2", accessibilityDescription: nil)!
         case .home(_, _):
             return NSImage(systemSymbolName: "house", accessibilityDescription: nil)!
+        case .musicPlay:
+            return NSImage(systemSymbolName: "play.fill", accessibilityDescription: nil)!
+        case .musicForward:
+            return NSImage(systemSymbolName: "forward.fill", accessibilityDescription: nil)!
+        case .musicBackward:
+            return NSImage(systemSymbolName: "backward.fill", accessibilityDescription: nil)!
         }
     }
 }

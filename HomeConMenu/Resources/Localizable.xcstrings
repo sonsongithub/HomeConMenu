@@ -3,6 +3,12 @@
   "strings" : {
     "%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,6 +19,12 @@
     },
     "About HomeConMenu" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über HomeConMenu"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21,8 +33,17 @@
         }
       }
     },
+    "AirPlay" : {
+
+    },
     "Allow HomeConMenu to access HomeKit in System Settings." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeConMenu Zugriff auf HomeKit in den Systemeinstellungen gewähren."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +54,12 @@
     },
     "App Store Error: %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store Fehler: %@"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43,6 +70,12 @@
     },
     "Cancel" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -54,6 +87,12 @@
     "Display duplicate services" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doppelte Einträge anzeigen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -65,6 +104,12 @@
     "Do not show welcome message on launch" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommensnachricht bei Programmstart nicht anzeigen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,6 +120,12 @@
     },
     "Donation" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spenden"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -85,6 +136,12 @@
     },
     "Error" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehlermeldung"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -94,8 +151,13 @@
       }
     },
     "Failed to access HomeKit because of your privacy settings." : {
-      "comment" : "Localizable.strings\n  HomeConMenu\n\n  Created by Yuichi Yoshida on 2022/04/25.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf HomeKit konnte auf Grund der Datenschutzeinstellungen nicht zugegriffen werden."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -106,6 +168,12 @@
     },
     "General" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -116,6 +184,12 @@
     },
     "Group" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gruppe"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -127,6 +201,12 @@
     "Home" : {
       "comment" : "Selected home",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuhause"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -137,6 +217,12 @@
     },
     "HomeConMenu can not find any Homes of HomeKit. Please confirm your HomeKit devices on Home.app." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeConMenu konnte kein Zuhause in HomeKit finden. Bitte in der Home-App überprüfen."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -147,6 +233,12 @@
     },
     "HomeKit error" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeKit Fehler"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -157,6 +249,12 @@
     },
     "Information" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informationen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -167,6 +265,12 @@
     },
     "Key Bindings" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzbefehle"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -175,8 +279,20 @@
         }
       }
     },
+    "Music" : {
+      "comment" : "Music app"
+    },
+    "Next" : {
+
+    },
     "No items" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Elemente"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -187,6 +303,12 @@
     },
     "Open Home.app" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home.app öffnen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -197,6 +319,12 @@
     },
     "Open System Settings" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Systemeinstellungen öffnen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -205,8 +333,20 @@
         }
       }
     },
+    "Play/Pause" : {
+
+    },
+    "Previous" : {
+
+    },
     "Purchase is pending and requires action in the App Store." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Kauf wird verifiziert. Im App Store bestätigen."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -217,6 +357,12 @@
     },
     "Quit HomeConMenu" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HomeConMenu beenden"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -227,6 +373,12 @@
     },
     "Reload" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neu laden"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -237,6 +389,12 @@
     },
     "Remove All" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles entfernen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -247,6 +405,12 @@
     },
     "Scene" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szenen"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -257,6 +421,12 @@
     },
     "Settings…" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen …"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -267,6 +437,12 @@
     },
     "Thank you!" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -278,6 +454,12 @@
     "Use scenes" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szenen verwenden"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -288,6 +470,12 @@
     },
     "Welcome to HomeConMenu" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei HomeConMenu"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -298,6 +486,12 @@
     },
     "You will remove all key bindings settings. Are you sure to remove them?" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist dabei alle Tastaturkürzel zu entfernen. Bestätigen?"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",

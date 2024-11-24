@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,24 +22,24 @@
                     <rect key="frame" x="150" y="0.0" width="300" height="146"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
-                            <rect key="frame" x="46" y="82" width="84" height="16"/>
+                        <textField focusRingType="none" verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
+                            <rect key="frame" x="53" y="82" width="84" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Source code:" id="GRs-qi-tgr">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
-                            <rect key="frame" x="18" y="54" width="112" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Acknowlegement:" id="Pvk-zR-jJh">
+                        <textField focusRingType="none" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
+                            <rect key="frame" x="18" y="54" width="119" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Acknowledgments:" id="Pvk-zR-jJh">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
-                            <rect key="frame" x="134" y="110" width="59" height="16"/>
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
+                            <rect key="frame" x="141" y="110" width="59" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="3.0 (100)" id="1OJ-qY-yUk">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -46,7 +47,7 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FIa-eD-JXT">
-                            <rect key="frame" x="129" y="72" width="139" height="32"/>
+                            <rect key="frame" x="136" y="72" width="139" height="32"/>
                             <buttonCell key="cell" type="push" title="Open github.com" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XdS-KB-BdG">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -56,7 +57,7 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ISY-IM-5bV">
-                            <rect key="frame" x="129" y="44" width="103" height="32"/>
+                            <rect key="frame" x="136" y="44" width="103" height="32"/>
                             <buttonCell key="cell" type="push" title="Learn More" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e0K-az-LXZ">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -65,16 +66,16 @@
                                 <action selector="openAcknowledgementWithSender:" target="-2" id="wsg-AV-USx"/>
                             </connections>
                         </button>
-                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
-                            <rect key="frame" x="81" y="26" width="49" height="16"/>
+                        <textField focusRingType="none" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
+                            <rect key="frame" x="88" y="26" width="49" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Report:" id="Asg-ui-Ub7">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
-                            <rect key="frame" x="77" y="110" width="53" height="16"/>
+                        <textField focusRingType="none" verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
+                            <rect key="frame" x="84" y="110" width="53" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Version:" id="0xY-yl-ENL">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -82,7 +83,7 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wSc-y2-QZV">
-                            <rect key="frame" x="129" y="18" width="158" height="30"/>
+                            <rect key="frame" x="136" y="18" width="151" height="30"/>
                             <buttonCell key="cell" type="push" title="Send via github.com" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fnv-Vf-ZIe">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>

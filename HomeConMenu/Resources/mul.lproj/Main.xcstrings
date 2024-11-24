@@ -5,6 +5,12 @@
       "comment" : "Class = \"UILabel\"; text = \"I'd like to hide this window, when this app has just launched. How do I do it?\"; ObjectID = \"KIJ-iC-27o\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Fenster nach dem Programmstart verbergen? So geht's…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

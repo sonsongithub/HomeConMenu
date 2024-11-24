@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,8 +27,8 @@
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-jc-icy">
                                 <rect key="frame" x="4" y="22" width="550" height="5"/>
                             </box>
-                            <button toolTip="Add empty syntax" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psS-Io-EUn">
-                                <rect key="frame" x="12" y="-2" width="15" height="31"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psS-Io-EUn">
+                                <rect key="frame" x="12" y="-2" width="15.5" height="31"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="trash" catalog="system" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Bfx-qG-Ybc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -40,13 +41,13 @@
                                 </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg1-cf-gWD">
-                                <rect key="frame" x="0.0" y="24" width="558" height="294"/>
+                                <rect key="frame" x="0.0" y="24" width="558" height="154"/>
                                 <clipView key="contentView" id="S22-kk-7Fa">
-                                    <rect key="frame" x="1" y="1" width="556" height="292"/>
+                                    <rect key="frame" x="1" y="1" width="556" height="152"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="6Dt-0r-HGC" viewBased="YES" id="XvQ-8k-dq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="556" height="264"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="124"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -77,7 +78,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NIs-rh-1df">
-                                                                    <rect key="frame" x="2" y="-4" width="20" height="35"/>
+                                                                    <rect key="frame" x="2" y="-5.5" width="20.5" height="36"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="8pY-QP-7Qt"/>
                                                                     </constraints>
@@ -127,7 +128,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8sF-Tj-qAj">
-                                    <rect key="frame" x="1" y="53" width="556" height="16"/>
+                                    <rect key="frame" x="1" y="193" width="556" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Jhu-mc-1KY">
@@ -170,7 +171,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="NSHomeTemplate" width="24" height="20"/>
+        <image name="NSHomeTemplate" width="24" height="21"/>
         <image name="trash" catalog="system" width="15" height="17"/>
     </resources>
 </document>

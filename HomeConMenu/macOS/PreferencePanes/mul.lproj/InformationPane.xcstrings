@@ -5,6 +5,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Version:\"; ObjectID = \"0xY-yl-ENL\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -28,19 +34,20 @@
             "state" : "new",
             "value" : "3.0 (100)"
           }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2.1.0(10)"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Asg-ui-Ub7.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Report:\"; ObjectID = \"Asg-ui-Ub7\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler-Bericht:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -59,6 +66,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Learn More\"; ObjectID = \"e0K-az-LXZ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weitere Infos …"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -77,6 +90,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Send via github.com\"; ObjectID = \"Fnv-Vf-ZIe\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf GitHub melden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -95,6 +114,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Source code:\"; ObjectID = \"GRs-qi-tgr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quellcode:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -110,13 +135,19 @@
       }
     },
     "Pvk-zR-jJh.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"Acknowlegement:\"; ObjectID = \"Pvk-zR-jJh\";",
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Acknowledgments:\"; ObjectID = \"Pvk-zR-jJh\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmerkungen:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Acknowlegement:"
+            "value" : "Acknowledgments:"
           }
         },
         "ja" : {
@@ -131,6 +162,12 @@
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Become a sponsor:\"; ObjectID = \"sbA-Wg-xaJ\";",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sponsoren:"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -143,6 +180,12 @@
       "comment" : "Class = \"NSButtonCell\"; title = \"Open github.com\"; ObjectID = \"XdS-KB-BdG\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf GitHub anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

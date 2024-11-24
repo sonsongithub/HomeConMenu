@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AirPlayDeviceView" customModule="macOSBridge"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="4Ow-Qw-acw" customClass="AirPlayDeviceView" customModule="macOSBridge">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tFk-at-k26">
+                    <rect key="frame" x="20" y="27" width="18.5" height="20"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="4b3-Ip-N1b">
+                        <imageReference key="image" image="homepod.fill" catalog="system" symbolScale="large"/>
+                    </imageCell>
+                </imageView>
+                <textField focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-1S-yjS">
+                    <rect key="frame" x="44" y="28" width="178" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="174" id="krK-1E-7ME"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" title="Label" usesSingleLineMode="YES" id="aC5-1m-mzi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tws-LF-uPC">
+                    <rect key="frame" x="248" y="20" width="114" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="6Vn-wK-Y7e"/>
+                    </constraints>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="7wW-2e-099">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="volumeSliderChanged:" target="4Ow-Qw-acw" id="D6P-zy-D86"/>
+                    </connections>
+                </slider>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4GY-F4-Ms0">
+                    <rect key="frame" x="366" y="27" width="18" height="18"/>
+                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="9ah-ej-5mn">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="BoR-qp-Ckl"/>
+                    </constraints>
+                    <connections>
+                        <action selector="enableButtonClicked:" target="4Ow-Qw-acw" id="PIf-2E-rIS"/>
+                    </connections>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QFI-vZ-yDL">
+                    <rect key="frame" x="228" y="12" width="31.5" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="53q-k2-Yya"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="Dx0-oT-SJ0"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="e7x-Q4-3Ve"/>
+                        <constraint firstAttribute="height" constant="40" id="gqA-fU-kcG"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" id="DxW-Al-Atc">
+                        <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
+                    </imageCell>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4GY-F4-Ms0" firstAttribute="centerY" secondItem="4Ow-Qw-acw" secondAttribute="centerY" id="7yC-Ql-YsB"/>
+                <constraint firstItem="OU1-1S-yjS" firstAttribute="leading" secondItem="tFk-at-k26" secondAttribute="trailing" constant="8" symbolic="YES" id="Ch9-ZD-Kp1"/>
+                <constraint firstItem="tws-LF-uPC" firstAttribute="centerY" secondItem="QFI-vZ-yDL" secondAttribute="centerY" id="FYy-IQ-1cW"/>
+                <constraint firstItem="QFI-vZ-yDL" firstAttribute="leading" secondItem="OU1-1S-yjS" secondAttribute="trailing" constant="8" symbolic="YES" id="GOg-Rm-qln"/>
+                <constraint firstItem="tws-LF-uPC" firstAttribute="centerY" secondItem="4Ow-Qw-acw" secondAttribute="centerY" id="WfJ-Ku-PV9"/>
+                <constraint firstAttribute="trailing" secondItem="4GY-F4-Ms0" secondAttribute="trailing" constant="20" symbolic="YES" id="YtM-2M-5r7"/>
+                <constraint firstItem="tFk-at-k26" firstAttribute="centerY" secondItem="4Ow-Qw-acw" secondAttribute="centerY" id="Zye-St-22Z"/>
+                <constraint firstItem="tws-LF-uPC" firstAttribute="leading" secondItem="QFI-vZ-yDL" secondAttribute="trailing" constant="-9" id="mPV-fs-jsv"/>
+                <constraint firstItem="OU1-1S-yjS" firstAttribute="centerY" secondItem="4Ow-Qw-acw" secondAttribute="centerY" id="pu8-4R-Wot"/>
+                <constraint firstItem="tFk-at-k26" firstAttribute="leading" secondItem="4Ow-Qw-acw" secondAttribute="leading" constant="20" symbolic="YES" id="rzp-Mb-2Tt"/>
+                <constraint firstItem="4GY-F4-Ms0" firstAttribute="leading" secondItem="tws-LF-uPC" secondAttribute="trailing" constant="8" symbolic="YES" id="wzn-kG-1SX"/>
+            </constraints>
+            <connections>
+                <outlet property="deviceNameLabel" destination="OU1-1S-yjS" id="1Hv-0R-ViZ"/>
+                <outlet property="deviceVolumeSlider" destination="tws-LF-uPC" id="j1i-ZA-Umk"/>
+                <outlet property="enableButton" destination="4GY-F4-Ms0" id="wxl-8O-d7E"/>
+                <outlet property="icon" destination="tFk-at-k26" id="alA-5G-JUi"/>
+                <outlet property="volumeImage" destination="QFI-vZ-yDL" id="ghv-YV-VDS"/>
+            </connections>
+            <point key="canvasLocation" x="-168" y="-16"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="homepod.fill" catalog="system" width="18" height="20"/>
+        <image name="speaker" catalog="system" width="17" height="18"/>
+    </resources>
+</document>

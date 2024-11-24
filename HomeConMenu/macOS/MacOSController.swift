@@ -30,14 +30,27 @@ import AppKit
 import os
 import KeyboardShortcuts
 
+
+
+enum MusicStatus {
+    case unknown
+    case running
+    case quit
+}
+
 class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let mainMenu = NSMenu()
     var iosListener: mac2iOS?
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-
+    
+    let airPlayMenu = NSMenu()
     
     lazy var settingsWindowController = SettingsWindowController()
     lazy var launchWindowController = LaunchWindowController()
+
+    var isMusicAppRunning = false
+    
+    var musicStatus = MusicStatus.unknown
     
     required override init() {
         super.init()
@@ -78,6 +91,10 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
 //            names.append(contentsOf: serviceGroups.map({ $0.name }))
 //        }
         
+        infoArray.append(.musicPlay)
+        infoArray.append(.musicForward)
+        infoArray.append(.musicBackward)
+        
         if let actionSets = self.iosListener?.actionSets {
             infoArray.append(contentsOf: actionSets.map({ ShortcutInfo.home(name: $0.name, uniqueIdentifier: $0.uniqueIdentifier) }))
         }
@@ -108,15 +125,56 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     // MARK: - NSMenuDelegate
     
+    
     func menuWillOpen(_ menu: NSMenu) {
-        let items = NSMenu.getSubItems(menu: menu)
-            .compactMap({ $0 as? ErrorMenuItem})
-            .compactMap({ $0 as? MenuItemFromUUID })
-            .compactMap({ $0.UUIDs() })
-            .flatMap({ $0 })
-        
-        for uniqueIdentifider in items {
-            iosListener?.readCharacteristic(of: uniqueIdentifider)
+        if menu == mainMenu {
+            let items = NSMenu.getSubItems(menu: menu)
+                .compactMap({ $0 as? ErrorMenuItem})
+                .compactMap({ $0 as? MenuItemFromUUID })
+                .compactMap({ $0.UUIDs() })
+                .flatMap({ $0 })
+            
+            for uniqueIdentifider in items {
+                iosListener?.readCharacteristic(of: uniqueIdentifider)
+            }
+            
+            let musicIsRunning = NSWorkspace.shared.runningApplications.contains(where: { $0.bundleIdentifier == "com.apple.Music" })
+            
+            switch (musicStatus, musicIsRunning) {
+            case (.unknown, true):
+                musicStatus = .running
+                // must reload
+                reloadMenuExtra()
+            case (.unknown, false):
+                musicStatus = .quit
+                reloadMenuExtra()
+            case (.running, false):
+                musicStatus = .quit
+                reloadMenuExtra()
+            case (.running, true):
+                musicStatus = .running
+                // not reload
+            case (.quit, false):
+                musicStatus = .quit
+                // not reload
+            case (.quit, true):
+                musicStatus = .running
+                reloadMenuExtra()
+            }
+            self.reloadAirPlayMenu()
+        }
+        if menu == airPlayMenu {
+            self.updateAirPlayMenu()
+        }
+    }
+    
+    func menuDidClose(_ menu: NSMenu) {
+        if menu == mainMenu {
+            if NSWorkspace.shared.runningApplications.contains(where: { $0.bundleIdentifier == "com.apple.Music" }) {
+                musicStatus = .running
+            } else {
+                musicStatus = .quit
+            }
         }
     }
     
@@ -273,6 +331,40 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         mainMenu.addItem(menuItem)
     }
     
+    let musicPlayMenu = NSMenu()
+    
+    func reloadMusicAppMenuItems() {
+        guard UserDefaults.standard.bool(forKey: "musicControllerShows") else { return }
+       
+        guard musicStatus == .running else { return }
+        
+        let musicItem = NSMenuItem()
+        musicItem.title = NSLocalizedString("Music", comment: "Music app")
+        musicItem.submenu = musicPlayMenu
+        musicItem.image = NSImage(systemSymbolName: "music.note", accessibilityDescription: nil)
+        mainMenu.addItem(musicItem)
+        let isMusicAppRunning = NSWorkspace.shared.runningApplications.contains(where: { $0.bundleIdentifier == "com.apple.Music" })
+        let playerItem = NSMenuItem()
+
+        let v = MusicPlayerView.create(frame: NSRect(x: 0, y: 0, width: 240, height: 90))
+        playerItem.view = v
+        v?.update()
+        v?.showUI(isMusicAppRunning: isMusicAppRunning)
+        mainMenu.addItem(playerItem)
+        
+        musicPlayMenu.removeAllItems()
+        let v2 = MusicTrackView.create(frame: NSRect(x: 0, y: 0, width: 30, height: 30))
+        let trackItem = NSMenuItem()
+        trackItem.view = v2
+        musicPlayMenu.addItem(trackItem)
+        
+        let item = NSMenuItem(title: "AirPlay", action: nil, keyEquivalent: "")
+        item.image = NSImage(systemSymbolName: "airplayaudio", accessibilityDescription: nil)
+        item.submenu = airPlayMenu
+        mainMenu.addItem(item)
+        mainMenu.addItem(NSMenuItem.separator())
+    }
+    
     func reloadHomeKitMenuItems() {
         
         var items: [NSMenuItem] = []
@@ -345,6 +437,31 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         if items.count > 0 {
             items.forEach({mainMenu.addItem($0)})
             mainMenu.addItem(NSMenuItem.separator())
+        }
+    }
+    
+    func reloadAirPlayMenu() {
+        Task {
+            let devices = SBApplication.getCurrentAirPlayDevices()
+            DispatchQueue.main.async {
+                self.airPlayMenu.removeAllItems()
+                devices.forEach { device in
+                    let item = NSMenuItem()
+                    item.title = device.name
+                    let v = AirPlayDeviceView.create(frame: NSRect(x: 0, y: 0, width: 200, height: 50), name: device.name)
+                    item.view = v
+                    v?.icon?.image = device.kind.icon
+                    v?.deviceNameLabel?.stringValue = device.name
+                    v?.update()
+                    self.airPlayMenu.addItem(item)
+                }
+            }
+        }
+    }
+    
+    func updateAirPlayMenu() {
+        self.airPlayMenu.items.compactMap({ $0.view as? AirPlayDeviceView }).forEach { view in
+            view.update()
         }
     }
     

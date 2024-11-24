@@ -94,6 +94,7 @@ extension MacOSController {
         NSMenu.getSubItems(menu: mainMenu).forEach({ $0.cancelKeyboardShortcut() })
         mainMenu.removeAllItems()
         reloadHomeKitMenuItems()
+        reloadMusicAppMenuItems()
         reloadHomeMenuItems()
         let excludedServiceUUIDs = getExcludedServiceUUIDs()
         reloadSceneMenuItems()

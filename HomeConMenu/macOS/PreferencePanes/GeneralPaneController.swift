@@ -38,6 +38,7 @@ class GeneralPaneController: NSViewController {
     @IBOutlet var allowDuplicatingServices: NSButton?
     @IBOutlet var useScenes: NSButton?
     @IBOutlet var alwaysShowHomeItemOnMenu: NSButton?
+    @IBOutlet var musicControllerShowsButton: NSButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +87,13 @@ class GeneralPaneController: NSViewController {
         } else {
             alwaysShowHomeItemOnMenu?.state = .off
         }
+        
+        if let value = UserDefaults.standard.object(forKey: "musicControllerShows") as? Bool {
+            musicControllerShowsButton?.state = value ? .on : .off
+        } else {
+            musicControllerShowsButton?.state = .off
+        }
+        
     }
     
     @IBAction func didChangeShowHomeAppMenuItemButton(sender: NSButton) {
@@ -110,6 +118,10 @@ class GeneralPaneController: NSViewController {
     
     @IBAction func didChangeAlwaysShowHomeItemOnMenu(sender: NSButton) {
         UserDefaults.standard.set(sender.state == .on, forKey: "alwaysShowHomeItemOnMenu")
+    }
+    
+    @IBAction func didChangeMusicControllerShows(sender: NSButton) {
+        UserDefaults.standard.set(sender.state == .on, forKey: "musicControllerShows")
     }
     
 }
