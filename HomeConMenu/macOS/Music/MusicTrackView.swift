@@ -26,6 +26,13 @@ class MusicTrackView : NSView {
         center.addObserver(self, selector: #selector(receiveNotification(_:)), name: NSNotification.Name("com.apple.Music.playerInfo"), object: nil)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.titleLabel?.stringValue = ""
+        self.artistLabel?.stringValue = ""
+        self.albumLabel?.stringValue = ""
+    }
+    
     static func create(frame frameRect: NSRect) -> MusicTrackView? {
         var topLevelObjects: NSArray? = nil
         Bundle.main.loadNibNamed("MusicTrackView", owner: self, topLevelObjects: &topLevelObjects)
