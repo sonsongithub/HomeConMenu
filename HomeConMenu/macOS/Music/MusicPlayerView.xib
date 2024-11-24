@@ -83,7 +83,7 @@
                         <constraint firstAttribute="bottom" secondItem="rDq-QQ-w7Y" secondAttribute="bottom" constant="8" id="vWo-LY-Qay"/>
                     </constraints>
                 </customView>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-lC-9ZM">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-lC-9ZM">
                     <rect key="frame" x="48" y="36" width="157" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Music.app is not running." id="aVf-Pe-cyO">
                         <font key="font" metaFont="system"/>

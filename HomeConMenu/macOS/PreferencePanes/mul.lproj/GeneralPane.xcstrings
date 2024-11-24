@@ -109,18 +109,6 @@
         }
       }
     },
-    "KPG-uo-j6Z.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Show current track\"; ObjectID = \"KPG-uo-j6Z\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show current track"
-          }
-        }
-      }
-    },
     "LVi-Yv-OrG.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
       "extractionState" : "extracted_with_value",
@@ -242,19 +230,19 @@
       }
     },
     "TDq-yw-a6b.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Always Show controller\"; ObjectID = \"TDq-yw-a6b\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show Music.app controller when it is running\"; ObjectID = \"TDq-yw-a6b\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Always Show controller"
+            "value" : "Show Music.app controller when it is running"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "コントローラを表示"
+            "state" : "translated",
+            "value" : "Musicアプリ起動中はそのコントローラを表示"
           }
         }
       }
