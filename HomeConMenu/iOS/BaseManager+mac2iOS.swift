@@ -129,7 +129,7 @@ extension BaseManager {
            } catch let error as HomeConMenuError {
                Logger.app.error("\(error.localizedDescription)")
            } catch {
-               Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
+//               Logger.homeKit.error("Can not read value - \(error.localizedDescription)")
                DispatchQueue.main.async {
                    self.macOSController?.setReachablityOfMenuItemRelated(to: uniqueIdentifier, using: false)
                }

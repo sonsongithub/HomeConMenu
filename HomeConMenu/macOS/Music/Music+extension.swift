@@ -26,6 +26,7 @@
 
 
 import Foundation
+import os
 
 struct AirPlayDeviceInfo : Hashable {
     let name: String
@@ -78,7 +79,7 @@ extension SBApplication {
             let result: Int = try AppleScriptManager.execute(script: script)
             return result == 1
         } catch {
-            print(error)
+            Logger.app.error("\(error.localizedDescription)")
             return false
         }
     }
@@ -95,7 +96,7 @@ extension MusicPlaylist {
             """
             _ = try AppleScriptManager.call(script: script)
         } catch {
-            print(error)
+            Logger.app.error("\(error.localizedDescription)")
         }
     }
 }

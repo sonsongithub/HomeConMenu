@@ -166,6 +166,17 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
         if menu == airPlayMenu {
             self.updateAirPlayMenu()
         }
+        
+        NSApplication.shared.windows.forEach { window in
+            let name = "\(type(of :window))"
+            if name == "UINSWindow" {
+                window.close()
+                let uiWindows = window.value(forKeyPath: "uiWindows") as? [Any] ?? []
+                Logger.app.info("will close UIWindow")
+                Logger.app.info("\(uiWindows)")
+                iosListener?.close(windows: uiWindows)
+            }
+        }
     }
     
     func menuDidClose(_ menu: NSMenu) {
@@ -334,6 +345,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     let musicPlayMenu = NSMenu()
     
     func reloadMusicAppMenuItems() {
+        
         guard UserDefaults.standard.bool(forKey: "musicControllerShows") else { return }
        
         guard musicStatus == .running else { return }

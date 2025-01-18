@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import os
 
 class MusicTrackView : NSView {
     
@@ -75,6 +76,6 @@ class MusicTrackView : NSView {
     }
     
     deinit {
-        print("MusicTrackView deinit")
+        Logger.app.debug("\(self) deinit")
     }
 }

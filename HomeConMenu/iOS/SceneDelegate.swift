@@ -32,7 +32,7 @@ import os
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     deinit {
-        Logger.app.info("\(self) deinit")
+        Logger.app.debug("\(self) deinit")
     }
     
     override init() {
@@ -131,8 +131,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         default:
             #if targetEnvironment(macCatalyst)
             // This is a workaround to hide the view controller which is forced to appear when launching.
-            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 1, height: 1)
-            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 1, height: 1)
+            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 1, height: 0)
+            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 1, height: 0)
+            windowScene.windows.forEach { w in
+                w.frame = CGRect(x: 0, y: 0, width: 1, height: 0)
+            }
             #endif
         }
     }

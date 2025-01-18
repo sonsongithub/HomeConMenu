@@ -34,9 +34,9 @@ class DummyViewController: UIViewController {
         super.init(coder: coder)
         Logger.app.info("\(self) init")
     }
-        
+    
     deinit {
-        Logger.app.info("\(self) deinit")
+        Logger.app.debug("\(self) deinit")
     }
     
 }

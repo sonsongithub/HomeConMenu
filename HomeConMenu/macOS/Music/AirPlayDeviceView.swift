@@ -26,6 +26,7 @@
 //
 
 import Cocoa
+import os
 
 class AirPlayDeviceView : NSView {
     var name: String = ""
@@ -108,5 +109,9 @@ class AirPlayDeviceView : NSView {
         guard let device = musicApp.AirPlayDevices?().first(where: { String($0.name ?? "") == self.name }) else { return }
         device.setSoundVolume?(sender.integerValue)
         self.volumeImage?.updateSoundVolume(with: sender)
+    }
+    
+    deinit {
+        Logger.app.debug("\(self) deinit")
     }
 }

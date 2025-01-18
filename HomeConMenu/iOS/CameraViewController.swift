@@ -45,7 +45,7 @@ class CameraViewController: UIViewController, HMCameraStreamControlDelegate {
     }
     
     deinit {
-        Logger.app.info("\(self) deinit")
+        Logger.app.debug("\(self) deinit")
     }
 
     override func viewWillDisappear(_ animated: Bool) {

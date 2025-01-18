@@ -7,6 +7,7 @@
 
 import AppKit
 import KeyboardShortcuts
+import os
 
 extension NSImageView {
     func updateSoundVolume(with slider: NSSlider) {
@@ -46,7 +47,6 @@ class MusicPlayerView : NSView {
     }
     
     @objc func receiveNotification(_ notification: NSNotification) {
-        print(#function)
         if let userInfo = notification.userInfo {
             if let message = userInfo["Player State"] as? String {
                 if message == "Playing" {
@@ -144,6 +144,6 @@ class MusicPlayerView : NSView {
     }
     
     deinit {
-        print("\(self.className) is deinited.")
+        Logger.app.debug("\(self) deinit")
     }
 }

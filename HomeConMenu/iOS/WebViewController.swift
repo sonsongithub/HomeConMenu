@@ -35,7 +35,7 @@ class WebViewController: UIViewController {
     let webView = WKWebView()
     
     deinit {
-        Logger.app.info("\(self) deinit")
+        Logger.app.debug("\(self) deinit")
     }
     
     init(fileURL: URL) {
