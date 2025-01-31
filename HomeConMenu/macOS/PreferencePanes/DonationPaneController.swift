@@ -9,6 +9,10 @@ import AppKit
 import StoreKit
 import os
 
+enum DonationPaneError: Error {
+    case canNotGetWindowContainsDonationPane
+}
+
 class DonationPaneController: NSViewController {
     
     @IBOutlet var stackView: NSStackView?
@@ -79,32 +83,42 @@ class DonationPaneController: NSViewController {
         let _ = alert.runModal()
     }
     
+    func afterPurchasing(result: Product.PurchaseResult) {
+        switch result {
+        case .success(.verified(_)):
+            self.showThankyou()
+        case let .success(.unverified(_, error)):
+            Logger.app.error("\(error.localizedDescription)")
+            self.showThankyou()
+        case .pending:
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Error", comment: "")
+            alert.informativeText = NSLocalizedString("Purchase is pending and requires action in the App Store.", comment: "")
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: "OK")
+            let _ = alert.runModal()
+            break
+        case .userCancelled:
+            Logger.app.info("userCancelled")
+            break
+        default:
+            break
+        }
+    }
+    
     @MainActor
     @objc func didPushDonationButton(sender: NSButton) {
         guard let product = self.products.first(where: { $0.id == sender.identifier?.rawValue}) else { return }
         
         Task {
             do {
-                let result = try await product.purchase()
-                switch result {
-                case .success(.verified(_)):
-                    self.showThankyou()
-                case let .success(.unverified(_, error)):
-                    Logger.app.error("\(error.localizedDescription)")
-                    self.showThankyou()
-                case .pending:
-                    let alert = NSAlert()
-                    alert.messageText = NSLocalizedString("Error", comment: "")
-                    alert.informativeText = NSLocalizedString("Purchase is pending and requires action in the App Store.", comment: "")
-                    alert.alertStyle = .informational
-                    alert.addButton(withTitle: "OK")
-                    let _ = alert.runModal()
-                    break
-                case .userCancelled:
-                    Logger.app.info("userCancelled")
-                    break
-                default:
-                    break
+                if #available(macOS 15.2, *) {
+                    guard let window = self.parent?.view.window else { throw DonationPaneError.canNotGetWindowContainsDonationPane }
+                    let result = try await product.purchase(confirmIn: window)
+                    afterPurchasing(result: result)
+                } else {
+                    let result = try await product.purchase()
+                    afterPurchasing(result: result)
                 }
             } catch {
                 let alert = NSAlert()
@@ -118,7 +132,6 @@ class DonationPaneController: NSViewController {
     }
     
     func didShowOnTabView() {
-        
         indicator?.isHidden = false
         self.errorMessage?.isHidden = true
         indicator?.startAnimation(nil)

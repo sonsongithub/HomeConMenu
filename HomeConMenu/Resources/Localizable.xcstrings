@@ -119,6 +119,7 @@
       }
     },
     "Donation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

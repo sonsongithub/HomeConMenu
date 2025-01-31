@@ -87,8 +87,8 @@ private extension SettingsPane {
             return ShortcutsPaneController(nibName: NSNib.Name("ShortcutsPane"), bundle: nil)
         case .information:
             return InformationPaneController(nibName: NSNib.Name("InformationPane"), bundle: nil)
-        case .donation:
-            return DonationPaneController(nibName: NSNib.Name("DonationPane"), bundle: nil)
+//        case .donation:
+//            return DonationPaneController(nibName: NSNib.Name("DonationPane"), bundle: nil)
         }
     }
 
