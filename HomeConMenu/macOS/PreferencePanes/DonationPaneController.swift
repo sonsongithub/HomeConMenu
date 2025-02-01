@@ -41,7 +41,8 @@ class DonationPaneController: NSViewController {
         // load from nib
         // when following codes are commented out, this view will be rendered correctly.
         let nib = NSNib(nibNamed: "DonationPane", bundle: nil)
-        self.products.forEach { product in
+        let array: [Product] = []
+        array.forEach { product in
             var topLevelArray: NSArray? = nil
             nib?.instantiate(withOwner: nil, topLevelObjects: &topLevelArray)
             if let topLevelArray = topLevelArray {

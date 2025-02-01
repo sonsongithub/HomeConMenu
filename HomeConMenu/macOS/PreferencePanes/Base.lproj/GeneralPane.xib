@@ -25,7 +25,7 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="gRy-QW-fFD">
                     <rect key="frame" x="37" y="0.0" width="527" height="274"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knm-6J-dE0">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knm-6J-dE0">
                             <rect key="frame" x="31" y="182" width="60" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="HomeKit:" id="qzf-db-N8L">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -33,7 +33,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HAq-Aw-UeV">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HAq-Aw-UeV">
                             <rect key="frame" x="47" y="20" width="44" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Music:" id="InZ-bM-zxr">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -51,7 +51,7 @@
                                 <action selector="didChangeShowLaunchViewControllerWithSender:" target="-2" id="NMV-gp-0Ah"/>
                             </connections>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y78-4e-KS2">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y78-4e-KS2">
                             <rect key="frame" x="18" y="210" width="73" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="On startup:" id="LVi-Yv-OrG">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m3o-HT-Jvx">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m3o-HT-Jvx">
                             <rect key="frame" x="32" y="238" width="59" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="On login:" id="cCW-5N-XTR">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -77,7 +77,7 @@
                                 <action selector="didChangeAllowDuplicatingServicesWithSender:" target="-2" id="VjM-qm-Y6F"/>
                             </connections>
                         </button>
-                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWw-hH-XU3">
+                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWw-hH-XU3">
                             <rect key="frame" x="115" y="132" width="394" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="390" id="gDY-P9-jYG"/>
