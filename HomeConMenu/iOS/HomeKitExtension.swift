@@ -256,45 +256,43 @@ extension HMActionSet {
 
 extension HMAccessory {
     /// Enable notifications of characteristics that are supported on HomeConMenu.
-    func enableNotifications() {
+    func enableNotifications() async {
         for service in self.services.filter({ $0.isSupported }) {
             for characteristic in service.characteristics.filter({ $0.isSupported }) {
-                Task.detached {
-                    do {
-                        try await characteristic.enableNotification(true)
-                    } catch let error as HomeConMenuError {
-                        Logger.app.error("\(error.localizedDescription)")
-                    } catch {
-                        Logger.homeKit.error("Can not enable notification, - \(error.localizedDescription)")
-                    }
+                do {
+                    try await characteristic.enableNotification(true)
+                } catch let error as HomeConMenuError {
+                    Logger.app.error("\(error.localizedDescription)")
+                } catch {
+                    Logger.homeKit.error("Can not enable notification, - \(error.localizedDescription)")
                 }
             }
         }
     }
     
     /// Read values from each characteristic.
-    func readValues() {
+    func readValues() async {
         for service in self.services.filter({ $0.isSupported }) {
             for characteristic in service.characteristics.filter({ $0.isSupported }) {
-                Task.detached {
-                    do {
-                        try await characteristic.readValue()
-                        DispatchQueue.main.async {
-                            if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
-                            }
+                do {
+                    try await characteristic.readValue()
+                    DispatchQueue.main.async {
+                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                            delegate.baseManager?.macOSController?.updateMenuItemsRelated(to: characteristic.uniqueIdentifier, using: characteristic.value as Any)
                         }
-                    } catch {
-                        DispatchQueue.main.async {
-                            switch error {
-                            case (_ as HomeConMenuError):
-                                Logger.homeKit.error("\(error.localizedDescription)")
-                            default:
-                                Logger.homeKit.error("Can not read value, - \(error.localizedDescription)")
-                            }
-                            if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                                delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: characteristic.uniqueIdentifier, using: false)
-                            }
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        switch error {
+                        case (_ as HomeConMenuError):
+//                                Logger.homeKit.error("\(error.localizedDescription)")
+                            do {}
+                        default:
+//                                Logger.homeKit.error("Can not read value, - \(error.localizedDescription)")
+                            do {}
+                        }
+                        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                            delegate.baseManager?.macOSController?.setReachablityOfMenuItemRelated(to: characteristic.uniqueIdentifier, using: false)
                         }
                     }
                 }

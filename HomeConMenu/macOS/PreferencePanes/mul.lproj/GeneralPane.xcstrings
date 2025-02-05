@@ -97,6 +97,18 @@
         }
       }
     },
+    "InZ-bM-zxr.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Music:\"; ObjectID = \"InZ-bM-zxr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Music:"
+          }
+        }
+      }
+    },
     "LVi-Yv-OrG.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"On startup:\"; ObjectID = \"LVi-Yv-OrG\";",
       "extractionState" : "extracted_with_value",
@@ -213,6 +225,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "グループに登録されているサービスも表示"
+          }
+        }
+      }
+    },
+    "TDq-yw-a6b.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show Music.app controller when it is running\"; ObjectID = \"TDq-yw-a6b\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Music.app controller when it is running"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musicアプリ起動中はそのコントローラを表示"
           }
         }
       }

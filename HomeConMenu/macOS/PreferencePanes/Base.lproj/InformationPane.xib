@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
                     <rect key="frame" x="150" y="0.0" width="300" height="146"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
+                        <textField focusRingType="none" verticalHuggingPriority="752" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-wE-ze0">
                             <rect key="frame" x="53" y="82" width="84" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Source code:" id="GRs-qi-tgr">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -30,7 +30,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
+                        <textField focusRingType="none" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="58S-j0-3mu">
                             <rect key="frame" x="18" y="54" width="119" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Acknowledgments:" id="Pvk-zR-jJh">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -38,7 +38,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naR-Mu-Ig3">
                             <rect key="frame" x="141" y="110" width="59" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="3.0 (100)" id="1OJ-qY-yUk">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -66,7 +66,7 @@
                                 <action selector="openAcknowledgementWithSender:" target="-2" id="wsg-AV-USx"/>
                             </connections>
                         </button>
-                        <textField verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
+                        <textField focusRingType="none" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-ls-qcn">
                             <rect key="frame" x="88" y="26" width="49" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Report:" id="Asg-ui-Ub7">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -74,7 +74,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
+                        <textField focusRingType="none" verticalHuggingPriority="753" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-YP-EPD">
                             <rect key="frame" x="84" y="110" width="53" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Version:" id="0xY-yl-ENL">
                                 <font key="font" usesAppearanceFont="YES"/>

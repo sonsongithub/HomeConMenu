@@ -33,6 +33,9 @@
         }
       }
     },
+    "AirPlay" : {
+
+    },
     "Allow HomeConMenu to access HomeKit in System Settings." : {
       "localizations" : {
         "de" : {
@@ -116,6 +119,7 @@
       }
     },
     "Donation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -276,6 +280,12 @@
         }
       }
     },
+    "Music" : {
+      "comment" : "Music app"
+    },
+    "Next" : {
+
+    },
     "No items" : {
       "localizations" : {
         "de" : {
@@ -323,6 +333,12 @@
           }
         }
       }
+    },
+    "Play/Pause" : {
+
+    },
+    "Previous" : {
+
     },
     "Purchase is pending and requires action in the App Store." : {
       "localizations" : {

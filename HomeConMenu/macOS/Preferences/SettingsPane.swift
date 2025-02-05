@@ -32,7 +32,7 @@ enum SettingsPane: String, CaseIterable {
     case general
     case shortcuts
     case information
-    case donation
+//    case donation
     
     /// Localized label.
     var label: String {
@@ -44,8 +44,8 @@ enum SettingsPane: String, CaseIterable {
             return String(localized: "Key Bindings")
         case .information:
             return String(localized: "Information")
-        case .donation:
-            return String(localized: "Donation")
+//        case .donation:
+//            return String(localized: "Donation")
         }
     }
     
@@ -59,8 +59,8 @@ enum SettingsPane: String, CaseIterable {
             return "keyboard"
         case .information:
             return "info.circle.fill"
-        case .donation:
-            return "heart"
+//        case .donation:
+//            return "heart"
         }
     }
 }

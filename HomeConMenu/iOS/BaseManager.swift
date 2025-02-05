@@ -125,8 +125,10 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
     
         home.accessories.forEach { accessory in
             accessory.delegate = self
-            accessory.enableNotifications()
-            accessory.readValues()
+            Task {
+                await accessory.enableNotifications()
+                await accessory.readValues()
+            }
         }
         
         serviceGroups = home.serviceGroups.map({ServiceGroupInfo(serviceGroup: $0)})

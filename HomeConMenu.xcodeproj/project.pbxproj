@@ -10,6 +10,9 @@
 		1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */; };
 		1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 1402D2A92AC1880B00B702E4 /* Dummy.storekit */; };
+		140F34AE2CE393A40006D595 /* Music+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34AC2CE393A40006D595 /* Music+extension.swift */; };
+		140F34AF2CE393A40006D595 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34AB2CE393A40006D595 /* Music.swift */; };
+		140F34B12CE393DC0006D595 /* AppleScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F34B02CE393DC0006D595 /* AppleScriptManager.swift */; };
 		14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14124FD22ADBA7FA00DF6CE4 /* Products.plist */; };
 		14124FD52ADBBFC000DF6CE4 /* MonitoringNetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */; };
 		142440D82ADC1FC300317DA6 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 142440D72ADC1FC300317DA6 /* LaunchAtLogin */; };
@@ -57,6 +60,15 @@
 		144C95E82AADD95300935105 /* Acknowledgments.css in Resources */ = {isa = PBXBuildFile; fileRef = 144C95EA2AADD95300935105 /* Acknowledgments.css */; };
 		14746C4C2813C1BE00666682 /* ColorWheelPanelView in Frameworks */ = {isa = PBXBuildFile; productRef = 14746C4B2813C1BE00666682 /* ColorWheelPanelView */; };
 		1487430C2B255EB90055EE8A /* BaseManager+mac2iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */; };
+		14878BC82CE78C8F00FD3231 /* AirPlayDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */; };
+		14878BC92CE78C8F00FD3231 /* AirPlayDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */; };
+		14878BCA2CE78CA300FD3231 /* AirPlayDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */; };
+		14878BD12CE8CCC700FD3231 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14878BD02CE8CCBB00FD3231 /* MusicPlayerView.swift */; };
+		14878BD32CE8CCDE00FD3231 /* MusicPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BD22CE8CCDE00FD3231 /* MusicPlayerView.xib */; };
+		14878BD42CE8CCDE00FD3231 /* MusicPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BD22CE8CCDE00FD3231 /* MusicPlayerView.xib */; };
+		14878BD62CE9BB9400FD3231 /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14878BD52CE9BB9400FD3231 /* MusicTrackView.swift */; };
+		14878BD92CE9BB9D00FD3231 /* MusicTrackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BD82CE9BB9D00FD3231 /* MusicTrackView.xib */; };
+		14878BDA2CE9BB9D00FD3231 /* MusicTrackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14878BD82CE9BB9D00FD3231 /* MusicTrackView.xib */; };
 		1487AC502B12289400167E13 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 1487AC4F2B12289400167E13 /* KeyboardShortcuts */; };
 		1491F4E52AD2599000602AD8 /* DonationPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E42AD2599000602AD8 /* DonationPaneController.swift */; };
 		1491F4E92AD2C1C000602AD8 /* DonationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */; };
@@ -125,6 +137,10 @@
 		1402D29D2ABF3AC600B702E4 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/GeneralPane.xcstrings; sourceTree = "<group>"; };
 		1402D29E2ABF3AC600B702E4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1402D2A92AC1880B00B702E4 /* Dummy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dummy.storekit; sourceTree = "<group>"; };
+		140F34AA2CE393A40006D595 /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		140F34AB2CE393A40006D595 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		140F34AC2CE393A40006D595 /* Music+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Music+extension.swift"; sourceTree = "<group>"; };
+		140F34B02CE393DC0006D595 /* AppleScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptManager.swift; sourceTree = "<group>"; };
 		14124FD22ADBA7FA00DF6CE4 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		14124FD42ADBBFC000DF6CE4 /* MonitoringNetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringNetworkState.swift; sourceTree = "<group>"; };
 		142DE06827E8B80E006CBAFE /* HomeConMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeConMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +186,12 @@
 		14822EF42AECE78A00DE4DBA /* Japan.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Japan.storekit; sourceTree = "<group>"; };
 		14822EF52AECEC2E00DE4DBA /* US.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = US.storekit; sourceTree = "<group>"; };
 		1487430B2B255EB90055EE8A /* BaseManager+mac2iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseManager+mac2iOS.swift"; sourceTree = "<group>"; };
+		14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayDeviceView.swift; sourceTree = "<group>"; };
+		14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPlayDeviceView.xib; sourceTree = "<group>"; };
+		14878BD02CE8CCBB00FD3231 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		14878BD22CE8CCDE00FD3231 /* MusicPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicPlayerView.xib; sourceTree = "<group>"; };
+		14878BD52CE9BB9400FD3231 /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
+		14878BD82CE9BB9D00FD3231 /* MusicTrackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicTrackView.xib; sourceTree = "<group>"; };
 		1491F4E42AD2599000602AD8 /* DonationPaneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationPaneController.swift; sourceTree = "<group>"; };
 		1491F4E82AD2C1C000602AD8 /* DonationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationItemView.swift; sourceTree = "<group>"; };
 		1491F4ED2AD4E11600602AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DonationPane.xib; sourceTree = "<group>"; };
@@ -225,6 +247,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140F34AD2CE393A40006D595 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				140F34AA2CE393A40006D595 /* Music.h */,
+				140F34AB2CE393A40006D595 /* Music.swift */,
+				140F34AC2CE393A40006D595 /* Music+extension.swift */,
+				14878BD52CE9BB9400FD3231 /* MusicTrackView.swift */,
+				14878BD82CE9BB9D00FD3231 /* MusicTrackView.xib */,
+				14878BC62CE78C8F00FD3231 /* AirPlayDeviceView.swift */,
+				14878BC72CE78C8F00FD3231 /* AirPlayDeviceView.xib */,
+				14878BD02CE8CCBB00FD3231 /* MusicPlayerView.swift */,
+				14878BD22CE8CCDE00FD3231 /* MusicPlayerView.xib */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		142DE05F27E8B80E006CBAFE = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +350,8 @@
 		146D209527F03F8900162EB1 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				140F34B02CE393DC0006D595 /* AppleScriptManager.swift */,
+				140F34AD2CE393A40006D595 /* Music */,
 				142DE0CB27E8BAE1006CBAFE /* MacOSController.swift */,
 				14A9D5582B25B20900B67806 /* MacOSController+iOS2Mac.swift */,
 				1491F4E12AD258FD00602AD8 /* MenuItem */,
@@ -439,7 +479,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					142DE06727E8B80E006CBAFE = {
 						CreatedOnToolsVersion = 13.3;
@@ -485,13 +525,16 @@
 				1402D2AA2AC1880B00B702E4 /* Dummy.storekit in Resources */,
 				144C95CD2AAD891800935105 /* LaunchView.xib in Resources */,
 				144C95D82AAD89E800935105 /* GeneralPane.xib in Resources */,
+				14878BDA2CE9BB9D00FD3231 /* MusicTrackView.xib in Resources */,
 				14124FD32ADBA7FA00DF6CE4 /* Products.plist in Resources */,
 				144C95D52AAD89E200935105 /* ShortcutsPane.xib in Resources */,
 				1402D29F2ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
 				142DE07527E8B80F006CBAFE /* Assets.xcassets in Resources */,
 				14A839FB280FEE3B0083EE1D /* LaunchScreen.storyboard in Resources */,
 				144C95E22AADBD1500935105 /* Acknowledgments.html in Resources */,
+				14878BCA2CE78CA300FD3231 /* AirPlayDeviceView.xib in Resources */,
 				1491F4EC2AD4E11600602AD8 /* DonationPane.xib in Resources */,
+				14878BD42CE8CCDE00FD3231 /* MusicPlayerView.xib in Resources */,
 				144C95D22AAD89D800935105 /* InformationPane.xib in Resources */,
 				14A839FC280FEE530083EE1D /* Main.storyboard in Resources */,
 			);
@@ -501,7 +544,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14878BD92CE9BB9D00FD3231 /* MusicTrackView.xib in Resources */,
 				1402D2A02ABF3AC600B702E4 /* Localizable.xcstrings in Resources */,
+				14878BD32CE8CCDE00FD3231 /* MusicPlayerView.xib in Resources */,
+				14878BC82CE78C8F00FD3231 /* AirPlayDeviceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +597,7 @@
 				142DE0C827E8BAC2006CBAFE /* ServiceInfo.swift in Sources */,
 				14ABD6D42AAC5CC20023F71D /* InformationPaneController.swift in Sources */,
 				142DE0BE27E8BAC2006CBAFE /* ServiceTypeBridge.swift in Sources */,
+				14878BC92CE78C8F00FD3231 /* AirPlayDeviceView.swift in Sources */,
 				142DE0C427E8BAC2006CBAFE /* AccessoryTypeBridge.swift in Sources */,
 				142DE0D627E8BAE1006CBAFE /* InterfaceProtocols.swift in Sources */,
 				14A9D5592B25B20900B67806 /* MacOSController+iOS2Mac.swift in Sources */,
@@ -566,6 +613,8 @@
 				14ABE1332B7DF0A10011EE11 /* LightBrightnessColorMenuItem.swift in Sources */,
 				142DE0BC27E8BAC2006CBAFE /* RoomInfo.swift in Sources */,
 				14FA4AA92825550F0002ECB8 /* ActionSetInfo.swift in Sources */,
+				140F34AE2CE393A40006D595 /* Music+extension.swift in Sources */,
+				140F34AF2CE393A40006D595 /* Music.swift in Sources */,
 				144C95E72AADC51200935105 /* LaunchWindowController.swift in Sources */,
 				14A06A532811664800BC41BD /* CameraMenuItem.swift in Sources */,
 				14FA4AB6282787C00002ECB8 /* Error.swift in Sources */,
@@ -578,11 +627,14 @@
 				14ABE1352B7DF0F50011EE11 /* LightRGBColorMenuItem.swift in Sources */,
 				14ABE12F2B7DEE5A0011EE11 /* SwitchMenuItem.swift in Sources */,
 				1432F2762AAB544D00E1B9E9 /* ShortcutsPaneController.swift in Sources */,
+				14878BD62CE9BB9400FD3231 /* MusicTrackView.swift in Sources */,
 				14A06A592811667400BC41BD /* ServiceGroupInfo.swift in Sources */,
 				14A06A552811664800BC41BD /* SensorMenuItem.swift in Sources */,
 				14A06A512811664800BC41BD /* LightbulbMenuItem.swift in Sources */,
+				140F34B12CE393DC0006D595 /* AppleScriptManager.swift in Sources */,
 				1432F2782AAB544D00E1B9E9 /* SettingsWindowController.swift in Sources */,
 				14A06A542811664800BC41BD /* ToggleMenuItem.swift in Sources */,
+				14878BD12CE8CCC700FD3231 /* MusicPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +850,6 @@
 		142DE07D27E8B80F006CBAFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -806,7 +857,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 217;
+				CURRENT_PROJECT_VERSION = 257;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -814,6 +865,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomeConMenu uses AppleEvents to communicate with Music.app.";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -824,13 +877,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.4;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
@@ -840,7 +895,6 @@
 		142DE07E27E8B80F006CBAFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -848,7 +902,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 217;
+				CURRENT_PROJECT_VERSION = 257;
 				DEVELOPMENT_TEAM = JP866VWWSD;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -856,6 +910,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeConMenu/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomeConMenu uses AppleEvents to communicate with Music.app.";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "To control device from Menu bar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -866,13 +922,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.4;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonson.HomeConMenu.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
