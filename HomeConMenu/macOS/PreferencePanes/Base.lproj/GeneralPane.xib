@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="allowDuplicatingServices" destination="54O-O0-p2M" id="ip2-Vg-vaC"/>
                 <outlet property="alwaysShowHomeItemOnMenu" destination="W68-K0-RXW" id="aIe-ye-Mep"/>
+                <outlet property="musicControllerShowsButton" destination="IxD-te-UML" id="9wp-0X-5uY"/>
                 <outlet property="showHomeAppMenuItemButton" destination="E6F-8T-u6X" id="rSk-MT-9TK"/>
                 <outlet property="showLaunchViewController" destination="Xha-OB-N1o" id="msC-9x-5RW"/>
                 <outlet property="showReloadMenuItemButton" destination="NU1-eW-0mB" id="p2K-Cy-9dh"/>
@@ -146,7 +147,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="didChangeAlwaysShowHomeItemOnMenuWithSender:" target="-2" id="uaF-dS-fPg"/>
+                                <action selector="didChangeMusicControllerShowsWithSender:" target="-2" id="OO9-LV-Q0X"/>
                             </connections>
                         </button>
                     </subviews>
