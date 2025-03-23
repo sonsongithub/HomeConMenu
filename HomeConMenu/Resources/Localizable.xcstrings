@@ -118,23 +118,6 @@
         }
       }
     },
-    "Donation" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spenden"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "寄付"
-          }
-        }
-      }
-    },
     "Error" : {
       "localizations" : {
         "de" : {
