@@ -504,7 +504,7 @@
 			packageReferences = (
 				14746C482813C19B00666682 /* XCRemoteSwiftPackageReference "ColorWheelPanelView" */,
 				142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
-				1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				1487AC4E2B12289400167E13 /* XCLocalSwiftPackageReference "Packages/KeyboardShortcuts" */,
 			);
 			productRefGroup = 142DE06927E8B80E006CBAFE /* Products */;
 			projectDirPath = "";
@@ -1040,6 +1040,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		1487AC4E2B12289400167E13 /* XCLocalSwiftPackageReference "Packages/KeyboardShortcuts" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/KeyboardShortcuts;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		142440D62ADC1D5300317DA6 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1054,14 +1061,6 @@
 			repositoryURL = "https://github.com/sonsongithub/ColorWheelPanelView";
 			requirement = {
 				branch = main;
-				kind = branch;
-			};
-		};
-		1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sonsongithub/KeyboardShortcuts.git";
-			requirement = {
-				branch = "without-swiftui";
 				kind = branch;
 			};
 		};
@@ -1080,7 +1079,7 @@
 		};
 		1487AC4F2B12289400167E13 /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1487AC4E2B12289400167E13 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			package = 1487AC4E2B12289400167E13 /* XCLocalSwiftPackageReference "Packages/KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
 		};
 /* End XCSwiftPackageProductDependency section */

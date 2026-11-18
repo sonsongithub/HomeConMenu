@@ -1,4 +1,5 @@
 {
+  "originHash" : "eeda8cfaa560e1185ed82cc806575dab0515546be6ae46e254aecc8f6c3b4010",
   "pins" : [
     {
       "identity" : "colorwheelpanelview",
@@ -7,15 +8,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "9df7cbc040c17141da6261f377a31cc3b400d174"
-      }
-    },
-    {
-      "identity" : "keyboardshortcuts",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sonsongithub/KeyboardShortcuts.git",
-      "state" : {
-        "branch" : "without-swiftui",
-        "revision" : "cfdd47815a8550ce29c09a12aa51c9b29292a627"
       }
     },
     {
@@ -28,5 +20,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
