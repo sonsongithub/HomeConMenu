@@ -36,12 +36,6 @@ extension MacOSController {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    func centeringWindows() {
-        for window in NSApp.windows {
-            window.center()
-        }
-    }
-    
     func setReachablityOfMenuItemRelated(to uniqueIdentifier: UUID, using isReachable: Bool) {
         let items = NSMenu.getSubItems(menu: mainMenu)
         
@@ -106,7 +100,7 @@ extension MacOSController {
 
     func showLaunchView() {
         launchWindowController.showWindow(self)
-        centeringWindows()
+        launchWindowController.window?.center()
         self.bringToFront()
         
         preferences(sender: nil)
