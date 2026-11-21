@@ -33,9 +33,6 @@
         }
       }
     },
-    "AirPlay" : {
-
-    },
     "Allow HomeConMenu to access HomeKit in System Settings." : {
       "localizations" : {
         "de" : {
