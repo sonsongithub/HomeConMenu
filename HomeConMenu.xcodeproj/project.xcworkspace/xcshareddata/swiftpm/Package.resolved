@@ -1,15 +1,6 @@
 {
-  "originHash" : "eeda8cfaa560e1185ed82cc806575dab0515546be6ae46e254aecc8f6c3b4010",
+  "originHash" : "de9ad5f93f352e615de9d1bb6d09ab99d509c420d74fc3fefcb82d9e395d1806",
   "pins" : [
-    {
-      "identity" : "colorwheelpanelview",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sonsongithub/ColorWheelPanelView",
-      "state" : {
-        "branch" : "main",
-        "revision" : "9df7cbc040c17141da6261f377a31cc3b400d174"
-      }
-    },
     {
       "identity" : "launchatlogin",
       "kind" : "remoteSourceControl",
