@@ -33,9 +33,6 @@
         }
       }
     },
-    "AirPlay" : {
-
-    },
     "Allow HomeConMenu to access HomeKit in System Settings." : {
       "localizations" : {
         "de" : {
@@ -114,23 +111,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "起動時にウェルカムメッセージを表示しない"
-          }
-        }
-      }
-    },
-    "Donation" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spenden"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "寄付"
           }
         }
       }

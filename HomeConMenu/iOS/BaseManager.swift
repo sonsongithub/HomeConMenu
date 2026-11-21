@@ -84,6 +84,14 @@ class BaseManager: NSObject, HMHomeManagerDelegate, HMAccessoryDelegate, mac2iOS
             Logger.app.error("Failed to load a bundle file.")
             return
         }
+        // Explicit loading exposes the underlying dyld error hidden by principalClass.
+        do {
+            try bundle.loadAndReturnError()
+        } catch {
+            let loadError = error as NSError
+            Logger.app.error("Failed to load macOSBridge: domain=\(loadError.domain, privacy: .public) code=\(loadError.code) details=\(String(describing: loadError.userInfo))")
+            return
+        }
         guard let pluginClass = bundle.principalClass as? iOS2Mac.Type else {
             Logger.app.error("Failed to load the principalClass.")
             return

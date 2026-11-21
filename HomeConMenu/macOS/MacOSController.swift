@@ -516,7 +516,8 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
             }
         }
         settingsWindowController.showWindow(nil)
-        centeringWindows()
+        // Center only the settings panel, leaving status-bar and Catalyst windows untouched.
+        settingsWindowController.window?.center()
         self.bringToFront()
     }
     
@@ -533,7 +534,7 @@ class MacOSController: NSObject, iOS2Mac, NSMenuDelegate {
     
     @IBAction func about(sender: NSButton) {
         launchWindowController.showWindow(sender)
-        centeringWindows()
+        launchWindowController.window?.center()
         self.bringToFront()
     }
     

@@ -1,23 +1,6 @@
 {
+  "originHash" : "de9ad5f93f352e615de9d1bb6d09ab99d509c420d74fc3fefcb82d9e395d1806",
   "pins" : [
-    {
-      "identity" : "colorwheelpanelview",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sonsongithub/ColorWheelPanelView",
-      "state" : {
-        "branch" : "main",
-        "revision" : "9df7cbc040c17141da6261f377a31cc3b400d174"
-      }
-    },
-    {
-      "identity" : "keyboardshortcuts",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sonsongithub/KeyboardShortcuts.git",
-      "state" : {
-        "branch" : "without-swiftui",
-        "revision" : "cfdd47815a8550ce29c09a12aa51c9b29292a627"
-      }
-    },
     {
       "identity" : "launchatlogin",
       "kind" : "remoteSourceControl",
@@ -28,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
