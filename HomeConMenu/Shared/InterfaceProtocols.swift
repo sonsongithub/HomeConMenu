@@ -33,7 +33,6 @@ public protocol iOS2Mac: NSObjectProtocol {
     func setReachablityOfMenuItemRelated(to uniqueIdentifier: UUID, using isReachable: Bool)
     func bringToFront()
     func reloadMenuExtra()
-    func centeringWindows()
     func openHomeKitAuthenticationError() -> Bool
     func openNoHomeError()
     func showLaunchView()
